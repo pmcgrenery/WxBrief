@@ -23,3 +23,8 @@
     bottom: 0;
     right: 0;
 }
+
+#map-controls li {
+    list-style: none;
+    display: inline-block;
+}
