@@ -119,10 +119,13 @@ function changeRadarPosition(position, preloadOnly) {
     radarLayers[nextFrame.path].setOpacity(100);
 
 
-    var pastOrForecast = nextFrame.time > Date.now() / 1000 ? 'FORECAST' : 'PAST';
+    var pastOrForecast = nextFrame.time > Date.now() / 1000 ? '(Forecast)' : '';
 
-    document.getElementById("timestamp").innerHTML = pastOrForecast + ': ' + (new Date(nextFrame.time * 1000))
-        .toString();
+    let dateObj = new Date(nextFrame.time * 1000);
+    let utcString = dateObj.toUTCString();
+    let frameTime = utcString.slice(17, 22);
+
+    document.getElementById("timestamp").innerHTML = `${frameTime} UTC ${pastOrForecast}`
 }
 
 /**
