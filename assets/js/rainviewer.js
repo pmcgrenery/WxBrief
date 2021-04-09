@@ -15,7 +15,7 @@ function setFrameTime(frame) {
 
 // Code below here from Rainviewer API Documentation @ https://www.rainviewer.com/api/weather-maps-api.html
 
-var map = L.map('mapid').setView([53.35, -6.35], 6);
+var map = L.map('mapid').setView([53.35, -6.35], 7);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attributions: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
