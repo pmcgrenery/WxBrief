@@ -166,7 +166,7 @@ function play() {
     showFrame(animationPosition + 1);
 
     // Main animation driver. Run this function every 500 ms
-    animationTimer = setTimeout(play, 500);
+    animationTimer = setTimeout(play, 200);
 }
 
 function playStop() {
@@ -181,27 +181,4 @@ function playStop() {
 function setKind(kind) {
     optionKind = kind;
     initialize(apiData, optionKind);
-}
-
-/**
- * Handle arrow keys for navigation between next \ prev frames
- */
-document.onkeydown = function (e) {
-    e = e || window.event;
-    switch (e.which || e.keyCode) {
-        case 37: // left
-            stop();
-            showFrame(animationPosition - 1);
-            break;
-
-        case 39: // right
-            stop();
-            showFrame(animationPosition + 1);
-            break;
-
-        default:
-            return; // exit this handler for other keys
-    }
-    e.preventDefault();
-    return false;
 }
