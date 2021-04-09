@@ -1,6 +1,21 @@
-// Code from Rainviewer API Documentation @ https://www.rainviewer.com/api/weather-maps-api.html
+// Custom Code 
 
-var map = L.map('mapid').setView([48.8566, 2.3522], 6);
+/**
+ * Check the current frame time and output the time in UTC format
+ */
+function setFrameTime(frame) {
+    var pastOrForecast = frame.time > Date.now() / 1000 ? '(Forecast)' : '';
+
+    let dateObj = new Date(frame.time * 1000);
+    let utcString = dateObj.toUTCString();
+    let frameTime = utcString.slice(17, 22);
+
+    document.getElementById("timestamp").innerHTML = `${frameTime} UTC ${pastOrForecast}`
+}
+
+// Code below here from Rainviewer API Documentation @ https://www.rainviewer.com/api/weather-maps-api.html
+
+var map = L.map('mapid').setView([53.35, -6.35], 6);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attributions: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
@@ -118,14 +133,7 @@ function changeRadarPosition(position, preloadOnly) {
     }
     radarLayers[nextFrame.path].setOpacity(100);
 
-
-    var pastOrForecast = nextFrame.time > Date.now() / 1000 ? '(Forecast)' : '';
-
-    let dateObj = new Date(nextFrame.time * 1000);
-    let utcString = dateObj.toUTCString();
-    let frameTime = utcString.slice(17, 22);
-
-    document.getElementById("timestamp").innerHTML = `${frameTime} UTC ${pastOrForecast}`
+    setFrameTime(nextFrame)
 }
 
 /**
