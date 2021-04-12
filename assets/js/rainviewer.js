@@ -1,8 +1,6 @@
-// Custom Code 
+// ---------------------Custom Code----------------------------- 
 
-/**
- * Check the current frame time and output the time in UTC format
- */
+//Check the current frame time and output the time in UTC format
 function setFrameTime(frame) {
     var pastOrForecast = frame.time > Date.now() / 1000 ? '(Forecast)' : '';
 
@@ -13,13 +11,18 @@ function setFrameTime(frame) {
     document.getElementById("timestamp").innerHTML = `${frameTime} UTC ${pastOrForecast}`
 }
 
-// Code below here from Rainviewer API Documentation @ https://www.rainviewer.com/api/weather-maps-api.html
-
 var map = L.map('mapid').setView([53.35, -6.35], 7);
 
+//Openstreet Map Layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attributions: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-}).addTo(map);
+    attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+}).setOpacity(0.5).addTo(map);
+
+//Radar Coverage Mask Layer with opacity adjusted
+L.tileLayer('https://tilecache.rainviewer.com/v2/coverage/0/256/{z}/{x}/{y}/0/0_0.png').setOpacity(0.2).addTo(map);
+
+// ---------- Code below here from Rainviewer API Documentation -----------
+// https://www.rainviewer.com/api/weather-maps-api.html
 
 /**
  * RainViewer radar animation part
