@@ -28,3 +28,29 @@
     list-style: none;
     display: inline-block;
 }
+
+#logo-image {
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+}
+
+.navbar-brand h1 {
+    display: inline-block;
+}
+
+
+
+/* TESTERS */
+
+.bg-blue {
+    background-color: lightblue;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.bg-green {
+    background-color: green;
+}
