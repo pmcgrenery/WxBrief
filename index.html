@@ -67,11 +67,14 @@
                     </div>
                     <div class="modal-body">
                         <form>
+                            <div id="not-airport"></div>
                             <div class="mb-3">
                                 <label for="airportInput" class="form-label">Enter the airport's ICAO Code:</label>
-                                <input type="email" class="form-control" id="airportInput" placeholder="e.g. EGLL">
+                                <input type="text" class="form-control" id="airportInput" placeholder="e.g. EGLL">
                             </div>
-                            <button type="button" class="btn btn-primary">Add Airport</button>
+                            <button type="button" class="btn btn-primary" onclick='fetchairportinfo()'>Add
+                                Airport</button>
+                        </form>
                     </div>
                 </div>
             </div>
