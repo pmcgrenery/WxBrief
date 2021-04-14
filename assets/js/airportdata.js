@@ -59,19 +59,13 @@ function loadStoredAirports() {
 };
 
 function storeNewAirport(newApObject) {
-    // If the airport entered doesnt exist, prevent null being added to the array
-    if ($.isEmptyObject(newApObject)) {
-        console.log('the newApObject is empty')
-        return;
-    } else {
-        //Add the airport to the airports array
-        airports.push(newApObject);
-        //Add the updated airports array to local storage
-        localStorage.setItem('airports', JSON.stringify(airports));
-        //Display new array in the console
-        console.log('New airport array', JSON.parse(localStorage.getItem('airports')))
-        displayAirports(airports);
-    }
+    //Add the airport to the airports array
+    airports.push(newApObject);
+    //Add the updated airports array to local storage
+    localStorage.setItem('airports', JSON.stringify(airports));
+    //Display new array in the console
+    console.log('New airport array', JSON.parse(localStorage.getItem('airports')))
+    displayAirports(airports);
 };
 
 function fetchairportinfo() {
@@ -108,7 +102,7 @@ function fetchairportinfo() {
             name: response.name,
             lat: response.latitude,
             long: response.longitude
-        }
+        };
         //Send the newAirport Object to storeNewAirport function
         storeNewAirport(newAirport);
     });
