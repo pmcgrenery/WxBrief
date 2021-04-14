@@ -1,4 +1,5 @@
 var airports = [];
+
 // DEFAULT AIRPORTS FOR FIRST TIME USER
 var defaultAirports = [{
         "icao": "EIDW",
@@ -37,10 +38,12 @@ var defaultAirports = [{
     }
 ];
 
-// https://www.geeksforgeeks.org/how-to-run-a-function-when-the-page-is-loaded-in-javascript/
+// https://stackoverflow.com/questions/14644558/call-javascript-function-after-script-is-loaded/42556752
 function loadStoredAirports() {
+
     //-------------------------------clear storage trigger------------------------------
     // localStorage.clear();
+
     let loadedAirports = JSON.parse(localStorage.getItem('airports'));
 
     //Check if loadedAirports array is null
@@ -83,17 +86,17 @@ function fetchairportinfo() {
     };
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
-        if (response.error) {
-            //If an error is returned
-            $("#not-airport").html("Airport does not exist, please try again");
-            return;
-            //TO DO -> 
-            // Form input validation...only accept 4 letters
-            //1. Present new modal "not an airport"
-            //2. Clear the enter airport modal
-            //3. When you press close, show the first modal
 
+        $("#warning").html("");
+
+        //Display warnings to user for incorrect inputs
+        if (icao.length !== 4) {
+            $("#warning").html("Please enter a 4 digit ICAO code");
+            return;
+        } else if (response.error) {
+            //If an error is returned
+            $("#warning").html("Airport does not exist, please try again");
+            return;
         };
 
         let newAirport = {
@@ -103,8 +106,13 @@ function fetchairportinfo() {
             lat: response.latitude,
             long: response.longitude
         };
+
         //Send the newAirport Object to storeNewAirport function
         storeNewAirport(newAirport);
+
+        // Close Modal after successful airport entry and clear the input
+        $("#airportInput").val("");
+        $("#addAirport").modal('hide');
     });
 };
 
@@ -126,4 +134,6 @@ function displayAirports(apArray) {
 
 };
 
-//TODO -> Add event listener to accept the enter button as pressing the add airport button
+//TODO ->   Add event listener to accept the enter button as pressing the add airport button
+//          Prevent duplicates being added to the list
+//          Function to remove an airport from the array
