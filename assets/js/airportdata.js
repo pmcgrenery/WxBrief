@@ -38,6 +38,10 @@ var defaultAirports = [{
     }
 ];
 
+$('document').ready(function () {
+    loadStoredAirports();
+});
+
 function clearModal() {
     $("#warning").html("");
     $("#airportInput").val("");
@@ -54,7 +58,7 @@ function loadStoredAirports() {
     //Check if loadedAirports array is null
     if (loadedAirports === null) {
         airports = defaultAirports;
-        //Set the first time users airports in local storage to the default airports
+        //Set the first time user's airports in local storage to the default airports
         localStorage.setItem('airports', JSON.stringify(airports));
         console.log('Welcome to WxBrief, here are some airports to get you started:', airports);
 
@@ -66,14 +70,22 @@ function loadStoredAirports() {
     displayAirports(airports);
 };
 
-function storeNewAirport(newApObject) {
-    //Add the airport to the airports array
-    airports.push(newApObject);
-    //Add the updated airports array to local storage
-    localStorage.setItem('airports', JSON.stringify(airports));
-    //Display new array in the console
-    console.log('New airport array', JSON.parse(localStorage.getItem('airports')))
-    displayAirports(airports);
+function displayAirports(apArray) {
+    //Clear any HTML that is there currently
+    $("#airports").html('');
+
+    // Loop across the airports array and present the airports to the user
+    for (let airport of apArray) {
+        let apDetails = `
+            <div class="airport-selector bg-green">
+                 <span>${airport.icao} -</span><span> ${airport.iata}</span>
+                 <p>${airport.name}</p>
+             </div>
+        `;
+        //Append the div to the DOM
+        $("#airports").append(apDetails);
+    }
+
 };
 
 function fetchairportinfo() {
@@ -118,23 +130,21 @@ function fetchairportinfo() {
     });
 };
 
-function displayAirports(apArray) {
-    //Clear any HTML that is there currently
-    $("#airports").html('');
-
-    // Loop across the airports array and present the airports to the user
-    for (let airport of apArray) {
-        let apDetails = `
-            <div class="airport-selector bg-green" onclick="getWxReport(${airport.icao})">
-                 <span>${airport.icao} -</span><span> ${airport.iata}</span>
-                 <p>${airport.name}</p>
-             </div>
-        `;
-        //Append the div to the DOM
-        $("#airports").append(apDetails);
-    }
-
+function storeNewAirport(newApObject) {
+    //Add the airport to the airports array
+    airports.push(newApObject);
+    //Add the updated airports array to local storage
+    localStorage.setItem('airports', JSON.stringify(airports));
+    //Display new array in the console
+    console.log('New airport array', JSON.parse(localStorage.getItem('airports')))
+    displayAirports(airports);
 };
+
+$("div.airport-selector").click(function (event) {
+
+    var apIndex = $(this).index();
+    console.log(apindex);
+});
 
 //TODO ->   Add event listener to accept the enter button as pressing the add airport button
 //          Prevent duplicates being added to the list
