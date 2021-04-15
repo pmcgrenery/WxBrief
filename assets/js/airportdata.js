@@ -38,6 +38,11 @@ var defaultAirports = [{
     }
 ];
 
+function clearModal() {
+    $("#warning").html("");
+    $("#airportInput").val("");
+};
+
 // https://stackoverflow.com/questions/14644558/call-javascript-function-after-script-is-loaded/42556752
 function loadStoredAirports() {
 
@@ -87,8 +92,6 @@ function fetchairportinfo() {
 
     $.ajax(settings).done(function (response) {
 
-        $("#warning").html("");
-
         //Display warnings to user for incorrect inputs
         if (icao.length !== 4) {
             $("#warning").html("Please enter a 4 digit ICAO code");
@@ -111,7 +114,6 @@ function fetchairportinfo() {
         storeNewAirport(newAirport);
 
         // Close Modal after successful airport entry and clear the input
-        $("#airportInput").val("");
         $("#addAirport").modal('hide');
     });
 };
@@ -123,7 +125,7 @@ function displayAirports(apArray) {
     // Loop across the airports array and present the airports to the user
     for (let airport of apArray) {
         let apDetails = `
-            <div class="airport-selector bg-green">
+            <div class="airport-selector bg-green" onclick="getWxReport(${airport.icao})">
                  <span>${airport.icao} -</span><span> ${airport.iata}</span>
                  <p>${airport.name}</p>
              </div>
