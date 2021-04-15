@@ -3,31 +3,48 @@ p {
     padding: 0;
 }
 
-#map-controls {
-    text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
+#radar-map-container {
+    width: 100%;
+    height: 400px;
+    z-index: 1;
 }
 
-#timestamp {
-    text-align: center;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    right: 0;
-    height: 80px;
+#map-display-type button {
+    display: inline-block;
+    border: 0;
+    margin-right: -4px;
+    width: 50%;
+    border-radius: 0;
 }
 
 #mapid {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
+
+#map-controls {
+    width: 100%;
+    z-index: 2;
+    position: relative;
+    bottom: 60px;
+
+}
+
+#map-controls input,
+#mao-controls span {
+    margin: 0 4px;
+}
+
+#timestamp {
+    /* position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: 80px; */
+}
+
+
 
 #map-controls li {
     list-style: none;
