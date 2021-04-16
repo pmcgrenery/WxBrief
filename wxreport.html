@@ -21,6 +21,7 @@
             <div class="col-11 col-sm-9 col-md-8 col-lg-5">
                 <h2 id="icao-header"></h2>
                 <h2 id="name-header"></h2>
+                <hr>
             </div>
         </div>
     </div>
@@ -44,11 +45,11 @@
                     </div>
                     <div id="mapid"></div>
                     <div id="map-controls" class="d-flex justify-content-center">
-                        <input type="button" onclick="playStop();" value="Play / Stop" />
-                        <span id="timestamp">Frame Time</span>
                         <input type="button" onclick="stop(); showFrame(animationPosition - 1); return;" value="&lt;" />
+                        <input type="button" onclick="playStop();" value="Play / Stop" />
                         <input type="button" onclick="stop(); showFrame(animationPosition + 1); return;" value="&gt;" />
                     </div>
+                    <div id="timestamp">Frame Time</div>
                 </div>
             </div>
         </div>
