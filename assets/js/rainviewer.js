@@ -1,14 +1,12 @@
-// ---------------------Custom Code----------------------------- 
+// -------------------------- Custom Code --------------------------
 
 //Check the current frame time and output the time in UTC format
 function setFrameTime(frame) {
-    var pastOrForecast = frame.time > Date.now() / 1000 ? '(Forecast)' : '';
-
     let dateObj = new Date(frame.time * 1000);
     let utcString = dateObj.toUTCString();
     let frameTime = utcString.slice(17, 22);
 
-    document.getElementById("timestamp").innerHTML = `${frameTime} UTC ${pastOrForecast}`
+    document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
 }
 
 let airport = JSON.parse(localStorage.getItem('selectedAirport'));
@@ -25,11 +23,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //Radar Coverage Mask Layer with opacity adjusted
 L.tileLayer('https://tilecache.rainviewer.com/v2/coverage/0/256/{z}/{x}/{y}/0/0_0.png').setOpacity(0.2).addTo(map);
 
+//Marker over airport
 L.marker([lat, long]).addTo(map)
     .bindPopup(`${airport.icao}`)
 
-
-// ---------- Code below here from Rainviewer API Documentation -----------
+// ---------- Code below here from Rainviewer API Documentation ----------
 // https://www.rainviewer.com/api/weather-maps-api.html
 
 /**
@@ -41,8 +39,8 @@ var mapFrames = [];
 var lastPastFramePosition = -1;
 var radarLayers = [];
 var optionKind = 'radar'; // can be 'radar' or 'satellite'
-var optionTileSize = 256; // can be 256 or 512.
-var optionColorScheme = 7; // from 0 to 8. See https://rainviewer.com/api/color-schemes.html for additional information
+var optionTileSize = 512; // can be 256 or 512.
+var optionColorScheme = 7; // from 0 to 8. See https://rainviewer.com/api/color-schemes.html
 var optionSmoothData = 1; // 0 - not smooth, 1 - smooth
 var optionSnowColors = 1; // 0 - do not show snow colors, 1 - show snow colors
 var animationPosition = 0;
@@ -82,12 +80,10 @@ function initialize(api, kind) {
         showFrame(lastPastFramePosition);
     } else if (api.radar && api.radar.past) {
         mapFrames = api.radar.past;
-        if (api.radar.nowcast) {
-            mapFrames = mapFrames.concat(api.radar.nowcast);
-        }
 
         // show the last "past" frame
         lastPastFramePosition = api.radar.past.length - 1;
+
         showFrame(lastPastFramePosition);
     }
 }
@@ -142,7 +138,7 @@ function changeRadarPosition(position, preloadOnly) {
     if (radarLayers[currentFrame.path]) {
         radarLayers[currentFrame.path].setOpacity(0);
     }
-    radarLayers[nextFrame.path].setOpacity(100);
+    radarLayers[nextFrame.path].setOpacity(0.6);
 
     setFrameTime(nextFrame)
 }
@@ -176,7 +172,7 @@ function stop() {
 function play() {
     showFrame(animationPosition + 1);
 
-    // Main animation driver. Run this function every 500 ms
+    // Main animation driver. Run this function every 200ms ms
     animationTimer = setTimeout(play, 200);
 }
 
@@ -193,7 +189,3 @@ function setKind(kind) {
     optionKind = kind;
     initialize(apiData, optionKind);
 }
-
-// TO DO ->
-//          Change opacity of radar layer to around 0.7
-//          Add function to pause the animation after showing last slide
