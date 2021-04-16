@@ -1,43 +1,6 @@
 var airports = [];
 
-// DEFAULT AIRPORTS FOR FIRST TIME USER
-var defaultAirports = [{
-        "icao": "EIDW",
-        "iata": "DUB",
-        "name": "Dublin Airport",
-        "lat": 53.42645,
-        "long": -6.24991
-    },
-    {
-        "icao": "KJFK",
-        "iata": "JFK",
-        "name": "John F. Kennedy International Airport",
-        "lat": 40.64131,
-        "long": -73.77814
-    },
-    {
-        "icao": "EINN",
-        "iata": "SNN",
-        "name": "Shannon Airport",
-        "lat": 52.699657,
-        "long": -8.914691
-    },
-    {
-        "icao": "BIKF",
-        "iata": "KEF",
-        "name": "Keflavík International Airport",
-        "lat": 63.978603,
-        "long": -22.635036
-    },
-    {
-        "icao": "CYYR",
-        "iata": "YYR",
-        "name": "CFB Goose Bay",
-        "lat": 53.305252,
-        "long": -60.4088
-    }
-];
-
+//When the document is ready, load the airports
 $('document').ready(function () {
     loadStoredAirports();
 });
@@ -140,12 +103,8 @@ function storeNewAirport(newApObject) {
     displayAirports(airports);
 };
 
-$("div.airport-selector").click(function (event) {
-
-    var apIndex = $(this).index();
-    console.log(apindex);
-});
-
 //TODO ->   Add event listener to accept the enter button as pressing the add airport button
 //          Prevent duplicates being added to the list
 //          Function to remove an airport from the array
+//          Sort the div selector issue
+//          Add message to new users to show them that the airports shown are just a samle list of airports
