@@ -96,7 +96,7 @@ function fetchairportinfo() {
 function storeNewAirport(newApObject) {
     //Add the airport to the airports array
     airports.push(newApObject);
-    //Add the updated airports array to local storage
+    //Update airports array in local storage
     localStorage.setItem('airports', JSON.stringify(airports));
     //Display new array in the console
     console.log('New airport array', JSON.parse(localStorage.getItem('airports')))
