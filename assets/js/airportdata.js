@@ -106,5 +106,4 @@ function storeNewAirport(newApObject) {
 //TODO ->   Add event listener to accept the enter button as pressing the add airport button
 //          Prevent duplicates being added to the list
 //          Function to remove an airport from the array
-//          Sort the div selector issue
 //          Add message to new users to show them that the airports shown are just a samle list of airports
