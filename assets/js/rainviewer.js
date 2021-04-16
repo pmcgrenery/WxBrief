@@ -11,7 +11,11 @@ function setFrameTime(frame) {
     document.getElementById("timestamp").innerHTML = `${frameTime} UTC ${pastOrForecast}`
 }
 
-var map = L.map('mapid').setView([53.35, -6.35], 7);
+let airport = JSON.parse(localStorage.getItem('selectedAirport'));
+var lat = airport.lat;
+var long = airport.long;
+
+var map = L.map('mapid').setView([lat, long], 7);
 
 //Openstreet Map Layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -185,3 +189,7 @@ function setKind(kind) {
     optionKind = kind;
     initialize(apiData, optionKind);
 }
+
+// TO DO ->
+//          Change opacity of radar layer to around 0.7
+//          Add function to pause the animation after showing last slide
