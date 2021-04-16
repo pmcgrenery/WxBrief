@@ -1,4 +1,4 @@
-const token = "xxt-4d_jaDNW_tkNo2wX8q6cXUfWZ2asMCsmwYlr7Gw";
+const tokenCode = "xxt-4d_jaDNW_tkNo2wX8q6cXUfWZ2asMCsmwYlr7Gw";
 
 // API Info:
 // https://avwx.rest/#
