@@ -10,6 +10,11 @@ $("document").ready(function () {
     //Load the selected airport from local storage
     let airport = JSON.parse(localStorage.getItem('selectedAirport'));
     let icao = airport.icao;
+    let apName = airport.name;
+    let iata = airport.iata;
+    //Set the name of the airport at top of the page
+    $("#icao-header").html(`${icao} - ${iata}`);
+    $("#name-header").html(apName);
 
     getAirportMETAR(icao);
     getAirportTAF(icao);
@@ -19,17 +24,11 @@ function getAirportMETAR(icaoCode) {
     //Code modified from AVWX Documentation
     //https://avwx.docs.apiary.io/#reference/0/metar/get-metar-report
 
-
-
-
     let request = new XMLHttpRequest();
     request.open('GET', `https://avwx.rest/api/metar/${icaoCode}?format=json`);
     request.setRequestHeader('Authorization', tokenCode);
     request.onreadystatechange = function () {
         if (this.readyState === 4) {
-            // console.log('Status:', this.status);
-            // console.log('Headers:', this.getAllResponseHeaders());
-            // console.log('Body', this.responseText);
             let status = JSON.parse(this.status);
             let body = JSON.parse(this.responseText);
             console.log(body);
@@ -48,15 +47,12 @@ function getAirportTAF(icao) {
     //Code modified from AVWX Documentation
     //https://avwx.docs.apiary.io/#reference/0/taf/get-taf-report
 
-
     let request = new XMLHttpRequest();
     request.open('GET', `https://avwx.rest/api/taf/${icao}?format=json`);
     request.setRequestHeader('Authorization', tokenCode);
     request.onreadystatechange = function () {
         if (this.readyState === 4) {
-            // console.log('Status:', this.status);
-            // console.log('Headers:', this.getAllResponseHeaders());
-            // console.log('Body', this.responseText);
+
             let status = JSON.parse(this.status);
             let body = JSON.parse(this.responseText);
             console.log(body);
@@ -70,3 +66,6 @@ function getAirportTAF(icao) {
 function setTAF(status, taf) {
     $("#taf").html(taf.raw);
 }
+
+// TO DO ->
+//          Add code to check for other response codes eg. 429 (Hit call limit)
