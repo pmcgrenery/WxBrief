@@ -18,6 +18,7 @@ $("document").ready(function () {
 
     getAirportMETAR(icao);
     getAirportTAF(icao);
+    getAirportRWYs(icao);
 });
 
 function getAirportMETAR(icaoCode) {
@@ -31,7 +32,7 @@ function getAirportMETAR(icaoCode) {
         if (this.readyState === 4) {
             let status = JSON.parse(this.status);
             let body = JSON.parse(this.responseText);
-            console.log(body);
+            console.log("METAR OBJECT:", body);
             //Call setMetar function
             setMetar(status, body);
         }
@@ -55,7 +56,7 @@ function getAirportTAF(icao) {
 
             let status = JSON.parse(this.status);
             let body = JSON.parse(this.responseText);
-            console.log(body);
+            console.log("TAF Object:", body);
             //Call setMetar function
             setTAF(status, body);
         }
@@ -65,6 +66,38 @@ function getAirportTAF(icao) {
 
 function setTAF(status, taf) {
     $("#taf").html(taf.raw);
+}
+
+function getAirportRWYs(icao) {
+    //Code modified from AVWX Documentation
+    //https://avwx.docs.apiary.io/#reference/0/taf/get-taf-report
+
+    let request = new XMLHttpRequest();
+    request.open('GET', `https://avwx.rest/api/station/${icao}?format=json`);
+    request.setRequestHeader('Authorization', tokenCode);
+    request.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            let status = JSON.parse(this.status);
+            let body = JSON.parse(this.responseText);
+            console.log("Runways Array:", body.runways);
+            //Call setMetar function
+            setRWYs(status, body);
+        }
+    };
+    request.send();
+};
+
+function setRWYs(status, station) {
+    let runwaysArray = station.runways;
+    $("#runways").html("");
+    for (let runway of runwaysArray) {
+        let lengthFt = runway.length_ft;
+        let lengthM = Math.floor(lengthFt * .3048);
+        $("#runways").append(`
+        <p>${runway.ident1} / ${runway.ident2} - ${lengthM} m</p>
+        `);
+    }
+
 }
 
 // TO DO ->
