@@ -6,7 +6,7 @@ $("#airports").on("click", ".airport-selector", function () {
     // Get the airport object for the selected airport
     let selectedAirport = airports[airportIndex];
     // Put the airport into local storage to be accessed in other js files
-    localStorage.setItem('selectedAirport', JSON.stringify(selectedAirport));
+    sessionStorage.setItem('selectedAirport', JSON.stringify(selectedAirport));
     // Open the wxreport.html page
     window.location.href = "wxreport.html"
 });
