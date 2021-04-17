@@ -3,6 +3,15 @@ p {
     padding: 0;
 }
 
+.sticky-top {
+    background-color: white;
+}
+
+#btn-add-airport {
+    position: relative;
+    left: 93vw;
+}
+
 #radar-map-container {
     width: 100%;
     height: 400px;
@@ -56,6 +65,10 @@ p {
 
 .navbar-brand h1 {
     display: inline-block;
+}
+
+#airportInput {
+    text-transform: uppercase;
 }
 
 .airport-selector {
