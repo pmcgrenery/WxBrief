@@ -58,6 +58,13 @@ p {
     display: inline-block;
 }
 
+.airport-selector {
+    background-color: lightgrey;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
 /* TESTERS */
 
 .bg-blue {

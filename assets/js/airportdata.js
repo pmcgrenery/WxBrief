@@ -40,7 +40,7 @@ function displayAirports(apArray) {
     // Loop across the airports array and present the airports to the user
     for (let airport of apArray) {
         let apDetails = `
-            <div class="airport-selector bg-green">
+            <div class="airport-selector">
                  <span>${airport.icao} -</span><span> ${airport.iata}</span>
                  <p>${airport.name}</p>
              </div>
