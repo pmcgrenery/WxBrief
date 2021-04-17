@@ -5,6 +5,12 @@ $('document').ready(function () {
     loadStoredAirports();
 });
 
+// Autofocus on the modal when opened
+// Code from https://stackoverflow.com/questions/14940423/autofocus-input-in-twitter-bootstrap-modal
+$('.modal').on('shown.bs.modal', function () {
+    $(this).find('[autofocus]').focus();
+});
+
 function clearModal() {
     $("#warning").html("");
     $("#airportInput").val("");
