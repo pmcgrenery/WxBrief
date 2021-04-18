@@ -8,7 +8,7 @@ const tokenCode = "xxt-4d_jaDNW_tkNo2wX8q6cXUfWZ2asMCsmwYlr7Gw";
 //When document is ready getAirport Weather (AND RUNWAYS??????????????)
 $("document").ready(function () {
     //Load the selected airport from local storage
-    let airport = JSON.parse(localStorage.getItem('selectedAirport'));
+    let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
     let icao = airport.icao;
     let apName = airport.name;
     let iata = airport.iata;
@@ -18,7 +18,7 @@ $("document").ready(function () {
 
     getAirportMETAR(icao);
     getAirportTAF(icao);
-    getAirportRWYs(icao);
+    getAirportInfo(icao);
 });
 
 function getAirportMETAR(icaoCode) {
@@ -32,7 +32,7 @@ function getAirportMETAR(icaoCode) {
         if (this.readyState === 4) {
             let status = JSON.parse(this.status);
             let body = JSON.parse(this.responseText);
-            console.log("METAR OBJECT:", body);
+            console.log("METAR Object:", body);
             //Call setMetar function
             setMetar(status, body);
         }
@@ -68,7 +68,7 @@ function setTAF(status, taf) {
     $("#taf").html(taf.raw);
 }
 
-function getAirportRWYs(icao) {
+function getAirportInfo(icao) {
     //Code modified from AVWX Documentation
     //https://avwx.docs.apiary.io/#reference/0/taf/get-taf-report
 
@@ -79,23 +79,26 @@ function getAirportRWYs(icao) {
         if (this.readyState === 4) {
             let status = JSON.parse(this.status);
             let body = JSON.parse(this.responseText);
-            console.log("Runways Array:", body.runways);
+            console.log("Airport Info Object:", body);
             //Call setMetar function
-            setRWYs(status, body);
+            setInfo(status, body);
         }
     };
     request.send();
 };
 
-function setRWYs(status, station) {
+function setInfo(status, station) {
     let runwaysArray = station.runways;
     $("#runways").html("");
     for (let runway of runwaysArray) {
-        let lengthFt = runway.length_ft;
-        let lengthM = Math.floor(lengthFt * .3048);
-        $("#runways").append(`
-        <p>${runway.ident1} / ${runway.ident2} - ${lengthM} m</p>
-        `);
+        //Calculate Runway length in meters
+        let lengthM = Math.floor(runway.length_ft * .3048);
+        let widthM = Math.floor(runway.width_ft * .3048);
+        // Display Runways
+        $("#runways").append(`<p>${runway.ident1} / ${runway.ident2} - ${lengthM} m x ${widthM} m</p>`);
+        // Display Airport Elevation
+        $("#elevation").html(`${station.elevation_ft} ft`);
+        //
     }
 
 }
