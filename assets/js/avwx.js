@@ -65,19 +65,15 @@ function getAirportTAF(icao) {
 };
 
 function setTAF(status, taf) {
-    //Loop across the forecast array
-
+    //Set first TAF line to ICAO, publication time, first line of forecast data
     $("#taf").html(`
     <p>${taf.station} ${taf.time.repr} ${taf.forecast[0].raw}</p>
     `);
+    //Set the remainder of the forecast lines
     for (let i = 1; i < taf.forecast.length; ++i) {
         $("#taf").append(`
         <p>${taf.forecast[i].raw}</p>`);
     };
-    // for (let line of taf.forecast) {
-    //     $("#taf").append(`
-    //     <p>${line.raw}</p>`);
-    // };
 }
 
 function getAirportInfo(icao) {
@@ -109,7 +105,7 @@ function setInfo(status, station) {
         // Display Runways
         $("#runways").append(`<p>${runway.ident1} / ${runway.ident2} - ${lengthM} m x ${widthM} m</p>`);
         // Display Airport Elevation
-        $("#elevation").html(`${station.elevation_ft} ft`);
+        $("#elevation").html(`Elev ${station.elevation_ft} ft`);
         //
     }
 
