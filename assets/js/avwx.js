@@ -65,7 +65,19 @@ function getAirportTAF(icao) {
 };
 
 function setTAF(status, taf) {
-    $("#taf").html(taf.raw);
+    //Loop across the forecast array
+
+    $("#taf").html(`
+    <p>${taf.station} ${taf.time.repr} ${taf.forecast[0].raw}</p>
+    `);
+    for (let i = 1; i < taf.forecast.length; ++i) {
+        $("#taf").append(`
+        <p>${taf.forecast[i].raw}</p>`);
+    };
+    // for (let line of taf.forecast) {
+    //     $("#taf").append(`
+    //     <p>${line.raw}</p>`);
+    // };
 }
 
 function getAirportInfo(icao) {
