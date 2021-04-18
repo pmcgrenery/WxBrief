@@ -82,7 +82,7 @@ function fetchairportinfo() {
             $("#warning").html("Airport does not exist, please try again");
             return;
         };
-
+        console.log(response);
         let newAirport = {
             icao: response.icao,
             iata: response.iata,

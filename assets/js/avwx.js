@@ -48,7 +48,7 @@ function setMetar(status, metar) {
         console.log("METAR Request Status Code:", status);
         $("#metar").html("Sorry, we're unable to obtain METAR data for this station. Please contact the site administrator");
     }
-}
+};
 
 function getAirportTAF(icao) {
     //Code modified from AVWX Documentation
@@ -86,7 +86,7 @@ function setTAF(status, taf) {
         console.log("METAR Request Status Code:", status);
         $("#taf").html("Sorry, we're unable to obtain TAF data for this station. Please contact the site administrator");
     }
-}
+};
 
 function getAirportInfo(icao) {
     //Code modified from AVWX Documentation
@@ -112,7 +112,7 @@ function setInfo(status, station) {
 
         let runwaysArray = station.runways;
 
-        // Clear the loading.gif and add table element
+        // Clear the loading.gif img and add table element
         $("#runways").html(`<table id='runways-table'></table>`);
 
         for (let runway of runwaysArray) {
@@ -127,7 +127,6 @@ function setInfo(status, station) {
             </tr>
             `);
 
-
             // Display Airport Elevation
             $("#elevation").html(`Elev ${station.elevation_ft} ft`);
         }
@@ -137,7 +136,4 @@ function setInfo(status, station) {
         console.log("METAR Request Status Code:", status);
         $("#runways").html("Sorry, we're unable to obtain Airport data for this station. Please contact the site administrator");
     }
-}
-
-// TO DO ->
-//          Move runway info into a table
+};

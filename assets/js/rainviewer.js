@@ -189,3 +189,6 @@ function setKind(kind) {
     optionKind = kind;
     initialize(apiData, optionKind);
 }
+
+// TO DO ->
+//          Add sigmets and sever weather??
