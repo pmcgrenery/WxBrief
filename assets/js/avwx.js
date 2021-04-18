@@ -1,11 +1,10 @@
 const tokenCode = "xxt-4d_jaDNW_tkNo2wX8q6cXUfWZ2asMCsmwYlr7Gw";
 
-// API Info:
-// https://avwx.rest/#
-// Error code 429 if you hit call limit.
-// Limit is 4000 calls per day. Resets at 0000Z.
+/* API Info:
+   https://avwx.rest/#
+   Limit is 4000 calls per day. Resets at 0000Z.
+*/
 
-//When document is ready getAirport Weather (AND RUNWAYS??????????????)
 $("document").ready(function () {
     //Load the selected airport from local storage
     let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
@@ -41,7 +40,14 @@ function getAirportMETAR(icaoCode) {
 };
 
 function setMetar(status, metar) {
-    $("#metar").html(metar.raw);
+    if (status === 200) {
+        $("#metar").html(metar.raw);
+    } else if (status === 429) {
+        $("#metar").html("You have reached your API call limit, please contact the site administrator");
+    } else {
+        console.log("METAR Request Status Code:", status);
+        $("#metar").html("Sorry, we're unable to obtain METAR data for this station. Please contact the site administrator");
+    }
 }
 
 function getAirportTAF(icao) {
@@ -53,7 +59,6 @@ function getAirportTAF(icao) {
     request.setRequestHeader('Authorization', tokenCode);
     request.onreadystatechange = function () {
         if (this.readyState === 4) {
-
             let status = JSON.parse(this.status);
             let body = JSON.parse(this.responseText);
             console.log("TAF Object:", body);
@@ -65,15 +70,22 @@ function getAirportTAF(icao) {
 };
 
 function setTAF(status, taf) {
-    //Set first TAF line to ICAO, publication time, first line of forecast data
-    $("#taf").html(`
-    <p>${taf.station} ${taf.time.repr} ${taf.forecast[0].raw}</p>
-    `);
-    //Set the remainder of the forecast lines
-    for (let i = 1; i < taf.forecast.length; ++i) {
-        $("#taf").append(`
-        <p>${taf.forecast[i].raw}</p>`);
-    };
+    if (status === 200) {
+        //Set first TAF line to ICAO, publication time, first line of forecast data
+        $("#taf").html(`
+        <p>${taf.station} ${taf.time.repr} ${taf.forecast[0].raw}</p>
+        `);
+        //Set the remainder of the forecast lines
+        for (let i = 1; i < taf.forecast.length; ++i) {
+            $("#taf").append(`
+            <p>${taf.forecast[i].raw}</p>`);
+        };
+    } else if (status === 429) {
+        $("#taf").html("You have reached your API call limit, please contact the site administrator");
+    } else {
+        console.log("METAR Request Status Code:", status);
+        $("#taf").html("Sorry, we're unable to obtain TAF data for this station. Please contact the site administrator");
+    }
 }
 
 function getAirportInfo(icao) {
@@ -96,20 +108,36 @@ function getAirportInfo(icao) {
 };
 
 function setInfo(status, station) {
-    let runwaysArray = station.runways;
-    $("#runways").html("");
-    for (let runway of runwaysArray) {
-        //Calculate Runway length in meters
-        let lengthM = Math.floor(runway.length_ft * .3048);
-        let widthM = Math.floor(runway.width_ft * .3048);
-        // Display Runways
-        $("#runways").append(`<p>${runway.ident1} / ${runway.ident2} - ${lengthM} m x ${widthM} m</p>`);
-        // Display Airport Elevation
-        $("#elevation").html(`Elev ${station.elevation_ft} ft`);
-        //
-    }
+    if (status === 200) {
 
+        let runwaysArray = station.runways;
+
+        // Clear the loading.gif and add table element
+        $("#runways").html(`<table id='runways-table'></table>`);
+
+        for (let runway of runwaysArray) {
+            //Calculate Runway length in meters
+            let lengthM = Math.floor(runway.length_ft * .3048);
+            let widthM = Math.floor(runway.width_ft * .3048);
+            // Display Runways in table
+            $("#runways-table").append(`
+            <tr>
+                <td> ${runway.ident1} / ${runway.ident2} </td>
+                <td> ${lengthM} m x ${widthM} m </td>
+            </tr>
+            `);
+
+
+            // Display Airport Elevation
+            $("#elevation").html(`Elev ${station.elevation_ft} ft`);
+        }
+    } else if (status === 429) {
+        $("#runways").html("You have reached your API call limit, please contact the site administrator");
+    } else {
+        console.log("METAR Request Status Code:", status);
+        $("#runways").html("Sorry, we're unable to obtain Airport data for this station. Please contact the site administrator");
+    }
 }
 
 // TO DO ->
-//          Add code to check for other response codes eg. 429 (Hit call limit)
+//          Move runway info into a table
