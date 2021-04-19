@@ -37,7 +37,7 @@ Increment the original timestamp by 1 second, every second
 and update the current and local times every second.
 */
 function timeLoop(local) {
-    console.log("INSIDE TEH LOOP");
+
     let updatedTimeStamp = local + 1000;
     let updatedDateObj = new Date(updatedTimeStamp);
     let updatedLocalTime = updatedDateObj.toUTCString().slice(17, 22);
