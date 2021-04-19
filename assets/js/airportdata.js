@@ -54,7 +54,6 @@ function displayAirports(apArray) {
         //Append the div to the DOM
         $("#airports").append(apDetails);
     }
-
 };
 
 function fetchAirportInfo() {
@@ -120,7 +119,7 @@ function storeNewAirport(newApObject) {
 };
 
 /*
-Event Listeners
+----------------Event Listeners----------------
 */
 
 // When airportInput is in focus and press Enter -> 
