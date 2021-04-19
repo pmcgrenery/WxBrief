@@ -82,7 +82,7 @@ function fetchAirportInfo() {
             $("#warning").html("Airport does not exist, please try again");
             return;
         };
-        console.log(response);
+
         let newAirport = {
             icao: response.icao,
             iata: response.iata,
@@ -91,13 +91,21 @@ function fetchAirportInfo() {
             long: response.longitude
         };
 
-        //Send the newAirport Object to storeNewAirport function
-        storeNewAirport(newAirport);
-
-        // Close Modal after successful airport entry and clear the input
-        $("#airportInput").val("");
-        $("#warning").html("");
-        $("#addAirport").modal('hide');
+        //This function modified from:
+        //https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e
+        if (airports.some(e => e.icao === newAirport.icao)) {
+            // Reset the input and display warning
+            $("#airportInput").val("");
+            $("#warning").html(`<p>${newAirport.icao} is already in your list of airports</p>`);
+        } else {
+            //Store the new airport
+            storeNewAirport(newAirport);
+            // Clear the input and display warning
+            $("#airportInput").val("");
+            $("#warning").html("");
+            // Close Modal after successful airport entry and clear the input
+            $("#addAirport").modal('hide');
+        }
     });
 };
 
@@ -140,6 +148,5 @@ $(document).on('keydown', function (event) {
 });
 
 //TODO ->   
-//          Prevent duplicates being added to the list
 //          Function to remove an airport from the array
 //          Add message to new users to show them that the airports shown are just a sample list of airports
