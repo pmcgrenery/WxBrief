@@ -14,3 +14,6 @@
 
 5. Bug: The radar displays a forecast position of the weather radar returns as well as the actual historic conditions. At a quick glance this can lead to the impression that the weather is closer to an airport than it actually is which could effect the decision making process of the user.
 <br>Fix: Remove the future frames from the rainviewer.js code. This also reduces the amount of data that has to be downloaded for each airport which improves the UX with a quicker load time.
+
+6. Bug: The local time and utc time do not update at the exact same time, so the local time updates to the new minute before the UTC time updates.
+<br>Fix: After some experimenting I found that the local time was approx 1000 ms ahead of the utc time. So I subtracted 1000 ms from the localTimeStamp to bring the two values in line. While these times may not be perfectly exact in real terms, it achieved the desired effect of having the 2 times simultaneously while having the time accuracy to +/- 1 second. 

@@ -18,9 +18,9 @@ function setTime() {
 
     $.ajax(url).done(function (response) {
 
-        let localTimestamp = Date.now() + (response.gmtOffset * 1000);
+        let localTimeStamp = Date.now() + (response.gmtOffset * 1000) - 1000;
 
-        let dateObj = new Date(localTimestamp);
+        let dateObj = new Date(localTimeStamp);
         let localTime = dateObj.toUTCString().slice(17, 22);
         //Set the current local time
         $("#local-time").html(localTime);
@@ -37,16 +37,19 @@ Increment the original timestamp by 1 second, every second
 and update the current and local times every second.
 */
 function timeLoop(local) {
-
+    console.log("INSIDE TEH LOOP");
     let updatedTimeStamp = local + 1000;
     let updatedDateObj = new Date(updatedTimeStamp);
     let updatedLocalTime = updatedDateObj.toUTCString().slice(17, 22);
-    $("#local-time").html(updatedLocalTime);
-
     let utcTime = new Date().toUTCString().slice(17, 22);
-    $("#utc-time").html(utcTime);
+    displayTime(updatedLocalTime, utcTime);
 }
 setInterval(setTime, 1000);
+
+function displayTime(local, utc) {
+    $("#local-time").html(local);
+    $("#utc-time").html(utc);
+}
 
 //Notes:-Chose not to present the user any error codes if unable to retrieve a response as this is not critical data.
 //      -Using infinite loop to update the time every second rather than calling the api every second. Due to api request
