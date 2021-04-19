@@ -19,9 +19,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-11 col-sm-9 col-md-8 col-lg-5">
-                <h2 id="elevation"></h2>
                 <h2 id="icao-header"></h2>
                 <h2 id="name-header"></h2>
+
+                <h3>LT: <span id="local-time"><img src="assets/images/loader.gif" alt="Loading..."></span></h3>
+                <h3 id="elevation"></h3>
+                <h3>UTC: <span id="utc-time"><img src="assets/images/loader.gif" alt="Loading..."></span></h3>
+
                 <hr>
             </div>
         </div>
@@ -75,6 +79,8 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <!-- Rainviewer JS -->
     <script src="assets/js/rainviewer.js"></script>
+    <!-- Time Zone JS -->
+    <script src="assets/js/timezonedb.js"></script>
 </body>
 
 </html>
