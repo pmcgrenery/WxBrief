@@ -18,7 +18,7 @@ var map = L.map('mapid').setView([lat, long], 7);
 //Openstreet Map Layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-}).setOpacity(0.7).addTo(map);
+}).addTo(map);
 
 //Radar Coverage Mask Layer with opacity adjusted
 L.tileLayer('https://tilecache.rainviewer.com/v2/coverage/0/256/{z}/{x}/{y}/0/0_0.png').setOpacity(0.2).addTo(map);
