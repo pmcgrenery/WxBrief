@@ -57,7 +57,7 @@ function displayAirports(apArray) {
 
 };
 
-function fetchairportinfo() {
+function fetchAirportInfo() {
     let icao = $('#airportInput').val();
 
     let settings = {
@@ -95,6 +95,8 @@ function fetchairportinfo() {
         storeNewAirport(newAirport);
 
         // Close Modal after successful airport entry and clear the input
+        $("#airportInput").val("");
+        $("#warning").html("");
         $("#addAirport").modal('hide');
     });
 };
@@ -109,7 +111,35 @@ function storeNewAirport(newApObject) {
     displayAirports(airports);
 };
 
-//TODO ->   Add event listener to accept the enter button as pressing the add airport button
+/*
+Event Listeners
+*/
+
+// When airportInput is in focus and press Enter -> 
+$('#airportInput').on("keydown", function (event) {
+    if (event.key == "Enter") {
+        event.preventDefault();
+        fetchAirportInfo();
+    }
+});
+
+// When Enter is pressed anywhere on the document
+$(document).on("keydown", function (event) {
+    if (event.key == 'Enter') {
+        $("#addAirport").modal('show');
+    };
+});
+
+// When Escape is pressed anywhere on the document
+$(document).on('keydown', function (event) {
+    if (event.key == "Escape") {
+        $("#airportInput").val("");
+        $("#warning").html("");
+        $("#addAirport").modal('hide');
+    }
+});
+
+//TODO ->   
 //          Prevent duplicates being added to the list
 //          Function to remove an airport from the array
-//          Add message to new users to show them that the airports shown are just a samle list of airports
+//          Add message to new users to show them that the airports shown are just a sample list of airports
