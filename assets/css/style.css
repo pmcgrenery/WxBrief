@@ -1,15 +1,33 @@
+/*-------------------------------------- General */
+
 p {
     margin: 0;
     padding: 0;
 }
 
+/*-------------------------------------- Header */
 .sticky-top {
     background-color: white;
 }
 
-#btn-add-airport {
+#ap-header {
+    display: inline-block;
     position: relative;
-    left: 93vw;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#btn-add-airport {
+    float: right;
+    margin: auto 0;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: none;
+    border: none;
+    font-size: 140%;
+    color: black;
 }
 
 #radar-map-container {
