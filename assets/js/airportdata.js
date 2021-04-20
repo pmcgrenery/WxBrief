@@ -19,18 +19,26 @@ function clearModal() {
 // https://stackoverflow.com/questions/14644558/call-javascript-function-after-script-is-loaded/42556752
 function loadStoredAirports() {
 
-    //-------------------------------clear storage trigger------------------------------
-    // localStorage.clear();
-
     let loadedAirports = JSON.parse(localStorage.getItem('airports'));
-
-    //Check if loadedAirports array is null
+    //---------------------------------clear local storage trigger------------------------------------
+    // localStorage.clear();
+    //Check if loadedAirports exists in localStorage
     if (loadedAirports === null) {
         airports = defaultAirports;
         //Set the first time user's airports in local storage to the default airports
         localStorage.setItem('airports', JSON.stringify(airports));
         console.log('Welcome to WxBrief, here are some airports to get you started:', airports);
 
+        $("#welcome-container").html(`<div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5 mt-3">
+                <div id="welcome" class="text-center">
+                    <h3>Welcome to WxBrief, here are some airports to get you started</h3>
+                    <p>- To clear all airports click on the Clear All button to the left</p>
+                    <p>- To add an airport, click on the + to the right</p>
+                    <p>Enjoy!</p>
+                </div>
+            </div>
+        </div>`);
     } else if (loadedAirports.length > 0) {
         airports = loadedAirports;
         console.log('Your Stored Airports:', airports);
@@ -75,10 +83,12 @@ function fetchAirportInfo() {
         //Display warnings to user for incorrect inputs
         if (icao.length !== 4) {
             $("#warning").html("Please enter a 4 digit ICAO code");
+            $("#airportInput").val("");
             return;
         } else if (response.error) {
             //If an error is returned
             $("#warning").html("Airport does not exist, please try again");
+            $("#airportInput").val("");
             return;
         };
 
@@ -118,6 +128,17 @@ function storeNewAirport(newApObject) {
     displayAirports(airports);
 };
 
+//Clear airports and clear the locally stored list
+function clearAirports() {
+    airports = [];
+    localStorage.setItem('airports', JSON.stringify(airports));
+    displayAirports(airports);
+    $("#clearAirports").modal('hide');
+};
+
+function closeModal() {
+    $("#clearAirports").modal('hide');
+}
 /*
 ----------------Event Listeners----------------
 */
@@ -134,6 +155,7 @@ $('#airportInput').on("keydown", function (event) {
 $(document).on("keydown", function (event) {
     if (event.key == 'Enter') {
         $("#addAirport").modal('show');
+        event.stopPropagation();
     };
 });
 
