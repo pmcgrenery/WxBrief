@@ -15,9 +15,15 @@ var long = airport.long;
 
 var map = L.map('mapid').setView([lat, long], 7);
 
-//Openstreet Map Layer
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+//Openstreet Map Layer (Alternative to Mapbox)
+// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+// }).addTo(map);
+
+// Mapbox Baselayer map
+L.tileLayer.provider('MapBox', {
+    id: 'mapbox/light-v10',
+    accessToken: 'pk.eyJ1IjoicG1jZ3JlbmVyeSIsImEiOiJja25xYjlvMDgwYjc0MnBwZnFodXh1MHZ5In0.jv-gMrjni4BjjZ_vh-p5PQ'
 }).addTo(map);
 
 //Radar Coverage Mask Layer with opacity adjusted
