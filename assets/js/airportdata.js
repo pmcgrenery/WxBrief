@@ -33,8 +33,9 @@ function loadStoredAirports() {
             <div class="col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5 mt-3">
                 <div id="welcome" class="text-center">
                     <h3>Welcome to WxBrief, here are some airports to get you started</h3>
-                    <p>- To clear all airports click on the Clear All button to the left</p>
-                    <p>- To add an airport, click on the + to the right</p>
+                    <p>- To clear all airports click on the Clear button</p>
+                    <p>- To add an airport, click on <i class="fas fa-plus"></i></p>
+                    <p>- To remove an airport, click on <i class="far fa-edit"></i></p>
                     <p>Enjoy!</p>
                 </div>
             </div>
@@ -55,8 +56,17 @@ function displayAirports(apArray) {
     for (let airport of apArray) {
         let apDetails = `
             <div class="airport-selector">
-                 <span>${airport.icao} -</span><span> ${airport.iata}</span>
-                 <p>${airport.name}</p>
+                <div class="airport-text">
+                    <span>${airport.icao} -</span>
+                    <span> ${airport.iata}</span>
+                    <p>${airport.name}</p>
+                </div>
+                 <div class="delete-container">
+                    <div class="delete">
+                        <i class="fas fa-trash" aria-hidden="true" aria-label="Delete this airport"></i>
+                        <div class="sr-only">Delete</div>
+                    </div>
+                 </div>
              </div>
         `;
         //Append the div to the DOM
@@ -136,6 +146,11 @@ function clearAirports() {
     $("#clearAirports").modal('hide');
 };
 
+function deleteAirport(index) {
+    newArray = airports.splice(index, 1);
+    localStorage.setItem('airports', JSON.stringify(newArray));
+    displayAirports(airports);
+}
 /*
 ----------------Event Listeners----------------
 */
@@ -167,6 +182,15 @@ $(document).on('keydown', function (event) {
     }
 });
 
+$("#airports").on("click", ".delete-container", function () {
+    let parentIndex = $(this).parent().index()
+    console.log("Delete:", parentIndex);
+    deleteAirport(parentIndex);
+})
+
+$("#btn-del-airport").on("click", function () {
+    $(".delete-container").fadeToggle(200);
+})
 //TODO ->   
 //          Function to remove an airport from the array
 //          Add message to new users to show them that the airports shown are just a sample list of airports
