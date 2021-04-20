@@ -16,14 +16,12 @@ p {
     top: 50%;
     transform: translate(0, -50%);
     color: black;
-    z-index: 1049;
 }
 
 #ap-header {
     display: inline-block;
     position: absolute;
     left: 50%;
-
     transform: translate(-50%, 0);
 }
 
@@ -36,6 +34,10 @@ p {
     border: none;
     font-size: 140%;
     color: black;
+}
+
+#back-btn {
+    float: right;
 }
 
 #welcome {

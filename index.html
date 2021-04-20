@@ -45,8 +45,8 @@
                 <div class="col-12 bg-blue">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clearAirports"
                         aria-label="Clear all airports" id="clr-airports">
-                        Clear Airports
-                        <span class="sr-only">Clear all airport</span>
+                        Clear
+                        <span class="sr-only">Clear All Airports</span>
                     </button>
                     <h2 id="ap-header">Airports</h2>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAirport"
@@ -63,12 +63,11 @@
         <div class="modal fade" id="clearAirports" tabindex="-1" aria-label="Clear Airports?" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-body">
+                    <div class="modal-body text-center">
                         <h3>Are you sure you want to clear all airports?</h3>
-                        <button type="button" class="btn btn-success" onclick='clearAirports()'>
+                        <button type="button" class="btn btn-light mx-4" onclick='clearAirports()'>
                             Yes</button>
-                        <button type="button" class="btn btn-danger" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close">
+                        <button type="button" class="btn btn-danger mx-4" data-bs-dismiss="modal" aria-label="Close">
                             No</button>
                     </div>
                 </div>
