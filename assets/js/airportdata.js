@@ -191,6 +191,3 @@ $("#airports").on("click", ".delete-container", function () {
 $("#btn-del-airport").on("click", function () {
     $(".delete-container").fadeToggle(200);
 })
-//TODO ->   
-//          Function to remove an airport from the array
-//          Add message to new users to show them that the airports shown are just a sample list of airports
