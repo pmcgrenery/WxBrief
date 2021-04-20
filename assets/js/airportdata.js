@@ -136,9 +136,6 @@ function clearAirports() {
     $("#clearAirports").modal('hide');
 };
 
-function closeModal() {
-    $("#clearAirports").modal('hide');
-}
 /*
 ----------------Event Listeners----------------
 */
@@ -154,8 +151,10 @@ $('#airportInput').on("keydown", function (event) {
 // When Enter is pressed anywhere on the document
 $(document).on("keydown", function (event) {
     if (event.key == 'Enter') {
-        $("#addAirport").modal('show');
-        event.stopPropagation();
+        // Prevent the Clear airport modal opening
+        event.preventDefault();
+        // Show the add airport modal
+        $("#addAirport").modal("show");
     };
 });
 

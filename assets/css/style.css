@@ -16,6 +16,7 @@ p {
     top: 50%;
     transform: translate(0, -50%);
     color: black;
+    z-index: 1049;
 }
 
 #ap-header {

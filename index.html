@@ -59,7 +59,21 @@
         </div>
     </header>
     <main>
-
+        <!-- Clear Airports Modal -->
+        <div class="modal fade" id="clearAirports" tabindex="-1" aria-label="Clear Airports?" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h3>Are you sure you want to clear all airports?</h3>
+                        <button type="button" class="btn btn-success" onclick='clearAirports()'>
+                            Yes</button>
+                        <button type="button" class="btn btn-danger" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                            No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- addAirport Modal -->
         <div class="modal fade" id="addAirport" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -84,24 +98,9 @@
                 </div>
             </div>
         </div>
-        <!-- Clear Airports Modal -->
-        <div class="modal fade" id="clearAirports" tabindex="-1" aria-label="Clear Airports?" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h3>Are you sure you want to clear all airports?</h3>
-                        <button type="button" class="btn btn-success" onclick='clearAirports()'>
-                            Yes</button>
-                        <button type="button" class="btn btn-danger" onclick='closeModal()'>
-                            No</button>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Welcome Message -->
         <div class="container-fluid" id="welcome-container">
         </div>
-
         <!-- Airports -->
         <div class="container-fluid">
             <div class="row justify-content-center">
