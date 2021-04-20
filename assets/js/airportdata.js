@@ -146,11 +146,13 @@ function clearAirports() {
     $("#clearAirports").modal('hide');
 };
 
+// Delete airport and locally store the updated airports array
 function deleteAirport(index) {
-    newArray = airports.splice(index, 1);
-    localStorage.setItem('airports', JSON.stringify(newArray));
+    airports.splice(index, 1);
+    localStorage.setItem('airports', JSON.stringify(airports));
     displayAirports(airports);
 }
+
 /*
 ----------------Event Listeners----------------
 */
