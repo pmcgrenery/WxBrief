@@ -10,17 +10,24 @@ p {
     background-color: white;
 }
 
+#clr-airports {
+    float: left;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: black;
+}
+
 #ap-header {
     display: inline-block;
-    position: relative;
+    position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+
+    transform: translate(-50%, 0);
 }
 
 #btn-add-airport {
     float: right;
-    margin: auto 0;
     position: relative;
     top: 50%;
     transform: translate(0, -50%);
@@ -28,6 +35,13 @@ p {
     border: none;
     font-size: 140%;
     color: black;
+}
+
+#welcome {
+    background-color: #99d899;
+    width: 100%;
+    border-radius: 10px;
+    padding: 1rem;
 }
 
 #radar-map-container {
