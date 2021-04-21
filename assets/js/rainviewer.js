@@ -17,7 +17,7 @@ let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
 var lat = airport.lat;
 var long = airport.long;
 
-var map = L.map('mapid').setView([lat, long], 7);
+var map = L.map('mapid').setView([lat, long], 8);
 
 //Openstreet Map Layer (Alternative to Mapbox)
 // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
