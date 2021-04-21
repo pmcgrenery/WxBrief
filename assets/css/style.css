@@ -1,14 +1,55 @@
-/*-------------------------------------- General */
+/*---------------------------------------- Fonts */
 
-p {
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=B612:wght@400;700&family=Lexend+Zetta&display=swap');
+
+/* TESTERS */
+
+.bg-blue {
+    background-color: lightblue;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.bg-green {
+    background-color: green;
+}
+
+.airport-selector {
+    margin-top: 1rem;
+    padding: .7rem;
+}
+
+/*-------------------------------------- General */
+body {
+    font-family: 'B612', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Lexend Zetta', sans-serif;
+    font-weight: 700;
+}
+
+/*-------------------------------- Landing Page */
+
+#landing-page-body {
+    background: url(../images/stratus-clouds.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 /*-------------------------------------- Header */
-.sticky-top {
+/* .sticky-top {
     background-color: white;
-}
+} */
 
 #logo {
     width: 200px;
@@ -62,7 +103,7 @@ p {
     padding: 1rem;
 }
 
-/* ---------------------------------------------------------------Radar Map----------------- */
+/* -----------------------------------Radar Map */
 #radar-map-container {
     width: 100%;
     height: 400px;
@@ -198,21 +239,64 @@ td {
     padding: .4rem 1rem;
 }
 
-/* TESTERS */
 
-.bg-blue {
-    background-color: lightblue;
+
+/* MEDIA QUERIES */
+
+/* SCREEN SIZE XS */
+/* @media screen and (max-width:575px){
+
+} */
+
+/* SCREEN SIZE SM and up */
+@media screen and (min-width:576px) {
+    #logo {
+        width: 225px;
+    }
 }
 
-.bg-red {
-    background-color: red;
+/* SCREEN SIZE MD and up */
+@media screen and (min-width:768px) {
+
+    #logo {
+        width: 250px;
+    }
 }
 
-.bg-green {
-    background-color: green;
+/* SCREEN SIZE LG and up */
+@media screen and (min-width:992px) {
+
+    #logo {
+        width: 275px;
+    }
 }
 
-.airport-selector {
-    margin-top: 1rem;
-    padding: .7rem;
+/* SCREEN SIZE XL and up */
+@media screen and (min-width:1200px) {
+
+    #logo {
+        width: 300px;
+    }
+}
+
+/* SCREENS SIZE XXL and up */
+@media screen and (min-width:1400px) {
+
+    #logo {
+        width: 325px;
+    }
+}
+
+/* 1600px wide and up */
+@media screen and (min-width:1600px) {
+    #logo {
+        width: 350px;
+    }
+}
+
+/* Apple iMac 5K monitor */
+@media screen and (min-width:1950px) {
+    #logo {
+        width: 375px;
+    }
 }
