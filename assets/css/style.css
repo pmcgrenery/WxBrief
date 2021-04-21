@@ -58,6 +58,7 @@ p {
     padding: 1rem;
 }
 
+/* ---------------------------------------------------------------Radar Map----------------- */
 #radar-map-container {
     width: 100%;
     height: 400px;
@@ -78,29 +79,82 @@ p {
     z-index: 1;
 }
 
-#map-controls {
-    width: 100%;
-    z-index: 2;
+#control-bar {
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-size: 18px;
     position: relative;
+    z-index: 1;
     bottom: 70px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 44px;
+    width: 210px;
+    border-radius: 23px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 50%);
+    background-color: #c6cfd1;
+    border: 1px solid #000;
 }
 
-#map-controls input,
-#mao-controls span {
-    margin: 0 4px;
+#play-toggle {
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    border: 1px solid #000;
+    background-color: #e3e3e3;
+    margin-right: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    left: -2px;
+}
+
+#last-frame {
+    margin-right: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #timestamp {
+    margin-right: 12px;
+    color: #000;
+    bottom: 2px;
+    position: relative;
+}
+
+#next-frame {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* #map-controls {
     width: 100%;
     z-index: 2;
     position: relative;
     bottom: 70px;
-    text-align: center;
-}
+} */
 
-#map-controls li {
+/* #map-controls input,
+#mao-controls span {
+    margin: 0 4px;
+} */
+/* #map-controls li {
     list-style: none;
     display: inline-block;
+} */
+
+
+
+.leaflet-control-attribution {
+    font-size: 7px !important;
 }
 
 #logo-image {

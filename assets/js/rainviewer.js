@@ -9,6 +9,10 @@ function setFrameTime(frame) {
     document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
 }
 
+$("#play-toggle").click(function () {
+    $(".playPause").toggle();
+})
+
 let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
 var lat = airport.lat;
 var long = airport.long;
