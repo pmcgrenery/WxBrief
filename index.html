@@ -72,18 +72,8 @@
     <!-- RADAR Section -->
     <main id="radar-section">
         <div id="radar-map-container">
-
-
             <div id="mapid"></div>
             <div id="map-display-type">
-                <!-- <input id="toggle-on" class="toggle toggle-left" name="toggle" value="false" type="radio"
-                    onclick="setKind('radar')" checked>
-                <label for="toggle-on" class="type-btn">Radar</label>
-
-                <input id="toggle-off" class="toggle toggle-right" name="toggle" value="true" type="radio"
-                    onclick="setKind('satellite')">
-                <label for="toggle-off" class="type-btn">Satellite</label> -->
-
                 <div class="type-button selected-left" id="radar" onclick="setKind('radar')">
                     Radar</div>
                 <div class="type-button" id="sat" onclick="setKind('satellite')">
@@ -105,10 +95,11 @@
             </div>
         </div>
     </main>
+    <!-- Footer -->
     <footer>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col">
+                <div class="col d-flex justify-content-center">
                     <a class="sm-icons" href="https://www.facebook.com/" target="_blank" rel="noopener">
                         <i class="fab fa-facebook-square" aria-hidden="true"></i>
                         <span class="sr-only">Facebook</span>
@@ -120,7 +111,16 @@
                 </div>
             </div>
         </div>
-        company name copyright 2021
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center">
+                    <p><i class="far fa-copyright" aria-hidden="true"></i> Copyright 2021 - WxBrief | All Rights
+                        Reserved | Website by
+                        <a href="https://www.linkedin.com/in/padraig-mcgrenery/" target="_blank" rel="noopener">Padraig
+                            McGrenery</a></p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Bootstrap Javascript -->
