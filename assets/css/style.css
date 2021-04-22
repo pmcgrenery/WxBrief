@@ -187,9 +187,13 @@ h6 {
 }
 
 /* -----------------------------------Radar Map */
+#radar-section {
+    height: 450px;
+}
+
 #radar-map-container {
     width: 100%;
-    height: 450px;
+    height: 100%;
     position: relative;
 }
 
@@ -219,6 +223,7 @@ h6 {
     text-align: center;
     height: 100%;
     line-height: 27px;
+    cursor: pointer;
 }
 
 .selected-left {
@@ -360,7 +365,39 @@ td {
     padding: .4rem 1rem;
 }
 
+/* ----------------------------------------------Footer */
 
+.sm-icons {
+    font-size: 2rem;
+    text-align: center;
+    color: #f0863a;
+    margin: 26px 22px;
+    text-decoration: none;
+
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.sm-icons:hover {
+    color: #bb6629;
+}
+
+footer p {
+    font-size: 0.7rem;
+}
+
+footer p a {
+    color: #fff;
+}
+
+footer p a:hover,
+footer p a:focus,
+footer p a:active:focus,
+footer p a:active {
+    color: #bebebe;
+}
 
 /* MEDIA QUERIES */
 
@@ -388,6 +425,10 @@ td {
     #landing-card {
         padding-top: 9vh;
     }
+
+    #radar-section {
+        height: 550px;
+    }
 }
 
 /* SCREEN SIZE LG and up */
@@ -396,6 +437,11 @@ td {
     #logo {
         width: 230px;
     }
+
+    #radar-section {
+        height: 600px;
+        padding: 100px 100px 0 100px;
+    }
 }
 
 /* SCREEN SIZE XL and up */
@@ -403,6 +449,11 @@ td {
 
     #logo {
         width: 240px;
+    }
+
+    #radar-section {
+        height: 650px;
+        padding: 125px 150px 0 150px;
     }
 }
 
@@ -421,13 +472,26 @@ td {
     }
 }
 
-/* Apple iMac 5K monitor */
-@media screen and (min-width:1950px) {
+/* 1900px wide and up */
+@media screen and (min-width:1900px) {
     #logo {
         width: 260px;
     }
 
     #landing-card {
         padding-top: 12vh;
+    }
+
+    #radar-section {
+        height: 750px;
+        padding: 125px 200px 0 200px;
+    }
+}
+
+@media screen and (min-width:2500px) {
+
+    #radar-section {
+        height: 900px;
+        padding: 125px 375px 0 375px;
     }
 }
