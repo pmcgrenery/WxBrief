@@ -10,6 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FONT AWESOME CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- Leaflet Maps CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -42,31 +44,82 @@
                         </div>
                     </div>
                 </nav>
-
             </header>
-            <main>
-                <div id="landing-card">
-                    <div id="landing-header">
-                        <img src="assets/images/landing-header-white.svg" alt="Aviation Weather, By Pilots for Pilots">
-                        <h2 class="sr-only">Aviation Weather, By Pilots for Pilots</h2>
-                    </div>
-                    <div id="landing-intro">
-                        <p>Realtime METAR's, TAF's, radar and satellite imagery for every major airport in
-                            the world.</p>
-                    </div>
-                    <div id="landing-ethos">
-                        <h3><em>Know what lies ahead...</em></h3>
-                    </div>
-                    <div id="landing-button">
-                        <a href="airports.html" class="btn btn-primary btn-lg" role="button">Get Briefed</a>
-                    </div>
+
+            <!-- Landing Page -->
+            <div id="landing-card">
+
+                <div id="landing-header" class="card-child">
+                    <img src="assets/images/landing-header-white.svg" alt="Aviation Weather, By Pilots for Pilots">
+                    <h2 class="sr-only">Aviation Weather, By Pilots for Pilots</h2>
                 </div>
-            </main>
+
+                <div id="landing-intro" class="card-child">
+                    <p>Realtime METAR's, TAF's, radar and satellite imagery for every major airport in
+                        the world.</p>
+                </div>
+
+                <div id="landing-button" class="card-child">
+                    <a href="airports.html" class="btn btn-primary btn-lg" role="button">Get Briefed</a>
+                </div>
+
+                <a id="down-button" href="#radar-section" class="card-child">
+                    <i class="fas fa-chevron-down" aria-hidden="true" aria-label="Down to Radar section"></i>
+                </a>
+            </div>
         </div>
     </div>
+    <!-- RADAR Section -->
+    <main id="radar-section">
+        <div id="radar-map-container">
+
+
+            <div id="mapid"></div>
+            <div id="map-display-type">
+                <!-- <input id="toggle-on" class="toggle toggle-left" name="toggle" value="false" type="radio"
+                    onclick="setKind('radar')" checked>
+                <label for="toggle-on" class="type-btn">Radar</label>
+
+                <input id="toggle-off" class="toggle toggle-right" name="toggle" value="true" type="radio"
+                    onclick="setKind('satellite')">
+                <label for="toggle-off" class="type-btn">Satellite</label> -->
+
+                <div class="type-button selected-left" id="radar" onclick="setKind('radar')">
+                    Radar</div>
+                <div class="type-button" id="sat" onclick="setKind('satellite')">
+                    Satellite</div>
+            </div>
+            <div id="control-bar">
+                <div id="play-toggle" type="button" onclick="playStop();">
+                    <i class="fas fa-play playPause" aria-label="Play"></i>
+                    <i class="fas fa-pause playPause" aria-label="Pause" style="display:none"></i>
+                </div>
+                <div id="last-frame" type="button" onclick="stop(); showFrame(animationPosition - 1); return;">
+                    <i class="fas fa-chevron-left" aria-label="Last Frame"></i>
+                </div>
+                <div id="timestamp">Frame Time</div>
+                <div id="next-frame" type="button" onclick="stop(); showFrame(animationPosition + 1); return;">
+                    <i class="fas fa-chevron-right" aria-label="Next Frame"></i>
+                </div>
+
+            </div>
+        </div>
+    </main>
     <footer>
-        Return to the top(Right hand side)
-        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a class="sm-icons" href="https://www.facebook.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                        <span class="sr-only">Facebook</span>
+                    </a>
+                    <a class="sm-icons" href="https://www.instagram.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
         company name copyright 2021
     </footer>
 
@@ -74,12 +127,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- JQuery JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Default Airports JS -->
-    <script src="assets/js/defaultairports.js"></script>
-    <!-- Airport Data JS -->
-    <script src="assets/js/airportdata.js"></script>
-    <!-- Load Data JS -->
-    <script src="assets/js/selectairport.js"></script>
+    <!-- Leaflet Maps JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Leaflet Provider JS -->
+    <script src="assets/js/leaflet-providers.js"></script>
+    <!-- Rainviewer JS -->
+    <script src="assets/js/rainviewer-landing-page.js"></script>
 
 </body>
 
