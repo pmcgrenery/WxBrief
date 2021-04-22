@@ -1,6 +1,6 @@
 /*---------------------------------------- Fonts */
 
-@import url('https://fonts.googleapis.com/css2?family=B612:wght@400;700&family=Lexend+Zetta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans&display=swap');
 
 /* TESTERS */
 
@@ -23,7 +23,9 @@
 
 /*-------------------------------------- General */
 body {
-    font-family: 'B612', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: #3b3b3b;
+    color: #fff;
 }
 
 h1,
@@ -44,46 +46,88 @@ h6 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    min-height: 100vh;
+    min-height: 102vh;
 }
 
 #opaque-overlay {
-    background-color: rgb(0 0 0 / 35%);
-    min-height: 100vh;
-    /* width: 100%;
-    position: absolute; */
+    background-color: rgb(0 0 0 / 55%);
+    min-height: 102vh;
+}
+
+#landing-card {
+    height: 78vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+}
+
+.card-child {
+    width: 100%;
+    height: 100%;
+}
+
+#landing-header {
+    padding-bottom: 3vh;
 }
 
 #landing-header img {
-    height: 33vh;
+    height: 100%;
     max-width: 90vw;
     display: block;
     margin: 0 auto;
-}
-
-#landing-ethos {
-    text-align: center;
-    color: #fff;
-    width: 100%;
 }
 
 #landing-intro {
     text-align: center;
     color: #fff;
     width: 80%;
+    margin: 0 auto;
     max-width: 450px;
-    margin: 5vh auto;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
 }
 
 #landing-button {
     text-align: center;
     color: #fff;
-    width: 80%;
-    max-width: 450px;
     margin: 0 auto;
-    padding: 7vh 0;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+#down-button {
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
+    font-size: 2rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #f0863a;
+    border-color: #673816;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:active:focus {
+    background-color: #bb6629;
+    border-color: #000;
+    -webkit-box-shadow: 0 0 3px 0.25rem #0000004d;
+    box-shadow: 0 0 3px 0.25rem #0000004d;
+}
+
+
 
 /*-------------------------------------- Header */
 /* .sticky-top {
@@ -91,7 +135,7 @@ h6 {
 } */
 
 #logo {
-    width: 200px;
+    width: 170px;
 }
 
 #clr-airports {
@@ -145,16 +189,54 @@ h6 {
 /* -----------------------------------Radar Map */
 #radar-map-container {
     width: 100%;
-    height: 400px;
+    height: 450px;
+    position: relative;
 }
 
-#map-display-type button {
-    display: inline-block;
-    border: 0;
-    margin-right: -4px;
-    width: 50%;
-    border-radius: 0;
+#map-display-type {
+    height: 30px;
+    width: 210px;
+    border-radius: 15px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 50%);
+    background-color: #c6cfd1;
+    border: 1px solid #000;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
 }
+
+.type-button {
+    color: #000;
+    width: 50%;
+    text-align: center;
+    height: 100%;
+    line-height: 27px;
+}
+
+.selected-left {
+    background: #f0863a;
+    color: #fff;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.selected-right {
+    background: #f0863a;
+    color: #fff;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* https://codepen.io/magnificode/pen/ojYJJP */
+
 
 #mapid {
     width: 100%;
@@ -167,9 +249,9 @@ h6 {
     align-items: center;
     color: #000;
     font-size: 18px;
-    position: relative;
+    position: absolute;
     z-index: 1;
-    bottom: 70px;
+    bottom: 22px;
     left: 50%;
     transform: translate(-50%, 0);
     height: 44px;
@@ -292,7 +374,7 @@ td {
 /* SCREEN SIZE SM and up */
 @media screen and (min-width:576px) {
     #logo {
-        width: 225px;
+        width: 210px;
     }
 }
 
@@ -300,7 +382,7 @@ td {
 @media screen and (min-width:768px) {
 
     #logo {
-        width: 250px;
+        width: 220px;
     }
 
     #landing-card {
@@ -312,7 +394,7 @@ td {
 @media screen and (min-width:992px) {
 
     #logo {
-        width: 275px;
+        width: 230px;
     }
 }
 
@@ -320,7 +402,7 @@ td {
 @media screen and (min-width:1200px) {
 
     #logo {
-        width: 300px;
+        width: 240px;
     }
 }
 
@@ -328,21 +410,21 @@ td {
 @media screen and (min-width:1400px) {
 
     #logo {
-        width: 325px;
+        width: 250px;
     }
 }
 
 /* 1600px wide and up */
 @media screen and (min-width:1600px) {
     #logo {
-        width: 350px;
+        width: 250px;
     }
 }
 
 /* Apple iMac 5K monitor */
 @media screen and (min-width:1950px) {
     #logo {
-        width: 375px;
+        width: 260px;
     }
 
     #landing-card {
