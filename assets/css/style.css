@@ -411,16 +411,12 @@ footer p a:active {
 /* SCREEN SIZE SM and up */
 @media screen and (min-width:576px) {
     #logo {
-        width: 210px;
+        width: 180px;
     }
 }
 
 /* SCREEN SIZE MD and up */
 @media screen and (min-width:768px) {
-
-    #logo {
-        width: 220px;
-    }
 
     #landing-card {
         padding-top: 9vh;
@@ -435,7 +431,7 @@ footer p a:active {
 @media screen and (min-width:992px) {
 
     #logo {
-        width: 230px;
+        width: 190px;
     }
 
     #radar-section {
@@ -448,7 +444,7 @@ footer p a:active {
 @media screen and (min-width:1200px) {
 
     #logo {
-        width: 240px;
+        width: 195px;
     }
 
     #radar-section {
@@ -461,21 +457,21 @@ footer p a:active {
 @media screen and (min-width:1400px) {
 
     #logo {
-        width: 250px;
+        width: 200px;
     }
 }
 
 /* 1600px wide and up */
 @media screen and (min-width:1600px) {
     #logo {
-        width: 250px;
+        width: 210px;
     }
 }
 
 /* 1900px wide and up */
 @media screen and (min-width:1900px) {
     #logo {
-        width: 260px;
+        width: 220px;
     }
 
     #landing-card {
@@ -488,7 +484,11 @@ footer p a:active {
     }
 }
 
+/*  Apple 4k Monitor */
 @media screen and (min-width:2500px) {
+    #logo {
+        width: 250px;
+    }
 
     #radar-section {
         height: 900px;
