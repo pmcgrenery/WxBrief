@@ -9,15 +9,40 @@ function setFrameTime(frame) {
     document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
 }
 
+// Toggler to change the play/pause icon
 $("#play-toggle").click(function () {
     $(".playPause").toggle();
 })
+
+$("#sat").click(function () {
+    $("#radar").removeClass("selected-left");
+    $("#sat").addClass("selected-right");
+});
+
+$("#radar").click(function () {
+    $("#sat").removeClass("selected-right");
+    $("#radar").addClass("selected-left");
+});
 
 let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
 var lat = airport.lat;
 var long = airport.long;
 
-var map = L.map('mapid').setView([lat, long], 6);
+var map = L.map('mapid', {
+    center: [lat, long],
+    zoom: 6,
+    // Allow infinite zoom levels
+    zoomSnap: 0,
+    // Zoom button detents
+    zoomDelta: 0.5,
+    //Zoom scroll speed
+    wheelPxPerZoomLevel: 80,
+    //Disable single finger drag
+    dragging: !L.Browser.mobile,
+    dragging: !L.Browser.mobileWebkit,
+    tap: !L.Browser.mobile,
+    tap: !L.Browser.mobileWebkit
+});
 
 //Openstreet Map Layer (Alternative to Mapbox)
 // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
