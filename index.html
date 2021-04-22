@@ -14,46 +14,56 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body id="landing-page-body">
-    <header class="sticky-top">
-        <!-- Bootstrap navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light header-nav">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img id="logo" src="assets/images/wx-brief-logo-white.svg">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link hvr-underline-from-center" href="aboutus.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link hvr-underline-from-center" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
+<body>
+    <div id="landing-page-bg">
+        <div id="opaque-overlay">
+            <header class="sticky-top">
+                <!-- Bootstrap navbar -->
+                <nav class="navbar navbar-expand-lg navbar-light header-nav">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="index.html">
+                            <img id="logo" src="assets/images/wx-brief-logo-white.svg">
+                            <h1 class="sr-only">WxBrief</h1>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon "></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link hvr-underline-from-center" href="aboutus.html">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link hvr-underline-from-center" href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+            </header>
+            <main>
+                <div id="landing-card">
+                    <div id="landing-header">
+                        <img src="assets/images/landing-header-white.svg" alt="Aviation Weather, By Pilots for Pilots">
+                        <h2 class="sr-only">Aviation Weather, By Pilots for Pilots</h2>
+                    </div>
+                    <div id="landing-intro">
+                        <p>Realtime METAR's, TAF's, radar and satellite imagery for every major airport in
+                            the world.</p>
+                    </div>
+                    <div id="landing-ethos">
+                        <h3><em>Know what lies ahead...</em></h3>
+                    </div>
+                    <div id="landing-button">
+                        <a href="airports.html" class="btn btn-primary btn-lg" role="button">Get Briefed</a>
+                    </div>
                 </div>
-            </div>
-        </nav>
-
-    </header>
-    <main>
-        <div id="landing-card">
-            <div id="landing-header">
-                <img src="assets/images/landing-header.svg" alt="Aviation Weather, By Pilots for Pilots">
-            </div>
-            <div id="landing-body">
-                <h2><em>Know what lies ahead...</em></h2>
-                <p>Realtime METAR's, TAF's, radar and satellite imagery for every major airport in
-                    the world.</p>
-
-                <a href="airports.html" class="btn btn-primary btn-lg" role="button">Get Briefed</a>
-            </div>
+            </main>
         </div>
-    </main>
+    </div>
     <footer>
         Return to the top(Right hand side)
         <hr>

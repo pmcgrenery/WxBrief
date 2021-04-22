@@ -38,12 +38,51 @@ h6 {
 
 /*-------------------------------- Landing Page */
 
-#landing-page-body {
-    background: url(../images/stratus-clouds.jpg) no-repeat center center fixed;
+#landing-page-bg {
+    background: url(../images/stratus-clouds.jpg) no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    min-height: 100vh;
+}
+
+#opaque-overlay {
+    background-color: rgb(0 0 0 / 35%);
+    min-height: 100vh;
+    /* width: 100%;
+    position: absolute; */
+}
+
+#landing-header img {
+    height: 33vh;
+    max-width: 90vw;
+    display: block;
+    margin: 0 auto;
+}
+
+#landing-ethos {
+    text-align: center;
+    color: #fff;
+    width: 100%;
+}
+
+#landing-intro {
+    text-align: center;
+    color: #fff;
+    width: 80%;
+    max-width: 450px;
+    margin: 5vh auto;
+}
+
+#landing-button {
+    text-align: center;
+    color: #fff;
+    width: 80%;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 7vh 0;
+    font-size: 1rem;
 }
 
 /*-------------------------------------- Header */
@@ -243,10 +282,12 @@ td {
 
 /* MEDIA QUERIES */
 
-/* SCREEN SIZE XS */
-/* @media screen and (max-width:575px){
-
-} */
+/* SCREEN SIZE LARGER THAN IPHONE 5 */
+@media screen and (min-width:325px) {
+    #landing-card {
+        padding-top: 3vh;
+    }
+}
 
 /* SCREEN SIZE SM and up */
 @media screen and (min-width:576px) {
@@ -260,6 +301,10 @@ td {
 
     #logo {
         width: 250px;
+    }
+
+    #landing-card {
+        padding-top: 9vh;
     }
 }
 
@@ -298,5 +343,9 @@ td {
 @media screen and (min-width:1950px) {
     #logo {
         width: 375px;
+    }
+
+    #landing-card {
+        padding-top: 12vh;
     }
 }
