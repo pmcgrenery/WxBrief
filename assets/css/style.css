@@ -133,6 +133,17 @@ h6 {
 /* .sticky-top {
     background-color: white;
 } */
+.fixed-top {
+    transition: all 0.4s ease-in-out;
+    background-color: transparent;
+}
+
+.active {
+    background: #3b3b3b;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
 
 #logo {
     width: 170px;
