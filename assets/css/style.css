@@ -123,16 +123,17 @@ h6 {
     text-decoration: none;
 }
 
-.btn-primary {
+#get-briefed {
     color: #fff;
     background-color: #f0863a;
     border-color: #673816;
+    transition: all 0.05s linear;
 }
 
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus,
-.btn-primary:active:focus {
+#get-briefed:hover,
+#get-briefed:active,
+#get-briefed:focus,
+#get-briefed:active:focus {
     background-color: #bb6629;
     border-color: #000;
     -webkit-box-shadow: 0 0 3px 0.25rem #0000004d;
@@ -238,7 +239,7 @@ h6 {
 }
 
 .fixed-top {
-    transition: all 0.25s ease-in-out;
+    transition: all 0.15s ease-in-out;
     background-color: transparent;
 }
 

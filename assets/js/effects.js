@@ -40,4 +40,24 @@ $(document).ready(function () {
     console.log(hh);
     $("#airports").css("margin-top", `${hh}px`);
     $(".airport-details").css("margin-top", `${hh}px`);
+
+    // Button press animation
+    $("#get-briefed").click(function (event) {
+        // Stop the link instantly firing
+        event.preventDefault();
+        let href = $(this).attr('href');
+
+        // Do the animation
+        $(this).addClass("shrink");
+        $(this).delay(50).queue(function () {
+            $(this).addClass("grow")
+        });
+
+        // Follow the link
+        setTimeout(function () {
+            window.location.href = href;
+        }, 100)
+
+    });
+
 });
