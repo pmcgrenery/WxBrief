@@ -80,15 +80,15 @@
                     Satellite</div>
             </div>
             <div id="control-bar">
-                <div id="play-toggle" type="button" onclick="playStop();">
+                <div id="play-toggle" onclick="playStop();">
                     <i class="fas fa-play playPause" aria-label="Play"></i>
                     <i class="fas fa-pause playPause" aria-label="Pause" style="display:none"></i>
                 </div>
-                <div id="last-frame" type="button" onclick="stop(); showFrame(animationPosition - 1); return;">
+                <div id="last-frame" onclick="stop(); showFrame(animationPosition - 1); return;">
                     <i class="fas fa-chevron-left" aria-label="Last Frame"></i>
                 </div>
                 <div id="timestamp">Frame Time</div>
-                <div id="next-frame" type="button" onclick="stop(); showFrame(animationPosition + 1); return;">
+                <div id="next-frame" onclick="stop(); showFrame(animationPosition + 1); return;">
                     <i class="fas fa-chevron-right" aria-label="Next Frame"></i>
                 </div>
 

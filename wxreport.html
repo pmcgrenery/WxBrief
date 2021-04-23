@@ -27,7 +27,15 @@
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
+
+                    <!-- <span class="navbar-toggler-icon "></span> -->
+                    <div id="burger">
+                        <div class="line" id="line-one"></div>
+                        <div class="line" id="line-two"></div>
+                        <div class="line" id="line-three"></div>
+                    </div>
+
+
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
@@ -95,15 +103,15 @@
                             Satellite</div>
                     </div>
                     <div id="control-bar">
-                        <div id="play-toggle" type="button" onclick="playStop();">
+                        <div id="play-toggle" onclick="playStop();">
                             <i class="fas fa-play playPause" aria-label="Play"></i>
                             <i class="fas fa-pause playPause" aria-label="Pause" style="display:none"></i>
                         </div>
-                        <div id="last-frame" type="button" onclick="stop(); showFrame(animationPosition - 1); return;">
+                        <div id="last-frame" onclick="stop(); showFrame(animationPosition - 1); return;">
                             <i class="fas fa-chevron-left" aria-label="Last Frame"></i>
                         </div>
                         <div id="timestamp">Frame Time</div>
-                        <div id="next-frame" type="button" onclick="stop(); showFrame(animationPosition + 1); return;">
+                        <div id="next-frame" onclick="stop(); showFrame(animationPosition + 1); return;">
                             <i class="fas fa-chevron-right" aria-label="Next Frame"></i>
                         </div>
 
@@ -128,6 +136,8 @@
     <script src="assets/js/rainviewer.js"></script>
     <!-- Time Zone JS -->
     <script src="assets/js/timezonedb.js"></script>
+    <!-- Custom Effects JS -->
+    <script src="assets/js/effects.js"></script>
 </body>
 
 </html>

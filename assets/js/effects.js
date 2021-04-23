@@ -6,3 +6,20 @@ $(window).on("scroll", function () {
         $(".fixed-top").removeClass("active");
     }
 });
+
+let menuOpen = false;
+
+$("#burger").click(function () {
+    console.log(menuOpen);
+    if (!menuOpen) {
+        $("#line-one").addClass("rotate-top");
+        $("#line-two").addClass("slide-out");
+        $("#line-three").addClass("rotate-bottom");
+        menuOpen = true;
+    } else {
+        $("#line-one").removeClass("rotate-top");
+        $("#line-two").removeClass("slide-out");
+        $("#line-three").removeClass("rotate-bottom");
+        menuOpen = false;
+    }
+})
