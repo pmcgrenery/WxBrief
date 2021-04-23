@@ -236,6 +236,10 @@ h6 {
 
 
 /*-------------------------------- Airports Page */
+.ap-controls {
+    padding-top: 100px;
+}
+
 #clr-airports {
     float: left;
     position: relative;

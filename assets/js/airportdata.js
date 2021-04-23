@@ -185,9 +185,12 @@ $(document).on('keydown', function (event) {
 });
 
 $("#airports").on("click", ".delete-container", function () {
+    console.log("Deleting")
     let parentIndex = $(this).parent().index()
-    console.log("Delete:", parentIndex);
-    deleteAirport(parentIndex);
+    $(this).parent().slideUp(200);
+    setTimeout(function () {
+        deleteAirport(parentIndex)
+    }, 200);
 })
 
 $("#btn-del-airport").on("click", function () {
