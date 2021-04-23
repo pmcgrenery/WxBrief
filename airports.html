@@ -16,7 +16,6 @@
 
 <body>
     <header class="fixed-top opaque-header">
-        <!-- Bootstrap navbar -->
         <nav>
             <div class="container-fluid header-bar">
                 <a class="brand" href="index.html">
@@ -46,7 +45,7 @@
             </div>
         </nav>
 
-        <!-- Clear, Delete, Add -->
+        <!-- Airport, Clear, Delete, Add -->
         <div class="container-fluid ap-header">
             <div class="row">
                 <h2 id="ap-header">Airports</h2>
@@ -109,17 +108,35 @@
             </div>
         </div>
     </div>
-    <main>
-        <!-- Welcome Message -->
-        <div class="container-fluid" id="welcome-container">
+    <!-- Welcome Modal -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-label="Welcome to WxBrief" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="clearModal()"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h3>Welcome to WxBrief!</h3>
+                    <p>We've added some airports for you to get you started.</p>
+                    <p>- To clear all airports click on the Clear button</p>
+                    <p>- To add an airport, click on <i class="fas fa-plus"></i></p>
+                    <p>- To remove an airport, click on <i class="far fa-edit"></i></p>
+                    <p>Enjoy!</p>
+                </div>
+            </div>
         </div>
+    </div>
+    <main>
         <!-- Airports -->
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5">
-                    <div id="airports"></div>
+                    <div id="airports">
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
     </main>
     <!-- Footer -->

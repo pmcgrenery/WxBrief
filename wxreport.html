@@ -18,8 +18,7 @@
 </head>
 
 <body>
-    <header class="fixed-top">
-        <!-- Bootstrap navbar -->
+    <header class="fixed-top opaque-header">
         <nav>
             <div class="container-fluid header-bar">
                 <a class="brand" href="index.html">
@@ -48,17 +47,22 @@
                 </ul>
             </div>
         </nav>
-    </header>
-    <!-- Clear Button, Airports Header and Add Button -->
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-12 bg-blue">
-                <a type="button" class="btn btn-primary" id="back-btn" href="index.html">
-                    <i class="fas fa-caret-left"></i> Back
-                </a>
+
+        <!-- Back -->
+        <div class="container-fluid ap-header">
+            <div class="row">
+                <h2 id="ap-header">Airports</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 ap-controls">
+                    <a type="button" class="btn btn-primary" id="back-btn" href="airports.html">
+                        <i class="fas fa-caret-left" aria-hidden="true"></i> Back
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-11 col-sm-9 col-md-8 col-lg-5 ">

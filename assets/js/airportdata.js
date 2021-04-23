@@ -21,25 +21,15 @@ function loadStoredAirports() {
 
     let loadedAirports = JSON.parse(localStorage.getItem('airports'));
     //---------------------------------clear local storage trigger------------------------------------
-    // localStorage.clear();
+    localStorage.clear();
     //Check if loadedAirports exists in localStorage
     if (loadedAirports === null) {
         airports = defaultAirports;
         //Set the first time user's airports in local storage to the default airports
         localStorage.setItem('airports', JSON.stringify(airports));
         console.log('Welcome to WxBrief, here are some airports to get you started:', airports);
+        $("#welcomeModal").modal("show");
 
-        $("#welcome-container").html(`<div class="row justify-content-center">
-            <div class="col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5 mt-3">
-                <div id="welcome" class="text-center">
-                    <h3>Welcome to WxBrief, here are some airports to get you started</h3>
-                    <p>- To clear all airports click on the Clear button</p>
-                    <p>- To add an airport, click on <i class="fas fa-plus"></i></p>
-                    <p>- To remove an airport, click on <i class="far fa-edit"></i></p>
-                    <p>Enjoy!</p>
-                </div>
-            </div>
-        </div>`);
     } else if (loadedAirports.length > 0) {
         airports = loadedAirports;
         console.log('Your Stored Airports:', airports);
