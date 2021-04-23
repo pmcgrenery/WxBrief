@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <header class="fixed-top">
+    <header class="fixed-top opaque-header">
         <!-- Bootstrap navbar -->
         <nav>
             <div class="container-fluid header-bar">
@@ -45,68 +45,71 @@
                 </ul>
             </div>
         </nav>
-    </header>
-    <!-- Clear Button, Airports Header and Add Button -->
-    <div class="container-fluid ap-controls">
-        <div class="row justify-content-center">
-            <div class="col-12 bg-blue">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clearAirports"
-                    aria-label="Clear all airports" id="clr-airports">
-                    Clear
-                    <span class="sr-only">Clear All Airports</span>
-                </button>
+
+        <!-- Clear, Delete, Add -->
+        <div class="container-fluid ap-header">
+            <div class="row">
                 <h2 id="ap-header">Airports</h2>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAirport"
-                    aria-label="Add Airport" id="btn-add-airport">
-                    <i class="fas fa-plus" aria-hidden="true"></i>
-                    <span class="sr-only">Add Airport</span>
-                </button>
-                <button type="button" class="btn btn-primary" aria-label="Delete Airport" id="btn-del-airport">
-                    <i class="fas fa-edit" aria-hidden="true"></i>
-                    <span class="sr-only">Delete Airport</span>
-                </button>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 ap-controls">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clearAirports"
+                        aria-label="Clear all airports" id="clr-airports">
+                        Clear
+                        <span class="sr-only">Clear All Airports</span>
+                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAirport"
+                        aria-label="Add Airport" id="btn-add-airport">
+                        <i class="fas fa-plus" aria-hidden="true"></i>
+                        <span class="sr-only">Add Airport</span>
+                    </button>
+                    <button type="button" class="btn btn-primary" aria-label="Delete Airport" id="btn-del-airport">
+                        <i class="fas fa-edit" aria-hidden="true"></i>
+                        <span class="sr-only">Delete Airport</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Clear Airports Modal -->
+    <div class="modal fade" id="clearAirports" tabindex="-1" aria-label="Clear Airports?" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <h3>Are you sure you want to clear all airports?</h3>
+                    <button type="button" class="btn btn-light mx-4" onclick='clearAirports()'>
+                        Yes</button>
+                    <button type="button" class="btn btn-danger mx-4" data-bs-dismiss="modal" aria-label="Close">
+                        No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- addAirport Modal -->
+    <div class="modal fade" id="addAirport" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="ModalLabel">ADD AIRPORT</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="clearModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="airportInput" class="form-label">Enter the airport's ICAO Code:</label>
+                            <input type="text" class="form-control" id="airportInput" placeholder="e.g. EGLL" autofocus
+                                maxlength="4">
+                        </div>
+                        <div id="warning"></div>
+                        <button type="button" class="btn btn-primary" onclick='fetchAirportInfo()'>Add
+                            Airport</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
     <main>
-        <!-- Clear Airports Modal -->
-        <div class="modal fade" id="clearAirports" tabindex="-1" aria-label="Clear Airports?" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <h3>Are you sure you want to clear all airports?</h3>
-                        <button type="button" class="btn btn-light mx-4" onclick='clearAirports()'>
-                            Yes</button>
-                        <button type="button" class="btn btn-danger mx-4" data-bs-dismiss="modal" aria-label="Close">
-                            No</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- addAirport Modal -->
-        <div class="modal fade" id="addAirport" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title" id="ModalLabel">ADD AIRPORT</h3>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                            onclick="clearModal()"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="airportInput" class="form-label">Enter the airport's ICAO Code:</label>
-                                <input type="text" class="form-control" id="airportInput" placeholder="e.g. EGLL"
-                                    autofocus maxlength="4">
-                            </div>
-                            <div id="warning"></div>
-                            <button type="button" class="btn btn-primary" onclick='fetchAirportInfo()'>Add
-                                Airport</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- Welcome Message -->
         <div class="container-fluid" id="welcome-container">
         </div>
@@ -118,15 +121,33 @@
                 </div>
             </div>
         </div>
-
-
     </main>
-    <footer>
-        <a id="down-button" href="#radar-section" class="card-child">
-            <i class="fas fa-chevron-circle-up" aria-label="Back to Top"></i>
-        </a>
-        <hr>
-        company name copyright 2021
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <a class="sm-icons" href="https://www.facebook.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                        <span class="sr-only">Facebook</span>
+                    </a>
+                    <a class="sm-icons" href="https://www.instagram.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center">
+                    <p><i class="far fa-copyright" aria-hidden="true"></i> Copyright 2021 - WxBrief | All Rights
+                        Reserved | Website by
+                        <a href="https://www.linkedin.com/in/padraig-mcgrenery/" target="_blank" rel="noopener">Padraig
+                            McGrenery</a></p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Bootstrap Javascript -->

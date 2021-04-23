@@ -22,21 +22,33 @@
 }
 
 /*-------------------------------------- General */
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'IBM Plex Sans', sans-serif;
     background: #3b3b3b;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
-h1,
+/* Sticky footer youtube.com/watch?v=yc2olxLgKLk */
+footer {
+    margin-top: auto;
+}
+
+/* h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: 'Lexend Zetta', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 700;
-}
+} */
 
 /*-------------------------------- Landing Page */
 
@@ -138,8 +150,9 @@ h6 {
     height: 30px;
     position: relative;
     display: block;
-    z-index: 2;
+    z-index: 10000;
     margin-right: 1rem;
+    cursor: pointer;
 }
 
 .line {
@@ -174,6 +187,7 @@ h6 {
 /*----------------------------- Collapsable Nav */
 
 .nav-menu {
+    z-index: 9999;
     width: 80vw;
     max-width: 300px;
     height: 100vh;
@@ -205,11 +219,16 @@ h6 {
 }
 
 /*-------------------------------------- Header */
+.opaque-header {
+    background-color: #3b3b3b !important;
+}
+
 .header-bar {
     width: 100%;
     height: auto;
     display: flex;
     margin-top: 10px;
+    margin-bottom: 10px;
     padding-right: 0;
 }
 
@@ -236,49 +255,68 @@ h6 {
 
 
 /*-------------------------------- Airports Page */
+/* Header & Controls */
+#ap-header {
+    text-align: center;
+    background: #5b5b5b;
+    padding: 4px 0;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+}
+
 .ap-controls {
-    padding-top: 100px;
+    background: #3c3c3c;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+    background-color: #f0863a;
 }
 
 #clr-airports {
-    float: left;
     position: relative;
     top: 50%;
     transform: translate(0, -50%);
-    color: black;
-}
-
-#ap-header {
-    display: inline-block;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
+    color: #000;
+    background: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
 }
 
 #btn-del-airport {
+    height: 40px;
+    width: 40px;
     float: right;
     position: relative;
     top: 50%;
     transform: translate(0, -50%);
     background: none;
     border: none;
-    font-size: 140%;
-    color: black;
+    font-size: 1.3rem;
+    color: #000;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 25px;
 }
 
 #btn-add-airport {
+    height: 40px;
+    width: 40px;
     float: right;
     position: relative;
     top: 50%;
     transform: translate(0, -50%);
     background: none;
     border: none;
-    font-size: 140%;
-    color: black;
+    font-size: 1.3rem;
+    color: #000;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
-#back-btn {
-    float: right;
+/* Airports Section */
+
+#airports {
+    /* Default value that gets overwritten by js */
+    margin-top: 149px;
 }
 
 #welcome {
@@ -286,6 +324,64 @@ h6 {
     width: 100%;
     border-radius: 10px;
     padding: 1rem;
+}
+
+.delete-container {
+    display: none;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 15%;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: grey;
+}
+
+.delete {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.airport-selector {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    color: #fff;
+    background: #6d6d6d;
+    background-image: -webkit-linear-gradient(top, #636363, #484848);
+    background-image: -moz-linear-gradient(top, #636363, #484848);
+    background-image: -ms-linear-gradient(top, #636363, #484848);
+    background-image: -o-linear-gradient(top, #636363, #484848);
+    background-image: -webkit-gradient(to bottom, #636363, #484848);
+    -webkit-box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    transition: all 0.05s linear;
+}
+
+.airport-selector p {
+    margin: .3rem 0;
+    font-size: 1rem;
+}
+
+.airport-selector span {
+    font-size: 1.2rem;
+}
+
+.shrink {
+    transform: scale(0.95);
+}
+
+.grow {
+    transform: scale(1);
 }
 
 /* -----------------------------------Radar Map */
@@ -412,44 +508,13 @@ h6 {
     font-size: 7px !important;
 }
 
-/* ------------------------------------------------ */
-
-.navbar-brand h1 {
-    display: inline-block;
-}
+/* ------------------------------------------------Modals */
 
 #airportInput {
     text-transform: uppercase;
 }
 
-.delete-container {
-    display: none;
-    font-size: 1.5rem;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 15%;
-    height: 100%;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: grey;
-}
 
-.delete {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.airport-selector {
-    background-color: lightgrey;
-    width: 100%;
-    cursor: pointer;
-    border-radius: 10px;
-    position: relative;
-}
 
 .airport-text {
     width: 85%;
