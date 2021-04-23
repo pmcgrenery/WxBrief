@@ -21,7 +21,9 @@ function loadStoredAirports() {
 
     let loadedAirports = JSON.parse(localStorage.getItem('airports'));
     //---------------------------------clear local storage trigger------------------------------------
-    localStorage.clear();
+    // To clear the local storage file uncomment this and refresh the page.
+    // localStorage.clear();
+
     //Check if loadedAirports exists in localStorage
     if (loadedAirports === null) {
         airports = defaultAirports;

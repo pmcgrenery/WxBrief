@@ -1,4 +1,4 @@
-/*---------------------------------------- Fonts */
+/*------------------------------------------------------------------------------------------------ Fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans&display=swap');
 
@@ -21,7 +21,7 @@
     padding: .7rem;
 }
 
-/*-------------------------------------- General */
+/*-------------------------------------------------------------------------------------------------- General */
 html {
     height: 100%;
 }
@@ -50,7 +50,7 @@ h6 {
     font-weight: 700;
 } */
 
-/*-------------------------------- Landing Page */
+/*----------------------------------------------------------------------------------------- Landing Page */
 
 #landing-page-bg {
     background: url(../images/stratus-clouds.jpg) no-repeat center center;
@@ -139,7 +139,7 @@ h6 {
     box-shadow: 0 0 3px 0.25rem #0000004d;
 }
 
-/*-------------------------------------- Burger Menu */
+/*------------------------------------------------------------------------------------------------ Burger Menu */
 
 .burger-menu {
     margin: auto 0;
@@ -184,7 +184,7 @@ h6 {
     width: 110%;
 }
 
-/*----------------------------- Collapsable Nav */
+/*----------------------------------------------------------------------------------- Collapsable Nav */
 
 .nav-menu {
     z-index: 9999;
@@ -218,7 +218,7 @@ h6 {
     font-size: 1.4rem;
 }
 
-/*-------------------------------------- Header */
+/*----------------------------------------------------------------------------------------- Header */
 .opaque-header {
     background-color: #3b3b3b !important;
 }
@@ -254,7 +254,7 @@ h6 {
 }
 
 
-/*-------------------------------- Airports Page */
+/*------------------------------------------------------------------------------------------------- Airports Page */
 /* Header & Controls */
 #ap-header {
     text-align: center;
@@ -386,7 +386,7 @@ h6 {
     background-color: #f0863a;
 }
 
-/* -----------------------------------Radar Map */
+/* --------------------------------------------------------------------------------------------------Radar Map */
 #radar-section {
     height: 450px;
 }
@@ -439,9 +439,6 @@ h6 {
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
 }
-
-/* https://codepen.io/magnificode/pen/ojYJJP */
-
 
 #mapid {
     width: 100%;
@@ -510,13 +507,27 @@ h6 {
     font-size: 7px !important;
 }
 
-/* ------------------------------------------------Modals */
+/* ------------------------------------------------------------------------------------------------ Wx Report Page */
+#back-btn {
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: #000;
+    background: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    height: 40px;
+}
+
+.airport-details {
+    /* Default value that gets overwritten by js */
+    margin-top: 149px;
+}
 
 #airportInput {
     text-transform: uppercase;
 }
-
-
 
 .airport-text {
     width: 85%;
@@ -534,7 +545,7 @@ td {
     padding: .4rem 1rem;
 }
 
-/* ----------------------------------------------Footer */
+/* --------------------------------------------------------------------------------------------------Footer */
 
 .sm-icons {
     font-size: 2rem;

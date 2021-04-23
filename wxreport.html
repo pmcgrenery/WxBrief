@@ -63,40 +63,43 @@
         </div>
     </header>
 
-    <div class="container-fluid">
+    <div class="container airport-details">
+        <!-- Airport, Times, Elevation -->
         <div class="row">
-            <div class="col-11 col-sm-9 col-md-8 col-lg-5 ">
+            <div class="col-12">
                 <h2 id="icao-header"></h2>
                 <h2 id="name-header"></h2>
-
+            </div>
+            <div class="col-12">
                 <h3 id="local-time"></h3>
                 <h3 id="elevation"></h3>
                 <h3 id="utc-time"></h3>
+            </div>
+        </div>
 
-                <hr>
+        <!-- Weather & Radar -->
+        <div class="row justify-content-center">
+
+            <!-- Runway, METAR, TAF -->
+            <div class="col-12 col-md-9 col-lg-6 col-xl-5">
+                <div>
+                    <h2>Runways</h2>
+                    <div id="runways">Loading <img src="assets/images/loader.gif" alt="Loading..."></div>
+                </div>
+                <div>
+                    <h2>METAR</h2>
+                    <hr>
+                    <div id="metar">Loading <img src="assets/images/loader.gif" alt="Loading..."></div>
+                </div>
+                <div>
+                    <h2>TAF</h2>
+                    <hr>
+                    <div id="taf">Loading <img src="assets/images/loader.gif" alt="Loading..."></div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-9 col-md-8 col-lg-6">
-                <h2>Runways</h2>
-                <hr>
-                <div id="runways">Loading <img src="assets/images/loader.gif" alt="Loading..."></div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-9 col-md-8 col-lg-6">
-                <h2>METAR</h2>
-                <hr>
-                <div id="metar">Loading <img src="assets/images/loader.gif" alt="Loading..."></div>
-                <h2>TAF</h2>
-                <hr>
-                <div id="taf">Loading <img src="assets/images/loader.gif" alt="Loading..."></div>
-            </div>
-            <div class="col-11 col-sm-9 col-md-8 col-lg-6">
+
+            <!-- Radar -->
+            <div class="col-12 col-md-9 col-lg-6 col-xl-5">
                 <div id="radar-map-container">
                     <div id="mapid"></div>
                     <div id="map-display-type">
@@ -123,8 +126,33 @@
             </div>
         </div>
     </div>
-    </div>
-
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <a class="sm-icons" href="https://www.facebook.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                        <span class="sr-only">Facebook</span>
+                    </a>
+                    <a class="sm-icons" href="https://www.instagram.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center">
+                    <p><i class="far fa-copyright" aria-hidden="true"></i> Copyright 2021 - WxBrief | All Rights
+                        Reserved | Website by
+                        <a href="https://www.linkedin.com/in/padraig-mcgrenery/" target="_blank" rel="noopener">Padraig
+                            McGrenery</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- Bootstrap Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- JQuery JavaScript -->
