@@ -1,3 +1,4 @@
+// Opaque header background on scroll
 $(window).on("scroll", function () {
     if ($(window).scrollTop() > 50) {
         $(".fixed-top").addClass("active");
@@ -7,10 +8,10 @@ $(window).on("scroll", function () {
     }
 });
 
+// Burger Menu Animation
 let menuOpen = false;
 
 $("#burger").click(function () {
-    console.log(menuOpen);
     if (!menuOpen) {
         $("#line-one").addClass("rotate-top");
         $("#line-two").addClass("slide-out");
@@ -23,3 +24,14 @@ $("#burger").click(function () {
         menuOpen = false;
     }
 })
+
+
+// Menu slide toggle
+// Modified from: https://codepen.io/gvissing/pen/oxBJEz
+$(document).ready(function () {
+    $("#burger").click(function () {
+        $(".nav-menu").animate({
+            width: "toggle"
+        }, 175);
+    });
+});

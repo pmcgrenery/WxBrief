@@ -15,52 +15,59 @@
 </head>
 
 <body>
-    <header class="sticky-top">
+    <header class="fixed-top">
         <!-- Bootstrap navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light header-nav">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img id="logo" src="assets/images/wx-brief-logo.svg">
+        <nav>
+            <div class="container-fluid header-bar">
+                <a class="brand" href="index.html">
+                    <img id="logo" src="assets/images/wx-brief-logo-white.svg">
+                    <h1 class="sr-only">WxBrief</h1>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon "></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link hvr-underline-from-center" href="aboutus.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link hvr-underline-from-center" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                </div>
+                <a class="burger-menu" aria-label="Toggle navigation">
+                    <div id="burger">
+                        <div class="line" id="line-one"></div>
+                        <div class="line" id="line-two"></div>
+                        <div class="line" id="line-three"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="airports.html">Briefing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="aboutus.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
             </div>
         </nav>
-        <!-- Clear Button, Airports Header and Add Button -->
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-12 bg-blue">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clearAirports"
-                        aria-label="Clear all airports" id="clr-airports">
-                        Clear
-                        <span class="sr-only">Clear All Airports</span>
-                    </button>
-                    <h2 id="ap-header">Airports</h2>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAirport"
-                        aria-label="Add Airport" id="btn-add-airport">
-                        <i class="fas fa-plus" aria-hidden="true"></i>
-                        <span class="sr-only">Add Airport</span>
-                    </button>
-                    <button type="button" class="btn btn-primary" aria-label="Delete Airport" id="btn-del-airport">
-                        <i class="fas fa-edit" aria-hidden="true"></i>
-                        <span class="sr-only">Delete Airport</span>
-                    </button>
-                </div>
+    </header>
+    <!-- Clear Button, Airports Header and Add Button -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 bg-blue">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clearAirports"
+                    aria-label="Clear all airports" id="clr-airports">
+                    Clear
+                    <span class="sr-only">Clear All Airports</span>
+                </button>
+                <h2 id="ap-header">Airports</h2>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAirport"
+                    aria-label="Add Airport" id="btn-add-airport">
+                    <i class="fas fa-plus" aria-hidden="true"></i>
+                    <span class="sr-only">Add Airport</span>
+                </button>
+                <button type="button" class="btn btn-primary" aria-label="Delete Airport" id="btn-del-airport">
+                    <i class="fas fa-edit" aria-hidden="true"></i>
+                    <span class="sr-only">Delete Airport</span>
+                </button>
             </div>
         </div>
-    </header>
+    </div>
     <main>
         <!-- Clear Airports Modal -->
         <div class="modal fade" id="clearAirports" tabindex="-1" aria-label="Clear Airports?" aria-hidden="true">
@@ -132,6 +139,8 @@
     <script src="assets/js/airportdata.js"></script>
     <!-- Load Data JS -->
     <script src="assets/js/selectairport.js"></script>
+    <!-- Custom Effects JS -->
+    <script src="assets/js/effects.js"></script>
 
 </body>
 
