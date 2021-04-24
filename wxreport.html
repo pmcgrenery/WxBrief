@@ -50,9 +50,6 @@
 
         <!-- Back -->
         <div class="container-fluid ap-header">
-            <div class="row">
-                <h2 id="ap-header">Airports</h2>
-            </div>
             <div class="row justify-content-center">
                 <div class="col-12 ap-controls">
                     <a type="button" class="btn btn-primary" id="back-btn" href="airports.html">
@@ -63,64 +60,75 @@
         </div>
     </header>
 
-    <div class="container airport-details">
+    <div class="container-fluid airport-details">
         <!-- Airport, Times, Elevation -->
-        <div class="row">
-            <div class="col-12">
-                <h2 id="icao-header"></h2>
-                <h2 id="name-header"></h2>
+        <div class="row justify-content-center location-details">
+
+            <div class="col-12 col-md-9 col-lg-8 loc-header ap-bg">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h2 id="icao-header"></h2>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <h2 id="name-header"></h2>
+                    </div>
+                </div>
             </div>
-            <div class="col-12">
-                <h3 id="local-time"></h3>
-                <h3 id="elevation"></h3>
-                <h3 id="utc-time"></h3>
+            <div class="col-12 col-md-9 col-lg-8 loc-times">
+                <p id="local-time"></p>
+                <p id="elevation"></p>
+                <p id="utc-time"></p>
             </div>
+
         </div>
 
         <!-- Weather & Radar -->
         <div class="row justify-content-center">
 
             <!-- Runway, METAR, TAF -->
-            <div class="col-12 col-md-9 col-lg-6 col-xl-5">
+            <div class="col-12 col-md-9 col-lg-8 col-xl-5">
                 <div>
-                    <h2>Runways</h2>
+                    <h2 id="runways-header">RUNWAYS</h2>
+                    <div class="hr"></div>
                     <div id="runways">Loading <img src="assets/images/loader.gif" alt="Loading..."></div>
                 </div>
                 <div>
-                    <h2>METAR</h2>
-                    <hr>
+                    <h2 id="metar-header">METAR</h2>
+                    <div class="hr"></div>
                     <div id="metar">Loading <img src="assets/images/loader.gif" alt="Loading..."></div>
                 </div>
                 <div>
-                    <h2>TAF</h2>
-                    <hr>
+                    <h2 id="taf-header">TAF</h2>
+                    <div class="hr"></div>
                     <div id="taf">Loading <img src="assets/images/loader.gif" alt="Loading..."></div>
                 </div>
             </div>
 
             <!-- Radar -->
-            <div class="col-12 col-md-9 col-lg-6 col-xl-5">
-                <div id="radar-map-container">
-                    <div id="mapid"></div>
-                    <div id="map-display-type">
-                        <div class="type-button selected-left" id="radar" onclick="setKind('radar')">
-                            Radar</div>
-                        <div class="type-button" id="sat" onclick="setKind('satellite')">
-                            Satellite</div>
-                    </div>
-                    <div id="control-bar">
-                        <div id="play-toggle" onclick="playStop();">
-                            <i class="fas fa-play playPause" aria-label="Play"></i>
-                            <i class="fas fa-pause playPause" aria-label="Pause" style="display:none"></i>
+            <div class="col-12 col-md-9 col-lg-8 col-xl-5 p-0">
+                <div class="radar">
+                    <div id="radar-map-container">
+                        <div id="mapid"></div>
+                        <div id="map-display-type">
+                            <div class="type-button selected-left" id="radar" onclick="setKind('radar')">
+                                Radar</div>
+                            <div class="type-button" id="sat" onclick="setKind('satellite')">
+                                Satellite</div>
                         </div>
-                        <div id="last-frame" onclick="stop(); showFrame(animationPosition - 1); return;">
-                            <i class="fas fa-chevron-left" aria-label="Last Frame"></i>
-                        </div>
-                        <div id="timestamp">Frame Time</div>
-                        <div id="next-frame" onclick="stop(); showFrame(animationPosition + 1); return;">
-                            <i class="fas fa-chevron-right" aria-label="Next Frame"></i>
-                        </div>
+                        <div id="control-bar">
+                            <div id="play-toggle" onclick="playStop();">
+                                <i class="fas fa-play playPause" aria-label="Play"></i>
+                                <i class="fas fa-pause playPause" aria-label="Pause" style="display:none"></i>
+                            </div>
+                            <div id="last-frame" onclick="stop(); showFrame(animationPosition - 1); return;">
+                                <i class="fas fa-chevron-left" aria-label="Last Frame"></i>
+                            </div>
+                            <div id="timestamp">Frame Time</div>
+                            <div id="next-frame" onclick="stop(); showFrame(animationPosition + 1); return;">
+                                <i class="fas fa-chevron-right" aria-label="Next Frame"></i>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </div>

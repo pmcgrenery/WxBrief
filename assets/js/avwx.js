@@ -122,8 +122,9 @@ function setInfo(status, station) {
             // Display Runways in table
             $("#runways-table").append(`
             <tr>
-                <td> ${runway.ident1} / ${runway.ident2} </td>
-                <td> ${lengthM} m x ${widthM} m </td>
+                <td>${runway.ident1}</td>
+                <td>${lengthM} m x ${widthM} m</td>
+                <td>${runway.ident2}</td>
             </tr>
             `);
 

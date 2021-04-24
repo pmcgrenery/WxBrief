@@ -183,8 +183,12 @@ $("#airports").on("click", ".delete-container", function () {
     setTimeout(function () {
         deleteAirport(parentIndex)
     }, 200);
+    $("#back-btn").toggle(20);
+    $("#clr-airports").toggle(20);
 })
 
 $("#btn-del-airport").on("click", function () {
-    $(".delete-container").fadeToggle(200);
+    $(".delete-container").fadeToggle(100);
+    $("#back-btn").toggle(20);
+    $("#clr-airports").toggle(20);
 })
