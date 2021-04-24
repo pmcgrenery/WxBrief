@@ -128,7 +128,7 @@ h6 {
 }
 
 #get-briefed {
-    color: #fff;
+    color: #000;
     background-color: #f0863a;
     border-color: #673816;
     transition: all 0.05s linear;
@@ -302,6 +302,17 @@ h6 {
     margin-right: 25px;
 }
 
+#btn-del-airport:hover,
+#btn-del-airport:active,
+#btn-del-airport:focus,
+#btn-del-airport:active:focus {
+
+    border-color: #000;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #ce7536;
+}
+
 #btn-add-airport {
     height: 40px;
     width: 40px;
@@ -315,6 +326,17 @@ h6 {
     color: #000;
     padding-top: 0;
     padding-bottom: 0;
+}
+
+#btn-add-airport:hover,
+#btn-add-airport:active,
+#btn-add-airport:focus,
+#btn-add-airport:active:focus {
+
+    border-color: #000;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #ce7536;
 }
 
 /* Airports Section */
@@ -382,13 +404,52 @@ h6 {
     transform: scale(1);
 }
 
-/* WelcomeModal */
-#welcomeModal {
+#add-airport {
     color: #000;
+    background-color: #f0863a;
+    border-color: #673816;
+    transition: all 0.05s linear;
+}
+
+#add-airport:hover,
+#add-airport:active,
+#add-airport:focus,
+#add-airport:active:focus {
+    background-color: #bb6629;
+    border-color: #000;
+    -webkit-box-shadow: 0 0 3px 0.25rem #0000004d;
+    box-shadow: 0 0 3px 0.25rem #0000004d;
+}
+
+#warning {
+    margin-bottom: 1rem;
+}
+
+/* -----------------------------------------------------------------------------Modals */
+#welcomeModal {
+    color: #fff;
 }
 
 .modal-header {
     background-color: #f0863a;
+    border: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-content {
+    background-color: #3b3b3b;
+    border: none;
+    border-radius: 10px;
+}
+
+.modal-title {
+    color: #000;
+}
+
+.btn-light,
+.btn-danger {
+    width: 5rem;
 }
 
 /* --------------------------------------------------------------------------------------------------Radar Map */
@@ -523,6 +584,17 @@ h6 {
     font-weight: 700;
     border: none;
     height: 40px;
+}
+
+#back-btn:hover,
+#back-btn:active,
+#back-btn:focus,
+#back-btn:active:focus {
+
+    border-color: #000;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #ce7536;
 }
 
 .airport-details {

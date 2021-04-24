@@ -78,10 +78,10 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <h3>Are you sure you want to clear all airports?</h3>
-                    <button type="button" class="btn btn-light mx-4" onclick='clearAirports()'>
+                    <h4 class="mt-2 mb-4">Are you sure you want to clear all airports?</h4>
+                    <button type="button" class="btn btn-danger mx-4" onclick='clearAirports()'>
                         Yes</button>
-                    <button type="button" class="btn btn-danger mx-4" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn btn-light mx-4" data-bs-dismiss="modal" aria-label="Close">
                         No</button>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                                 maxlength="4">
                         </div>
                         <div id="warning"></div>
-                        <button type="button" class="btn btn-primary" onclick='fetchAirportInfo()'>Add
+                        <button type="button" class="btn btn-primary" onclick='fetchAirportInfo()' id="add-airport">Add
                             Airport</button>
                     </form>
                 </div>
@@ -120,11 +120,27 @@
                         onclick="clearModal()"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <h3>Welcome to WxBrief!</h3>
-                    <p>We've added some airports for you to get you started.</p>
-                    <p>- To clear all airports click on the Clear button</p>
-                    <p>- To add an airport, click on <i class="fas fa-plus"></i></p>
-                    <p>- To remove an airport, click on <i class="far fa-edit"></i></p>
+                    <h3 class="mb-4">Welcome to WxBrief!</h3>
+                    <h4 class="mb-4">We've added some airports for you to get you started.</h4>
+                    <div class="text-start mb-4">
+                        <ul>
+                            <li>
+                                <p>To add an airport, click on <i class="fas fa-plus" aria-hidden="true"
+                                        aria-label="Add airport"></i></p>
+                            </li>
+                            <li>
+                                <p>To edit your airport list, click on <i class="far fa-edit" aria-hidden="true"
+                                        aria-label="Edit List"></i></p>
+                            </li>
+                            <li>
+                                <p>To clear all airports click on the CLEAR ALL button</p>
+                            </li>
+                            <li>
+                                <p>To delete one airport click on <i class="fas fa-trash" aria-hidden="true"
+                                        aria-label="Delete this airport"></i> </p>
+                            </li>
+                        </ul>
+                    </div>
                     <p>Enjoy!</p>
                 </div>
             </div>
