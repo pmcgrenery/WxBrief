@@ -676,7 +676,6 @@ td {
     border: 1px solid #fff;
     border-collapse: collapse;
     height: 30px;
-    font-size: 20px;
     padding: 0.2rem 1rem;
 }
 
@@ -765,6 +764,12 @@ footer p a:active {
     .location-details {
         margin-bottom: 2rem;
     }
+
+    .radar {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+    }
+
 }
 
 /* SCREEN SIZE LG and up */
@@ -790,6 +795,19 @@ footer p a:active {
     #radar-section {
         height: 650px;
         padding: 125px 150px 0 150px;
+    }
+
+    .pr {
+        padding-right: 1rem;
+    }
+
+    .pl {
+        padding-left: 1rem !important;
+    }
+
+    .radar {
+        padding-right: 0;
+        padding-left: 0;
     }
 }
 

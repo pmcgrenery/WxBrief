@@ -181,13 +181,14 @@ $(document).on('keydown', function (event) {
     }
 });
 
+// When click delete slide the div out of view and close the edit controls
 $("#airports").on("click", ".delete-container", function () {
     console.log("Deleting")
     let parentIndex = $(this).parent().index()
-    $(this).parent().slideUp(200);
+    $(this).parent().slideUp(400);
     setTimeout(function () {
         deleteAirport(parentIndex)
-    }, 200);
+    }, 400);
     $("#back-btn").toggle(20);
     $("#clr-airports").toggle(20);
 })
