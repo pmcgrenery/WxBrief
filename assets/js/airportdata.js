@@ -116,6 +116,11 @@ function fetchAirportInfo() {
             $("#warning").html("");
             // Close Modal after successful airport entry and clear the input
             $("#addAirport").modal('hide');
+            // Scroll to the bottom of the page
+            // https://stackoverflow.com/questions/4249353/jquery-scroll-to-bottom-of-the-page
+            $("html, body").animate({
+                scrollTop: $(document).height()
+            }, 100);
         }
     });
 };
