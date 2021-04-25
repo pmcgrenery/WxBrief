@@ -596,6 +596,16 @@ h6 {
 }
 
 /* ------------------------------------------------------------------------------------------------ Wx Report Page */
+#local-time,
+#utc-time,
+#elevation,
+#runways-table,
+#metar,
+#taf p,
+#timestamp {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
 #back-btn {
     position: relative;
     top: 50%;
