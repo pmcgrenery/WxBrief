@@ -297,6 +297,17 @@ h6 {
     border: none;
 }
 
+#clr-airports:hover,
+#clr-airports:active,
+#clr-airports:focus,
+#clr-airports:active:focus {
+
+    border-color: #000;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #ce7536;
+}
+
 #btn-del-airport {
     height: 40px;
     width: 40px;

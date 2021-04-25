@@ -41,7 +41,8 @@ var map = L.map('mapid', {
     dragging: !L.Browser.mobile,
     dragging: !L.Browser.mobileWebkit,
     tap: !L.Browser.mobile,
-    tap: !L.Browser.mobileWebkit
+    tap: !L.Browser.mobileWebkit,
+    fullscreenControl: true,
 });
 
 //Openstreet Map Layer (Alternative to Mapbox)
