@@ -58,7 +58,7 @@ map.on('fullscreenchange', function () {
     }
 });
 
-//Openstreet Map Layer (Alternative to Mapbox)
+// Openstreet Map Layer (Alternative to Mapbox)
 // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //     attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
 // }).addTo(map);

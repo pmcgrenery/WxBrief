@@ -1,4 +1,4 @@
-# BUGS
+# Bugs
 
 1. Bug: When you enter a valid 4 letter ICAO code and click add airport, the modal remains in place with the value entered.
 <br>Fix: After the object newAirport has been successfully passed to the function storeNewAirport I included two functions. The first function clears the input value and the second function hides the modal.
@@ -17,3 +17,7 @@
 
 6. Bug: After clearing all airports, if you press enter both modals appear.
 <br> Fix: The reason for this was that after clicking on the Clear Airports button and either clicking on Yes/No/Close, then the button remains in focus. Therefore, when you press enter, it triggers the Clear Airports button as well as the event listener to call the Add Airport modal. The fix for this is to add <code>event.preventDefault()</code> to the event listener for pressing Enter. 
+
+# Existing Bugs
+
+1. Bug: When you enter the full screen presentation of the map the radar controls do not appear on the screen.
