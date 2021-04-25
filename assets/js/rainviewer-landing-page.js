@@ -38,10 +38,10 @@ var map = L.map('mapid', {
     //Zoom scroll speed
     wheelPxPerZoomLevel: 80,
     //Disable single finger drag
-    dragging: !L.Browser.mobile,
-    dragging: !L.Browser.mobileWebkit,
-    tap: !L.Browser.mobile,
-    tap: !L.Browser.mobileWebkit,
+    // dragging: !L.Browser.mobile,
+    // dragging: !L.Browser.mobileWebkit,
+    // tap: !L.Browser.mobile,
+    // tap: !L.Browser.mobileWebkit,
     fullscreenControl: true,
 });
 
