@@ -38,11 +38,24 @@ var map = L.map('mapid', {
     //Zoom scroll speed
     wheelPxPerZoomLevel: 80,
     //Disable single finger drag
-    // dragging: !L.Browser.mobile,
-    // dragging: !L.Browser.mobileWebkit,
-    // tap: !L.Browser.mobile,
-    // tap: !L.Browser.mobileWebkit,
+    dragging: !L.Browser.mobile,
+    dragging: !L.Browser.mobileWebkit,
+    tap: !L.Browser.mobile,
+    tap: !L.Browser.mobileWebkit,
+    // Add the fullscreen plugin
     fullscreenControl: true,
+});
+
+// When map is fullscreen, enable single finger dragging
+// https://gis.stackexchange.com/questions/104507/disable-panning-dragging-on-leaflet-map-for-div-within-map
+// &&
+// https://github.com/Leaflet/Leaflet.fullscreen
+map.on('fullscreenchange', function () {
+    if (map.isFullscreen()) {
+        map.dragging.enable();
+    } else {
+        map.dragging.disable();
+    }
 });
 
 //Openstreet Map Layer (Alternative to Mapbox)
