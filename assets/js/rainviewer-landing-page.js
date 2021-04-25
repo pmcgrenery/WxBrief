@@ -14,15 +14,20 @@ $("#play-toggle").click(function () {
     $(".playPause").toggle();
 })
 
+// Radar or Satellite option toggler
 $("#sat").click(function () {
     $("#radar").removeClass("selected-left");
     $("#sat").addClass("selected-right");
 });
-
 $("#radar").click(function () {
     $("#sat").removeClass("selected-right");
     $("#radar").addClass("selected-left");
 });
+
+// Legend Show Toggler
+$("#legend-control").click(function () {
+    $(".legend-wrapper").toggle();
+})
 
 lat = 49;
 long = 4.5;

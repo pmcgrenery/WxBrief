@@ -557,7 +557,7 @@ h6 {
     height: 44px;
     border-radius: 50%;
     border: 1px solid #000;
-    background-color: #e3e3e3;
+    background-color: #ffffff;
     margin-right: 17px;
     cursor: pointer;
     display: flex;
@@ -593,6 +593,62 @@ h6 {
 
 .leaflet-control-attribution {
     font-size: 7px !important;
+}
+
+#legend-control {
+    color: #000;
+    font-size: 14px;
+    position: absolute;
+    z-index: 1;
+    top: 127px;
+    left: 10px;
+    background-color: #ffffff;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+    line-height: 31px;
+    text-align: center;
+    Font-size: 20px;
+    font-weight: 900;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.legend-wrapper {
+    display: none;
+}
+
+#legend {
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-size: 14px;
+    position: absolute;
+    z-index: 1;
+    top: 171px;
+    left: 12px;
+    height: 150px;
+    width: 154px;
+    border-top-right-radius: 23px;
+    border-bottom-right-radius: 23px;
+    background-color: #ffffff;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.intensity {
+    height: 100%;
+    width: 20px;
+}
+
+.intensity img {
+    height: 100%;
+    width: 100%;
+}
+
+.key li {
+    margin-bottom: -3px;
 }
 
 /* ------------------------------------------------------------------------------------------------ Wx Report Page */
@@ -666,11 +722,6 @@ h6 {
     margin-top: 16px;
 }
 
-/* #icao-header,
-#name-header {
-    display: inline-block;
-} */
-
 #airportInput {
     text-transform: uppercase;
 }
@@ -714,6 +765,53 @@ table {
     transform: translate(0, -50%);
     height: 400px;
     position: relative;
+}
+
+/* https://www.w3schools.com/howto/howto_css_bullet_color.asp */
+.key {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: -4px;
+}
+
+.key ::before {
+    content: "\2022";
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    transform: scale(2.5);
+}
+
+.key .hail::before {
+    color: #faf;
+}
+
+.key .storm::before {
+    color: #f6f;
+}
+
+.key .heavy-rain::before {
+    color: #e400b1;
+}
+
+.key .rain::before {
+    color: #ef1001;
+}
+
+.key .moderate-rain::before {
+    color: #ffab00;
+}
+
+.key .light-rain::before {
+    color: #fffd1a;
+}
+
+.key .drizzle::before {
+    color: #01d31a;
+}
+
+.key .overcast::before {
+    color: #009f9f;
 }
 
 /* --------------------------------------------------------------------------------------------------Footer */
