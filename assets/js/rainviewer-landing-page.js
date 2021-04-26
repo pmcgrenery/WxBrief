@@ -86,7 +86,7 @@ function setLayer(base) {
             accessToken: token
         }).addTo(map);
         // Add the radar coverage mask layer
-        L.tileLayer(radarMask).setOpacity(0.2).addTo(map);
+        L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
         // Add the radar images layer
         initialize(apiData, optionKind);
     } else if (base === "mapbox/dark-v10") {
@@ -98,7 +98,7 @@ function setLayer(base) {
             accessToken: token
         }).setOpacity(0.8).addTo(map);
 
-        L.tileLayer(radarMask).setOpacity(0.45).addTo(map);
+        L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
         initialize(apiData, optionKind);
     } else if (base === "mapbox/satellite-v9") {
         map.eachLayer(function (layer) {
@@ -108,7 +108,7 @@ function setLayer(base) {
             id: base,
             accessToken: token
         }).setOpacity(0.8).addTo(map);
-        L.tileLayer(radarMask).setOpacity(0.35).addTo(map);
+        L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
         initialize(apiData, optionKind);
     }
 }

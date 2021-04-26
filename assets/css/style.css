@@ -630,10 +630,7 @@ h6 {
     top: 171px;
     left: 12px;
     height: 186px;
-    width: 145px;
-    border-top-right-radius: 23px;
-    border-bottom-right-radius: 23px;
-    background-color: #ffffff;
+    background-color: #ffffff3f;
     border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -654,6 +651,9 @@ h6 {
 
 .key li {
     margin-bottom: -3px;
+    background: #fff;
+    padding-right: 10px;
+    margin-left: 15px;
 }
 
 /* ------------------------------------------------------------------------------------------------ Wx Report Page */
@@ -785,10 +785,11 @@ table {
     width: 1em;
     margin-left: -1em;
     transform: scale(2.5);
+    padding-right: 24px;
 }
 
 .key .hail::before {
-    color: #faf;
+    color: #ffaaff;
 }
 
 .key .storm::before {
