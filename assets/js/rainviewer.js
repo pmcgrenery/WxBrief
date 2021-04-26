@@ -30,6 +30,11 @@ $("#legend-control").click(function () {
     $(".legend-wrapper").toggle();
 })
 
+// Base Layer Show Toggler
+$(".leaflet-control-layers-toggle").click(function () {
+    $(".base-wrapper").toggle();
+})
+
 let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
 var lat = airport.lat;
 var long = airport.long;

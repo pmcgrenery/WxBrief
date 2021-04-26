@@ -134,6 +134,7 @@
                         <div id="legend-control">
                             L
                         </div>
+                        <!-- Map Legend -->
                         <div class="legend-wrapper">
                             <div id="legend">
                                 <div class="intensity">
@@ -147,7 +148,7 @@
                                     <li class="storm">Storm</li>
                                     <li class="heavy-rain">Heavy Rain</li>
                                     <li class="rain">Mod to Heavy</li>
-                                    <li class="moderate-rain">Moderate Rain</li>
+                                    <li class="moderate-rain">Mod. Rain</li>
                                     <li class="light-rain">Light Rain</li>
                                     <li class="drizzle">Drizzle</li>
                                     <li class="overcast">Overcast</li>
@@ -157,13 +158,32 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="map-base">
-                            <div class="type-button" id="dark-base" onclick="setVersion('mapbox/dark-v10')">
-                                Dark</div>
-                            <div class="type-button" id="light-base" onclick="setVersion('mapbox/light-v10')">
-                                Light</div>
-                            <div class="type-button" id="satellite-base" onclick="setVersion('mapbox/satellite-v9')">
-                                Satellite</div>
+                        <!-- Base Layer Controls -->
+                        <div class="leaflet-top leaflet-right">
+                            <div class="leaflet-control-layers leaflet-control" aria-haspopup="true">
+                                <!-- Leaflet layers button -->
+                                <div class="leaflet-control-layers-toggle" title="Layers">
+                                </div>
+                                <!-- Custom Layers Buttons -->
+                                <div class="base-wrapper">
+                                    <div class="map-base">
+                                        <button type="button" id="dark-base" onclick="setVersion('mapbox/dark-v10')"
+                                            class="btn btn-base">
+                                            Dark</button>
+                                    </div>
+                                    <div class="map-base">
+                                        <button type="button" id="light-base" onclick="setVersion('mapbox/light-v10')"
+                                            class="btn btn-base">
+                                            Light</button>
+                                    </div>
+                                    <div class="map-base">
+                                        <button type="button" id="satellite-base"
+                                            onclick="setVersion('mapbox/satellite-v9')" class="btn btn-base">
+                                            Satellite</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </section>
                         </div>
                     </div>
                 </div>

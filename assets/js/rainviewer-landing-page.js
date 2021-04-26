@@ -31,6 +31,11 @@ $("#legend-control").click(function () {
     $(".legend-wrapper").toggle();
 })
 
+// Base Layer Show Toggler
+$(".leaflet-control-layers-toggle").click(function () {
+    $(".base-wrapper").toggle();
+})
+
 let lat = 49;
 let long = 4.5;
 
