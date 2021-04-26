@@ -624,13 +624,13 @@ h6 {
     display: flex;
     align-items: center;
     color: #000;
-    font-size: 14px;
+    font-size: 13px;
     position: absolute;
     z-index: 1;
     top: 171px;
     left: 12px;
-    height: 150px;
-    width: 154px;
+    height: 186px;
+    width: 145px;
     border-top-right-radius: 23px;
     border-bottom-right-radius: 23px;
     background-color: #ffffff;
@@ -642,8 +642,13 @@ h6 {
     width: 20px;
 }
 
-.intensity img {
-    height: 100%;
+.intensity .rain-img {
+    height: 130px;
+    width: 100%;
+}
+
+.intensity .snow-img {
+    height: 52px;
     width: 100%;
 }
 
@@ -812,6 +817,24 @@ table {
 
 .key .overcast::before {
     color: #009f9f;
+}
+
+.key .heavy-snow::before {
+    color: #000fff;
+}
+
+.key .moderate-snow::before {
+    color: #207fff;
+}
+
+.key .light-snow::before {
+    color: #8fffff;
+}
+
+.heavy-snow,
+.moderate-snow,
+.light-snow {
+    font-weight: 700;
 }
 
 /* --------------------------------------------------------------------------------------------------Footer */

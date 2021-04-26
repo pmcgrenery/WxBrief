@@ -1,13 +1,13 @@
 // -------------------------- Custom Code --------------------------
 var token = 'pk.eyJ1IjoicG1jZ3JlbmVyeSIsImEiOiJja25xYjlvMDgwYjc0MnBwZnFodXh1MHZ5In0.jv-gMrjni4BjjZ_vh-p5PQ';
 var radarMask = 'https://tilecache.rainviewer.com/v2/coverage/0/512/{z}/{x}/{y}/0/0_0.png';
+var version = "mapbox/dark-v10";
 
 //Check the current frame time and output the time in UTC format
 function setFrameTime(frame) {
     let dateObj = new Date(frame.time * 1000);
     let utcString = dateObj.toUTCString();
     let frameTime = utcString.slice(17, 22);
-
     document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
 }
 
@@ -31,9 +31,8 @@ $("#legend-control").click(function () {
     $(".legend-wrapper").toggle();
 })
 
-lat = 49;
-long = 4.5;
-
+let lat = 49;
+let long = 4.5;
 
 //Configure Map
 var map = L.map('mapid', {
@@ -66,12 +65,6 @@ map.on('fullscreenchange', function () {
     }
 });
 
-// Openstreet Map Layer (Alternative to Mapbox)
-// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-// }).addTo(map);
-
-var version = "mapbox/dark-v10";
 setLayer(version);
 
 function setVersion(mapVersion) {
@@ -115,7 +108,7 @@ function setLayer(base) {
             id: base,
             accessToken: token
         }).setOpacity(0.8).addTo(map);
-        L.tileLayer(radarMask).setOpacity(0.45).addTo(map);
+        L.tileLayer(radarMask).setOpacity(0.35).addTo(map);
         initialize(apiData, optionKind);
     }
 }

@@ -1,11 +1,12 @@
-// -------------------------- Custom Code --------------------------
+var token = 'pk.eyJ1IjoicG1jZ3JlbmVyeSIsImEiOiJja25xYjlvMDgwYjc0MnBwZnFodXh1MHZ5In0.jv-gMrjni4BjjZ_vh-p5PQ';
+var radarMask = 'https://tilecache.rainviewer.com/v2/coverage/0/512/{z}/{x}/{y}/0/0_0.png';
+var version = "mapbox/dark-v10";
 
 //Check the current frame time and output the time in UTC format
 function setFrameTime(frame) {
     let dateObj = new Date(frame.time * 1000);
     let utcString = dateObj.toUTCString();
     let frameTime = utcString.slice(17, 22);
-
     document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
 }
 
@@ -63,19 +64,53 @@ map.on('fullscreenchange', function () {
     }
 });
 
-//Openstreet Map Layer (Alternative to Mapbox)
-// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-// }).addTo(map);
+setLayer(version);
 
-// Mapbox Baselayer map
-L.tileLayer.provider('MapBox', {
-    id: 'mapbox/light-v10',
-    accessToken: 'pk.eyJ1IjoicG1jZ3JlbmVyeSIsImEiOiJja25xYjlvMDgwYjc0MnBwZnFodXh1MHZ5In0.jv-gMrjni4BjjZ_vh-p5PQ'
-}).addTo(map);
+function setVersion(mapVersion) {
+    version = mapVersion;
+    setLayer(version);
+}
 
-//Radar Coverage Mask Layer with opacity adjusted
-L.tileLayer('https://tilecache.rainviewer.com/v2/coverage/0/256/{z}/{x}/{y}/0/0_0.png').setOpacity(0.2).addTo(map);
+function setLayer(base) {
+    if (base === "mapbox/light-v10") {
+        // Clear all map layers
+        // https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map
+        map.eachLayer(function (layer) {
+            map.removeLayer(layer);
+            console.log("layers removed")
+        });
+        // Add the mapbox layer
+        L.tileLayer.provider('MapBox', {
+            id: base,
+            accessToken: token
+        }).addTo(map);
+        // Add the radar coverage mask layer
+        L.tileLayer(radarMask).setOpacity(0.2).addTo(map);
+        // Add the radar images layer
+        initialize(apiData, optionKind);
+    } else if (base === "mapbox/dark-v10") {
+        map.eachLayer(function (layer) {
+            map.removeLayer(layer);
+        });
+        L.tileLayer.provider('MapBox', {
+            id: base,
+            accessToken: token
+        }).setOpacity(0.8).addTo(map);
+
+        L.tileLayer(radarMask).setOpacity(0.45).addTo(map);
+        initialize(apiData, optionKind);
+    } else if (base === "mapbox/satellite-v9") {
+        map.eachLayer(function (layer) {
+            map.removeLayer(layer);
+        });
+        L.tileLayer.provider('MapBox', {
+            id: base,
+            accessToken: token
+        }).setOpacity(0.8).addTo(map);
+        L.tileLayer(radarMask).setOpacity(0.35).addTo(map);
+        initialize(apiData, optionKind);
+    }
+}
 
 //Marker over airport
 L.marker([lat, long]).addTo(map)
