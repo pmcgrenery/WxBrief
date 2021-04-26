@@ -52,6 +52,10 @@ var map = L.map('mapid', {
     fullscreenControl: true,
 });
 
+//Marker over airport
+L.marker([lat, long]).addTo(map)
+    .bindPopup(`${airport.icao}`);
+
 // When map is fullscreen, enable single finger dragging
 // https://gis.stackexchange.com/questions/104507/disable-panning-dragging-on-leaflet-map-for-div-within-map
 // &&
@@ -79,6 +83,9 @@ function setLayer(base) {
             map.removeLayer(layer);
             console.log("layers removed")
         });
+        //Marker over airport
+        L.marker([lat, long]).addTo(map)
+            .bindPopup(`${airport.icao}`);
         // Add the mapbox layer
         L.tileLayer.provider('MapBox', {
             id: base,
@@ -92,6 +99,8 @@ function setLayer(base) {
         map.eachLayer(function (layer) {
             map.removeLayer(layer);
         });
+        L.marker([lat, long]).addTo(map)
+            .bindPopup(`${airport.icao}`);
         L.tileLayer.provider('MapBox', {
             id: base,
             accessToken: token
@@ -103,6 +112,8 @@ function setLayer(base) {
         map.eachLayer(function (layer) {
             map.removeLayer(layer);
         });
+        L.marker([lat, long]).addTo(map)
+            .bindPopup(`${airport.icao}`);
         L.tileLayer.provider('MapBox', {
             id: base,
             accessToken: token
@@ -111,10 +122,6 @@ function setLayer(base) {
         initialize(apiData, optionKind);
     }
 }
-
-//Marker over airport
-L.marker([lat, long]).addTo(map)
-    .bindPopup(`${airport.icao}`)
 
 // ---------- Code below here from Rainviewer API Documentation ----------
 // https://www.rainviewer.com/api/weather-maps-api.html
