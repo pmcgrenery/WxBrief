@@ -595,6 +595,27 @@ h6 {
     font-size: 7px !important;
 }
 
+#fullscreen-control {
+    color: #000;
+    font-size: 14px;
+    position: absolute;
+    z-index: 1;
+    top: 83px;
+    left: 10px;
+    background-color: #ffffff;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+    line-height: 31px;
+    text-align: center;
+    Font-size: 20px;
+    font-weight: 900;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
 #legend-control {
     color: #000;
     font-size: 14px;
@@ -622,16 +643,14 @@ h6 {
 
 #legend {
     display: flex;
-    align-items: center;
     color: #000;
-    font-size: 13px;
+    font-size: 14px;
     position: absolute;
     z-index: 1;
-    top: 171px;
-    left: 12px;
-    height: 186px;
-    background-color: #ffffff3f;
-    border: 2px solid rgba(0, 0, 0, 0.2);
+    height: 229px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .intensity {
@@ -640,43 +659,140 @@ h6 {
 }
 
 .intensity .rain-img {
-    height: 130px;
+    height: 168px;
     width: 100%;
 }
 
 .intensity .snow-img {
-    height: 52px;
+    height: 61px;
     width: 100%;
 }
 
-.key li {
-    margin-bottom: -3px;
-    background: #fff;
-    padding-right: 10px;
-    margin-left: 15px;
+/* https://www.w3schools.com/howto/howto_css_bullet_color.asp */
+.key {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    background-color: #ffffff;
+    padding-left: 0;
+    height: 229px;
 }
 
+
+.key li {
+    padding-right: 10px;
+}
+
+.key ::before {
+
+    content: "\2022";
+    transform: scale(4);
+    padding-right: 8px;
+    display: inline-block;
+    font-weight: 400;
+    position: relative;
+    bottom: 3px;
+
+}
+
+.key .hail::before {
+    color: #ffaaff;
+}
+
+.key .storm::before {
+    color: #f6f;
+}
+
+.key .heavy-rain::before {
+    color: #e400b1;
+}
+
+.key .rain::before {
+    color: #ef1001;
+}
+
+.key .moderate-rain::before {
+    color: #ffab00;
+}
+
+.key .light-rain::before {
+    color: #fffd1a;
+}
+
+.key .drizzle::before {
+    color: #01d31a;
+}
+
+.key .overcast::before {
+    color: #009f9f;
+}
+
+.key .heavy-snow::before {
+    color: #000fff;
+}
+
+.key .moderate-snow::before {
+    color: #207fff;
+}
+
+.key .light-snow::before {
+    color: #8fffff;
+}
+
+.heavy-snow,
+.moderate-snow,
+.light-snow {
+    font-weight: 700;
+}
 
 .leaflet-control-layers-toggle {
     cursor: pointer;
     margin-left: auto;
 }
 
+.base-control {
+    color: #000;
+    font-size: 14px;
+    position: absolute;
+    z-index: 1;
+    top: 171px;
+    left: 10px;
+    background-color: #ffffff;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+    line-height: 31px;
+    text-align: center;
+    Font-size: 20px;
+    font-weight: 900;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.base {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .map-base {
-    width: 70px;
+    width: 90px;
     display: block;
-    margin-bottom: 8px;
-    margin-top: 10px;
+    padding: 10px;
 }
 
 .btn-base {
     padding-left: 5px;
     padding-right: 5px;
-    color: #000;
+    color: #ffffff;
     background-color: #f0863a;
     border-color: #673816;
     transition: all 0.05s linear;
-    width: 90%;
+    width: 70px;
     position: relative;
     left: 50%;
     transform: translate(-50%);
@@ -774,6 +890,12 @@ h6 {
 
 .airport-text {
     width: 85%;
+    padding-top: 1rem;
+    margin-top: -1rem;
+    padding-bottom: 1rem;
+    margin-bottom: -1rem;
+    padding-left: 1rem;
+    margin-left: -1rem;
 }
 
 #elevation {
@@ -815,72 +937,6 @@ table {
 
 .leaflet-container {
     background: #3b3b3b;
-}
-
-/* https://www.w3schools.com/howto/howto_css_bullet_color.asp */
-.key {
-    list-style: none;
-    margin-bottom: 0;
-    margin-top: -4px;
-}
-
-.key ::before {
-    content: "\2022";
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-    transform: scale(2.5);
-    padding-right: 24px;
-}
-
-.key .hail::before {
-    color: #ffaaff;
-}
-
-.key .storm::before {
-    color: #f6f;
-}
-
-.key .heavy-rain::before {
-    color: #e400b1;
-}
-
-.key .rain::before {
-    color: #ef1001;
-}
-
-.key .moderate-rain::before {
-    color: #ffab00;
-}
-
-.key .light-rain::before {
-    color: #fffd1a;
-}
-
-.key .drizzle::before {
-    color: #01d31a;
-}
-
-.key .overcast::before {
-    color: #009f9f;
-}
-
-.key .heavy-snow::before {
-    color: #000fff;
-}
-
-.key .moderate-snow::before {
-    color: #207fff;
-}
-
-.key .light-snow::before {
-    color: #8fffff;
-}
-
-.heavy-snow,
-.moderate-snow,
-.light-snow {
-    font-weight: 700;
 }
 
 /* --------------------------------------------------------------------------------------------------Footer */

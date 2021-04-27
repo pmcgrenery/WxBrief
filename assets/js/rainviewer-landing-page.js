@@ -32,7 +32,7 @@ $("#legend-control").click(function () {
 })
 
 // Base Layer Show Toggler
-$(".leaflet-control-layers-toggle").click(function () {
+$(".base-control").click(function () {
     $(".base-wrapper").toggle();
 })
 
@@ -54,21 +54,17 @@ var map = L.map('mapid', {
     dragging: !L.Browser.mobileWebkit,
     tap: !L.Browser.mobile,
     tap: !L.Browser.mobileWebkit,
-    // Add the fullscreen plugin
-    fullscreenControl: true,
 });
 
 // When map is fullscreen, enable single finger dragging
-// https://gis.stackexchange.com/questions/104507/disable-panning-dragging-on-leaflet-map-for-div-within-map
-// &&
-// https://github.com/Leaflet/Leaflet.fullscreen
-map.on('fullscreenchange', function () {
-    if (map.isFullscreen()) {
-        map.dragging.enable();
-    } else {
-        map.dragging.disable();
-    }
-});
+// https://github.com/brunob/leaflet.fullscreen
+// map.on('enterFullscreen', function () {
+//     map.dragging.enable();
+// });
+
+// map.on('exitFullscreen', function () {
+//     map.dragging.disable();
+// });
 
 setLayer(version);
 
@@ -78,44 +74,23 @@ function setVersion(mapVersion) {
 }
 
 function setLayer(base) {
-    if (base === "mapbox/light-v10") {
-        // Clear all map layers
-        // https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map
-        map.eachLayer(function (layer) {
-            map.removeLayer(layer);
-            console.log("layers removed")
-        });
-        // Add the mapbox layer
-        L.tileLayer.provider('MapBox', {
-            id: base,
-            accessToken: token
-        }).addTo(map);
-        // Add the radar coverage mask layer
-        L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
-        // Add the radar images layer
-        initialize(apiData, optionKind);
-    } else if (base === "mapbox/dark-v10") {
-        map.eachLayer(function (layer) {
-            map.removeLayer(layer);
-        });
-        L.tileLayer.provider('MapBox', {
-            id: base,
-            accessToken: token
-        }).setOpacity(0.8).addTo(map);
-
-        L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
-        initialize(apiData, optionKind);
-    } else if (base === "mapbox/satellite-v9") {
-        map.eachLayer(function (layer) {
-            map.removeLayer(layer);
-        });
-        L.tileLayer.provider('MapBox', {
-            id: base,
-            accessToken: token
-        }).setOpacity(0.8).addTo(map);
-        L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
-        initialize(apiData, optionKind);
-    }
+    // Clear all map layers
+    // https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map
+    map.eachLayer(function (layer) {
+        map.removeLayer(layer);
+        console.log("layers removed")
+    });
+    // Add the mapbox layer
+    L.tileLayer.provider('MapBox', {
+        id: base,
+        accessToken: token
+    }).addTo(map);
+    // Add the radar coverage mask layer
+    L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
+    // Add the radar images layer
+    initialize(apiData, optionKind);
+    // Hide the map button
+    $(".base-wrapper").hide();
 }
 
 // ---------- Code below here from Rainviewer API Documentation ----------

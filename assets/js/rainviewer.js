@@ -31,7 +31,7 @@ $("#legend-control").click(function () {
 })
 
 // Base Layer Show Toggler
-$(".leaflet-control-layers-toggle").click(function () {
+$(".base-control").click(function () {
     $(".base-wrapper").toggle();
 })
 
@@ -81,51 +81,23 @@ function setVersion(mapVersion) {
 }
 
 function setLayer(base) {
-    if (base === "mapbox/light-v10") {
-        // Clear all map layers
-        // https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map
-        map.eachLayer(function (layer) {
-            map.removeLayer(layer);
-            console.log("layers removed")
-        });
-        //Marker over airport
-        L.marker([lat, long]).addTo(map)
-            .bindPopup(`${airport.icao}`);
-        // Add the mapbox layer
-        L.tileLayer.provider('MapBox', {
-            id: base,
-            accessToken: token
-        }).addTo(map);
-        // Add the radar coverage mask layer
-        L.tileLayer(radarMask).setOpacity(0.2).addTo(map);
-        // Add the radar images layer
-        initialize(apiData, optionKind);
-    } else if (base === "mapbox/dark-v10") {
-        map.eachLayer(function (layer) {
-            map.removeLayer(layer);
-        });
-        L.marker([lat, long]).addTo(map)
-            .bindPopup(`${airport.icao}`);
-        L.tileLayer.provider('MapBox', {
-            id: base,
-            accessToken: token
-        }).setOpacity(0.8).addTo(map);
-
-        L.tileLayer(radarMask).setOpacity(0.45).addTo(map);
-        initialize(apiData, optionKind);
-    } else if (base === "mapbox/satellite-v9") {
-        map.eachLayer(function (layer) {
-            map.removeLayer(layer);
-        });
-        L.marker([lat, long]).addTo(map)
-            .bindPopup(`${airport.icao}`);
-        L.tileLayer.provider('MapBox', {
-            id: base,
-            accessToken: token
-        }).setOpacity(0.8).addTo(map);
-        L.tileLayer(radarMask).setOpacity(0.35).addTo(map);
-        initialize(apiData, optionKind);
-    }
+    // Clear all map layers
+    // https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map
+    map.eachLayer(function (layer) {
+        map.removeLayer(layer);
+        console.log("layers removed")
+    });
+    // Add the mapbox layer
+    L.tileLayer.provider('MapBox', {
+        id: base,
+        accessToken: token
+    }).addTo(map);
+    // Add the radar coverage mask layer
+    L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
+    // Add the radar images layer
+    initialize(apiData, optionKind);
+    // Hide the map button
+    $(".base-wrapper").hide();
 }
 
 // ---------- Code below here from Rainviewer API Documentation ----------

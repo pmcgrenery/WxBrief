@@ -131,18 +131,17 @@
                                 <i class="fas fa-chevron-right" aria-label="Next Frame"></i>
                             </div>
                         </div>
+                        <div id="fullscreen-control">
+                            <i class="fas fa-expand" aria-hidden="true" aria-label="Fullscreen Toggle"></i>
+                            <i class="fas fa-compress" aria-hidden="true" aria-label="Fullscreen Toggle"
+                                style="display:none"></i>
+                        </div>
                         <div id="legend-control">
                             L
                         </div>
                         <!-- Map Legend -->
                         <div class="legend-wrapper">
                             <div id="legend">
-                                <div class="intensity">
-                                    <img class="rain-img" src="assets/images/rain-intensity.png"
-                                        alt="Radar returns colour legend">
-                                    <img class="snow-img" src="assets/images/snow-intensity.png"
-                                        alt="Radar returns colour legend">
-                                </div>
                                 <ul class="key">
                                     <li class="hail">Hail</li>
                                     <li class="storm">Storm</li>
@@ -156,34 +155,36 @@
                                     <li class="moderate-snow">Mod. Snow</li>
                                     <li class="light-snow">Light Snow</li>
                                 </ul>
+                                <div class="intensity">
+                                    <img class="rain-img" src="assets/images/rain-intensity.png"
+                                        alt="Radar returns colour legend">
+                                    <img class="snow-img" src="assets/images/snow-intensity.png"
+                                        alt="Radar returns colour legend">
+                                </div>
                             </div>
                         </div>
                         <!-- Base Layer Controls -->
-                        <div class="leaflet-top leaflet-right">
-                            <div class="leaflet-control-layers leaflet-control" aria-haspopup="true">
-                                <!-- Leaflet layers button -->
-                                <div class="leaflet-control-layers-toggle" title="Layers">
+                        <div class="base-control">
+                            <i class="fas fa-layer-group" aria-hidden="true" aria-label="Map base layer"></i>
+                        </div>
+                        <div class="base">
+                            <div class="base-wrapper">
+                                <div class="map-base">
+                                    <button type="button" id="dark-base" onclick="setVersion('mapbox/dark-v10')"
+                                        class="btn btn-base">
+                                        Dark</button>
                                 </div>
-                                <!-- Custom Layers Buttons -->
-                                <div class="base-wrapper">
-                                    <div class="map-base">
-                                        <button type="button" id="dark-base" onclick="setVersion('mapbox/dark-v10')"
-                                            class="btn btn-base">
-                                            Dark</button>
-                                    </div>
-                                    <div class="map-base">
-                                        <button type="button" id="light-base" onclick="setVersion('mapbox/light-v10')"
-                                            class="btn btn-base">
-                                            Light</button>
-                                    </div>
-                                    <div class="map-base">
-                                        <button type="button" id="satellite-base"
-                                            onclick="setVersion('mapbox/satellite-v9')" class="btn btn-base">
-                                            Satellite</button>
-                                    </div>
+                                <div class="map-base">
+                                    <button type="button" id="light-base" onclick="setVersion('mapbox/light-v10')"
+                                        class="btn btn-base">
+                                        Light</button>
+                                </div>
+                                <div class="map-base">
+                                    <button type="button" id="satellite-base"
+                                        onclick="setVersion('mapbox/satellite-v9')" class="btn btn-base">
+                                        Satellite</button>
                                 </div>
                             </div>
-                            </section>
                         </div>
                     </div>
                 </div>
