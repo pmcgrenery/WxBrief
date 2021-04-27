@@ -45,6 +45,7 @@ $("#fullscreen-control").click(function () {
     // Toggle the icon on the control
     $(".fs-icon").toggle();
     if (fullscreenMode === false) {
+        map.dragging.enable();
         if (radarBox.requestFullscreen) {
             radarBox.requestFullscreen();
         } else if (radarBox.webkitRequestFullscreen) {
@@ -56,6 +57,7 @@ $("#fullscreen-control").click(function () {
         };
         fullscreenMode = true;
     } else if (fullscreenMode === true) {
+        map.dragging.disable();
         if (document.exitFullscreen) {
             document.exitFullscreen();
         } else if (document.webkitExitFullscreen) {
@@ -88,16 +90,6 @@ var map = L.map('mapid', {
     tap: !L.Browser.mobile,
     tap: !L.Browser.mobileWebkit,
 });
-
-// When map is fullscreen, enable single finger dragging
-// https://github.com/brunob/leaflet.fullscreen
-// map.on('enterFullscreen', function () {
-//     map.dragging.enable();
-// });
-
-// map.on('exitFullscreen', function () {
-//     map.dragging.disable();
-// });
 
 setLayer(version);
 
