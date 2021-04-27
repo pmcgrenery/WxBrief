@@ -31,7 +31,12 @@ body {
     font-family: 'IBM Plex Sans', sans-serif;
     background: #3b3b3b;
     color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     min-height: 100%;
 }
@@ -59,9 +64,6 @@ h6 {
 
 #landing-page-bg {
     background: url(../images/stratus-clouds.jpg) no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
     min-height: 101vh;
 }
@@ -74,7 +76,12 @@ h6 {
 #landing-card {
     height: 78vh;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     position: absolute;
     bottom: 0;
@@ -103,7 +110,11 @@ h6 {
     margin: 0 auto;
     max-width: 450px;
     font-size: 1.2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -112,28 +123,45 @@ h6 {
     color: #fff;
     margin: 0 auto;
     font-size: 1.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 #down-button {
     text-align: center;
     color: #fff;
-    padding: 1rem 0 2rem 0;
     font-size: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
     align-items: flex-end;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     text-decoration: none;
-
 }
 
 #down-button i {
+    -webkit-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
+    padding-bottom: 2rem;
 }
 
 #down-button i:hover {
+
+    -webkit-transform: scale(1.15);
+
+    -ms-transform: scale(1.15);
 
     transform: scale(1.15);
 }
@@ -142,6 +170,8 @@ h6 {
     color: #000;
     background-color: #f0863a;
     border-color: #673816;
+    -webkit-transition: all 0.05s linear;
+    -o-transition: all 0.05s linear;
     transition: all 0.05s linear;
 }
 
@@ -176,6 +206,8 @@ h6 {
     height: 4px;
     border-radius: 2px;
     background: #fff;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
@@ -186,16 +218,22 @@ h6 {
 
 
 .rotate-top {
+    -webkit-transform: rotate(45deg) translate(8px, 10.5px);
+    -ms-transform: rotate(45deg) translate(8px, 10.5px);
     transform: rotate(45deg) translate(8px, 10.5px);
     width: 110%;
 }
 
 .slide-out {
+    -webkit-transform: translate(-50px);
+    -ms-transform: translate(-50px);
     transform: translate(-50px);
     background: transparent;
 }
 
 .rotate-bottom {
+    -webkit-transform: rotate(-45deg) translate(8px, -10.5px);
+    -ms-transform: rotate(-45deg) translate(8px, -10.5px);
     transform: rotate(-45deg) translate(8px, -10.5px);
     width: 110%;
 }
@@ -212,6 +250,7 @@ h6 {
     top: 0;
     position: absolute;
     display: none;
+    -webkit-box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -219,6 +258,8 @@ h6 {
     position: absolute;
     left: 50%;
     top: 45%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
@@ -242,6 +283,8 @@ h6 {
 .header-bar {
     width: 100%;
     height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -254,6 +297,8 @@ h6 {
 }
 
 .fixed-top {
+    -webkit-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
     background-color: transparent;
 }
@@ -261,7 +306,6 @@ h6 {
 .active {
     background: #3b3b3b;
     -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 }
 
@@ -282,6 +326,7 @@ h6 {
 
 .ap-controls {
     background: #3c3c3c;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
     background-color: #f0863a;
 }
@@ -289,6 +334,8 @@ h6 {
 #clr-airports {
     position: relative;
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     color: #000;
     background: none;
@@ -314,6 +361,8 @@ h6 {
     float: right;
     position: relative;
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     background: none;
     border: none;
@@ -341,6 +390,8 @@ h6 {
     float: right;
     position: relative;
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     background: none;
     border: none;
@@ -374,6 +425,8 @@ h6 {
     position: absolute;
     right: 0;
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     width: 15%;
     height: 100%;
@@ -386,6 +439,8 @@ h6 {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
@@ -396,15 +451,15 @@ h6 {
     position: relative;
     color: #fff;
     background: #6d6d6d;
-    background-image: -webkit-linear-gradient(top, #636363, #484848);
-    background-image: -moz-linear-gradient(top, #636363, #484848);
-    background-image: -ms-linear-gradient(top, #636363, #484848);
     background-image: -o-linear-gradient(top, #636363, #484848);
     background-image: -webkit-gradient(to bottom, #636363, #484848);
     -webkit-box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
     box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    -webkit-transition: all 0.05s linear;
+
+    -o-transition: all 0.05s linear;
 
     transition: all 0.05s linear;
 }
@@ -419,10 +474,14 @@ h6 {
 }
 
 .shrink {
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
     transform: scale(0.95);
 }
 
 .grow {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
     transform: scale(1);
 }
 
@@ -430,6 +489,8 @@ h6 {
     color: #000;
     background-color: #f0863a;
     border-color: #673816;
+    -webkit-transition: all 0.05s linear;
+    -o-transition: all 0.05s linear;
     transition: all 0.05s linear;
 }
 
@@ -502,18 +563,29 @@ h6 {
     height: 30px;
     width: 210px;
     border-radius: 15px;
+    -webkit-box-shadow: 0 1px 3px 0 rgb(0 0 0 / 50%);
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 50%);
     background-color: #c6cfd1;
     border: 1px solid #000;
     z-index: 2;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 15px;
 
     top: 10px;
     left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
     position: absolute;
 }
@@ -548,7 +620,11 @@ h6 {
 }
 
 #control-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     color: #000;
     font-size: 18px;
@@ -556,10 +632,13 @@ h6 {
     z-index: 1;
     bottom: 22px;
     left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
     height: 44px;
     width: 210px;
     border-radius: 23px;
+    -webkit-box-shadow: 0 1px 3px 0 rgb(0 0 0 / 50%);
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 50%);
     background-color: #ffffff;
     border: 1px solid #000;
@@ -573,9 +652,16 @@ h6 {
     background-color: #c6cfd1;
     margin-right: 17px;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-negative: 0;
     flex-shrink: 0;
     position: relative;
     left: -2px;
@@ -584,8 +670,14 @@ h6 {
 #last-frame {
     margin-right: 17px;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -599,8 +691,14 @@ h6 {
 
 #next-frame {
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -655,6 +753,8 @@ h6 {
 }
 
 #legend {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     color: #000;
     font-size: 14px;
@@ -663,6 +763,8 @@ h6 {
     height: 229px;
     top: 50%;
     right: 0;
+    -webkit-transform: translate(0, -56%);
+    -ms-transform: translate(0, -56%);
     transform: translate(0, -56%);
 }
 
@@ -684,6 +786,8 @@ h6 {
 .key ::before {
 
     content: "\2022";
+    -webkit-transform: scale(4);
+    -ms-transform: scale(4);
     transform: scale(4);
     padding-right: 8px;
     display: inline-block;
@@ -783,6 +887,8 @@ h6 {
     position: absolute;
     left: -14px;
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     border-top: 15px solid transparent;
     border-right: 15px solid white;
@@ -806,10 +912,14 @@ h6 {
     color: #ffffff;
     background-color: #f0863a;
     border-color: #673816;
+    -webkit-transition: all 0.05s linear;
+    -o-transition: all 0.05s linear;
     transition: all 0.05s linear;
     width: 70px;
     position: relative;
     left: 50%;
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
     transform: translate(-50%);
     font-size: 14px;
 }
@@ -840,6 +950,8 @@ h6 {
 #back-btn {
     position: relative;
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     color: #000;
     background: none;
@@ -875,13 +987,9 @@ h6 {
     padding: 0.5rem;
     border-radius: 10px;
     background: #6d6d6d;
-    background-image: -webkit-linear-gradient(top, #636363, #484848);
-    background-image: -moz-linear-gradient(top, #636363, #484848);
-    background-image: -ms-linear-gradient(top, #636363, #484848);
     background-image: -o-linear-gradient(top, #636363, #484848);
     background-image: -webkit-gradient(to bottom, #636363, #484848);
     -webkit-box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
     box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -919,6 +1027,8 @@ h6 {
     margin-bottom: 0.5rem;
     width: 100%;
     height: 3px;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(240, 134, 58, 0.7)), color-stop(rgba(240, 134, 58, 0.9)), to(rgba(240, 134, 58, 0.7)));
+    background: -o-linear-gradient(left, rgba(240, 134, 58, 0.7), rgba(240, 134, 58, 0.9), rgba(240, 134, 58, 0.7));
     background: linear-gradient(to right, rgba(240, 134, 58, 0.7), rgba(240, 134, 58, 0.9), rgba(240, 134, 58, 0.7));
     border-radius: 2px;
 }
@@ -943,6 +1053,8 @@ table {
 
 .radar {
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     height: 400px;
     position: relative;
