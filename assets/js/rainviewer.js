@@ -35,6 +35,39 @@ $(".base-control").click(function () {
     $(".base-wrapper").toggle();
 })
 
+// Fullscreen Toggler
+// Modified from: https://www.w3schools.com/howto/howto_js_fullscreen.asp
+var fullscreenMode = false;
+var radarBox = document.getElementById("radar-map-container")
+
+$("#fullscreen-control").click(function () {
+    // Toggle the icon on the control
+    $(".fs-icon").toggle();
+    if (fullscreenMode === false) {
+        if (radarBox.requestFullscreen) {
+            radarBox.requestFullscreen();
+        } else if (radarBox.webkitRequestFullscreen) {
+            /* Safari */
+            radarBox.webkitRequestFullscreen();
+        } else if (radarBox.msRequestFullscreen) {
+            /* IE11 */
+            radarBox.msRequestFullscreen();
+        };
+        fullscreenMode = true;
+    } else if (fullscreenMode === true) {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            /* Safari */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            /* IE11 */
+            document.msExitFullscreen();
+        };
+        fullscreenMode = false;
+    }
+})
+
 let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
 var lat = airport.lat;
 var long = airport.long;
@@ -96,6 +129,9 @@ function setLayer(base) {
     L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
     // Add the radar images layer
     initialize(apiData, optionKind);
+    //Marker over airport
+    L.marker([lat, long]).addTo(map)
+        .bindPopup(`${airport.icao}`);
     // Hide the map button
     $(".base-wrapper").hide();
 }

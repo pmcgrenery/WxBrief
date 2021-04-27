@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <!-- Leaflet Maps CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <!-- Leaflet Fullscreen Plugin -->
-    <link rel="stylesheet" href="Control.FullScreen.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -100,8 +98,9 @@
                 </div>
             </div>
             <div id="fullscreen-control">
-                <i class="fas fa-expand" aria-hidden="true" aria-label="Fullscreen Toggle"></i>
-                <i class="fas fa-compress" aria-hidden="true" aria-label="Fullscreen Toggle" style="display:none"></i>
+                <i class="fas fa-expand fs-icon" aria-hidden="true" aria-label="Fullscreen Toggle"></i>
+                <i class="fas fa-compress fs-icon" aria-hidden="true" aria-label="Fullscreen Toggle"
+                    style="display:none"></i>
             </div>
             <div id="legend-control">
                 L
@@ -191,8 +190,6 @@
 
     <!-- Leaflet Provider JS -->
     <script src="assets/js/leaflet-providers.js"></script>
-    <!-- Leaflet Fullscreen Plugin -->
-    <script src="Control.FullScreen.js"></script>
     <!-- Rainviewer JS -->
     <script src="assets/js/rainviewer-landing-page.js"></script>
     <!-- Custom Effects JS -->
