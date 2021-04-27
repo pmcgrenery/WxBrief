@@ -37,37 +37,20 @@ $(".base-control").click(function () {
 })
 
 // Fullscreen Toggler
-// Modified from: https://www.w3schools.com/howto/howto_js_fullscreen.asp
-var fullscreenMode = false;
-var radarBox = document.getElementById("radar-map-container")
+var fullscreen = false;
 
 $("#fullscreen-control").click(function () {
-    // Toggle the icon on the control
+    $("#radar-map-container").toggleClass("fullscreen").toggleClass(".radar-container");
     $(".fs-icon").toggle();
-    if (fullscreenMode === false) {
+    // https://github.com/Leaflet/Leaflet/issues/694
+    map.invalidateSize();
+
+    if (fullscreen === false) {
         map.dragging.enable();
-        if (radarBox.requestFullscreen) {
-            radarBox.requestFullscreen();
-        } else if (radarBox.webkitRequestFullscreen) {
-            /* Safari */
-            radarBox.webkitRequestFullscreen();
-        } else if (radarBox.msRequestFullscreen) {
-            /* IE11 */
-            radarBox.msRequestFullscreen();
-        };
-        fullscreenMode = true;
-    } else if (fullscreenMode === true) {
+        fullscreen = true;
+    } else if (fullscreen === true) {
         map.dragging.disable();
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) {
-            /* Safari */
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-            /* IE11 */
-            document.msExitFullscreen();
-        };
-        fullscreenMode = false;
+        fullscreen = false;
     }
 })
 
