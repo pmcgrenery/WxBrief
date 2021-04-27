@@ -773,10 +773,27 @@ h6 {
 
 .base {
     position: absolute;
+    top: 107px;
+    left: 55px;
     z-index: 1;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.base-wrapper::before {
+    content: " ";
+    position: absolute;
+    left: -14px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(0, -50%);
+    border-top: 15px solid transparent;
+    border-right: 15px solid white;
+    border-left: none;
+    border-bottom: 15px solid transparent;
+}
+
+.base-wrapper {
+    display: none;
 }
 
 .map-base {
@@ -809,9 +826,7 @@ h6 {
     box-shadow: 0 0 3px 0.25rem #0000004d;
 }
 
-.base-wrapper {
-    display: none;
-}
+
 
 /* ------------------------------------------------------------------------------------------------ Wx Report Page */
 #local-time,
