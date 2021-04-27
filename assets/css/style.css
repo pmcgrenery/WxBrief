@@ -649,23 +649,8 @@ h6 {
     z-index: 1;
     height: 229px;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.intensity {
-    height: 100%;
-    width: 20px;
-}
-
-.intensity .rain-img {
-    height: 168px;
-    width: 100%;
-}
-
-.intensity .snow-img {
-    height: 61px;
-    width: 100%;
+    right: 0;
+    transform: translate(0, -56%);
 }
 
 /* https://www.w3schools.com/howto/howto_css_bullet_color.asp */
