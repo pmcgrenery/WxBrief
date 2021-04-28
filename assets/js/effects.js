@@ -35,25 +35,15 @@ $(document).ready(function () {
         }, 175);
     });
 
-
-
-
+    // Run the resize function every time the screen changes size
     $(window).on("resize", resize);
     resize();
 
     function resize() {
-        // Dynamically set the height of the landing-card
         let wh = $(window).innerHeight();
-        console.log("wh", wh)
-
         let hh = $("header").height();
-        console.log("hh", hh)
-
-        // Dynamically set header #airports height
         $("#airports").css("margin-top", `${(hh + 16)}px`);
-
-        $(".airport-details").css("margin-top", `${hh}px`);
-
+        $(".airport-details").css("margin-top", `${hh + 16}px`);
         $("#landing-card").css("margin-top", `${(1.25 * hh)}px`);
 
         if ($(window).width() > 990) {
@@ -62,13 +52,13 @@ $(document).ready(function () {
         } else {
             // On smaller screens only show fold on bottom 15%
             $("#landing-card").css("height", `${(wh-hh)-(wh*.15)}px`);
-        }
+        };
 
         if ($(window).width() > 350) {
             $("#get-briefed").addClass("btn-lg");
         } else {
             $("#get-briefed").removeClass("btn-lg");
-        }
+        };
 
     }
 
