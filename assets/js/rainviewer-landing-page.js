@@ -50,6 +50,9 @@ $("#fullscreen-control").click(function () {
         fullscreen = true;
     } else if (fullscreen === true) {
         map.dragging.disable();
+        if ($(window).width() > 480) {
+            map.dragging.enable();
+        }
         fullscreen = false;
     }
 })
@@ -73,6 +76,11 @@ var map = L.map('mapid', {
     tap: !L.Browser.mobile,
     tap: !L.Browser.mobileWebkit,
 });
+
+// Enable single finger dragging on larger devices
+if ($(window).width() > 480) {
+    map.dragging.enable();
+}
 
 setLayer(version);
 
@@ -113,7 +121,7 @@ var mapFrames = [];
 var lastPastFramePosition = -1;
 var radarLayers = [];
 var optionKind = 'radar'; // can be 'radar' or 'satellite'
-var optionTileSize = 512; // can be 256 or 512.
+var optionTileSize = 256; // can be 256 or 512.
 var optionColorScheme = 7; // from 0 to 8. See https://rainviewer.com/api/color-schemes.html
 var optionSmoothData = 1; // 0 - not smooth, 1 - smooth
 var optionSnowColors = 1; // 0 - do not show snow colors, 1 - show snow colors
