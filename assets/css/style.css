@@ -940,6 +940,10 @@ footer {
     font-weight: 700;
     border: none;
     height: 40px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    opacity: 1
 }
 
 #back-btn:hover,
@@ -951,6 +955,10 @@ footer {
     -webkit-box-shadow: none;
     box-shadow: none;
     background: #ce7536;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    opacity: 1
 }
 
 .airport-details {
