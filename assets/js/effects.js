@@ -39,6 +39,8 @@ $(document).ready(function () {
     let hh = $("header").height() + 16;
     $("#airports").css("margin-top", `${hh}px`);
     $(".airport-details").css("margin-top", `${hh}px`);
+    let cpt = 1.2 * hh
+    $("#landing-card").css("margin-top", `${cpt}px`);
 
     // Button press animation
     $("#get-briefed").click(function (event) {

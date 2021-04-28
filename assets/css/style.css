@@ -48,18 +48,13 @@ footer {
 /*----------------------------------------------------------------------------------------- Landing Page */
 
 #landing-page-bg {
-    background: url(../images/stratus-clouds.jpg) no-repeat center center;
+    background: url(../images/stratus-clouds.webp) no-repeat center center;
     background-size: cover;
-    min-height: 101vh;
-}
 
-#opaque-overlay {
-    background-color: rgb(0 0 0 / 55%);
-    min-height: 101vh;
 }
 
 #landing-card {
-    height: 78vh;
+    height: 75vh;
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -68,8 +63,6 @@ footer {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    position: absolute;
-    bottom: 0;
 }
 
 .card-child {
@@ -103,6 +96,10 @@ footer {
     align-items: center;
 }
 
+#landing-intro p {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
 #landing-button {
     text-align: center;
     color: #fff;
@@ -119,34 +116,11 @@ footer {
     justify-content: center;
 }
 
-#down-button {
-    text-align: center;
-    color: #fff;
-    font-size: 2rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    text-decoration: none;
+#blur-bottom {
+    max-height: 8vh;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0));
 }
 
-#down-button i {
-    -webkit-transition: all 0.15s ease-in-out;
-    -o-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out;
-    padding-bottom: 2rem;
-}
-
-#down-button i:hover {
-    -webkit-transform: scale(1.15);
-    -ms-transform: scale(1.15);
-    transform: scale(1.15);
-}
 
 #get-briefed {
     color: #000;
@@ -296,7 +270,7 @@ footer {
 }
 
 
-/*------------------------------------------------------------------------------------------------- Airports Page */
+/*-------------------------------------------------------------------------------------- Airports Page */
 /* Header & Controls */
 #ap-header {
     text-align: center;
@@ -493,9 +467,15 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* -----------------------------------------------------------------------------Modals */
+/* -------------------------------------------------------------------------------------------------Modals */
 #welcomeModal {
     color: #fff;
+}
+
+.btn-close:focus {
+
+    box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 25%);
+
 }
 
 .modal-header {
@@ -520,7 +500,7 @@ footer {
     width: 5rem;
 }
 
-/* --------------------------------------------------------------------------------------------------Radar Map */
+/* --------------------------------------------------------------------------------------------Radar Map */
 #radar-section {
     height: 450px;
 }
@@ -918,7 +898,7 @@ footer {
 
 
 
-/* ------------------------------------------------------------------------------------------------ Wx Report Page */
+/* --------------------------------------------------------------------------------------------- Wx Report Page */
 #local-time,
 #utc-time,
 #elevation,
@@ -1080,14 +1060,10 @@ footer p a:active {
     color: #bebebe;
 }
 
-/* MEDIA QUERIES */
+/* ------------------------------------------------------------------------------------------MEDIA QUERIES */
 
 /* SCREEN SIZE LARGER THAN IPHONE 5 */
-@media screen and (min-width:325px) {
-    #landing-card {
-        padding-top: 3vh;
-    }
-}
+@media screen and (min-width:325px) {}
 
 /* SCREEN SIZE SM and up */
 @media screen and (min-width:576px) {
@@ -1098,10 +1074,6 @@ footer p a:active {
 
 /* SCREEN SIZE MD and up */
 @media screen and (min-width:768px) {
-
-    #landing-card {
-        padding-top: 9vh;
-    }
 
     #radar-section {
         height: 550px;
@@ -1183,10 +1155,6 @@ footer p a:active {
 @media screen and (min-width:1900px) {
     #logo {
         width: 220px;
-    }
-
-    #landing-card {
-        padding-top: 12vh;
     }
 
     #radar-section {
