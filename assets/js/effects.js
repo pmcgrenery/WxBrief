@@ -56,7 +56,7 @@ $(document).ready(function () {
             $("#landing-card").css("height", `${(sh-hh)-(sh*.3)}px`);
         } else {
             // On smaller screens only show fold on bottom 15%
-            $("#landing-card").css("height", `${(sh-hh)-(sh*.15)}px`);
+            $("#landing-card").css("height", `${(sh-hh)-(sh*.2)}px`);
         }
 
     }
