@@ -37,7 +37,6 @@ $(document).ready(function () {
 
     // Dynamically set header #airports height
     let hh = $("header").height() + 16;
-    console.log(hh);
     $("#airports").css("margin-top", `${hh}px`);
     $(".airport-details").css("margin-top", `${hh}px`);
 

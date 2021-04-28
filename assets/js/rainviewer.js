@@ -36,35 +36,23 @@ $(".base-control").click(function () {
 })
 
 // Fullscreen Toggler
-// Modified from: https://www.w3schools.com/howto/howto_js_fullscreen.asp
-var fullscreenMode = false;
-var radarBox = document.getElementById("radar-map-container")
+var fullscreen = false;
 
 $("#fullscreen-control").click(function () {
-    // Toggle the icon on the control
+    $("#radar-map-container").toggleClass("fullscreen").toggleClass("radar-container");
     $(".fs-icon").toggle();
-    if (fullscreenMode === false) {
-        if (radarBox.requestFullscreen) {
-            radarBox.requestFullscreen();
-        } else if (radarBox.webkitRequestFullscreen) {
-            /* Safari */
-            radarBox.webkitRequestFullscreen();
-        } else if (radarBox.msRequestFullscreen) {
-            /* IE11 */
-            radarBox.msRequestFullscreen();
-        };
-        fullscreenMode = true;
-    } else if (fullscreenMode === true) {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) {
-            /* Safari */
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-            /* IE11 */
-            document.msExitFullscreen();
-        };
-        fullscreenMode = false;
+    // https://github.com/Leaflet/Leaflet/issues/694
+    map.invalidateSize();
+
+    if (fullscreen === false) {
+        map.dragging.enable();
+        fullscreen = true;
+    } else if (fullscreen === true) {
+        map.dragging.disable();
+        if ($(window).width() > 480) {
+            map.dragging.enable();
+        }
+        fullscreen = false;
     }
 })
 
@@ -118,7 +106,6 @@ function setLayer(base) {
     // https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map
     map.eachLayer(function (layer) {
         map.removeLayer(layer);
-        console.log("layers removed")
     });
     // Add the mapbox layer
     L.tileLayer.provider('MapBox', {
@@ -148,7 +135,7 @@ var mapFrames = [];
 var lastPastFramePosition = -1;
 var radarLayers = [];
 var optionKind = 'radar'; // can be 'radar' or 'satellite'
-var optionTileSize = 512; // can be 256 or 512.
+var optionTileSize = 256; // can be 256 or 512.
 var optionColorScheme = 7; // from 0 to 8. See https://rainviewer.com/api/color-schemes.html
 var optionSmoothData = 1; // 0 - not smooth, 1 - smooth
 var optionSnowColors = 1; // 0 - do not show snow colors, 1 - show snow colors

@@ -40,7 +40,7 @@ $(".base-control").click(function () {
 var fullscreen = false;
 
 $("#fullscreen-control").click(function () {
-    $("#radar-map-container").toggleClass("fullscreen").toggleClass(".radar-container");
+    $("#radar-map-container").toggleClass("fullscreen").toggleClass("radar-container");
     $(".fs-icon").toggle();
     // https://github.com/Leaflet/Leaflet/issues/694
     map.invalidateSize();

@@ -50,16 +50,6 @@ footer {
     margin-top: auto;
 }
 
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 700;
-} */
-
 /*----------------------------------------------------------------------------------------- Landing Page */
 
 #landing-page-bg {
@@ -158,11 +148,8 @@ h6 {
 }
 
 #down-button i:hover {
-
     -webkit-transform: scale(1.15);
-
     -ms-transform: scale(1.15);
-
     transform: scale(1.15);
 }
 
@@ -456,11 +443,8 @@ h6 {
     -webkit-box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
     box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
     -webkit-transition: all 0.05s linear;
-
     -o-transition: all 0.05s linear;
-
     transition: all 0.05s linear;
 }
 
@@ -540,6 +524,10 @@ h6 {
     height: 450px;
 }
 
+.radar {
+    height: 400px;
+}
+
 .radar-container {
     width: 100%;
     height: 100%;
@@ -550,13 +538,9 @@ h6 {
     position: fixed;
     top: 0;
     left: 0;
-
     z-index: 99999;
     width: 100%;
     height: 100%;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
 }
 
 #map-display-type {
@@ -568,11 +552,8 @@ h6 {
     background-color: #c6cfd1;
     border: 1px solid #000;
     z-index: 2;
-
     display: -webkit-box;
-
     display: -ms-flexbox;
-
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -1051,15 +1032,6 @@ table {
 
 }
 
-.radar {
-    top: 50%;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    height: 400px;
-    position: relative;
-}
-
 .leaflet-container {
     background: #3b3b3b;
 }
@@ -1072,7 +1044,6 @@ table {
     color: #f0863a;
     margin: 26px 22px;
     text-decoration: none;
-
     transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
@@ -1172,6 +1143,9 @@ footer p a:active {
 
     .pl {
         padding-left: 1rem !important;
+        padding-left: 1rem !important;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     .radar {
