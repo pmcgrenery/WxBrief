@@ -35,12 +35,31 @@ $(document).ready(function () {
         }, 175);
     });
 
-    // Dynamically set header #airports height
-    let hh = $("header").height() + 16;
-    $("#airports").css("margin-top", `${hh}px`);
-    $(".airport-details").css("margin-top", `${hh}px`);
-    let cpt = 1.2 * hh
-    $("#landing-card").css("margin-top", `${cpt}px`);
+
+
+
+    $(window).on("resize", resize);
+    resize();
+
+    function resize() {
+        // Dynamically set the height of the landing-card
+        let sh = $(window).height();
+        let hh = $("header").height();
+        let cpt = 1.5 * hh
+
+        // Dynamically set header #airports height
+        $("#airports").css("margin-top", `${hh}px`);
+        $(".airport-details").css("margin-top", `${hh}px`);
+        $("#landing-card").css("margin-top", `${cpt}px`);
+        if ($(window).width() > 1000) {
+            // On larger screens show fold on bottom 30% of screen
+            $("#landing-card").css("height", `${(sh-hh)-(sh*.3)}px`);
+        } else {
+            // On smaller screens only show fold on bottom 15%
+            $("#landing-card").css("height", `${(sh-hh)-(sh*.15)}px`);
+        }
+
+    }
 
     // Button press animation
     $("#get-briefed").click(function (event) {
