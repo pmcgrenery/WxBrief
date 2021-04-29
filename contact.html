@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WxBrief</title>
+    <!-- jQuery CSS -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FONT AWESOME CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- Leaflet Maps CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <header class="fixed-top opaque-header">
+        <nav>
+            <div class="container-fluid header-bar">
+                <a class="brand" href="index.html">
+                    <img id="logo" src="assets/images/wx-brief-logo-white.svg">
+                    <h1 class="sr-only">WxBrief</h1>
+                </a>
+                <a class="burger-menu" aria-label="Toggle navigation">
+                    <div id="burger">
+                        <div class="line" id="line-one"></div>
+                        <div class="line" id="line-two"></div>
+                        <div class="line" id="line-three"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a id="home" href="index.html">
+                            <img src="assets/images/wx-logo.svg" alt="wx Logo">
+                        </a>
+                    </li>
+                    <div class="hr-menu"></div>
+                    <li class="nav-item">
+                        <a href="airports.html">Briefing</a>
+                    </li>
+                    <div class="hr-menu"></div>
+                    <li class="nav-item">
+                        <a href="aboutus.html">About</a>
+                    </li>
+                    <div class="hr-menu"></div>
+                    <li class="nav-item">
+                        <a href="contact.html">Contact</a>
+                    </li>
+                    <div class="hr-menu"></div>
+                </ul>
+            </div>
+        </nav>
+        <!-- Airport, Clear, Delete, Add -->
+        <div class="container-fluid ap-header">
+            <div class="row">
+                <h2 id="ap-header">Contact</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 ap-controls">
+                    <a type="button" class="btn" id="back-btn" href="index.html">
+                        <i class="fas fa-caret-left" aria-hidden="true"></i> Back
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5">
+                    <div id="contact-us">
+                        <h3 class="text-center">Get in touch with us</h3>
+                        <p class="mb-4 text-center">
+                            Whether it be a request for a new feature,
+                            to tell us about a glitch in the matrix or to just say hi,
+                            we want to hear from you.
+                        </p>
+                        <div class="hr"></div>
+                        <form class="my-4">
+                            <div class="mb-3">
+                                <label for="fname" class="form-label">First Name:</label>
+                                <input type="text" class="form-control" id="fname" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lname" class="form-label">Last Name:</label>
+                                <input type="text" class="form-control" id="lname" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message:</label>
+                                <textarea class="form-control" id="message" rows="4" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-warning" id="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <a class="sm-icons" href="https://www.facebook.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                        <span class="sr-only">Facebook</span>
+                    </a>
+                    <a class="sm-icons" href="https://www.instagram.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center">
+                    <p><i class="far fa-copyright" aria-hidden="true"></i> Copyright 2021 - WxBrief | All Rights
+                        Reserved | Website by
+                        <a href="https://www.linkedin.com/in/padraig-mcgrenery/" target="_blank" rel="noopener">Padraig
+                            McGrenery</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JQuery JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Custom Effects JS -->
+    <script src="assets/js/effects.js"></script>
+
+</body>
+
+</html>

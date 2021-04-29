@@ -46,6 +46,7 @@ $(document).ready(function () {
         $(".airport-details").css("margin-top", `${hh + 16}px`);
         $("#landing-card").css("margin-top", `${(1.25 * hh)}px`);
         $("#accordion").css("margin-top", `${(hh + 16)}px`);
+        $("#contact-us").css("margin-top", `${(hh + 16)}px`);
         if ($(window).width() > 990) {
             // On larger screens show fold on bottom 30% of screen
             $("#landing-card").css("height", `${(wh-hh)-(wh*.3)}px`);

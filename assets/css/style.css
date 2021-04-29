@@ -518,11 +518,11 @@ footer {
 
 /* --------------------------------------------------------------------------------------------Radar Map */
 #radar-section {
-    height: 450px;
+    height: 500px;
 }
 
 .radar {
-    height: 400px;
+    height: 500px;
 }
 
 .radar-container {
@@ -1140,6 +1140,31 @@ footer p a:active {
 
 .ui-widget-content {
     border: 1px solid #dddddd50;
+}
+
+/* ------------------------------------------------------------------------------------------Contact Us */
+
+#submit {
+    color: #000;
+    background-color: #f0863a;
+    border-color: #673816;
+    -webkit-transition: all 0.05s linear;
+    -o-transition: all 0.05s linear;
+    transition: all 0.05s linear;
+    /* text-align: center; */
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+}
+
+#submit:hover,
+#submit:active,
+#submit:focus,
+#submit:active:focus {
+    background-color: #bb6629;
+    border-color: #000;
+    -webkit-box-shadow: 0 0 3px 0.25rem #0000004d;
+    box-shadow: 0 0 3px 0.25rem #0000004d;
 }
 
 /* ------------------------------------------------------------------------------------------MEDIA QUERIES */
