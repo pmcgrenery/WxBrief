@@ -192,7 +192,7 @@ footer {
 
 .hr-menu {
     height: 3px;
-    background: linear-gradient(to right, rgba(240, 134, 58, 0.7), rgba(240, 134, 58, 0.9), rgba(240, 134, 58, 0.7));
+    background: linear-gradient(to right, rgba(240, 134, 58, 0.5), rgba(240, 134, 58, 1));
     border-radius: 2px;
     position: absolute;
     right: -100px;
@@ -1074,6 +1074,72 @@ footer p a:focus,
 footer p a:active:focus,
 footer p a:active {
     color: #bebebe;
+}
+
+/* ------------------------------------------------------------------------------------------ABOUT US */
+.ui-accordion {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: #3b3b3b;
+    color: #fff;
+}
+
+.ui-accordion-header {
+    width: 100%;
+    cursor: pointer;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: #fff;
+    background: #6d6d6d;
+    background-image: -webkit-linear-gradient(top, #636363, #484848);
+    background-image: -moz-linear-gradient(top, #636363, #484848);
+    background-image: -ms-linear-gradient(top, #636363, #484848);
+    background-image: -o-linear-gradient(top, #636363, #484848);
+    -webkit-box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.ui-accordion-header-active {
+    border: none;
+}
+
+.ui-accordion-header-collapsed {
+    border: none;
+}
+
+.ui-accordion-content {
+    padding: 1rem 0.7rem !important;
+    background: #3b3b3b;
+    color: #ffffff;
+}
+
+.ui-accordion-content p {
+    font-size: 1rem;
+}
+
+.ui-accordion-content a {
+    display: block;
+    color: #ffffff;
+    margin-top: 1rem;
+}
+
+.ui-accordion-content img {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.ui-widget-content {
+    border: 1px solid #dddddd50;
 }
 
 /* ------------------------------------------------------------------------------------------MEDIA QUERIES */

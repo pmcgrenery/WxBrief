@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WxBrief</title>
+    <!-- jQuery CSS -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FONT AWESOME CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- Leaflet Maps CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <header class="fixed-top opaque-header">
+        <nav>
+            <div class="container-fluid header-bar">
+                <a class="brand" href="index.html">
+                    <img id="logo" src="assets/images/wx-brief-logo-white.svg">
+                    <h1 class="sr-only">WxBrief</h1>
+                </a>
+                <a class="burger-menu" aria-label="Toggle navigation">
+                    <div id="burger">
+                        <div class="line" id="line-one"></div>
+                        <div class="line" id="line-two"></div>
+                        <div class="line" id="line-three"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a id="home" href="index.html">
+                            <img src="assets/images/wx-logo.svg" alt="wx Logo">
+                        </a>
+                    </li>
+                    <div class="hr-menu"></div>
+                    <li class="nav-item">
+                        <a href="airports.html">Briefing</a>
+                    </li>
+                    <div class="hr-menu"></div>
+                    <li class="nav-item">
+                        <a href="aboutus.html">About</a>
+                    </li>
+                    <div class="hr-menu"></div>
+                    <li class="nav-item">
+                        <a href="contact.html">Contact</a>
+                    </li>
+                    <div class="hr-menu"></div>
+                </ul>
+            </div>
+        </nav>
+        <!-- Airport, Clear, Delete, Add -->
+        <div class="container-fluid ap-header">
+            <div class="row">
+                <h2 id="ap-header">About</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 ap-controls">
+                    <a type="button" class="btn" id="back-btn" href="index.html">
+                        <i class="fas fa-caret-left" aria-hidden="true"></i> Back
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5">
+                    <div id="accordion">
+                        <h3>ABOUT US</h3>
+                        <div>
+                            <h4 class="text-center">WxBrief is a free source for aviation weather. Our site
+                                provides you with the weather reports you need along with live radar and satellite
+                                imagery of every major airport in the world.
+                            </h4>
+                            <div class="hr"></div>
+                            <p>We want you to have this information at your finger tips so that you have the situational
+                                awareness to make good decisions every time you plan a flight.
+                            </p>
+                        </div>
+                        <h3>FAQ.</h3>
+                        <div>
+                            <h4>What is a Metar?</h4>
+                            <div class="hr"></div>
+                            <p class="text-justify">METAR stands for "Meteorological Aerodrome Report". It is a
+                                standardised weather report
+                                that gives an
+                                overview
+                                of the current weather at a particular airport. They are published every 30 minutes, or
+                                every 60
+                                minutes
+                                depending on where in the world the airport is.</p>
+                            <p class="mt-2 text-justify">
+                                However, on occasion you will see a SPECI weather report, meaning "Special". These are
+                                published if there has been a significant change in the weather since the last METAR
+                                was published.
+                            </p>
+
+                            <h4 class="mt-4">What is a TAF?</h4>
+                            <div class="hr"></div>
+                            <p class="text-justify">TAF stands for "Terminal Aerodrome Forecast". It is a standardised
+                                weather report that gives an overview of the expected weather at a particular airport.
+                                They are typically published every 6 hours and generally cover a
+                                time period of 24 to 30 hours from the time of publication.</p>
+                            <p class="text-justify mt-2"> On rare occasions, a TAF will be published before the
+                                normal 6 hour period if a significant change in the forecast conditions occurs.</p>
+
+                            <h4 class="mt-4">How can I read these weather reports?</h4>
+                            <div class="hr"></div>
+                            <img src="assets/images/metar-description.svg" alt="METAR description"
+                                id="metar-description">
+                            <p class="text-justify">There are some minor differences between presentation of the reports
+                                in the U.S.A.,
+                                Canada and
+                                Europe, but their
+                                meanings are generally identical with the only major difference being the units of
+                                measurement used.
+                                Once you
+                                understandhow to decode the codes in any one of these areas you will be able to decode
+                                the others.
+                            </p>
+                            <p class="text-justify mt-2">To help with your understanding and to provide a quick
+                                reference to
+                                help you decode the
+                                reports
+                                please see the
+                                links below.
+                            </p>
+                            <p class="text-justify mt-2">As always, please refer to ICAO, EASA and FAA documentation for
+                                official source
+                                documentation.</p>
+                            <a href="assets/docs/qr-metar.pdf" target="_blank">European METAR Decode Quick Reference</a>
+                            <a href="assets/docs/qr-taf.pdf" target="_blank">European TAF Decode Quick Reference</a>
+                            <a href="assets/docs/qr-usa.pdf" target="_blank">USA METAR & TAF Quick Reference</a>
+                            <a href="assets/docs/canadian-wx-reports.pdf" target="_blank">Canadian METAR & TAF Quick
+                                Reference</a>
+                        </div>
+                        <h3>THE LEGAL STUFF</h3>
+                        <div>
+                            <p class="text-justify mt-2">We make every effort to ensure the information provided is
+                                accurate and up to date,
+                                however, as this
+                                is
+                                a free source we cannot gaurantee this. Please refer to official sources for your
+                                preflight planning
+                                requirements.</p>
+                            <p class="text-justify mt-2">If you notice any discrepancies with the data provided please
+                                let us know on the contact
+                                page.</p>
+
+                            <h4 class="mt-4">Disclaimer:</h4>
+                            <div class="hr"></div>
+                            <ul>
+                                <li class="text-justify mt-2">WxBrief accepts no responsibility or liability for
+                                    inaccuracies in the information
+                                    provided.
+                                </li>
+                                <li class="text-justify mt-2">The material presented shall not be used for preflight or
+                                    operational
+                                    planning in
+                                    lieu of
+                                    material
+                                    sourced from officially approved sources.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <a class="sm-icons" href="https://www.facebook.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                        <span class="sr-only">Facebook</span>
+                    </a>
+                    <a class="sm-icons" href="https://www.instagram.com/" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center">
+                    <p><i class="far fa-copyright" aria-hidden="true"></i> Copyright 2021 - WxBrief | All Rights
+                        Reserved | Website by
+                        <a href="https://www.linkedin.com/in/padraig-mcgrenery/" target="_blank" rel="noopener">Padraig
+                            McGrenery</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JQuery JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Custom Effects JS -->
+    <script src="assets/js/effects.js"></script>
+
+</body>
+
+</html>
