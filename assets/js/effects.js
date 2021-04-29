@@ -82,10 +82,4 @@ $(document).ready(function () {
 
     });
 
-    //Accordian
-    $(function () {
-        $("#accordion").accordion({
-            heightStyle: "content"
-        });
-    });
 });

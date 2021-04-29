@@ -1,10 +1,6 @@
 let id = "user_s4AHNLxcCCPhwyB5E6t3Z";
-let token = "8c9711b1ce9f5b026de69259c1fa5263";
 
-(function () {
-    // https://dashboard.emailjs.com/admin/integration
-    emailjs.init(id);
-})();
+emailjs.init(id);
 
 function sendMail(contactForm) {
     emailjs.send("wxbrief", "contact-form", {
@@ -15,11 +11,17 @@ function sendMail(contactForm) {
         })
         .then(
             function (response) {
-                console.log("SUCCESS", response);
+                console.log("Success", response);
             },
             function (error) {
-                console.log("Failed", error)
+                console.log("Failed", error);
             }
         )
     return false;
 }
+
+$("#contact-form").on("submit", function (e) {
+    e.preventDefault();
+    $('#submittedModal').modal('show');
+    $('form').get(0).reset();
+});
