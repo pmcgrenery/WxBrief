@@ -8,6 +8,12 @@ $.when(
         console.log("INTL OBJECT:", int);
         console.log("US OBJECT:", us);
 
+        function onEachFeature(feature, layer) {
+            var popupContent = feature.properties.rawSigmet
+            layer.bindPopup(popupContent);
+        }
+
+
         L.geoJSON(int, {
             style: function (feature) {
                 switch (feature.properties.hazard) {
@@ -44,7 +50,8 @@ $.when(
                             "color": "#a8a5a5", "weight": "5", "opacity": "0.6"
                         };
                 }
-            }
+            },
+            onEachFeature: onEachFeature,
         }).addTo(map);
 
 
@@ -76,7 +83,8 @@ $.when(
                             "color": "#a8a5a5", "weight": "5", "opacity": "0.6"
                         };
                 }
-            }
+            },
+            onEachFeature: onEachFeature,
         }).addTo(map);
     },
     function (errorResponse) {
