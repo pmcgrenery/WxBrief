@@ -51,8 +51,8 @@ $(document).ready(function () {
             // On larger screens show fold on bottom 30% of screen
             $("#landing-card").css("height", `${(wh-hh)-(wh*.3)}px`);
         } else {
-            // On smaller screens only show fold on bottom 15%
-            $("#landing-card").css("height", `${(wh-hh)-(wh*.15)}px`);
+            // On smaller screens only show fold on bottom 10%
+            $("#landing-card").css("height", `${(wh-hh)-(wh*.10)}px`);
         };
 
         if ($(window).width() > 350) {

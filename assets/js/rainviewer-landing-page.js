@@ -63,7 +63,7 @@ let long = 0;
 //Configure Map
 var map = L.map('mapid', {
     center: [lat, long],
-    zoom: 1,
+    zoom: 1.5,
     // Allow infinite zoom levels
     zoomSnap: 0,
     // Zoom button detents
