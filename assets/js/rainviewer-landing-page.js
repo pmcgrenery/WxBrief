@@ -100,7 +100,7 @@ function showPosition(position) {
             animate: true,
             duration: 2
         })
-    }, 2000);
+    }, 1000);
 }
 
 // Enable single finger dragging on larger devices
