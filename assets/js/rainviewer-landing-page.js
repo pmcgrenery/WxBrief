@@ -64,10 +64,11 @@ let long = 0;
 var map = L.map('mapid', {
     center: [lat, long],
     zoom: 1.5,
+    minZoom: 1,
     // Allow infinite zoom levels
     zoomSnap: 0,
     // Zoom button detents
-    zoomDelta: 0.5,
+    zoomDelta: 0.75,
     //Zoom scroll speed
     wheelPxPerZoomLevel: 80,
     //Disable single finger drag
@@ -76,6 +77,10 @@ var map = L.map('mapid', {
     tap: !L.Browser.mobile,
     tap: !L.Browser.mobileWebkit,
 });
+// Enable single finger dragging on larger devices
+if ($(window).width() > 480) {
+    map.dragging.enable();
+}
 
 // https: //www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
 getLocation();
@@ -138,17 +143,12 @@ function showError(error) {
             break;
     }
 }
-// Enable single finger dragging on larger devices
-if ($(window).width() > 480) {
-    map.dragging.enable();
-}
 
 setLayer(version);
 
 function setVersion(mapVersion) {
     version = mapVersion;
     setLayer(version);
-
 }
 
 function setLayer(base) {

@@ -2,14 +2,6 @@ var token = 'pk.eyJ1IjoicG1jZ3JlbmVyeSIsImEiOiJja25xYjlvMDgwYjc0MnBwZnFodXh1MHZ5
 var radarMask = 'https://tilecache.rainviewer.com/v2/coverage/0/512/{z}/{x}/{y}/0/0_0.png';
 var version = "mapbox/dark-v10";
 
-//Check the current frame time and output the time in UTC format
-function setFrameTime(frame) {
-    let dateObj = new Date(frame.time * 1000);
-    let utcString = dateObj.toUTCString();
-    let frameTime = utcString.slice(17, 22);
-    document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
-}
-
 // Toggler to change the play/pause icon
 $("#play-toggle").click(function () {
     $(".playPause").toggle();
@@ -55,6 +47,14 @@ $("#fullscreen-control").click(function () {
         fullscreen = false;
     }
 })
+
+//Check the current frame time and output the time in UTC format
+function setFrameTime(frame) {
+    let dateObj = new Date(frame.time * 1000);
+    let utcString = dateObj.toUTCString();
+    let frameTime = utcString.slice(17, 22);
+    document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
+}
 
 let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
 var lat = airport.lat;
