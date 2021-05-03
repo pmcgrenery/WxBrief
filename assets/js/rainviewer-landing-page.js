@@ -82,17 +82,18 @@ getLocation();
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
     } else {
         console.log("Geolocation is not supported by this browser.");
-        // Fly down to center of Europe as default position
-        map.flyTo([50, 1.5], 4.5, {
-            animate: true,
-            duration: 2
-        })
+        // Show Europe id geolocation not supported
+        var corner1 = L.latLng(60, 13),
+            corner2 = L.latLng(35, -19),
+            bounds = L.latLngBounds(corner1, corner2);
+        map.flyToBounds(bounds);
     }
 }
 
+// Show user location is location is supported and allowed
 function showPosition(position) {
     // Fly down to current position at zoom level 5.5 over 2 seconds
     setTimeout(function () {
@@ -103,6 +104,40 @@ function showPosition(position) {
     }, 1000);
 }
 
+// If user has location turned off
+// https: //stackoverflow.com/questions/14862019/check-if-location-setting-has-been-turned-off-in-users-browser
+function showError(error) {
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            // Show Europe
+            var corner1 = L.latLng(60, 13),
+                corner2 = L.latLng(35, -19),
+                bounds = L.latLngBounds(corner1, corner2);
+            map.flyToBounds(bounds);
+            break;
+        case error.POSITION_UNAVAILABLE:
+            // Show Europe
+            var corner1 = L.latLng(60, 13),
+                corner2 = L.latLng(35, -19),
+                bounds = L.latLngBounds(corner1, corner2);
+            map.flyToBounds(bounds);
+            break;
+        case error.TIMEOUT:
+            // Show Europe
+            var corner1 = L.latLng(60, 13),
+                corner2 = L.latLng(35, -19),
+                bounds = L.latLngBounds(corner1, corner2);
+            map.flyToBounds(bounds);
+            break;
+        case error.UNKNOWN_ERROR:
+            // Show Europe
+            var corner1 = L.latLng(60, 13),
+                corner2 = L.latLng(35, -19),
+                bounds = L.latLngBounds(corner1, corner2);
+            map.flyToBounds(bounds);
+            break;
+    }
+}
 // Enable single finger dragging on larger devices
 if ($(window).width() > 480) {
     map.dragging.enable();
