@@ -57,13 +57,13 @@ $("#fullscreen-control").click(function () {
     }
 })
 
-let lat = 49;
-let long = 4.5;
+let lat = 0;
+let long = 0;
 
 //Configure Map
 var map = L.map('mapid', {
     center: [lat, long],
-    zoom: 4,
+    zoom: 1,
     // Allow infinite zoom levels
     zoomSnap: 0,
     // Zoom button detents
@@ -76,6 +76,32 @@ var map = L.map('mapid', {
     tap: !L.Browser.mobile,
     tap: !L.Browser.mobileWebkit,
 });
+
+// https: //www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
+getLocation();
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+        // Fly down to center of Europe as default position
+        map.flyTo([50, 1.5], 4.5, {
+            animate: true,
+            duration: 2
+        })
+    }
+}
+
+function showPosition(position) {
+    // Fly down to current position at zoom level 5.5 over 2 seconds
+    setTimeout(function () {
+        map.flyTo([position.coords.latitude, position.coords.longitude], 5.5, {
+            animate: true,
+            duration: 2
+        })
+    }, 2000);
+}
 
 // Enable single finger dragging on larger devices
 if ($(window).width() > 480) {
