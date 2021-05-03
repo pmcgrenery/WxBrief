@@ -748,6 +748,11 @@ footer {
     transform: translate(0, -56%);
 }
 
+.label-black {
+    color: #000;
+    font-weight: 700;
+}
+
 /* https://www.w3schools.com/howto/howto_css_bullet_color.asp */
 .key {
     list-style: none;

@@ -87,6 +87,7 @@ setLayer(version);
 function setVersion(mapVersion) {
     version = mapVersion;
     setLayer(version);
+
 }
 
 function setLayer(base) {
@@ -94,7 +95,6 @@ function setLayer(base) {
     // https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map
     map.eachLayer(function (layer) {
         map.removeLayer(layer);
-        console.log("layers removed")
     });
     // Add the mapbox layer
     L.tileLayer.provider('MapBox', {
@@ -105,6 +105,8 @@ function setLayer(base) {
     L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
     // Add the radar images layer
     initialize(apiData, optionKind);
+    // Add the sigmet layer
+    getSigmet(base);
     // Hide the map button
     $(".base-wrapper").hide();
 }

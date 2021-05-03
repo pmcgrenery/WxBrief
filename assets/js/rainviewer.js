@@ -116,6 +116,8 @@ function setLayer(base) {
     L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
     // Add the radar images layer
     initialize(apiData, optionKind);
+    // Add the sigmet layer
+    getSigmet(base);
     //Marker over airport
     L.marker([lat, long]).addTo(map)
         .bindPopup(`${airport.icao}`);
