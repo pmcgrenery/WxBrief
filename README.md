@@ -225,7 +225,7 @@ Specifically, the main colours used are:
 
 Readability is particularly important for this application, especially the ability to distinguish between 0(zero) and O. It is also favourable to have a font that is recognisable for the intended users. 
 
-On many aircraft, the font used for METAR, TAF and SIGMET printouts is IBM Plex Mono. As these weather reports are coded and not plain english it is much easier to read them with monospaced characters than with proportionally spaced characters. Of particular importance with this font, it distinguishes nicely between 0 and O with a dot inside the zero.
+On many aircraft, the font used for METAR, TAF and SIGMET printouts is similar to IBM Plex Mono. As these weather reports are coded and not plain english it is much easier to read them with monospaced characters than with proportionally spaced characters. Of particular importance with this font, it distinguishes nicely between 0 and O with a dot inside the zero.
 
 To complement this font I decided to stick with the complementary IBM Plex Sans font family for any plain english writing.
 
@@ -284,7 +284,10 @@ The image used as the background image on the landing page is my own.
 The site has the same basic layout for each page with a fixed header across the top, content below that and a sticky footer at the bottom.
  
 The site is responsive to all screen sizes. This is done using [Bootstrap’s flexbox grid system](https://getbootstrap.com/docs/5.0/getting-started/introduction/) with its different responsive tiers, CSS media queries and by using javascript to measure and set heights of certain sections.
- 
+
+
+- Features across the entire site
+
 - Header
  
     - The header sits to the top of each page.
@@ -304,8 +307,6 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
     - The 4 menu nav links and the horizontal rule beneath fades in when the menu slides in.
     - The nav links are placed a fixed distance from the right and half way down the screen.
  
-- Main Body
- 
 - Footer
 
     - A sticky footer that always sits to the bottom even if there is no content on the main part of the page. This is particularly important on the airport page when all airports are cleared.
@@ -314,7 +315,7 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 
 - Radar Map
 
-    - The map cpntains all the controls needed to customise the display to the users needs and to allow the user to focus on an area of interest.
+    - The map contains all the controls needed to customise the display to the users needs and to allow the user to focus on an area of interest.
     - To the left hand side, there are controls to zoom in and out, view fullscreen, show map legend(relating to the radar intensity readouts) and a base map controller.
     - The zoom buttons zoom in and out 0.75 of a full unit of the default leaflet zoom steps.
     - The fullscreen gives the map a position fixed attribute and stretches it across the available area on the device.
@@ -322,58 +323,73 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
     - The base layer button displays a list of available base layer maps. The default will be dark and the user can switch to dark, light or satellite imagery. The map base layers are provided by MapBox.
     - The radar data is provided by the Rainviewer API. I chose to use 256 px tiles as opposed to 512 px tiles to reduce the weight of the app on data so that it can be used on airplane wifi.
     - The radar data from Rainviewer API can be displayed in many different versions. The chosen radar display format is RAINBOW @ SELEX-SI. The intended users are pilots and the colour scheme used for the different precipitation types is the same as what pilots see on their built in aircraft radar displays.
+    - A semi transparent radar mask is applied to the map to display to the user where there is radar coverage.
     - On the map the SIGMETS are displayed as polygons. The raw data arrives as geoJSON type object, so I used leaflets built in geoJSON plotting tool to plot these.
     - Each polygon has a label to quickly identify to the user the type of hazard that exists within the polygon. For example TURB means turbulence, VA means volcanic ash, MTW means mountain wave.
     - Each polygon can be clicked on to display the full SIGMET text. This text gives the user more detailed information of the intensity, sub type, affected altitudes, where the weather is moving to, the forecast change in intensity and any other plain text information. For example, "1.5 INCH HAIL" can appear as a plain text output as there is no standardised way of saying this in a SIGMET.
     - The US SIGMET hazard types are longer strings than international SIGMET hazard types, so to keep clutter to a minimum on the map these hazard type are changed where applicable to be shortened snippets rather than full words. eg TURBULENCE becomes TURB.
     - The SIGMETS are colour coded for the type of hazard to improve the information presentation to the user.
-    <!-- CONTINUE FROM HERE -->
-    - RADAR CONTROLS-----------------------------------
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    - The radar controls sit to the bottom of the map window. from left to right, the top control bar has a play/pause button, a last frame selector, the frame time in UTC, and a next frame selector.
+    - The bottom radar controls allows the user to toggle between weather radar and infrared satellite imagery.
 
 - Features specific to each page
  
     - Home
+
         - A hero image in the background hinting to the user the purpose of the site.
         - Leads with an svg image containing text saying Aviation weather, by pilots for pilots giving the new user an instant summary of the purpose of the site.
-        - Beneath the hero header, a small snippet of text telling the user exactly what the site offers in more detail.
+        - Beneath the hero header, a small snippet of text telling the user exactly what the site offers in a bit more detail.
         - A call to action in the form of a button to take the user to the brefing section of the site.
-        - Just above the fold, on most devices except very small devices e.g. iphone 5, the top of the radar and SIGMET map. So that users know to scroll down to see the map.
-        - The map itself, geolocates to the users particular location. It starts out by showing the entire world and after a small time delay then flys down gently to the users current location. This is done using LEaflets flyTo function.
+        - The radar map appears just above the fold on the vast majority of small devices so that users know to scroll down to see the map. On larger devices the radar appears well above the fold with padding above and to the sides.
+        - The map itself, geolocates to the users particular location. It starts out by showing the entire world and after a small time delay then flys down gently to the users current location. This is done using Leaflets flyTo function.
         - If the user has the location turned off then the map flys down to show most of Europe in one snapshot regardless of the screen size. This is done using leaflets flyToBounds function.
+    
+    - Briefing
 
-        - Leads with a hero image overlaid with a call to action in the form of a booking enquiry button. The button links to the Contact page. The call to action is placed and sized in such a way as to allow the user to see the main focus of the image underneath regardless of the screen size. The hero image itself changes in size depending on the screen size, again to ensure the callout is an appropriate size while allowing the user to see the main focus of the image behind.
-        - A ‘What we do’ section to communicate to the user straight away the kind of service that is provided by the company. The information appears as per the wireframes depending on the screen sizes. The images take up the full width of the screen on small devices. On medium devices and larger the images appear with rounded edges to reference old photographs with rounded edges.
-        - A 'Testimonials' section with 3 reviews from previous happy customers. The testimonials are in a [Bootstrap carousel](https://getbootstrap.com/docs/5.0/components/carousel/). It is a slide type carousel with a 10 second interval timer. I chose to present the reviews in a carousel so that a larger image could be included and to improve the interactiveness of the site to provide a better UX.
-    - Gallery
+        - More elements are added to the header on this page to allow the user to have the controls in view regardless of where they have scrolld to on the page.
+        - The forst element attached beneath the basic header is a heading bar with Airports written in the header.
+        - Beneath that, a control bar. Initially the control bar contains a back button to return to the home page , a button to edit the list, and a button to add to the list of airports.
+        - When a user lands on this page for the first time, the iser is presented with a fade in modal that welcomes the user and provides basic instructions on how to use the application.
+        - When a first time user lands on the page, there is already a list of sample airports for the new user to see how the application works amd appears.
+        - When a user selects the edit icon, the back button disappears and is replaced with a Clear All button. When pressed, this button triggers a fade in modal that double checks with the user that they want to delete all airports.
+        - When the user selects the edit button, each airport gets a bin icon to the right hand side of its button. When the iser clicks this bin icon that particular airport only is deleted. The deleted airports slides up out of view.
+        - When a user selects the add icon or presses enter on the keyboard, the add airport modal fades in.
+        - The modal gives basic instructions on how to add the airport to the list with a form label and placeholder text. 
+        - The form input only accepts 4 letters and or digits. If the user enters a number of characters different to exactly 4 then a warning will appear in the modal telling the user that they must enter a 4 letter code.
+        - If the user enters a 4 letter code that is not recognised in the worldwide database, the user will recive a warning saying that the airport entered does not exist.
+        - If the user enters an airport that is already in the list, it will not add the airport and will alert the user to this.
+        - When an airport is added, the screen automatically scrolls to the bottom to display the newly added airport.
+        - The airports are added and displayed on the screen as a large button. Each button displays the ICAO, IATA and plain english name for the airport.
+        - When the user clicks on an airport to access the weather specific to that airport, it shrinks and then bounces back to its original size to simulate a button click.
+
+    - WxReport.html
+
+        - This is the only page that cant be navigated to from the nav menu as the user must select the airport they want to retrive weather info for first in order to display useful information.
+        - As with the briefing page. The header also has a control bar in it but drops the title bar. The control bar just contains a back button like the briefing page.
+        - Beneath the page header there is a title block similar to the briefings page, that contains the ICAO, IATA and plain emglish name of the airport.
+        - Beneath this a section that shows the local time, UTC time and the elevation of the airport.
+        - The next section contains a table of all of the available runways at the airport, along with their length and width in meters.
+        - Next section down is a METAR section with the most recent METAR report for the airport.
+        - The next section contains the most recent TAF for the airport, with each timeframe taking a new line as is the standard format for TAFs.
+        - Below this on a medium sized device and smaller is the radar. Unlike the home page radar, this map is centered on the airport and adds a marker on the airport so the user can pan around the screen and not lose sight of where the airport is.
+
+    - About
+
+        - This page has a header similar to the briefing page, with a title bar, and a control bar.
+        - The control bar has a back button.
+        - This page contains subsections for About Us, FAQ, Legal Text. 
+        - The subsections each occupy a section of an accordian type display. This is done to reduce clutter on the page.
+
+    - Contact
+
+        - This page, again, has a header similar to the airports page to keep the consistency across all pages. The header contains a title and a back button that returns the user to the home page.
+        - This page leads with a call to the user to get in touch.
+        - Below this there is a simple form for the user to get in touch with the site admin.
+        - This form plugs in to email.js to send an email to the website admin.
+        - All input fields are required.
+        - When the form is successfully submitted it triggers a fade in modal telling the user that the form has been submitted and that somebody will be in touch ASAP.
+    
+
         - Promotional Images of the service provided in a [Bootstrap carousel](https://getbootstrap.com/docs/5.0/components/carousel/). The carousel used is a crossfade carousel with an interval timer set at 5 seconds. By using this feature the user will not see the images loading one by one as they would if they were presented in a masonry design for example. This is done to promote a better UX and encourage user interaction.
         - The picture takes up the full width of the screen up to medium screen sizes so the user can get as large a view as possible of the images. On screens medium and larger, the images appear with a rounded edge to maintain consistency with the way images were presented on the home page.
         - Below the image carousel there is a booking enquiry button that stands out to the user. This button links to the contact page.
@@ -414,9 +430,9 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
  
 ## Frameworks, Libraries, Programs and Online Tools Used
  
-- **[Animate.css](https://animate.style/)**. Used for the slide in and fade in animations.
- 
-- **[Hover.css](https://ianlunn.github.io/Hover/)**. Used for the underline from the center animation on the nav links.
+- **[JQuery](https://www.jquery.com)**. Used throughout the project to select elements, animate elements, make calls to API among many other things.
+
+- 
  
 - **[Font Awesome](https://fontawesome.com/)**. Used for the phone, email and quote icons.
  
