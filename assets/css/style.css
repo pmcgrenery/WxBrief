@@ -192,6 +192,7 @@ footer {
 }
 
 .hr-menu {
+    display: none;
     height: 3px;
     background: linear-gradient(to right, rgba(240, 134, 58, 0.5), rgba(240, 134, 58, 1));
     border-radius: 2px;
@@ -234,6 +235,7 @@ footer {
     padding-top: 2rem;
     padding-right: 1.0rem;
     list-style: none;
+    display: none;
 }
 
 .nav-item a {

@@ -33,6 +33,11 @@ $(document).ready(function () {
         $(".nav-menu").animate({
             width: "toggle"
         }, 175);
+
+        $(".nav-item").fadeToggle(675);
+
+        $(".hr-menu").fadeToggle(675);
+
     });
 
     // Run the resize function every time the screen changes size

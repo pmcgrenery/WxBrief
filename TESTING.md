@@ -27,5 +27,7 @@
 9. Bug: When you go to fullscreen on the map, tiles at the edge of the display do not load until you move the map so that the entire tile is in view.
 <br>Fix: Apply <code>map.invalidateSize();</code> to the map every time the map changes from normal size to fullscreen size and vice versa. The root cause is that the div renders on the screen initially in normal size, the map essentially "remembers" this size and still thinks it is this size when it gets larger. So you just have to tell the map to forget its old size and to take the new size of the div as the size to be displayed. [Github post](https://github.com/Leaflet/Leaflet/issues/941)
 
+10. Bug: When you zoom in and out and pan across the map for a while the SIGMET polygons disappear. 
+<br>Fix: Originally the line weight for the polygons was set to a number value. However, after some research online I found that adding this line weight attribute is a know bug in leaflet. The fix is just to remove the weight attribute. This is a known issue with the leaflet map when you plot geoJSON polygons to the map. 
 
 # Existing Bugs
