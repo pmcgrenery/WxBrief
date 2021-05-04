@@ -198,6 +198,8 @@ The project's aesthetic is designed to present a trustworthy, professionally des
 #### Logo:
 
 To create a logo that scaled well across all devices and zoom levels I decided to create the logo as an svg image file type. This vector type image avoids any pixelation issues and renders perfectly on retina displays and adds to the professional aesthetic.
+
+The chosen company name hints at the intended use and user of the site. Wx is short for weather in many settings, particularily in aviation, and brief is the term used in aviation for the period when preflight briefing is being completed. The Wx is surrounded by a cartoon type cloud, again, to hint at the purpose for this site. I chose to use a simple cartoon cloud instead of a picture so as to keep the desired clean, simple, professional aesthetic of the site.
  
 #### Colour Scheme:
 
@@ -288,6 +290,7 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
     - The header sits to the top of each page.
     - The header is a fixed header that remains in place at the top of the screen when the user scrolls down to allow easy navigation no matter where the user is on the site.
     - The logo sits to the left of the header on all devices.
+    - The logo is in svg format to allow it to scale well across different screens and improve the logo display on retina displays.
     - The logo gets larger on larger screens.
     - The burger menu sits to the right of the header.
     - The burger menu animates to an X when clicked on.
@@ -295,7 +298,6 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
     - The header is transparent on the landing page and fades to opaque when page is scrolled down 50 px or more. The header is opaque on all other pages.
     - The bottom of the header has a shadow to give the impression that the header sits above the rest of the content.
     
-
 - Menu
 
     - The menu slides in from the right when the burger menu is clicked.
@@ -306,13 +308,28 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
  
 - Footer
 
-    - A sticky footer that always sits to the bottom even if there is no content on the main part of the page.
+    - A sticky footer that always sits to the bottom even if there is no content on the main part of the page. This is particularly important on the airport page when all airports are cleared.
     - Social media links in the form of icons sit at the top center of the footer. The icons are [FontAwesome Icons](https://fontawesome.com/icons?d=gallery). The colour of the icons change to a darker orange when hovered over.
     - Copyright fine centered at the bottom of the footer.
-<!-- CONTINUE FROM HERE -->
 
+- Radar Map
 
-
+    - The map cpntains all the controls needed to customise the display to the users needs and to allow the user to focus on an area of interest.
+    - To the left hand side, there are controls to zoom in and out, view fullscreen, show map legend(relating to the radar intensity readouts) and a base map controller.
+    - The zoom buttons zoom in and out 0.75 of a full unit of the default leaflet zoom steps.
+    - The fullscreen gives the map a position fixed attribute and stretches it across the available area on the device.
+    - The legend toggler show the legend on the right hand side with the related precipitation intensities hanging off the left hand side of the legend so that the user can hover these over an area of interest and examine the type of precipitation in a particular area.
+    - The base layer button displays a list of available base layer maps. The default will be dark and the user can switch to dark, light or satellite imagery. The map base layers are provided by MapBox.
+    - The radar data is provided by the Rainviewer API. I chose to use 256 px tiles as opposed to 512 px tiles to reduce the weight of the app on data so that it can be used on airplane wifi.
+    - The radar data from Rainviewer API can be displayed in many different versions. The chosen radar display format is RAINBOW @ SELEX-SI. The intended users are pilots and the colour scheme used for the different precipitation types is the same as what pilots see on their built in aircraft radar displays.
+    - On the map the SIGMETS are displayed as polygons. The raw data arrives as geoJSON type object, so I used leaflets built in geoJSON plotting tool to plot these.
+    - Each polygon has a label to quickly identify to the user the type of hazard that exists within the polygon. For example TURB means turbulence, VA means volcanic ash, MTW means mountain wave.
+    - Each polygon can be clicked on to display the full SIGMET text. This text gives the user more detailed information of the intensity, sub type, affected altitudes, where the weather is moving to, the forecast change in intensity and any other plain text information. For example, "1.5 INCH HAIL" can appear as a plain text output as there is no standardised way of saying this in a SIGMET.
+    - The US SIGMET hazard types are longer strings than international SIGMET hazard types, so to keep clutter to a minimum on the map these hazard type are changed where applicable to be shortened snippets rather than full words. eg TURBULENCE becomes TURB.
+    - The SIGMETS are colour coded for the type of hazard to improve the information presentation to the user.
+    <!-- CONTINUE FROM HERE -->
+    - RADAR CONTROLS-----------------------------------
+    
 
 
 
@@ -345,6 +362,14 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 - Features specific to each page
  
     - Home
+        - A hero image in the background hinting to the user the purpose of the site.
+        - Leads with an svg image containing text saying Aviation weather, by pilots for pilots giving the new user an instant summary of the purpose of the site.
+        - Beneath the hero header, a small snippet of text telling the user exactly what the site offers in more detail.
+        - A call to action in the form of a button to take the user to the brefing section of the site.
+        - Just above the fold, on most devices except very small devices e.g. iphone 5, the top of the radar and SIGMET map. So that users know to scroll down to see the map.
+        - The map itself, geolocates to the users particular location. It starts out by showing the entire world and after a small time delay then flys down gently to the users current location. This is done using LEaflets flyTo function.
+        - If the user has the location turned off then the map flys down to show most of Europe in one snapshot regardless of the screen size. This is done using leaflets flyToBounds function.
+
         - Leads with a hero image overlaid with a call to action in the form of a booking enquiry button. The button links to the Contact page. The call to action is placed and sized in such a way as to allow the user to see the main focus of the image underneath regardless of the screen size. The hero image itself changes in size depending on the screen size, again to ensure the callout is an appropriate size while allowing the user to see the main focus of the image behind.
         - A ‘What we do’ section to communicate to the user straight away the kind of service that is provided by the company. The information appears as per the wireframes depending on the screen sizes. The images take up the full width of the screen on small devices. On medium devices and larger the images appear with rounded edges to reference old photographs with rounded edges.
         - A 'Testimonials' section with 3 reviews from previous happy customers. The testimonials are in a [Bootstrap carousel](https://getbootstrap.com/docs/5.0/components/carousel/). It is a slide type carousel with a 10 second interval timer. I chose to present the reviews in a carousel so that a larger image could be included and to improve the interactiveness of the site to provide a better UX.
