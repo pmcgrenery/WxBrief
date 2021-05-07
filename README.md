@@ -209,19 +209,19 @@ In keeping with the philosophy of keeping the display as unintrusive as possible
  
 Specifically, the main colours used are:
 
-<!--  -->
-<!--  -->
-<!--  -->
-<!-- UPDATE THE COLOURS -->
 <img src="docs/color-scheme.png">
  
 #### Typography:
 
 Readability is particularly important for this application, especially the ability to distinguish between 0(zero) and O. It is also favourable to have a font that is recognisable for the intended users. 
 
-On many aircraft, the font used for METAR, TAF and SIGMET printouts is similar to IBM Plex Mono. As these weather reports are coded and not plain English it is much easier to read them with monospaced characters than with proportionally spaced characters. Of particular importance with this font, it distinguishes nicely between 0 and O with a dot inside the zero.
+On most aircraft, the font used for METAR, TAF and SIGMET printouts is similar to IBM Plex Mono. See below an example of the printouts.
 
-To complement this font I decided to stick with the complementary IBM Plex Sans font family for any plain English writing.
+<img src="docs/metar-sample.png">
+
+As these weather reports are coded and not plain English it is much easier to read them with monospaced characters than with proportionally spaced characters. Of particular importance with this font, it distinguishes nicely between 0 and O with a dot inside the zero.
+
+To complement this font I decided to stick with the complementary IBM Plex Sans font family for any plain English writing. This font is proportionally spaced to improve readability.
 
 The font used for the logo and the landing page header is Lexend Zetta.
 
@@ -280,51 +280,51 @@ The site has the same basic layout for each page with a fixed header across the 
 The site is responsive to all screen sizes. This is done using [Bootstrap’s flexbox grid system](https://getbootstrap.com/docs/5.0/getting-started/introduction/) with its different responsive tiers, CSS media queries and by using javascript to measure and set heights of certain sections.
 
 
-- Features across the entire site
+- Features common to the entire site
 
-- Header
- 
-    - The header sits at the top of each page.
-    - The header is a fixed header that remains in place at the top of the screen when the user scrolls down to allow easy navigation no matter where the user is on the site.
-    - The logo sits to the left of the header on all devices.
-    - The logo is in SVG format to allow it to scale well across different screens and improve the logo display on retina displays.
-    - The logo gets larger on larger screens.
-    - The burger menu sits to the right of the header.
-    - The burger menu animates to an X when clicked on.
-    - Depending on the page the header has a title section and a controls section.
-    - The header is transparent on the landing page and fades to opaque when the page is scrolled down 50 px or more. The header is opaque on all other pages.
-    - The bottom of the header has a shadow to give the impression that the header sits above the rest of the content.
+    - Header
     
-- Menu
+        - The header sits at the top of each page.
+        - The header is a fixed header that remains in place at the top of the screen when the user scrolls down to allow easy navigation no matter where the user is on the site.
+        - The logo sits to the left of the header on all devices.
+        - The logo is in SVG format to allow it to scale well across different screens and improve the logo display on retina displays.
+        - The logo gets larger on larger screens.
+        - The burger menu sits to the right of the header.
+        - The burger menu animates to an X when clicked on.
+        - Depending on the page the header has a title section and a controls section.
+        - The header is transparent on the landing page and fades to opaque when the page is scrolled down 50 px or more. The header is opaque on all other pages.
+        - The bottom of the header has a shadow to give the impression that the header sits above the rest of the content.
+        
+    - Menu
 
-    - The menu slides in from the right when the burger menu is clicked.
-    - The 4 menu nav links and the horizontal rule beneath fades in when the menu slides in.
-    - The nav links are placed a fixed distance from the right and halfway down the screen.
- 
-- Footer
+        - The menu slides in from the right when the burger menu is clicked.
+        - The 4 menu nav links and the horizontal rule beneath fades in when the menu slides in.
+        - The nav links are placed a fixed distance from the right and halfway down the screen.
+    
+    - Footer
 
-    - A sticky footer that always sits to the bottom even if there is no content on the main part of the page. This is particularly important on the airport page when all airports are cleared.
-    - Social media links in the form of icons sit at the top centre of the footer. The icons are [FontAwesome Icons](https://fontawesome.com/icons?d=gallery). The colour of the icons changes to a darker orange when hovered over.
-    - Copyright fine centred at the bottom of the footer.
+        - A sticky footer that always sits to the bottom even if there is no content on the main part of the page. This is particularly important on the airport page when all airports are cleared.
+        - Social media links in the form of icons sit at the top centre of the footer. The icons are [FontAwesome Icons](https://fontawesome.com/icons?d=gallery). The colour of the icons changes to a darker orange when hovered over.
+        - Copyright fine centred at the bottom of the footer.
 
-- Radar Map
+    - Radar Map
 
-    - The map contains all the controls needed to customise the display to the user's needs and to allow the user to focus on an area of interest.
-    - To the left-hand side, there are controls to zoom in and out, view fullscreen, show map legend(relating to the radar intensity readouts) and a base map controller.
-    - The zoom buttons zoom in and out 0.75 of a full unit of the default leaflet zoom steps.
-    - The fullscreen gives the map a position fixed attribute and stretches it across the available area on the device.
-    - The legend toggler show the legend on the right-hand side with the related precipitation intensities hanging off the left-hand side of the legend so that the user can hover these over an area of interest and examine the type of precipitation in a particular area.
-    - The base layer button displays a list of available base layer maps. The default will be dark and the user can switch to dark, light or satellite imagery. The map base layers are provided by MapBox.
-    - The radar data is provided by the Rainviewer API. I chose to use 256 px tiles as opposed to 512 px tiles to reduce the weight of the app on data so that it can be used on aeroplane wifi.
-    - The radar data from Rainviewer API can be displayed in many different versions. The chosen radar display format is RAINBOW @ SELEX-SI. The intended users are pilots and the colour scheme used for the different precipitation types is the same as what pilots see on their built-in aircraft radar displays.
-    - A semi-transparent radar mask is applied to the map to display to the user where there is radar coverage.
-    - On the map, the SIGMETS are displayed as polygons. The raw data arrives as geoJSON type object, so I used leaflets built-in geoJSON plotting tool to plot these.
-    - Each polygon has a label to quickly identify to the user the type of hazard that exists within the polygon. For example, TURB means turbulence, VA means volcanic ash, MTW means mountain wave.
-    - Each polygon can be clicked on to display the full SIGMET text. This text gives the user more detailed information of the intensity, subtype, affected altitudes, where the weather is moving to, the forecast change in intensity and any other plain text information. For example, "1.5 INCH HAIL" can appear as a plain text output as there is no standardised way of saying this in a SIGMET.
-    - The US SIGMET hazard types are longer strings than international SIGMET hazard types, so to keep clutter to a minimum on the map these hazard types are changed where applicable to be shortened snippets rather than full words. eg TURBULENCE becomes TURB.
-    - The SIGMETS are colour coded for the type of hazard to improve the information presented to the user.
-    - The radar controls sit at the bottom of the map window. from left to right, the top control bar has a play/pause button, the last frame selector, the frame time in UTC, and the next frame selector.
-    - The bottom radar controls allow the user to toggle between weather radar and infrared satellite imagery.
+        - The map contains all the controls needed to customise the display to the user's needs and to allow the user to focus on an area of interest.
+        - To the left-hand side, there are controls to zoom in and out, view fullscreen, show map legend(relating to the radar intensity readouts) and a base map controller.
+        - The zoom buttons zoom in and out 0.75 of a full unit of the default leaflet zoom steps.
+        - The fullscreen gives the map a position fixed attribute and stretches it across the available area on the device.
+        - The legend toggler show the legend on the right-hand side with the related precipitation intensities hanging off the left-hand side of the legend so that the user can hover these over an area of interest and examine the type of precipitation in a particular area.
+        - The base layer button displays a list of available base layer maps. The default will be dark and the user can switch to dark, light or satellite imagery. The map base layers are provided by MapBox.
+        - The radar data is provided by the Rainviewer API. I chose to use 256 px tiles as opposed to 512 px tiles to reduce the weight of the app on data so that it can be used on aeroplane wifi.
+        - The radar data from Rainviewer API can be displayed in many different versions. The chosen radar display format is RAINBOW @ SELEX-SI. The intended users are pilots and the colour scheme used for the different precipitation types is the same as what pilots see on their built-in aircraft radar displays.
+        - A semi-transparent radar mask is applied to the map to display to the user where there is radar coverage.
+        - On the map, the SIGMETS are displayed as polygons. The raw data arrives as geoJSON type object, so I used leaflets built-in geoJSON plotting tool to plot these.
+        - Each polygon has a label to quickly identify to the user the type of hazard that exists within the polygon. For example, TURB means turbulence, VA means volcanic ash, MTW means mountain wave.
+        - Each polygon can be clicked on to display the full SIGMET text. This text gives the user more detailed information of the intensity, subtype, affected altitudes, where the weather is moving to, the forecast change in intensity and any other plain text information. For example, "1.5 INCH HAIL" can appear as a plain text output as there is no standardised way of saying this in a SIGMET.
+        - The US SIGMET hazard types are longer strings than international SIGMET hazard types, so to keep clutter to a minimum on the map these hazard types are changed where applicable to be shortened snippets rather than full words. eg TURBULENCE becomes TURB.
+        - The SIGMETS are colour coded for the type of hazard to improve the information presented to the user.
+        - The radar controls sit at the bottom of the map window. from left to right, the top control bar has a play/pause button, the last frame selector, the frame time in UTC, and the next frame selector.
+        - The bottom radar controls allow the user to toggle between weather radar and infrared satellite imagery.
 
 - Features specific to each page
  
@@ -441,9 +441,11 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
  
 - **[Autoprefixer CSS Online](https://autoprefixer.github.io/)** Used to check for css prefix omissions to ensure cross browser compatibility.
 
-- **[Rapid API Airport](https://www.rapidapi.com)** This API is a free and unlimited API that was used to get the airport information on the airport page. 
+- **[Mapbox Tile Service](https://www.mapbox.com/mts)** This free map tiling service was used to provide the base layers for the map. Three of Mapbox's free base layers are used in the project. These are dark, light and satellite view.
 
-- **[AVWX](https://avwx.docs.apiary.io/#)** This open-source API was used to retrieve METAR, TAF, runways and airport elevation. The API is limited to 4000 free calls per day and premium tiers are available above this.
+- **[Rapid API Airport](https://www.rapidapi.com)** This API is a free and unlimited API from rapid-api that was used to get the airport information on the airport page. 
+
+- **[AVWX API](https://avwx.docs.apiary.io/#)** This open-source API was used to retrieve METAR, TAF, runways and airport elevation. The API is limited to 4000 free calls per day and premium tiers are available above this.
 
 - **[Rainviewer API](https://rainviewer.com/api.html)** This API is entirely free. It is used to provide radar imagery, infrared satellite imagery and radar coverage mask.
 
