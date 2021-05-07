@@ -1,5 +1,6 @@
 <div style="text-align:center">
-<img src="##" style="width:600px">
+<img src="assets/images/wx-brief-logo-white.svg" style="width:600px;-webkit-filter: invert(100%);
+          filter: invert(100%);">
 <br><br><br><br>
 <img src="##" style="width:1000px">
 </div>
