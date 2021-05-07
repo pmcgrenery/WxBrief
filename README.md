@@ -405,6 +405,8 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 - **[Leaflet Map](https://www.leafletjs.com)**. Used as the foundation for the interactive radar map. This is a free and open-source javascript library.
 
 - **[Leaflet Providers](https://github.com/leaflet-extras/leaflet-providers)** This Leaflet plugin was added to the project to simplify the addition of Mapbox base layers to the map. This is a free open-source plugin.
+
+- **[emailjs](https://www.emailjs.com)** Used to connect the contact form to an email service.
  
 - **[Font Awesome](https://fontawesome.com/)**. Used for the icons that were included throughout the project.
  
@@ -438,7 +440,7 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
  
 - **[Autoprefixer CSS Online](https://autoprefixer.github.io/)** Used to check for css prefix omissions to ensure cross browser compatibility.
 
-## APIs Used
+## APIs
 
 - **[Mapbox Tile Service](https://www.mapbox.com/mts)** This free map tiling service was used to provide the base layers for the map. Three of Mapbox's free base layers are used in the project. These are dark, light and satellite view.
 
@@ -451,8 +453,6 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 - **[Timezone DB API](https://timezonedb.com/api)** This API was used to get the UTC offset for the chosen airport. The API takes in the latitude and longitude and then supplies the UTC offset for that location. The API is entirely free.
 
 - **[Aviation Weather Center API](https://www.aviationweather.gov/help/webservice)** This US government weather provider API was used to get the live SIGMETs to plot on the map.
-
-- **[emailjs](https://www.emailjs.com)** Used to connect the contact form to an email service.
 
 # Testing
  
@@ -522,7 +522,7 @@ The image used on the Home Page background was taken and is owned by myself.
 
 [Radar animation](https://github.com/rainviewer/rainviewer-api-example) This sample implementation from the Rainviewer API documentation was modified and used to create the animation of the radar and satellite on the Leaflet map.
 
-[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) Used throughout the project. This was used form the modals and buttons.
+[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) Used throughout the project. This was used for the modals and buttons animations.
 
 ## Code 
 
@@ -534,5 +534,5 @@ The image used on the Home Page background was taken and is owned by myself.
 
 # Acknowledgements
 
-- A massive thank you to my mentor Rohit Sharma for his invaluable input and suggestions on how to improve the site and documentation.
+- Thank you to my mentor Rohit Sharma for his invaluable input and suggestions on how to improve the site and documentation.
 - Thank you to the Code Institute Slack community. Any questions I had were already answered in the channels so that was invaluable.
