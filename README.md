@@ -30,9 +30,10 @@
 # Project Overview
 This project is for Milestone 2 of the Code Institute Full Stack Developer Course. The purpose of the project is to develop an interactive front end site.
  
-WxBrief is a site that presents aviation weather information to users. Users can get an overview of the weather at their current location and then dig deeper and see the current and forecast weather at airports that they select.
+WxBrief is a site that presents aviation weather information to users. Users can get an overview of the weather at their current location and then dig deeper and see the current and forecast weather at airports that they can add to a custom list and then select.
  
 The site can be viewed [here](https://pmcgrenery.github.io/WxBrief).
+
 # UX Design
  
 ## Strategy Plane
@@ -79,7 +80,6 @@ The site can be viewed [here](https://pmcgrenery.github.io/WxBrief).
 -   As a returning user I want to clear the list of airports that I previously entered for a different flight and populate a new list of airports so that I have a list of airports specific to today flights.
 -   As a user, I want to be able to make contact with the site owner, so that I can let the owner know of an issue on the site.
 
- 
 ### **Competitor Review:**
 [Sky Vector](https://skyvector.com/)
 
@@ -120,6 +120,7 @@ Android and Apple app for getting METAR's and TAF's.
     
 - Cons:
     - No radar or satellite information.
+    - No SIGMET information.
     - Cannot delete all airports in one go. Have to delete airports one by one.
  
 ### **Scope Plane**
@@ -286,7 +287,7 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
         - The logo gets larger on larger screens.
         - The burger menu sits to the right of the header.
         - The burger menu animates to an X when clicked on.
-        - Depending on the page the header has a title section and a controls section.
+        - Depending on the page, the header has a title section and a controls section in addition to the logo and the burger menu.
         - The header is transparent on the landing page and fades to opaque when the page is scrolled down 50 px or more. The header is opaque on all other pages.
         - The bottom of the header has a shadow to give the impression that the header sits above the rest of the content.
         
@@ -311,7 +312,8 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
         - The legend toggler show the legend on the right-hand side with the related precipitation intensities hanging off the left-hand side of the legend so that the user can hover these over an area of interest and examine the type of precipitation in a particular area.
         - The base layer button displays a list of available base layer maps. The default will be dark and the user can switch to dark, light or satellite imagery. The map base layers are provided by MapBox.
         - The radar data is provided by the Rainviewer API. I chose to use 256 px tiles as opposed to 512 px tiles to reduce the weight of the app on data so that it can be used on aeroplane wifi.
-        - The radar data from Rainviewer API can be displayed in many different versions. The chosen radar display format is RAINBOW @ SELEX-SI. The intended users are pilots and the colour scheme used for the different precipitation types is the same as what pilots see on their built-in aircraft radar displays.
+        - The radar data from Rainviewer API can be displayed in many different versions. The chosen radar display format is RAINBOW @ SELEX-SI. The intended users are pilots and the colour scheme used for the different precipitation types is very similar to what pilots see on their built-in aircraft radar displays. See below image showing the similarity of the two.
+        <img src="docs/radar-sample.png">
         - A semi-transparent radar mask is applied to the map to display to the user where there is radar coverage.
         - On the map, the SIGMETS are displayed as polygons. The raw data arrives as geoJSON type object, so I used leaflets built-in geoJSON plotting tool to plot these.
         - Each polygon has a label to quickly identify to the user the type of hazard that exists within the polygon. For example, TURB means turbulence, VA means volcanic ash, MTW means mountain wave.
@@ -392,13 +394,17 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 
 - JavaScript
  
-## Frameworks, Libraries, Programs, Online Tools and APIs Used
- 
+## Frameworks, Libraries, Programs, Online Tools
+
 - **[JQuery](https://www.jquery.com)**. Used extensively throughout the project to select elements, animate elements, make calls to API among many other things.
 
 - **[JQuery UI](https://www.jqueryui.com)** This library was used on the About page to implement the accordion animation.
 
 - **[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)** Used throughout the project to implement the vast majority of the responsiveness in the design.
+
+- **[Leaflet Map](https://www.leafletjs.com)**. Used as the foundation for the interactive radar map. This is a free and open-source javascript library.
+
+- **[Leaflet Providers](https://github.com/leaflet-extras/leaflet-providers)** This Leaflet plugin was added to the project to simplify the addition of Mapbox base layers to the map. This is a free open-source plugin.
  
 - **[Font Awesome](https://fontawesome.com/)**. Used for the icons that were included throughout the project.
  
@@ -414,9 +420,11 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
  
 - **[Resizing.app](https://resizing.app/features/resize-png/)** - Used to resize the background image for quicker loading.
  
-- **[Favicon.io](https://favicon.io/favicon-generator/)** 
- 
-- **[Cssgradient.io](https://cssgradient.io/)** Used to create colour gradient background used on the airport selector buttons.
+- **[Favicon.io](https://favicon.io/favicon-generator/)** Used to create the simple favicon used on the site.
+
+- **[Loading.io](https://loading.io/)** Used to create the simple loading gif used on the site.
+
+- **[Css Button Creator](https://cssbuttoncreator.com/)** Used to create colour gradient background used on the airport selector buttons.
 
 - **[Gravit Designer](https://www.designer.io/en/?psd-campaign=1693840974&psd-adgroup=66081713215&psd-kw=gravit%20designer)** This online vector graphics creator platform was used to create the SVG images used on the site.
 
@@ -430,10 +438,8 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
  
 - **[Autoprefixer CSS Online](https://autoprefixer.github.io/)** Used to check for css prefix omissions to ensure cross browser compatibility.
 
-- **[Leaflet Map](https://www.leafletjs.com)**. Used as the foundation for the interactive radar map. This is a free and open-source javascript library.
+## APIs Used
 
-- **[Leaflet Providers](https://github.com/leaflet-extras/leaflet-providers)** This Leaflet plugin was added to the project to simplify the addition of Mapbox base layers to the map. This is a free open-source plugin.
- 
 - **[Mapbox Tile Service](https://www.mapbox.com/mts)** This free map tiling service was used to provide the base layers for the map. Three of Mapbox's free base layers are used in the project. These are dark, light and satellite view.
 
 - **[Rapid API Airport Info](https://rapidapi.com/Active-api/api/airport-info)** This API is a free and unlimited API from rapid-api that was used to get the airport information on the airport page. 
