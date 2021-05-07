@@ -401,19 +401,15 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
  
 - **[JQuery](https://www.jquery.com)**. Used extensively throughout the project to select elements, animate elements, make calls to API among many other things.
 
-+ **[JQuery UI](https://www.jqueryui.com)** This library was used on the About page to implement the accordion animation.
+- **[JQuery UI](https://www.jqueryui.com)** This library was used on the About page to implement the accordion animation.
+
+- **[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)** Used throughout the project to implement the vast majority of the responsiveness in the design.
  
 - **[Font Awesome](https://fontawesome.com/)**. Used for the icons that were included throughout the project.
- 
-- **[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)** Used throughout the project to implement the vast majority of the responsiveness in the design.
  
 - **[Google Fonts](https://fonts.google.com/about)** Used for all of the fonts that appear on the site.
  
 - **[Google Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools)** Used extensively to test responsiveness, javascript code etc.
- 
-- **[Leaflet Map](https://www.leafletjs.com)**. Used as the foundation for the interactive radar map. This is a free and open-source javascript library.
-
-- **[Leaflet Providers](https://github.com/leaflet-extras/leaflet-providers)** This Leaflet plugin was added to the project to simplify the addition of Mapbox base layers to the map. This is a free open-source plugin.
  
 - **[Balsamiq](https://balsamiq.com/)** - Used to create wireframes.
  
@@ -428,8 +424,6 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 - **[Cssgradient.io](https://cssgradient.io/)** Used to create colour gradient background used on the airport selector buttons.
 
 - **[Gravit Designer](https://www.designer.io/en/?psd-campaign=1693840974&psd-adgroup=66081713215&psd-kw=gravit%20designer)** This online vector graphics creator platform was used to create the SVG images used on the site.
- 
-- **[emailjs](https://www.emailjs.com)** Used to connect the contact form to an email service.
 
 - **[A11y Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/)** Used to check colour contrast of the site for accessibility.
 
@@ -441,9 +435,13 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
  
 - **[Autoprefixer CSS Online](https://autoprefixer.github.io/)** Used to check for css prefix omissions to ensure cross browser compatibility.
 
+- **[Leaflet Map](https://www.leafletjs.com)**. Used as the foundation for the interactive radar map. This is a free and open-source javascript library.
+
+- **[Leaflet Providers](https://github.com/leaflet-extras/leaflet-providers)** This Leaflet plugin was added to the project to simplify the addition of Mapbox base layers to the map. This is a free open-source plugin.
+ 
 - **[Mapbox Tile Service](https://www.mapbox.com/mts)** This free map tiling service was used to provide the base layers for the map. Three of Mapbox's free base layers are used in the project. These are dark, light and satellite view.
 
-- **[Rapid API Airport](https://www.rapidapi.com)** This API is a free and unlimited API from rapid-api that was used to get the airport information on the airport page. 
+- **[Rapid API Airport Info](https://rapidapi.com/Active-api/api/airport-info)** This API is a free and unlimited API from rapid-api that was used to get the airport information on the airport page. 
 
 - **[AVWX API](https://avwx.docs.apiary.io/#)** This open-source API was used to retrieve METAR, TAF, runways and airport elevation. The API is limited to 4000 free calls per day and premium tiers are available above this.
 
@@ -452,6 +450,8 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 - **[Timezone DB API](https://timezonedb.com/api)** This API was used to get the UTC offset for the chosen airport. The API takes in the latitude and longitude and then supplies the UTC offset for that location. The API is entirely free.
 
 - **[Aviation Weather Center API](https://www.aviationweather.gov/help/webservice)** This US government weather provider API was used to get the live SIGMETs to plot on the map.
+
+- **[emailjs](https://www.emailjs.com)** Used to connect the contact form to an email service.
 
 # Testing
  
