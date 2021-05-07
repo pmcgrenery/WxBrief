@@ -1,8 +1,3 @@
-https://cssbuttoncreator.com/ Used to style airport selectors
-
-https://loading.io/ Used to create loading.gif image
-
-
 <div style="text-align:center">
 <img src="##" style="width:600px">
 <br><br><br><br>
