@@ -506,39 +506,31 @@ For further information on how to clone a repository into your IDE please consul
  
 # Credits
 ## Content
-The content on the site is my own and written by me. However, it should be noted that [vintageweddingscars.ie](http://www.vintageweddingcars.ie/) was used for overall inspiration on what should be included.
+The content on the site is my own and written by me. 
+
+To aid users unfamiliar with how to read METAR and TAF reports I have provided in the FAQ some PDF's which are publicly available. These documents are free and widely published documents from the US Air Force, the UK Civil Aviation Authority and Nav Canada.
  
 ## Media 
-[Pexels.com](https://www.pexels.com) . Used for the three royalty free stock photos in testimonials section and the background image on the 404 page.
- 
-All other images are owned by me. Photographer: [David McClelland](https://davidmcclelland-photography.com/)
+
+The image used on the Home Page background was taken and is owned by myself. 
  
 ## Animations
  
-[Animate.css](https://animate.style/) This external css file was used for the slide in and fade in animations used for the Henry Royce quote.
- 
-[Hover.css](https://ianlunn.github.io/Hover/) This external css file was used for the underline from center animation used on the navigation links.
+[JQuery](https://jquery.com/) This basic JQuery library was used to create the majority of the animations on the site.
 
-[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) Used throughout the project. The built in animations used were the carousel, button and modal.
+[JQueryUI](https://jqueryui.com/) This additional UI library from JQuery was added to the project to implement the accordian animation on the About page.
+
+[Radar animation](https://github.com/rainviewer/rainviewer-api-example) This sample implementation from the Rainviewer API documentation was modified and used to create the animation of the radar and satellite on the Leaflet map.
+
+[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) Used throughout the project. This was used form the modals and buttons.
 
 ## Code 
-[How to Online](https://www.howtoonlinetips.com/hide-google-map-top-bar-embedded-header/). Used inspiration from the code on this site to hide the header on the embedded google map.
- 
+
 [Sympli.io](https://sympli.io/blog/heres-everything-you-need-to-know-about-favicons-in-2020/) Used the code on this blog to implement the favicon images on different devices.
- 
-[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) Template code from the documentation on Bootstrap 5 was used to implement the responsiveness, navbar, carousel throughout the site. The code was heavily modified to suit this site.
- 
-[Stack Overflow](https://stackoverflow.com/questions/5214127/css-technique-for-a-horizontal-line-with-words-in-the-middle). Code from this post was used to place the horizontal lines beside the headings.
- 
-[Animate.css](https://animate.style/). Code from the documentation section of this library was used to modify the timing of the animations.
- 
-[Sympli.io](https://sympli.io/blog/heres-everything-you-need-to-know-about-favicons-in-2020/). Code from this site was used as a guide to implement the favicon images on different devices.
+
+[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) Template code from the documentation on Bootstrap 5 was heavily modified and used on this site.
  
 [Autoprefixer CSS Online](https://autoprefixer.github.io/) The output code from this automated test was used to correct the code that was already written by me.
-
-[Codepen.io](https://codepen.io/hanapiers/pen/EXNrGP) Code from this site was modified and used to present the modal after the form has been submitted successfully.
-
-[Stackoverflow.com](https://stackoverflow.com/questions/16452699/how-to-reset-a-form-using-jquery-with-reset-method) Code from this post was used to reset the form after submitting.
 
 # Acknowledgements
 
