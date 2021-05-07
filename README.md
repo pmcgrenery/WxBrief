@@ -182,8 +182,10 @@ The wireframes below represent initial thoughts on the design of the site. The s
 [Home Page Wireframes](wireframes/home-wireframe.png)
 
 [Briefing Wireframes](wireframes/briefing-wireframe.png)
+
+[Weather Report Wireframes](wireframes/wxreport-wireframe.png)
  
-[About Us Wireframes](wireframes/about-wireframe.png)
+[About Wireframes](wireframes/about-wireframe.png)
  
 [Contact Wireframes](wireframes/contact-wireframe.png)
 
@@ -389,33 +391,8 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
         - All input fields are required.
         - When the form is successfully submitted it triggers a fade in modal telling the user that the form has been submitted and that somebody will be in touch ASAP.
     
-
-        - Promotional Images of the service provided in a [Bootstrap carousel](https://getbootstrap.com/docs/5.0/components/carousel/). The carousel used is a crossfade carousel with an interval timer set at 5 seconds. By using this feature the user will not see the images loading one by one as they would if they were presented in a masonry design for example. This is done to promote a better UX and encourage user interaction.
-        - The picture takes up the full width of the screen up to medium screen sizes so the user can get as large a view as possible of the images. On screens medium and larger, the images appear with a rounded edge to maintain consistency with the way images were presented on the home page.
-        - Below the image carousel there is a booking enquiry button that stands out to the user. This button links to the contact page.
-    - About
-        - A quote from Henry Royce to convey to the user the company ethos. The quote slides in from the left and the author fades in after the quote has stopped and the user has had a chance to read the quote. This is done using [animate.css](https://animate.style/).
-        - An ‘About Us’ section to tell the user a little bit more about the company and the company ethos.
-        - An ‘About the car’ section to give more detail on the car specifications etc.
-        - A 'Pricing' section to show the approximate price of the service. 
-        - Below the text detailing the price there is a google map in an iframe to show the user the approximate cost in the defined areas. The iframe is manipulated to hide the cumbersome and unsightly bar across the top and the scale and T&C link at the bottom that comes as standard.
-    - Contact
-        - The page leads with an image of the car to keep consistency across the pages.
-        - A wedding enquiry form
-            - [Bootstrap form](https://getbootstrap.com/docs/5.0/forms/overview/) was used to implement this element.
-            - The form contains various input types to get the necessary information from the interested user. As the business is primarily targeted at weddings, the inputs are aligned to that need.
-            - All form inputs are required except for the message input and phone number.
-            - Placeholder text is entered in the phone number input to give the user a hint for the phone number format. The same applies to the date.
-            - Placeholder text is provided in the address and message inputs to provide extra information.
-            - The phone number input in the form has a pattern attribute applied to it to require 10 or more numbers to suit Irish phone numbers. Allowing 10 or more numbers lets the user enter a foreign phone number if needed.
-            - Once the form is correctly filled out it may be submitted, otherwise, a warning will appear on the relevant input that has not been correctly filled.
-            - Only when the form is filled out correctly will the 'Thank You' modal appears after clicking on Enquire Now.
-            - When the form is submitted a modal fades in and thanks to the user for submitting an enquiry and giving them a timeframe for when to expect a reply.
-            - As the modal fades in the form's previously inputted values are reset.
-            - The modal can be closed by clicking in any of the dark space or clicking on the close button.
-        - A section that gives the email address and phone number to allow the users to make contact this way if they prefer or to just ask a question.
-        - The email and phone number details are links that automatically open the applicable app on the user's device.
     - 404 Page
+    
         - The page appears when a user tries to open a non-existent page.
         - A text box lets the user know they are in the wrong place and contains a link to return to the home page.
 
