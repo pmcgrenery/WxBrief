@@ -175,10 +175,6 @@ This page contains a simple form for a user to submit a message to the website a
 
 The wireframes below represent initial thoughts on the design of the site. The site changed as it evolved but the presentation of content remained largely the same as the wireframes.
 
-<!--  -->
-<!--  -->
-<!--  -->
-<!-- UPDATE THE WIREFRAMES -->
 [Home Page Wireframes](wireframes/home-wireframe.png)
 
 [Briefing Wireframes](wireframes/briefing-wireframe.png)
@@ -188,10 +184,6 @@ The wireframes below represent initial thoughts on the design of the site. The s
 [About Wireframes](wireframes/about-wireframe.png)
  
 [Contact Wireframes](wireframes/contact-wireframe.png)
-
-<!--  -->
-<!--  -->
-<!--  -->
 
 ### **Surface Plane**
  
