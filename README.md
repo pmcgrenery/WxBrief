@@ -1,10 +1,8 @@
-<div style="text-align:center">
-<img src="assets/images/wx-brief-logo-black.svg" style="width:600px;-webkit-filter: invert(100%);
-          filter: invert(100%);">
-<br><br><br><br>
+<p align="center">
+  <img src="assets/images/wx-brief-logo-black.svg" style="width:600px">
+</p>
+
 <img src="assets/images/mockup.png">
-</div>
- 
  
 # Table of Contents
  
