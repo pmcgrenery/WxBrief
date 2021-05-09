@@ -41,7 +41,7 @@ The site can be viewed [here](https://pmcgrenery.github.io/WxBrief).
 
 -   Create an easy to use interactive site where users can easily access the current weather at any airport.
 -   Primarily target the site at professional pilots, but make it easy to use for private pilots also.
--   Provide worldwide information to the user.
+-   Provide worldwide weather information to the user.
 -   Present a professional and clear branding.
  
 ### **Target Clients:**
@@ -106,7 +106,7 @@ A US government-owned and run site.
 - Cons:
     - To get a METAR and a TAF for an airport you must go to two different parts of the website.
     - Cumbersome site on large screens -> Using the scroll on the mouse scrolls the page and zooms the map at the same time.
-    - Extremely difficult to use on mobile devices.
+    - Very difficult to use on mobile devices.
  
 [Avia Weather](https://play.google.com/store/apps/details?id=com.mytowntonight.aviationweather&hl=en&gl=US)
 
@@ -116,6 +116,7 @@ Android and Apple app for getting METAR's and TAF's.
     - Clear presentation of weather data.
     - Plain English conversion of raw METAR and TAF for non-professional users.
     - Presentation of the current flight conditions (VFR/MVFR/IFR/LIFR) for non-professional pilots.
+    - Easy to use on a mobile device.
     
 - Cons:
     - No radar or satellite information.
@@ -420,6 +421,8 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 - **[GitHub](https://github.com/)** Used as a code repository and to host the site on Github pages.
  
 - **[Resizing.app](https://resizing.app/features/resize-png/)** - Used to resize the background image for quicker loading.
+
+- **[Photopea](https://www.photopea.com/)** - Used to create the mockup image used in this file.
  
 - **[Favicon.io](https://favicon.io/favicon-generator/)** Used to create the simple favicon used on the site.
 
@@ -504,14 +507,18 @@ For further information on how to clone a repository from GitHub click [here](ht
 For further information on how to clone a repository into your IDE please consult your provider's documentation.
  
 # Credits
+
 ## Content
+
 The content on the site is my own and written by me. 
 
 To aid users unfamiliar with how to read METAR and TAF reports I have provided in the FAQ some PDF's which are publicly available. These documents are free and widely published documents from the US Air Force, the UK Civil Aviation Authority and Nav Canada.
  
 ## Media 
 
-The image used on the Home Page background was taken and is owned by myself. 
+The image used on the Home Page background was taken and is owned by myself.
+
+The mockup image used in this file is based on [Anthony Boyd's](https://www.anthonyboyd.graphics/) free mockups.
  
 ## Animations
  
