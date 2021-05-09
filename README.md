@@ -532,15 +532,17 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
 
 ## Code 
 
-[Sympli.io](https://sympli.io/blog/heres-everything-you-need-to-know-about-favicons-in-2020/) Used the code on this blog to implement the favicon images on different devices.
+[Sympli.io](https://sympli.io/blog/heres-everything-you-need-to-know-about-favicons-in-2020/). Used the code on this blog to implement the favicon images on different devices.
 
-[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) Template code from the documentation on Bootstrap 5 was heavily modified and used on this site.
+[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/). Template code from the documentation on Bootstrap 5 was heavily modified and used on this site.
  
-[Autoprefixer CSS Online](https://autoprefixer.github.io/) The output code from this automated test was used to correct the code that was already written by me.
+[Autoprefixer CSS Online](https://autoprefixer.github.io/). The output code from this automated test was used to correct the code that was already written by me.
 
-[StackOverflow Autofocus](https://stackoverflow.com/questions/14940423/autofocus-input-in-twitter-bootstrap-modal) Code from this post was used to autofocus on the add airport modal input when the modal opened.
+[StackOverflow Autofocus](https://stackoverflow.com/questions/14940423/autofocus-input-in-twitter-bootstrap-modal). Code from this post was used to autofocus on the add airport modal input when the modal opened.
 
-[StackOverflow Array Check](https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e) Code from this post was used to check if an airport the user is entering already exists in the airport list.
+[StackOverflow Array Check](https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e). Code from this post was used to check if an airport the user is entering already exists in the airport list.
+
+[StackOverflow Smooth Scroll](https://stackoverflow.com/questions/4249353/jquery-scroll-to-bottom-of-the-page). Used code from this post to smooth the scrolling action on the page.
 
 # Acknowledgements
 

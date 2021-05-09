@@ -1,6 +1,4 @@
-// DEFAULT AIRPORTS FOR FIRST TIME USER
-
-var defaultAirports = [{
+const DEFAULT_AIRPORTS = [{
         "icao": "EIDW",
         "iata": "DUB",
         "name": "Dublin Airport",
@@ -36,3 +34,15 @@ var defaultAirports = [{
         "long": -60.4088
     }
 ];
+
+const URL = {
+    "apInfo": "https://airport-info.p.rapidapi.com/airport?icao=",
+}
+
+const KEY = {
+    "apInfo": "38d4bdbef5msh1ba875b702e5c63p1d66b7jsn741235df0bf8",
+}
+
+const HOST = {
+    "apInfo": "airport-info.p.rapidapi.com",
+}
