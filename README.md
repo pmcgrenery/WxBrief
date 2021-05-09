@@ -538,6 +538,10 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
  
 [Autoprefixer CSS Online](https://autoprefixer.github.io/) The output code from this automated test was used to correct the code that was already written by me.
 
+[StackOverflow Autofocus](https://stackoverflow.com/questions/14940423/autofocus-input-in-twitter-bootstrap-modal) Code from this post was used to autofocus on the add airport modal input when the modal opened.
+
+[StackOverflow Array Check](https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e) Code from this post was used to check if an airport the user is entering already exists in the airport list.
+
 # Acknowledgements
 
 - Thank you to my mentor Rohit Sharma for his invaluable input and suggestions on how to improve the site and documentation.

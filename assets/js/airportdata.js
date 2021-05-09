@@ -141,6 +141,8 @@ function clearAirports() {
     localStorage.setItem('airports', JSON.stringify(airports));
     displayAirports(airports);
     $("#clearAirports").modal('hide');
+    $("#back-btn").toggle(20);
+    $("#clr-airports").toggle(20);
 };
 
 // Delete airport and locally store the updated airports array
