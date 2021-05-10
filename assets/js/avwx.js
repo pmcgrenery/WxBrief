@@ -1,6 +1,5 @@
 $("document").ready(function () {
     let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
-    //Load the selected airport from local storage
     setHeader(airport);
     getAirportMETAR(airport.icao);
     getAirportTAF(airport.icao);
@@ -10,7 +9,7 @@ $("document").ready(function () {
 function setHeader(airport) {
     $("#icao-header").html(`${airport.icao} - ${airport.iata}`);
     $("#name-header").html(airport.name);
-}
+};
 
 // ----------------------------------------------------------------------METAR
 
@@ -68,10 +67,10 @@ function checkTafResponse(response) {
     } else if (status === 204) {
         displayTafFail(NO_TAF)
     } else {
-        console.log("METAR Request Status Code:", status);
+        console.log("TAF Request Status Code:", status);
         displayTafFail(UNABLE);
-    }
-}
+    };
+};
 
 function displayTafData(taf) {
     $("#taf").html(`
@@ -111,10 +110,10 @@ function checkApInfoResponse(response) {
     } else if (status === 204) {
         displayApInfoFail(NO_DATA)
     } else {
-        console.log("METAR Request Status Code:", status);
+        console.log("Airport Info Request Status Code:", status);
         displayApInfoFail(UNABLE);
-    }
-}
+    };
+};
 
 function displayApInfo(station) {
     let runwaysArray = station.runways;
@@ -140,42 +139,3 @@ function displayApInfo(station) {
 function displayApInfoFail(response) {
     $("#runways").html(response);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function getAirportInfo(icao) {
-
-//     let request = new XMLHttpRequest();
-//     request.open('GET', `https://avwx.rest/api/station/${icao}?format=json`);
-//     request.setRequestHeader('Authorization', KEY.avwx);
-//     request.onreadystatechange = function () {
-//         if (this.readyState === 4) {
-//             let status = JSON.parse(this.status);
-//             let body = JSON.parse(this.responseText);
-//             setInfo(status, body);
-//         }
-//     };
-//     request.send();
-// };
-
-// function setInfo(status, station) {
-//     if (status === 200) {
-//         }
-//     } else if (status === 429) {
-//         $("#runways").html("You have reached your API call limit, please contact the site administrator");
-//     } else {
-//         console.log("METAR Request Status Code:", status);
-//         $("#runways").html("Sorry, we're unable to obtain Airport data for this station. Please contact the site administrator");
-//     }
-// };
