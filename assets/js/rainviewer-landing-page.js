@@ -3,6 +3,10 @@ var token = 'pk.eyJ1IjoicG1jZ3JlbmVyeSIsImEiOiJja25xYjlvMDgwYjc0MnBwZnFodXh1MHZ5
 var radarMask = 'https://tilecache.rainviewer.com/v2/coverage/0/512/{z}/{x}/{y}/0/0_0.png';
 var version = "mapbox/dark-v10";
 
+$('document').ready(function () {
+    checkIfUser();
+});
+
 //Check the current frame time and output the time in UTC format
 function setFrameTime(frame) {
     let dateObj = new Date(frame.time * 1000);
@@ -83,7 +87,38 @@ if ($(window).width() > 480) {
 }
 
 // https: //www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
-getLocation();
+function checkIfUser() {
+    let locationAllowed = localStorage.getItem('WxBriefLocationAllowed');
+
+    if (locationAllowed === null) {
+        $("#geolocate").modal("show");
+    } else if (locationAllowed === "true") {
+        getLocation();
+    } else if (locationAllowed === "false") {
+        showEurope();
+        $("#geolocate").modal("hide");
+    }
+}
+
+function allowLocation() {
+    locationAllowed = "true";
+    localStorage.setItem('WxBriefLocationAllowed', locationAllowed);
+    getLocation();
+    $("#geolocate").modal("hide");
+}
+
+function disallowLocation() {
+    locationAllowed = "false";
+    localStorage.setItem('WxBriefLocationAllowed', locationAllowed);
+    showEurope();
+};
+
+function showEurope() {
+    let corner1 = L.latLng(60, 13),
+        corner2 = L.latLng(35, -19),
+        bounds = L.latLngBounds(corner1, corner2);
+    map.flyToBounds(bounds);
+}
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -91,10 +126,7 @@ function getLocation() {
     } else {
         console.log("Geolocation is not supported by this browser.");
         // Show Europe id geolocation not supported
-        var corner1 = L.latLng(60, 13),
-            corner2 = L.latLng(35, -19),
-            bounds = L.latLngBounds(corner1, corner2);
-        map.flyToBounds(bounds);
+        showEurope();
     }
 }
 
@@ -110,36 +142,24 @@ function showPosition(position) {
 }
 
 // If user has location turned off
-// https: //stackoverflow.com/questions/14862019/check-if-location-setting-has-been-turned-off-in-users-browser
+// https://stackoverflow.com/questions/14862019/check-if-location-setting-has-been-turned-off-in-users-browser
 function showError(error) {
     switch (error.code) {
         case error.PERMISSION_DENIED:
             // Show Europe
-            var corner1 = L.latLng(60, 13),
-                corner2 = L.latLng(35, -19),
-                bounds = L.latLngBounds(corner1, corner2);
-            map.flyToBounds(bounds);
+            showEurope();
             break;
         case error.POSITION_UNAVAILABLE:
             // Show Europe
-            var corner1 = L.latLng(60, 13),
-                corner2 = L.latLng(35, -19),
-                bounds = L.latLngBounds(corner1, corner2);
-            map.flyToBounds(bounds);
+            showEurope();
             break;
         case error.TIMEOUT:
             // Show Europe
-            var corner1 = L.latLng(60, 13),
-                corner2 = L.latLng(35, -19),
-                bounds = L.latLngBounds(corner1, corner2);
-            map.flyToBounds(bounds);
+            showEurope();
             break;
         case error.UNKNOWN_ERROR:
             // Show Europe
-            var corner1 = L.latLng(60, 13),
-                corner2 = L.latLng(35, -19),
-                bounds = L.latLngBounds(corner1, corner2);
-            map.flyToBounds(bounds);
+            showEurope();
             break;
     }
 }

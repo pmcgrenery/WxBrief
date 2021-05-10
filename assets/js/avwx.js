@@ -37,8 +37,8 @@ function checkMetarResponse(response) {
     } else {
         console.log("METAR Request Status Code:", status);
         displayMetarResponse(UNABLE)
-    }
-}
+    };
+};
 
 function displayMetarResponse(response) {
     $("#metar").html(response);

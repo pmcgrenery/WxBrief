@@ -488,6 +488,20 @@ footer {
     color: #fff;
 }
 
+.welcome-header {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.btn-loc {
+    width: 125px;
+}
+
+.fa-map-marker-alt {
+    font-size: 3rem;
+}
+
 .btn-close:focus {
     box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 25%);
 }

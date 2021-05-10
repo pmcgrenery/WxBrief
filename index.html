@@ -159,8 +159,30 @@
             </div>
         </div>
     </main>
+    <!-- Allow Geolocation Modal -->
+    <div class="modal fade" id="geolocate" tabindex="-1" aria-label="Allow Geolocation" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header welcome-header">
+                    <h3 class="modal-title" id="ModalLabel">Welcome to WxBrief</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="clearModal()"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true" aria-label="Geo-Locate"></i>
+                    <h3 class="my-3">See the weather near you</h3>
+                    <p class="mb-4">If you would like to see the weather near you please allow WxBrief to access your
+                        location while using the site.</p>
+                    <button type="button" class="btn btn-primary btn-loc" onclick='allowLocation();' id="add-airport">
+                        Allow</button>
+                    <button type="button" class="btn btn-dark btn-loc" onclick='disallowLocation();'
+                        data-bs-dismiss="modal">
+                        Don't Allow</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Footer -->
-
     <footer>
         <div class="container-fluid">
             <div class="row">
