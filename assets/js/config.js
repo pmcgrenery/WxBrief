@@ -37,6 +37,10 @@ const DEFAULT_AIRPORTS = [{
 
 const URL = {
     "apInfo": "https://airport-info.p.rapidapi.com/airport?icao=",
+    "avwxMetar": "https://avwx.rest/api/metar/",
+    "avwxTAF": "https://avwx.rest/api/taf/",
+    "avwxInfo": "https://avwx.rest/api/station/",
+
 }
 
 const KEY = {
@@ -47,3 +51,15 @@ const KEY = {
 const HOST = {
     "apInfo": "airport-info.p.rapidapi.com",
 }
+
+const FORMAT = {
+    "avwx": "?format=json",
+}
+
+const LIMIT_REACHED = "You have reached your API call limit, please contact the site administrator";
+
+const NO_METAR = "No METAR available for this airport";
+const NO_TAF = "No TAF available for this airport";
+const NO_DATA = "No data available for this airport"
+
+const UNABLE = "Unable to obtain data for this station. Please contact the site administrator";

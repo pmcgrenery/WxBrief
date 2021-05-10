@@ -448,7 +448,7 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 
 - **[Rapid API Airport Info](https://rapidapi.com/Active-api/api/airport-info)** This API is a free and unlimited API from rapid-api that was used to get the airport information on the airport page. 
 
-- **[AVWX API](https://avwx.docs.apiary.io/#)** This open-source API was used to retrieve METAR, TAF, runways and airport elevation. The API is limited to 4000 free calls per day and premium tiers are available above this.
+- **[AVWX API](https://avwx.rest/#)** This open-source API was used to retrieve METAR, TAF, runways and airport elevation. The API is limited to 4000 free calls per day and premium tiers are available above this.
 
 - **[Rainviewer API](https://rainviewer.com/api.html)** This API is entirely free. It is used to provide radar imagery, infrared satellite imagery and radar coverage mask.
 
@@ -543,6 +543,8 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
 [StackOverflow Array Check](https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e). Code from this post was used to check if an airport the user is entering already exists in the airport list.
 
 [StackOverflow Smooth Scroll](https://stackoverflow.com/questions/4249353/jquery-scroll-to-bottom-of-the-page). Used code from this post to smooth the scrolling action on the page.
+
+[AVWX API Docs](https://avwx.docs.apiary.io/#reference/0). Code from the documentation section of the AVWX API was used to implement the API calls.
 
 # Acknowledgements
 
