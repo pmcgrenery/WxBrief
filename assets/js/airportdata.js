@@ -1,5 +1,3 @@
-var airports = [];
-
 $('document').ready(function () {
     loadStoredAirports();
     initialiseEventHandlers();
@@ -21,18 +19,13 @@ function loadStoredAirports() {
 
     //Check if loadedAirports exists in localStorage
     if (loadedAirports === null) {
-        airports = DEFAULT_AIRPORTS;
         //Set the first time user's airports in local storage to the default airports
-        localStorage.setItem('airports', JSON.stringify(airports));
-        console.log('Welcome to WxBrief, here are some airports to get you started:', airports);
+        localStorage.setItem('airports', JSON.stringify(DEFAULT_AIRPORTS));
+        displayAirports(DEFAULT_AIRPORTS);
         $("#welcomeModal").modal("show");
-
-    } else if (loadedAirports.length > 0) {
-        airports = loadedAirports;
-        console.log('Your Stored Airports:', airports);
+    } else if (loadedAirports !== null) {
+        displayAirports(loadedAirports);
     }
-
-    displayAirports(airports);
 };
 
 function clearModal() {
@@ -81,21 +74,30 @@ function fetchAirportInfo() {
     };
 
     $.ajax(settings).done(function (response) {
-        if (icao.length !== 4) {
-            displayWarning("notFour");
-            return;
-        } else if (response.error) {
-            displayWarning("notExist");
-            return;
-        } else if (airports.some(e => e.icao === response.icao)) {
-            displayWarning("inList", response);
-            return;
-        } else {
-            storeNewAirport(response);
-            airportAdded();
-        }
+        checkInput(response, icao);
+    }).fail(function (response) {
+        $("#warning").html("Unable to retrieve airport, please contact the site admin");
+        console.log(response);
+        $("#airportInput").val("");
     });
 };
+
+function checkInput(response, icao) {
+    let airports = JSON.parse(localStorage.getItem('airports'));
+    if (icao.length !== 4) {
+        displayWarning("notFour");
+        return;
+    } else if (response.error) {
+        displayWarning("notExist");
+        return;
+    } else if (airports.some(e => e.icao === response.icao)) {
+        displayWarning("inList", response);
+        return;
+    } else {
+        storeNewAirport(response);
+        airportAdded();
+    }
+}
 
 function displayWarning(warning, response) {
     if (warning == "notFour") {
@@ -107,8 +109,8 @@ function displayWarning(warning, response) {
     } else if (warning == "inList") {
         $("#airportInput").val("");
         $("#warning").html(`<p>${response.icao} is already in your list of airports</p>`);
-    }
-}
+    };
+};
 
 function storeNewAirport(response) {
     let newAirport = {
@@ -118,11 +120,11 @@ function storeNewAirport(response) {
         lat: response.latitude,
         long: response.longitude
     };
+    let airports = JSON.parse(localStorage.getItem('airports'));
     //Add the airport to the airports array
     airports.push(newAirport);
     //Update airports array in local storage
     localStorage.setItem('airports', JSON.stringify(airports));
-
     displayAirports(airports);
 };
 
@@ -153,7 +155,7 @@ function deleteAirport(index) {
     airports.splice(index, 1);
     localStorage.setItem('airports', JSON.stringify(airports));
     displayAirports(airports);
-}
+};
 
 /*
 ----------------Event Listeners----------------

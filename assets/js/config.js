@@ -41,6 +41,7 @@ const URL = {
 
 const KEY = {
     "apInfo": "38d4bdbef5msh1ba875b702e5c63p1d66b7jsn741235df0bf8",
+    "avwx": "xxt-4d_jaDNW_tkNo2wX8q6cXUfWZ2asMCsmwYlr7Gw",
 }
 
 const HOST = {

@@ -1,5 +1,3 @@
-const tokenCode = "xxt-4d_jaDNW_tkNo2wX8q6cXUfWZ2asMCsmwYlr7Gw";
-
 /* API Info:
    https://avwx.rest/#
    Limit is 4000 calls per day. Resets at 0000Z.
@@ -8,17 +6,17 @@ const tokenCode = "xxt-4d_jaDNW_tkNo2wX8q6cXUfWZ2asMCsmwYlr7Gw";
 $("document").ready(function () {
     //Load the selected airport from local storage
     let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
-    let icao = airport.icao;
-    let apName = airport.name;
-    let iata = airport.iata;
-    //Set the name of the airport at top of the page
-    $("#icao-header").html(`${icao} - ${iata}`);
-    $("#name-header").html(apName);
-
-    getAirportMETAR(icao);
-    getAirportTAF(icao);
-    getAirportInfo(icao);
+    setHeader(airport);
+    getAirportMETAR(airport.icao);
+    getAirportTAF(airport.icao);
+    getAirportInfo(airport.icao);
 });
+
+function setHeader(airport) {
+    //Set the name of the airport at top of the page
+    $("#icao-header").html(`${airport.icao} - ${airport.iata}`);
+    $("#name-header").html(airport.name);
+}
 
 function getAirportMETAR(icaoCode) {
     //Code modified from AVWX Documentation
@@ -26,7 +24,7 @@ function getAirportMETAR(icaoCode) {
 
     let request = new XMLHttpRequest();
     request.open('GET', `https://avwx.rest/api/metar/${icaoCode}?format=json`);
-    request.setRequestHeader('Authorization', tokenCode);
+    request.setRequestHeader('Authorization', KEY.avwx);
     request.onreadystatechange = function () {
         if (this.readyState === 4) {
             let status = JSON.parse(this.status);
