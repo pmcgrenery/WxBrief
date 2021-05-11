@@ -40,12 +40,15 @@ const URL = {
     "avwxMetar": "https://avwx.rest/api/metar/",
     "avwxTAF": "https://avwx.rest/api/taf/",
     "avwxInfo": "https://avwx.rest/api/station/",
-
+    "rv": "https://api.rainviewer.com/public/weather-maps.json",
+    "rvMask": "https://tilecache.rainviewer.com/v2/coverage/0/512/{z}/{x}/{y}/0/0_0.png",
 }
 
 const KEY = {
     "apInfo": "38d4bdbef5msh1ba875b702e5c63p1d66b7jsn741235df0bf8",
     "avwx": "xxt-4d_jaDNW_tkNo2wX8q6cXUfWZ2asMCsmwYlr7Gw",
+    "rv": "pk.eyJ1IjoicG1jZ3JlbmVyeSIsImEiOiJja25xYjlvMDgwYjc0MnBwZnFodXh1MHZ5In0.jv-gMrjni4BjjZ_vh-p5PQ",
+
 }
 
 const HOST = {
@@ -63,3 +66,5 @@ const NO_TAF = "No TAF available for this airport";
 const NO_DATA = "No data available for this airport"
 
 const UNABLE = "Unable to obtain data for this station. Please contact the site administrator";
+
+const MAP_DEFAULT = "mapbox/dark-v10";
