@@ -152,6 +152,7 @@ function clearAirports() {
 
 // Delete airport and locally store the updated airports array
 function deleteAirport(index) {
+    let airports = JSON.parse(localStorage.getItem('airports'));
     airports.splice(index, 1);
     localStorage.setItem('airports', JSON.stringify(airports));
     displayAirports(airports);
