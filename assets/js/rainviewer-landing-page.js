@@ -1,11 +1,20 @@
 // -------------------------- Custom Code --------------------------
-var token = 'pk.eyJ1IjoicG1jZ3JlbmVyeSIsImEiOiJja25xYjlvMDgwYjc0MnBwZnFodXh1MHZ5In0.jv-gMrjni4BjjZ_vh-p5PQ';
-var radarMask = 'https://tilecache.rainviewer.com/v2/coverage/0/512/{z}/{x}/{y}/0/0_0.png';
-var version = "mapbox/dark-v10";
 
 $('document').ready(function () {
-    checkIfUser();
+    setVersion(MAP_DEFAULT);
+    initialiseRainviewer()
+    checkIfLocationAllowed();
+    singleFingerDrag();
+    initialiseEventListeners();
 });
+
+function initialiseEventListeners() {
+    playPauseToggle();
+    radarOptionToggle();
+    legendToggler();
+    mapLayerToggler();
+    fullscreenToggler();
+};
 
 //Check the current frame time and output the time in UTC format
 function setFrameTime(frame) {
@@ -13,60 +22,164 @@ function setFrameTime(frame) {
     let utcString = dateObj.toUTCString();
     let frameTime = utcString.slice(17, 22);
     document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
+};
+
+function checkIfLocationAllowed() {
+    let locationAllowed = localStorage.getItem('WxBriefLocationAllowed');
+
+    if (locationAllowed === null) {
+        $("#geolocate").modal("show");
+    } else if (locationAllowed === "true") {
+        getLocation();
+    } else if (locationAllowed === "false") {
+        showEurope();
+        $("#geolocate").modal("hide");
+    }
+};
+
+function allowLocation() {
+    locationAllowed = "true";
+    localStorage.setItem('WxBriefLocationAllowed', locationAllowed);
+    getLocation();
+    $("#geolocate").modal("hide");
+};
+
+function disallowLocation() {
+    locationAllowed = "false";
+    localStorage.setItem('WxBriefLocationAllowed', locationAllowed);
+    showEurope();
+};
+
+function showEurope() {
+    let corner1 = L.latLng(60, 13),
+        corner2 = L.latLng(35, -19),
+        bounds = L.latLngBounds(corner1, corner2);
+    map.flyToBounds(bounds);
+};
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showPositionError);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+        showEurope();
+    }
+};
+
+// Show user location if location is supported and allowed
+function showPosition(position) {
+    // Fly down to current position at zoom level 5.5 over 2 seconds
+    setTimeout(function () {
+        map.flyTo([position.coords.latitude, position.coords.longitude], 5.5, {
+            animate: true,
+            duration: 2
+        })
+    }, 1000);
+};
+
+// If user has location turned off
+function showPositionError(error) {
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            showEurope();
+            break;
+        case error.POSITION_UNAVAILABLE:
+            showEurope();
+            break;
+        case error.TIMEOUT:
+            showEurope();
+            break;
+        case error.UNKNOWN_ERROR:
+            showEurope();
+            break;
+    };
+};
+
+function playPauseToggle() {
+    // Toggler to change the play/pause icon
+    $("#play-toggle").click(function () {
+        $(".playPause").toggle();
+    });
+};
+
+function radarOptionToggle() {
+    // Radar or Satellite option toggler
+    $("#sat").click(function () {
+        $("#radar").removeClass("selected-left");
+        $("#sat").addClass("selected-right");
+    });
+    $("#radar").click(function () {
+        $("#sat").removeClass("selected-right");
+        $("#radar").addClass("selected-left");
+    });
+};
+
+function legendToggler() {
+    // Legend Show Toggler
+    $("#legend-control").click(function () {
+        $(".legend-wrapper").toggle();
+    });
+};
+
+function mapLayerToggler() {
+    // Base Layer Show Toggler
+    $(".base-control").click(function () {
+        $(".base-wrapper").toggle();
+    });
+};
+
+function fullscreenToggler() {
+    // Fullscreen Toggler
+    let fullscreen = false;
+
+    $("#fullscreen-control").click(function () {
+        $("#radar-map-container").toggleClass("fullscreen").toggleClass("radar-container");
+        $(".fs-icon").toggle();
+        map.invalidateSize();
+
+        if (fullscreen === false) {
+            map.dragging.enable();
+            fullscreen = true;
+        } else if (fullscreen === true) {
+            map.dragging.disable();
+            if ($(window).width() > 480) {
+                map.dragging.enable();
+            }
+            fullscreen = false;
+        }
+    });
+};
+
+function singleFingerDrag() {
+    // Enable single finger dragging on larger devices
+    if ($(window).width() > 480) {
+        map.dragging.enable();
+    };
+};
+
+function setVersion(base) {
+    // Clear all map layers
+    map.eachLayer(function (layer) {
+        map.removeLayer(layer);
+    });
+    // Add the mapbox layer
+    L.tileLayer.provider('MapBox', {
+        id: base,
+        accessToken: KEY.rv
+    }).addTo(map);
+    // Add the radar coverage mask layer
+    L.tileLayer(URL.rvMask).setOpacity(0.4).addTo(map);
+    // Add the radar images layer
+    initialize(apiData, optionKind);
+    // Add the sigmet layer
+    getSigmet(base);
+    // Hide the map button
+    $(".base-wrapper").hide();
 }
 
-// Toggler to change the play/pause icon
-$("#play-toggle").click(function () {
-    $(".playPause").toggle();
-})
-
-// Radar or Satellite option toggler
-$("#sat").click(function () {
-    $("#radar").removeClass("selected-left");
-    $("#sat").addClass("selected-right");
-});
-$("#radar").click(function () {
-    $("#sat").removeClass("selected-right");
-    $("#radar").addClass("selected-left");
-});
-
-// Legend Show Toggler
-$("#legend-control").click(function () {
-    $(".legend-wrapper").toggle();
-})
-
-// Base Layer Show Toggler
-$(".base-control").click(function () {
-    $(".base-wrapper").toggle();
-})
-
-// Fullscreen Toggler
-var fullscreen = false;
-
-$("#fullscreen-control").click(function () {
-    $("#radar-map-container").toggleClass("fullscreen").toggleClass("radar-container");
-    $(".fs-icon").toggle();
-    // https://github.com/Leaflet/Leaflet/issues/694
-    map.invalidateSize();
-
-    if (fullscreen === false) {
-        map.dragging.enable();
-        fullscreen = true;
-    } else if (fullscreen === true) {
-        map.dragging.disable();
-        if ($(window).width() > 480) {
-            map.dragging.enable();
-        }
-        fullscreen = false;
-    }
-})
-
-let lat = 0;
-let long = 0;
-
 //Configure Map
-var map = L.map('mapid', {
-    center: [lat, long],
+let map = L.map('mapid', {
+    center: [0, 0],
     zoom: 1.5,
     minZoom: 1,
     // Allow infinite zoom levels
@@ -81,154 +194,47 @@ var map = L.map('mapid', {
     tap: !L.Browser.mobile,
     tap: !L.Browser.mobileWebkit,
 });
-// Enable single finger dragging on larger devices
-if ($(window).width() > 480) {
-    map.dragging.enable();
-}
 
-// https: //www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
-function checkIfUser() {
-    let locationAllowed = localStorage.getItem('WxBriefLocationAllowed');
 
-    if (locationAllowed === null) {
-        $("#geolocate").modal("show");
-    } else if (locationAllowed === "true") {
-        getLocation();
-    } else if (locationAllowed === "false") {
-        showEurope();
-        $("#geolocate").modal("hide");
-    }
-}
-
-function allowLocation() {
-    locationAllowed = "true";
-    localStorage.setItem('WxBriefLocationAllowed', locationAllowed);
-    getLocation();
-    $("#geolocate").modal("hide");
-}
-
-function disallowLocation() {
-    locationAllowed = "false";
-    localStorage.setItem('WxBriefLocationAllowed', locationAllowed);
-    showEurope();
-};
-
-function showEurope() {
-    let corner1 = L.latLng(60, 13),
-        corner2 = L.latLng(35, -19),
-        bounds = L.latLngBounds(corner1, corner2);
-    map.flyToBounds(bounds);
-}
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-        // Show Europe id geolocation not supported
-        showEurope();
-    }
-}
-
-// Show user location is location is supported and allowed
-function showPosition(position) {
-    // Fly down to current position at zoom level 5.5 over 2 seconds
-    setTimeout(function () {
-        map.flyTo([position.coords.latitude, position.coords.longitude], 5.5, {
-            animate: true,
-            duration: 2
-        })
-    }, 1000);
-}
-
-// If user has location turned off
-// https://stackoverflow.com/questions/14862019/check-if-location-setting-has-been-turned-off-in-users-browser
-function showError(error) {
-    switch (error.code) {
-        case error.PERMISSION_DENIED:
-            // Show Europe
-            showEurope();
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Show Europe
-            showEurope();
-            break;
-        case error.TIMEOUT:
-            // Show Europe
-            showEurope();
-            break;
-        case error.UNKNOWN_ERROR:
-            // Show Europe
-            showEurope();
-            break;
-    }
-}
-
-setLayer(version);
-
-function setVersion(mapVersion) {
-    version = mapVersion;
-    setLayer(version);
-}
-
-function setLayer(base) {
-    // Clear all map layers
-    // https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map
-    map.eachLayer(function (layer) {
-        map.removeLayer(layer);
-    });
-    // Add the mapbox layer
-    L.tileLayer.provider('MapBox', {
-        id: base,
-        accessToken: token
-    }).addTo(map);
-    // Add the radar coverage mask layer
-    L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
-    // Add the radar images layer
-    initialize(apiData, optionKind);
-    // Add the sigmet layer
-    getSigmet(base);
-    // Hide the map button
-    $(".base-wrapper").hide();
-}
-
-// ---------- Code below here from Rainviewer API Documentation ----------
-// https://www.rainviewer.com/api/weather-maps-api.html
+/**
+ * Code below this point is from the RAINVIEWER API documentation,
+ * the code has been modified slightly to suit the purposes of this site.
+ */
 
 /**
  * RainViewer radar animation part
  * @type {number[]}
  */
-var apiData = {};
-var mapFrames = [];
-var lastPastFramePosition = -1;
-var radarLayers = [];
-var optionKind = 'radar'; // can be 'radar' or 'satellite'
-var optionTileSize = 256; // can be 256 or 512.
-var optionColorScheme = 7; // from 0 to 8. See https://rainviewer.com/api/color-schemes.html
-var optionSmoothData = 1; // 0 - not smooth, 1 - smooth
-var optionSnowColors = 1; // 0 - do not show snow colors, 1 - show snow colors
-var animationPosition = 0;
-var animationTimer = false;
+let apiData = {};
+let mapFrames = [];
+let lastPastFramePosition = -1;
+let radarLayers = [];
+let optionKind = 'radar'; // can be 'radar' or 'satellite'
+let optionTileSize = 512; // can be 256 or 512.
+let optionColorScheme = 7; // from 0 to 8.
+let optionSmoothData = 1; // 0 - not smooth, 1 - smooth
+let optionSnowColors = 1; // 0 - do not show snow colors, 1 - show snow colors
+let animationPosition = 0;
+let animationTimer = false;
 
-/**
- * Load all the available maps frames from RainViewer API
- */
-var apiRequest = new XMLHttpRequest();
-apiRequest.open("GET", "https://api.rainviewer.com/public/weather-maps.json", true);
-apiRequest.onload = function (e) {
-    // store the API response for re-use purposes in memory
-    apiData = JSON.parse(apiRequest.response);
-    initialize(apiData, optionKind);
-};
-apiRequest.send();
+function initialiseRainviewer() {
+
+    let apiRequest = new XMLHttpRequest();
+    apiRequest.open("GET", URL.rv, true);
+    apiRequest.onload = function () {
+        // store the API response for re-use purposes in memory
+        apiData = JSON.parse(apiRequest.response);
+        initialize(apiData, optionKind);
+    };
+    apiRequest.send();
+}
 
 /**
  * Initialize internal data from the API response and options
  */
 function initialize(api, kind) {
     // remove all already added tiled layers
-    for (var i in radarLayers) {
+    for (let i in radarLayers) {
         map.removeLayer(radarLayers[i]);
     }
     mapFrames = [];
@@ -259,9 +265,9 @@ function initialize(api, kind) {
  */
 function addLayer(frame) {
     if (!radarLayers[frame.path]) {
-        var colorScheme = optionKind == 'satellite' ? 0 : optionColorScheme;
-        var smooth = optionKind == 'satellite' ? 0 : optionSmoothData;
-        var snow = optionKind == 'satellite' ? 0 : optionSnowColors;
+        let colorScheme = optionKind == 'satellite' ? 0 : optionColorScheme;
+        let smooth = optionKind == 'satellite' ? 0 : optionSmoothData;
+        let snow = optionKind == 'satellite' ? 0 : optionSnowColors;
 
         radarLayers[frame.path] = new L.TileLayer(apiData.host + frame.path + '/' + optionTileSize +
             '/{z}/{x}/{y}/' + colorScheme + '/' + smooth + '_' + snow + '.png', {
@@ -289,8 +295,8 @@ function changeRadarPosition(position, preloadOnly) {
         position += mapFrames.length;
     }
 
-    var currentFrame = mapFrames[animationPosition];
-    var nextFrame = mapFrames[position];
+    let currentFrame = mapFrames[animationPosition];
+    let nextFrame = mapFrames[position];
 
     addLayer(nextFrame);
 
@@ -312,7 +318,7 @@ function changeRadarPosition(position, preloadOnly) {
  * Check avialability and show particular frame position from the timestamps list
  */
 function showFrame(nextPosition) {
-    var preloadingDirection = nextPosition - animationPosition > 0 ? 1 : -1;
+    let preloadingDirection = nextPosition - animationPosition > 0 ? 1 : -1;
 
     changeRadarPosition(nextPosition);
 
@@ -353,7 +359,4 @@ function playStop() {
 function setKind(kind) {
     optionKind = kind;
     initialize(apiData, optionKind);
-}
-
-// TO DO ->
-//          Add sigmets and sever weather??
+};
