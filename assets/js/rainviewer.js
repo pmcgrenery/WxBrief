@@ -1,52 +1,135 @@
-var token = 'pk.eyJ1IjoicG1jZ3JlbmVyeSIsImEiOiJja25xYjlvMDgwYjc0MnBwZnFodXh1MHZ5In0.jv-gMrjni4BjjZ_vh-p5PQ';
-var radarMask = 'https://tilecache.rainviewer.com/v2/coverage/0/512/{z}/{x}/{y}/0/0_0.png';
-var version = "mapbox/dark-v10";
-
-// Toggler to change the play/pause icon
-$("#play-toggle").click(function () {
-    $(".playPause").toggle();
-})
-
-// Radar or Satellite option toggler
-$("#sat").click(function () {
-    $("#radar").removeClass("selected-left");
-    $("#sat").addClass("selected-right");
-});
-$("#radar").click(function () {
-    $("#sat").removeClass("selected-right");
-    $("#radar").addClass("selected-left");
+$('document').ready(function () {
+    initialiseMap()
+    setVersion(MAP_DEFAULT);
+    initialiseRvSettings()
+    getRainviewer();
+    addMarker();
+    initialiseEventListeners();
 });
 
-// Legend Show Toggler
-$("#legend-control").click(function () {
-    $(".legend-wrapper").toggle();
-})
+let map, airport, lat, long;
 
-// Base Layer Show Toggler
-$(".base-control").click(function () {
-    $(".base-wrapper").toggle();
-})
+function initialiseMap() {
+    airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
+    lat = airport.lat;
+    long = airport.long;
 
-// Fullscreen Toggler
-var fullscreen = false;
+    //Configure Map
+    map = L.map('mapid', {
+        center: [lat, long],
+        zoom: 6,
+        minZoom: 1,
+        // Allow infinite zoom levels
+        zoomSnap: 0,
+        // Zoom button detents
+        zoomDelta: 0.5,
+        //Zoom scroll speed
+        wheelPxPerZoomLevel: 80,
+        //Disable single finger drag
+        dragging: !L.Browser.mobile,
+        dragging: !L.Browser.mobileWebkit,
+        tap: !L.Browser.mobile,
+        tap: !L.Browser.mobileWebkit,
+    });
+};
 
-$("#fullscreen-control").click(function () {
-    $("#radar-map-container").toggleClass("fullscreen").toggleClass("radar-container");
-    $(".fs-icon").toggle();
-    // https://github.com/Leaflet/Leaflet/issues/694
-    map.invalidateSize();
+function setVersion(base) {
+    // Clear all map layers
+    map.eachLayer(function (layer) {
+        map.removeLayer(layer);
+    });
+    // Add the mapbox layer
+    L.tileLayer.provider('MapBox', {
+        id: base,
+        accessToken: KEY.rv
+    }).addTo(map);
+    // Add the radar coverage mask layer
+    L.tileLayer(URL.rvMask).setOpacity(0.4).addTo(map);
+    // Add the radar images layer
+    initialize(apiData, optionKind);
+    // Add the sigmet layer
+    getSigmet(base);
+    // Hide the map button
+    addMarker();
+    $(".base-wrapper").hide();
+};
 
-    if (fullscreen === false) {
-        map.dragging.enable();
-        fullscreen = true;
-    } else if (fullscreen === true) {
-        map.dragging.disable();
-        if ($(window).width() > 480) {
+function initialiseEventListeners() {
+    singleFingerDrag();
+    playPauseToggle();
+    radarOptionToggle();
+    legendToggler();
+    mapLayerToggler();
+    fullscreenToggler();
+};
+
+function playPauseToggle() {
+    // Toggler to change the play/pause icon
+    $("#play-toggle").click(function () {
+        $(".playPause").toggle();
+    });
+};
+
+function radarOptionToggle() {
+    // Radar or Satellite option toggler
+    $("#sat").click(function () {
+        $("#radar").removeClass("selected-left");
+        $("#sat").addClass("selected-right");
+    });
+    $("#radar").click(function () {
+        $("#sat").removeClass("selected-right");
+        $("#radar").addClass("selected-left");
+    });
+};
+
+function legendToggler() {
+    // Legend Show Toggler
+    $("#legend-control").click(function () {
+        $(".legend-wrapper").toggle();
+    });
+};
+
+function mapLayerToggler() {
+    // Base Layer Show Toggler
+    $(".base-control").click(function () {
+        $(".base-wrapper").toggle();
+    });
+};
+
+function fullscreenToggler() {
+    // Fullscreen Toggler
+    let fullscreen = false;
+
+    $("#fullscreen-control").click(function () {
+        $("#radar-map-container").toggleClass("fullscreen").toggleClass("radar-container");
+        $(".fs-icon").toggle();
+        map.invalidateSize();
+
+        if (fullscreen === false) {
             map.dragging.enable();
+            fullscreen = true;
+        } else if (fullscreen === true) {
+            map.dragging.disable();
+            if ($(window).width() > 480) {
+                map.dragging.enable();
+            }
+            fullscreen = false;
         }
-        fullscreen = false;
-    }
-})
+    });
+};
+
+function singleFingerDrag() {
+    // Enable single finger dragging on larger devices
+    if ($(window).width() > 480) {
+        map.dragging.enable();
+    };
+};
+
+function addMarker() {
+    //Marker over airport
+    L.marker([lat, long]).addTo(map)
+        .bindPopup(`${airport.icao}`);
+};
 
 //Check the current frame time and output the time in UTC format
 function setFrameTime(frame) {
@@ -54,114 +137,43 @@ function setFrameTime(frame) {
     let utcString = dateObj.toUTCString();
     let frameTime = utcString.slice(17, 22);
     document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
-}
-
-let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
-var lat = airport.lat;
-var long = airport.long;
-
-var map = L.map('mapid', {
-    center: [lat, long],
-    zoom: 6,
-    // Allow infinite zoom levels
-    zoomSnap: 0,
-    // Zoom button detents
-    zoomDelta: 0.5,
-    //Zoom scroll speed
-    wheelPxPerZoomLevel: 80,
-    //Disable single finger drag
-    dragging: !L.Browser.mobile,
-    dragging: !L.Browser.mobileWebkit,
-    tap: !L.Browser.mobile,
-    tap: !L.Browser.mobileWebkit,
-    // Add the fullscreen plugin
-    fullscreenControl: true,
-});
-
-//Marker over airport
-L.marker([lat, long]).addTo(map)
-    .bindPopup(`${airport.icao}`);
-
-// When map is fullscreen, enable single finger dragging
-// https://gis.stackexchange.com/questions/104507/disable-panning-dragging-on-leaflet-map-for-div-within-map
-// &&
-// https://github.com/Leaflet/Leaflet.fullscreen
-map.on('fullscreenchange', function () {
-    if (map.isFullscreen()) {
-        map.dragging.enable();
-    } else {
-        map.dragging.disable();
-    }
-});
-
-setLayer(version);
-
-function setVersion(mapVersion) {
-    version = mapVersion;
-    setLayer(version);
-}
-
-function setLayer(base) {
-    // Clear all map layers
-    // https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map
-    map.eachLayer(function (layer) {
-        map.removeLayer(layer);
-    });
-    // Add the mapbox layer
-    L.tileLayer.provider('MapBox', {
-        id: base,
-        accessToken: token
-    }).addTo(map);
-    // Add the radar coverage mask layer
-    L.tileLayer(radarMask).setOpacity(0.4).addTo(map);
-    // Add the radar images layer
-    initialize(apiData, optionKind);
-    // Add the sigmet layer
-    getSigmet(base);
-    //Marker over airport
-    L.marker([lat, long]).addTo(map)
-        .bindPopup(`${airport.icao}`);
-    // Hide the map button
-    $(".base-wrapper").hide();
-}
-
-// ---------- Code below here from Rainviewer API Documentation ----------
-// https://www.rainviewer.com/api/weather-maps-api.html
-
-/**
- * RainViewer radar animation part
- * @type {number[]}
- */
-var apiData = {};
-var mapFrames = [];
-var lastPastFramePosition = -1;
-var radarLayers = [];
-var optionKind = 'radar'; // can be 'radar' or 'satellite'
-var optionTileSize = 256; // can be 256 or 512.
-var optionColorScheme = 7; // from 0 to 8. See https://rainviewer.com/api/color-schemes.html
-var optionSmoothData = 1; // 0 - not smooth, 1 - smooth
-var optionSnowColors = 1; // 0 - do not show snow colors, 1 - show snow colors
-var animationPosition = 0;
-var animationTimer = false;
-
-/**
- * Load all the available maps frames from RainViewer API
- */
-var apiRequest = new XMLHttpRequest();
-apiRequest.open("GET", "https://api.rainviewer.com/public/weather-maps.json", true);
-apiRequest.onload = function (e) {
-    // store the API response for re-use purposes in memory
-    apiData = JSON.parse(apiRequest.response);
-    initialize(apiData, optionKind);
 };
-apiRequest.send();
+
+/**
+ * Majority of code below this point is from the RAINVIEWER API documentation,
+ * the code has been modified slightly to suit the purposes of this site.
+ */
+
+let apiData, mapFrames, radarLayers, lastPastFramePosition, optionKind, animationPosition, animationTimer;
+
+function initialiseRvSettings() {
+    apiData = {};
+    mapFrames = [];
+    radarLayers = [];
+    lastPastFramePosition = -1;
+    optionKind = 'radar'; // can be 'radar' or 'satellite'
+    animationPosition = 0;
+    animationTimer = false;
+}
+
+function getRainviewer() {
+
+    let apiRequest = new XMLHttpRequest();
+    apiRequest.open("GET", URL.rv, true);
+    apiRequest.onload = function () {
+        // store the API response for re-use purposes in memory
+        apiData = JSON.parse(apiRequest.response);
+        initialize(apiData, optionKind);
+    };
+    apiRequest.send();
+}
 
 /**
  * Initialize internal data from the API response and options
  */
 function initialize(api, kind) {
     // remove all already added tiled layers
-    for (var i in radarLayers) {
+    for (let i in radarLayers) {
         map.removeLayer(radarLayers[i]);
     }
     mapFrames = [];
@@ -192,11 +204,11 @@ function initialize(api, kind) {
  */
 function addLayer(frame) {
     if (!radarLayers[frame.path]) {
-        var colorScheme = optionKind == 'satellite' ? 0 : optionColorScheme;
-        var smooth = optionKind == 'satellite' ? 0 : optionSmoothData;
-        var snow = optionKind == 'satellite' ? 0 : optionSnowColors;
+        let colorScheme = optionKind == 'satellite' ? 0 : 7;
+        let smooth = optionKind == 'satellite' ? 0 : 1;
+        let snow = optionKind == 'satellite' ? 0 : 1;
 
-        radarLayers[frame.path] = new L.TileLayer(apiData.host + frame.path + '/' + optionTileSize +
+        radarLayers[frame.path] = new L.TileLayer(apiData.host + frame.path + '/' + 512 +
             '/{z}/{x}/{y}/' + colorScheme + '/' + smooth + '_' + snow + '.png', {
                 tileSize: 256,
                 opacity: 0.001,
@@ -222,8 +234,8 @@ function changeRadarPosition(position, preloadOnly) {
         position += mapFrames.length;
     }
 
-    var currentFrame = mapFrames[animationPosition];
-    var nextFrame = mapFrames[position];
+    let currentFrame = mapFrames[animationPosition];
+    let nextFrame = mapFrames[position];
 
     addLayer(nextFrame);
 
@@ -245,7 +257,7 @@ function changeRadarPosition(position, preloadOnly) {
  * Check avialability and show particular frame position from the timestamps list
  */
 function showFrame(nextPosition) {
-    var preloadingDirection = nextPosition - animationPosition > 0 ? 1 : -1;
+    let preloadingDirection = nextPosition - animationPosition > 0 ? 1 : -1;
 
     changeRadarPosition(nextPosition);
 
@@ -286,7 +298,4 @@ function playStop() {
 function setKind(kind) {
     optionKind = kind;
     initialize(apiData, optionKind);
-}
-
-// TO DO ->
-//          Add sigmets and sever weather??
+};
