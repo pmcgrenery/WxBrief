@@ -311,7 +311,7 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
         - The fullscreen gives the map a position fixed attribute and stretches it across the available area on the device.
         - The legend toggler show the legend on the right-hand side with the related precipitation intensities hanging off the left-hand side of the legend so that the user can hover these over an area of interest and examine the type of precipitation in a particular area.
         - The base layer button displays a list of available base layer maps. The default will be dark and the user can switch to dark, light or satellite imagery. The map base layers are provided by MapBox.
-        - The radar data is provided by the Rainviewer API. I chose to use 256 px tiles as opposed to 512 px tiles to reduce the weight of the app on data so that it can be used on aeroplane wifi.
+        - The radar data is provided by the Rainviewer API. I chose to use 512 px tiles as opposed to 256 px tiles to ensure important detail in the radar picture is not missed. This is particularly important in the US where there is a much higher definition radar coverage available.
         - The radar data from Rainviewer API can be displayed in many different versions. The chosen radar display format is RAINBOW @ SELEX-SI. The intended users are pilots and the colour scheme used for the different precipitation types is very similar to what pilots see on their built-in aircraft radar displays. See below image showing the similarity of the two.
         <img src="docs/radar-sample.png">
         - A semi-transparent radar mask is applied to the map to display to the user where there is radar coverage.
@@ -545,6 +545,16 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
 [StackOverflow Smooth Scroll](https://stackoverflow.com/questions/4249353/jquery-scroll-to-bottom-of-the-page). Used code from this post to smooth the scrolling action on the page.
 
 [AVWX API Docs](https://avwx.docs.apiary.io/#reference/0). Code from the documentation section of the AVWX API was used to implement the API calls.
+
+[StackOverflow Check Location Settings](https://stackoverflow.com/questions/14862019/check-if-location-setting-has-been-turned-off-in-users-browser). Used code from this post to get user geolocation and handle error events related to geolocation.
+
+[Leaflet Map Documentation](https://leafletjs.com/reference-1.7.1.html). Several pieces of code from the documentation of Leaflet maps were used in the project e.g <code>flyTo</code> animation, <code>flyToBounds</code> animation and several map settings added to talior the map interaction settings.
+
+[GitHub Leaflet Issues](https://github.com/Leaflet/Leaflet/issues/694). Code from this post as used to overcome the bug that prevented map tiles loading until entirely in view.
+
+[StackOverflow Clear Leaflet Map Layers](https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map). Code from this post was used to clear map layers.
+
+[Rainviewer API example](https://github.com/rainviewer/rainviewer-api-example). This code from the Rainviewer API documentation was used to implement the weather radar and satellite picture animations on the radar map.
 
 # Acknowledgements
 
