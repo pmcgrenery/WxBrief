@@ -1,6 +1,12 @@
-let id = "user_s4AHNLxcCCPhwyB5E6t3Z";
+$(document).ready(function () {
+    emailjs.init(KEY.emailjs);
 
-emailjs.init(id);
+    $("#contact-form").on("submit", function (e) {
+        e.preventDefault();
+        $('#submittedModal').modal('show');
+        $('form').get(0).reset();
+    });
+});
 
 function sendMail(contactForm) {
     emailjs.send("wxbrief", "contact-form", {
@@ -19,9 +25,3 @@ function sendMail(contactForm) {
         )
     return false;
 }
-
-$("#contact-form").on("submit", function (e) {
-    e.preventDefault();
-    $('#submittedModal').modal('show');
-    $('form').get(0).reset();
-});
