@@ -30,7 +30,6 @@ function getSigmet(base) {
 }
 
 function displayIntData(int, base) {
-    console.log(int);
     //Plot the geoJSON features on the map and style them for different types.
     L.geoJSON(int, {
         style: function (feature) {
@@ -97,8 +96,6 @@ function displayIntData(int, base) {
 
 
 function displayUSData(us, base) {
-    console.log(us);
-
     L.geoJSON(us, {
         style: function (feature) {
             switch (feature.properties.hazard) {
