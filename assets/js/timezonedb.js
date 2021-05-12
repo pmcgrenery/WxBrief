@@ -2,8 +2,6 @@
 https://timezonedb.com/api
 API calls are unlimited but limited to 1 request per second
 */
-const key = "WP64QMLIIG3M";
-var offset;
 
 $("document").ready(function () {
     setTime();
@@ -14,16 +12,16 @@ function setTime() {
     let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
     let lat = airport.lat;
     let long = airport.long;
-    let url = `https://api.timezonedb.com/v2.1/get-time-zone?key=${key}&format=json&by=position&lat=${lat}&lng=${long}`;
+    let url = `https://api.timezonedb.com/v2.1/get-time-zone?key=${KEY.tz}&format=json&by=position&lat=${lat}&lng=${long}`;
 
     $.ajax(url).done(function (response) {
         offset = response.gmtOffset;
-        timeLoop();
+        timeLoop(offset);
     })
 };
 
 // Update the displayed time every second
-function timeLoop() {
+function timeLoop(offset) {
     let timestamp = Date.now() + (offset * 1000);
     let dateObj = new Date(timestamp);
     let local = dateObj.toUTCString().slice(17, 22);
