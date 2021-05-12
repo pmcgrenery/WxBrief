@@ -26,7 +26,7 @@ function configureMap() {
     //Configure Map
     map = L.map('mapid', {
         center: [lat, long],
-        zoom: 6,
+        zoom: 7.5,
         minZoom: 1,
         maxBounds: [
             [90, -180],

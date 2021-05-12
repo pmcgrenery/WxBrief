@@ -760,6 +760,7 @@ footer {
     box-shadow: none;
     font-size: 1rem;
     font-weight: 550;
+    text-shadow: 2px 2px 2px rgb(0 0 0);
 }
 
 .label-black {
@@ -771,6 +772,7 @@ footer {
     box-shadow: none;
     font-size: 1rem;
     font-weight: 700;
+    text-shadow: 2px 2px 2px rgb(0 0 0);
 }
 
 /* https://www.w3schools.com/howto/howto_css_bullet_color.asp */

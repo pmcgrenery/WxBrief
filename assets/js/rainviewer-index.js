@@ -118,11 +118,11 @@ function getLocation() {
 function showPosition(position) {
     // Fly down to current position at zoom level 5.5 over 2 seconds
     setTimeout(function () {
-        map.flyTo([position.coords.latitude, position.coords.longitude], 5.5, {
+        map.flyTo([position.coords.latitude, position.coords.longitude], 7.5, {
             animate: true,
-            duration: 2
+            duration: 4
         })
-    }, 1000);
+    }, 1500);
 };
 
 // If user has location turned off
