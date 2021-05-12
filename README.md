@@ -560,6 +560,8 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
 
 [StackOverflow Autofocus on Modal](https://stackoverflow.com/questions/14940423/autofocus-input-in-twitter-bootstrap-modal). The code on this post was used to autofocus on the input field of the add airport modal when the modal is opened.
 
+[Codepen slide in menu](https://codepen.io/gvissing/pen/oxBJEz). The code on this codepen was used to create the slide in menu.
+
 # Acknowledgements
 
 - Thank you to my mentor Rohit Sharma for his invaluable input and suggestions on how to improve the site and documentation.
