@@ -28,6 +28,12 @@ function configureMap() {
         center: [lat, long],
         zoom: 6,
         minZoom: 1,
+        maxBounds: [
+            [90, -180],
+            [-90, 180]
+        ],
+        // To prevent the bounce back into the map and set hard border
+        maxBoundsViscosity: 1,
         // Allow infinite zoom levels
         zoomSnap: 0,
         // Zoom button detents
