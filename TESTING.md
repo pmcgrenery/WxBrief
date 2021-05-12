@@ -428,6 +428,8 @@ Chrome's screen size emulator was used to test the site on different screen size
 
 ## Bugs
 
+### Bugs Fixed:
+
 1. Bug: When you enter a valid 4 letter ICAO code and click add airport, the modal remains in place with the value entered.
 <br>Fix: After the object newAirport has been successfully passed to the function storeNewAirport I included two functions. The first function clears the input value and the second function hides the modal.
 
@@ -460,6 +462,10 @@ Chrome's screen size emulator was used to test the site on different screen size
 
 12. Bug: On occasion the leaflet <code>layer.getBounds</code> function fails to work on international SIGMETS.
 <br>Fix: To issue stemmed from an intermittent issue where the Leaflet <code>getBounds</code> function failed to work. This function was being used to get the extents of the polygon then the <code>getCenter</code> function was applied. A Leaflet marker was then applied to this point. To overcome this issue where <code>getBounds()</code> was intermittently not recognised, I changed over to using Leaflet's <code>bindTooltip</code> function instead which has a built in option to get the center of its parent.
+
+### Existing Fixed:
+
+1. Bug: On occasion some of the png tiles containing the radar/satellite pictures fail to load and a 404 error is displayed in the console. It appears rarely and generally only lasts for a period of 10 minutes. The issue is generally minimal as it is isolated to only a small number of tiles when it does happen and generally seems to effect tiles over Asia. This is an issue on Rainviewer's end and there is nothing I can do to solve this issue.
 
 ## Automated Testing
  
