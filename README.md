@@ -452,7 +452,7 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 
 - **[Rainviewer API](https://rainviewer.com/api.html)** This API is entirely free. It is used to provide radar imagery, infrared satellite imagery and radar coverage mask.
 
-- **[Timezone DB API](https://timezonedb.com/api)** This API was used to get the UTC offset for the chosen airport. The API takes in the latitude and longitude and then supplies the UTC offset for that location. The API is entirely free.
+- **[Timezone DB API](https://timezonedb.com/api)** This API was used to get the UTC offset for the chosen airport. The API takes in the latitude and longitude and then supplies the UTC offset for that location. The API is entirely free but limited to 1 request per second. To avoid calling this API frequently the time is updated by an infinite loop in the code instead of calling the API at regular intervals.
 
 - **[Aviation Weather Center API](https://www.aviationweather.gov/help/webservice)** This US government weather provider API was used to get the live SIGMETs to plot on the map.
 
@@ -555,6 +555,8 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
 [StackOverflow Clear Leaflet Map Layers](https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map). Code from this post was used to clear map layers.
 
 [Rainviewer API example](https://github.com/rainviewer/rainviewer-api-example). This code from the Rainviewer API documentation was used to implement the weather radar and satellite picture animations on the radar map.
+
+[Leaflet Providers](https://github.com/leaflet-extras/leaflet-providers). This code was downloaded and included in the project as per the documentation instructions. This code was used to simplify the addition of Mapbox map tiles to the Leaflet map.
 
 # Acknowledgements
 
