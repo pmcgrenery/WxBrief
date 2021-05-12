@@ -6,13 +6,19 @@ $(document).ready(function () {
     getAirportInfo(airport.icao);
 });
 
+/**
+ * Sets the airport name in the header
+ * @param {Object} airport - Selected Airport Object
+ */
 function setHeader(airport) {
     $("#icao-header").html(`${airport.icao} - ${airport.iata}`);
     $("#name-header").html(airport.name);
 };
 
-// ----------------------------------------------------------------------METAR
-
+/**
+ * Gets the METAR for requested airport from AVWX API
+ * @param {string} icaoCode - The ICAO code of the airport
+ */
 function getAirportMETAR(icaoCode) {
     let request = new XMLHttpRequest();
     request.open('GET', URL.avwxMetar + icaoCode + FORMAT.avwx);
@@ -25,6 +31,10 @@ function getAirportMETAR(icaoCode) {
     request.send();
 };
 
+/**
+ * Checks the response status of the METAR API request
+ * @param {Object} response - METAR object for airport
+ */
 function checkMetarResponse(response) {
     let status = JSON.parse(response.status);
     if (status === 200) {
@@ -40,11 +50,18 @@ function checkMetarResponse(response) {
     };
 };
 
+/**
+ * Displays the METAR or failure message on screen
+ * @param {Object} response - METAR object for airport
+ */
 function displayMetarResponse(response) {
     $("#metar").html(response);
 };
-// ------------------------------------------------------------------------TAF
 
+/**
+ * Gets the TAF for requested airport from AVWX API
+ * @param {string} icao - The ICAO code of the airport
+ */
 function getAirportTAF(icao) {
     let request = new XMLHttpRequest();
     request.open('GET', URL.avwxTAF + icao + FORMAT.avwx);
@@ -57,6 +74,10 @@ function getAirportTAF(icao) {
     request.send();
 };
 
+/**
+ * Checks the response status of the TAF API request
+ * @param {Object} response - TAF object for airport
+ */
 function checkTafResponse(response) {
     let status = JSON.parse(response.status);
     if (status === 200) {
@@ -72,6 +93,10 @@ function checkTafResponse(response) {
     };
 };
 
+/**
+ * Displays the TAF on screen
+ * @param {Object} taf - TAF object for airport
+ */
 function displayTafData(taf) {
     $("#taf").html(`
         <p>${taf.station} ${taf.time.repr} ${taf.forecast[0].raw}</p>
@@ -82,12 +107,18 @@ function displayTafData(taf) {
     };
 };
 
+/**
+ * Displays TAF failure message to user
+ * @param {string} response - Failure message to display
+ */
 function displayTafFail(response) {
     $("#taf").html(response);
 };
 
-// -----------------------------------------------------------------------DATA
-
+/**
+ * Gets the Airport Info for requested airport from AVWX API
+ * @param {string} icao - The ICAO code of the airport
+ */
 function getAirportInfo(icao) {
     let request = new XMLHttpRequest();
     request.open('GET', URL.avwxInfo + icao + FORMAT.avwx);
@@ -100,6 +131,10 @@ function getAirportInfo(icao) {
     request.send();
 };
 
+/**
+ * Checks the response status of the Airport Info API request
+ * @param {Object} response - Airport Info object for airport
+ */
 function checkApInfoResponse(response) {
     let status = JSON.parse(response.status);
     if (status === 200) {
@@ -115,14 +150,16 @@ function checkApInfoResponse(response) {
     };
 };
 
+/**
+ * Displays runway details and airport elevation on screen
+ * @param {Object} station - Airport details Object
+ */
 function displayApInfo(station) {
     let runwaysArray = station.runways;
     $("#runways").html(`<table id='runways-table'></table>`);
     for (let runway of runwaysArray) {
-        //Calculate Runway length in meters
         let lengthM = Math.floor(runway.length_ft * .3048);
         let widthM = Math.floor(runway.width_ft * .3048);
-        // Display Runways in table
         $("#runways-table").append(`
             <tr>
                 <td>${runway.ident1}</td>
@@ -130,12 +167,14 @@ function displayApInfo(station) {
                 <td>${runway.ident2}</td>
             </tr>
             `);
-
-        // Display Airport Elevation
         $("#elevation").html(`Elev ${station.elevation_ft} ft`);
     };
 };
 
+/**
+ * Displays Airport INFO failure message to user
+ * @param {string} response - Failure message to display
+ */
 function displayApInfoFail(response) {
     $("#runways").html(response);
 };
