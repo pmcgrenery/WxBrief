@@ -1,4 +1,4 @@
-$("document").ready(function () {
+$(document).ready(function () {
     let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
     setHeader(airport);
     getAirportMETAR(airport.icao);
