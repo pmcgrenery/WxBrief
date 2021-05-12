@@ -2,6 +2,7 @@
 $('document').ready(function () {
     configureMap();
     setVersion(MAP_DEFAULT);
+    initialiseRvSettings()
     initialiseRainviewer();
     checkIfLocationAllowed();
     initialiseEventListeners();
@@ -208,17 +209,17 @@ function singleFingerDrag() {
  * RainViewer radar animation part
  * @type {number[]}
  */
-let apiData = {};
-let mapFrames = [];
-let lastPastFramePosition = -1;
-let radarLayers = [];
-let optionKind = 'radar'; // can be 'radar' or 'satellite'
-let optionTileSize = 512; // can be 256 or 512.
-let optionColorScheme = 7; // from 0 to 8.
-let optionSmoothData = 1; // 0 - not smooth, 1 - smooth
-let optionSnowColors = 1; // 0 - do not show snow colors, 1 - show snow colors
-let animationPosition = 0;
-let animationTimer = false;
+let apiData, mapFrames, radarLayers, lastPastFramePosition, optionKind, animationPosition, animationTimer;
+
+function initialiseRvSettings() {
+    apiData = {};
+    mapFrames = [];
+    radarLayers = [];
+    lastPastFramePosition = -1;
+    optionKind = 'radar'; // can be 'radar' or 'satellite'
+    animationPosition = 0;
+    animationTimer = false;
+}
 
 function initialiseRainviewer() {
 
@@ -268,11 +269,11 @@ function initialize(api, kind) {
  */
 function addLayer(frame) {
     if (!radarLayers[frame.path]) {
-        let colorScheme = optionKind == 'satellite' ? 0 : optionColorScheme;
-        let smooth = optionKind == 'satellite' ? 0 : optionSmoothData;
-        let snow = optionKind == 'satellite' ? 0 : optionSnowColors;
+        let colorScheme = optionKind == 'satellite' ? 0 : 7;
+        let smooth = optionKind == 'satellite' ? 0 : 1;
+        let snow = optionKind == 'satellite' ? 0 : 1;
 
-        radarLayers[frame.path] = new L.TileLayer(apiData.host + frame.path + '/' + optionTileSize +
+        radarLayers[frame.path] = new L.TileLayer(apiData.host + frame.path + '/' + 512 +
             '/{z}/{x}/{y}/' + colorScheme + '/' + smooth + '_' + snow + '.png', {
                 tileSize: 256,
                 opacity: 0.001,
