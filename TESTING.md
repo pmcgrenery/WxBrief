@@ -40,10 +40,9 @@
 <br/>
 
 ### **As a visitor to the site I want to understand the terminology used on the landing page so that I can get a better understanding of what the service offers me.**
-1. 
-2. 
-3. 
-4. 
+1. The user will find this information in the FAQ section of the About Page.
+2. In this section the user has some basic description of what a METAR and TAF is, along with basic instructions of how to read these reports.
+3. Below the basic instructions of how to read the reports, there are links to US Air Force, UK CAA and Nav Canada documents containing a full description of how to read the reports.
 
 <img src="docs/user-story-2.png" style="width:600px">
 <br/>
@@ -54,24 +53,24 @@
 
 ### **As a visitor, I want to find out more about your site, so that I can see more about the company and FAQ.**
 
-1. 
-2. 
+1. The user can have both of these questions answered in the About Page. 
 
 <img src="docs/user-story-5.png" style="width:600px">
 <br/>
 
 ### **As a new user I want to see a sample list of airports so that I can see a sample of the service you provide.**
-1.  
-2. 
+1.  When the user enters the Briefing page for the first time they will be presented with a modal giving a brief description of how to use the controls.
+2. The modal also tells the user that a short list of sample airports has been added for them.
+3. The user can then select any of the airports in the list so they can then go ahead and see the weather reports for that airport.
  
 <img src="docs/user-story-6.png" style="width:600px">
 <br/>
 
 ### **As a user, I want to see a quick overview of the current weather situation at my location, so that I can get a "big picture" overview of the current weather around me.**
 
-1. 
-2. 
-3. 
+1. When the user loads the site for the first time they are presented with a modal asking whether they would like to allow location or not.
+2. If the user chooses not to allow location, then the map defaults to a view that shows Europe in one snapshot.
+3. If the user chooses to allow location, then the map flys down to the users current location. The user can then see the radar returns at their location.
 
 
 <img src="docs/user-story-7.png" style="width:600px">
@@ -84,16 +83,16 @@
 <br/>
  
 ### **As a user, I want to see the current and forecast weather at a specific airport, so that I can know more about the weather at that airport.**
-1. 
-2. 
+1. In the Briefing page, the user can add the airport they want to investigate.
+2. The user selects that airport to enter the weather reports for that airport. This will load the wxreport.html page which presents the current and forecast weather to the user. The user will also see the radar map centered over the airport with a marker on the airport reference point.
 
 <img src="docs/user-story-11.png" style="width:600px">
 <br/>
 
 ### **As a user, I want a list of the runways along with the lengths of the runways, so that I figure out which runway/runways is/are currently in use.**
 
-1. 
-2. 
+1. On entering the weather report for a specific airport, the runways are automatically loaded for that airport also.
+2. The user can then compare the runway directions to the current and forecast wind at the airport and make an assessment of the runway in use.
 3. 
 
 <img src="docs/user-story-12.png" style="width:600px">
@@ -103,15 +102,35 @@
 
 ### **As a user, I want to know the current UTC time, and current local time, so that I can get a quick readout of the times and know what the timezone is.**
 
+1. On entering the weather report for a specific airport, the user is also presented with the current UTC time and the local time at that airport.
+
 ### **As a user, I want to know the elevation of the airport, so that I know if I can form an overall mental picture of the airport and so that I know whether I can expect any aircraft performance concerns or not.**
+
+1. On entering the weather report for a specific airport, the user is also presented with the elevation of the airport in feet above sea level. The user can then make an assessment based on this data.
 
 ### **As a user, I want to add an airport to the list, so that I can see the weather at that airport.**
 
+1. The user can add an airport by selecting the + icon on the controls bar or by selecting enter.
+2. The user is presented with a modal that gives basic instructions of how to add an airport.
+3. The user will recieve warnings in the modal if they fail to enter a known airport or enter the wrong number of characters.
+4. The user then clicks Add Airport once they are happy they have entered the code correctly.
+5. The screen then smooth scrolls down to the bottom of the page to show the newly added airport.
+
 ### **As a user, I want to delete an airport from the list of airports, so that I can declutter the list or remove airports that are no longer relevant to the flight.**
+
+1. The user can click on the edit icon on the control bar.
+2. A bin icon is added to each airport selector.
+3. The user can select this icon and this will then delete that specific airport.
+4. The airport slides up out of the list.
 
 ### **As a user, I want to build up a list of airports for today's flight, so that I can access the weather at each of the airports.**
 
+1. The user can add a list of relevant airports one by one using the controls described above.
+
 ### **As a user, I want to be able to switch between radar and infrared satellite animations, so that I can get a good understanding of what the weather system looks like.**
+
+1. At the bottom of the radar display there is a button to select between the two options. 
+2. The current selection is highlighted in orange.
 
 ### **As a user, I want to be able to play/stop the radar animation as well as move from frame to frame, so that I can examine the current situation more thoroughly.**
 
