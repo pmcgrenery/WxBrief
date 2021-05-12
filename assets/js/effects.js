@@ -1,5 +1,12 @@
 $(document).ready(function () {
+    scrollOpaqueHeader();
+    burgerAnimation();
+    menuSlide();
+    setMargins();
+    buttonClick();
+});
 
+function scrollOpaqueHeader() {
     // Opaque header background on scroll
     $(window).on("scroll", function () {
         if ($(window).scrollTop() > 50) {
@@ -9,7 +16,9 @@ $(document).ready(function () {
             $(".transparent-header").removeClass("active");
         }
     });
+}
 
+function burgerAnimation() {
     // Burger Menu Animation
     let menuOpen = false;
 
@@ -26,7 +35,9 @@ $(document).ready(function () {
             menuOpen = false;
         }
     })
+}
 
+function menuSlide() {
     // Menu slide toggle
     // Modified from: https: //codepen.io/gvissing/pen/oxBJEz
     $("#burger").click(function () {
@@ -39,7 +50,9 @@ $(document).ready(function () {
         $(".hr-menu").fadeToggle(675);
 
     });
+}
 
+function setMargins() {
     // Run the resize function every time the screen changes size
     $(window).on("resize", resize);
     resize();
@@ -67,7 +80,9 @@ $(document).ready(function () {
         };
 
     }
+}
 
+function buttonClick() {
     // Button press animation
     $("#get-briefed").click(function (event) {
         // Stop the link instantly firing
@@ -86,5 +101,4 @@ $(document).ready(function () {
         }, 100)
 
     });
-
-});
+}
