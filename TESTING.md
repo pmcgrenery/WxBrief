@@ -436,6 +436,9 @@ Chrome's screen size emulator was used to test the site on different screen size
 10. Bug: When you zoom in and out and pan across the map for a while the SIGMET polygons disappear and sometimes they reappear when at the center of the screen. 
 <br>Fix: After some research I found this is a known issue with the leaflet map when you plot geoJSON polygons to the map and assign the lines a weight. Originally the line weight for the polygons was set to a number value. The fix is just to remove the line weight value.
 
+11. Bug: On the About Page there is a JQueryUI accordian type display. Originally, I put the code to call the JQueryUI function for this in the effects.js file. However, the library that this code is loaded from is only loaded on the about page. Therefore, an error is thrown on every other page as the <code>$.accordian</code> function is not recognised.
+<br>Fix: The fix for this was to place the code that calls the accordian function in the jQueryUI library in a separate file that is loaded only on the About page.
+
 ## Automated Testing
  
 The site was tested using the following validators and online tools:
