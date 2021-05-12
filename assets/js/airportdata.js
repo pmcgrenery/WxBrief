@@ -1,9 +1,9 @@
 $(document).ready(function () {
     loadStoredAirports();
-    initialiseEventHandlers();
+    initialiseEventListeners();
 });
 
-function initialiseEventHandlers() {
+function initialiseEventListeners() {
     clickEditAirports();
     clickDeleteAirport();
     pressEsc();
@@ -12,32 +12,43 @@ function initialiseEventHandlers() {
     pressEnterAddAirport();
 };
 
+/**
+ * Loads stored airports from device local storage
+ */
 function loadStoredAirports() {
-
     let loadedAirports = JSON.parse(localStorage.getItem('airports'));
-    // localStorage.clear();
+    checkloadedAirports(loadedAirports)
+};
 
-    //Check if loadedAirports exists in localStorage
-    if (loadedAirports === null) {
-        //Set the first time user's airports in local storage to the default airports
+/**
+ * Check if "airports" exists in local storage or not
+ * @param {Object[]} airports - Array of users stored airports 
+ */
+function checkloadedAirports(airports) {
+    // localStorage.clear();
+    if (airports === null) {
         localStorage.setItem('airports', JSON.stringify(DEFAULT_AIRPORTS));
         displayAirports(DEFAULT_AIRPORTS);
         $("#welcomeModal").modal("show");
-    } else if (loadedAirports !== null) {
-        displayAirports(loadedAirports);
+    } else if (airports !== null) {
+        displayAirports(airports);
     }
-};
+}
 
+/**
+ * Clears warnings and input field on the add airport modal
+ */
 function clearModal() {
     $("#warning").html("");
     $("#airportInput").val("");
 };
 
+/**
+ * Displays the array of airports on screen
+ * @param {Object[]} apArray - Array of users airports
+ */
 function displayAirports(apArray) {
-    //Clear any HTML that is there currently
     $("#airports").html('');
-
-    // Loop across the airports array and present the airports to the user
     for (let airport of apArray) {
         let apDetails = `
             <div class="airport-selector">
@@ -54,14 +65,15 @@ function displayAirports(apArray) {
                  </div>
              </div>
         `;
-        //Append the div to the DOM
         $("#airports").append(apDetails);
     }
 };
 
+/**
+ * Makes the AJAX call to get the RapidApi Airport-Info API
+ */
 function fetchAirportInfo() {
     let icao = $('#airportInput').val();
-
     let settings = {
         "async": true,
         "crossDomain": true,
@@ -72,7 +84,6 @@ function fetchAirportInfo() {
             "x-rapidapi-host": HOST.apInfo
         }
     };
-
     $.ajax(settings).done(function (response) {
         checkInput(response, icao);
     }).fail(function (response) {
@@ -82,23 +93,31 @@ function fetchAirportInfo() {
     });
 };
 
+/**
+ * Checks response for error responses from API call and also checks the
+ * inputted airport code.
+ * @param {Object} response - API response Object from Airport Info
+ * @param {string} icao - The ICAO code of the requested airport
+ */
 function checkInput(response, icao) {
     let airports = JSON.parse(localStorage.getItem('airports'));
     if (icao.length !== 4) {
         displayWarning("notFour");
-        return;
     } else if (response.error) {
         displayWarning("notExist");
-        return;
     } else if (airports.some(e => e.icao === response.icao)) {
         displayWarning("inList", response);
-        return;
     } else {
         storeNewAirport(response);
         airportAdded();
     }
 }
 
+/**
+ * Displays warnings to user for incorrect inputs when adding an airport
+ * @param {string} warning - Type of warning to present
+ * @param {Object} response - API response Object from Airport Info
+ */
 function displayWarning(warning, response) {
     if (warning == "notFour") {
         $("#warning").html("Please enter a 4 digit ICAO code");
@@ -112,6 +131,10 @@ function displayWarning(warning, response) {
     };
 };
 
+/**
+ * Places the new airport in local storage and adds it to the list on screen
+ * @param {Object} response - API response Object from Airport Info
+ */
 function storeNewAirport(response) {
     let newAirport = {
         icao: response.icao,
@@ -121,26 +144,25 @@ function storeNewAirport(response) {
         long: response.longitude
     };
     let airports = JSON.parse(localStorage.getItem('airports'));
-    //Add the airport to the airports array
     airports.push(newAirport);
-    //Update airports array in local storage
     localStorage.setItem('airports', JSON.stringify(airports));
     displayAirports(airports);
 };
 
+/**
+ * Closes modal and scrolls to bottom of page
+ */
 function airportAdded() {
-    // Clear the input and display warning
-    $("#airportInput").val("");
-    $("#warning").html("");
-    // Close Modal after successful airport entry and clear the input
+    clearModal();
     $("#addAirport").modal('hide');
-    // Scroll to the bottom of the page
     $("html, body").animate({
         scrollTop: $(document).height()
     }, 100);
 };
 
-//Clear airports and clear the locally stored list
+/**
+ * Clears all airports from the list and returns controls back to normal
+ */
 function clearAirports() {
     airports = [];
     localStorage.setItem('airports', JSON.stringify(airports));
@@ -150,7 +172,10 @@ function clearAirports() {
     $("#clr-airports").toggle(20);
 };
 
-// Delete airport and locally store the updated airports array
+/**
+ * Deletes the selected airport form the list
+ * @param {number} index - Index of the airport to be deleted
+ */
 function deleteAirport(index) {
     let airports = JSON.parse(localStorage.getItem('airports'));
     airports.splice(index, 1);
@@ -158,50 +183,52 @@ function deleteAirport(index) {
     displayAirports(airports);
 };
 
-/*
-----------------Event Listeners----------------
-*/
-
+/**
+ * Listens for Enter being pressed while the airport input
+ * is in focus
+ */
 function pressEnterAddAirport() {
-    // When airportInput is in focus and press Enter -> 
     $('#airportInput').on("keydown", function (event) {
         if (event.key == "Enter") {
             event.preventDefault();
             fetchAirportInfo();
         }
     });
+};
 
-}
-
+/**
+ * Listens for Enter being pressed while anywhere in the document
+ * and opens up the add airport modal
+ */
 function pressEnter() {
-    // When Enter is pressed anywhere on the document
     $(document).on("keydown", function (event) {
         if (event.key == 'Enter') {
-            // Prevent the Clear airport modal opening
             event.preventDefault();
-            // Show the add airport modal
             $("#addAirport").modal("show");
         };
     });
-}
+};
 
 
+/**
+ * Listens for Esc being pressed anywhere on screen 
+ * and closes addAirport modal
+ */
 function pressEsc() {
-    // When Escape is pressed anywhere on the document
     $(document).on('keydown', function (event) {
         if (event.key == "Escape") {
-            $("#airportInput").val("");
-            $("#warning").html("");
+            clearModal();
             $("#addAirport").modal('hide');
         }
     });
-}
+};
 
-
+/**
+ * Listens out for click on delete airport. Onclick the selected airport
+ * slides up out of view and the controls are returned to normal
+ */
 function clickDeleteAirport() {
-    // When click delete slide the div out of view and close the edit controls
     $("#airports").on("click", ".delete-container", function () {
-        console.log("Deleting")
         let parentIndex = $(this).parent().index()
         $(this).parent().slideUp(400);
         setTimeout(function () {
@@ -210,9 +237,12 @@ function clickDeleteAirport() {
         $("#back-btn").toggle(20);
         $("#clr-airports").toggle(20);
     })
-}
+};
 
-
+/**
+ * Listens out for click on the edit icon and displays the 
+ * editing controls
+ */
 function clickEditAirports() {
     $("#edit-airports").on("click", function () {
         $(".delete-container").fadeToggle(100);
@@ -221,10 +251,12 @@ function clickEditAirports() {
     });
 };
 
+/**
+ * Listens for when the add airport modal is displayed, then puts
+ * the input field in focus.
+ */
 function focusModal() {
-    // Autofocus on the modal when opened
-    // Code from https://stackoverflow.com/questions/14940423/autofocus-input-in-twitter-bootstrap-modal
     $('.modal').on('shown.bs.modal', function () {
         $(this).find('[autofocus]').focus();
     });
-}
+};
