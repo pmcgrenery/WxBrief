@@ -1,4 +1,6 @@
  //Accordian
- $("#accordion").accordion({
-     heightStyle: "content"
- });
+ $(document).ready(function () {
+     $("#accordion").accordion({
+         heightStyle: "content"
+     });
+ })
