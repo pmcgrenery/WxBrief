@@ -1,15 +1,24 @@
 $('document').ready(function () {
-    initialiseMap()
+    configureMap();
     setVersion(MAP_DEFAULT);
-    initialiseRvSettings()
+    initialiseRvSettings();
     getRainviewer();
     addMarker();
     initialiseEventListeners();
 });
 
+function initialiseEventListeners() {
+    singleFingerDrag();
+    playPauseToggle();
+    radarOptionToggle();
+    legendToggler();
+    mapLayerToggler();
+    fullscreenToggler();
+};
+
 let map, airport, lat, long;
 
-function initialiseMap() {
+function configureMap() {
     airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
     lat = airport.lat;
     long = airport.long;
@@ -52,15 +61,6 @@ function setVersion(base) {
     // Hide the map button
     addMarker();
     $(".base-wrapper").hide();
-};
-
-function initialiseEventListeners() {
-    singleFingerDrag();
-    playPauseToggle();
-    radarOptionToggle();
-    legendToggler();
-    mapLayerToggler();
-    fullscreenToggler();
 };
 
 function playPauseToggle() {
