@@ -1,14 +1,14 @@
 // -------------------------- Custom Code --------------------------
-
 $('document').ready(function () {
+    configureMap();
     setVersion(MAP_DEFAULT);
-    initialiseRainviewer()
+    initialiseRainviewer();
     checkIfLocationAllowed();
-    singleFingerDrag();
     initialiseEventListeners();
 });
 
 function initialiseEventListeners() {
+    singleFingerDrag();
     playPauseToggle();
     radarOptionToggle();
     legendToggler();
@@ -16,7 +16,47 @@ function initialiseEventListeners() {
     fullscreenToggler();
 };
 
-//Check the current frame time and output the time in UTC format
+let map;
+
+function configureMap() {
+    map = L.map('mapid', {
+        center: [0, 0],
+        zoom: 1.5,
+        minZoom: 1,
+        // Allow infinite zoom levels
+        zoomSnap: 0,
+        // Zoom button detents
+        zoomDelta: 0.75,
+        //Zoom scroll speed
+        wheelPxPerZoomLevel: 80,
+        //Disable single finger drag
+        dragging: !L.Browser.mobile,
+        dragging: !L.Browser.mobileWebkit,
+        tap: !L.Browser.mobile,
+        tap: !L.Browser.mobileWebkit,
+    });
+};
+
+function setVersion(base) {
+    // Clear all map layers
+    map.eachLayer(function (layer) {
+        map.removeLayer(layer);
+    });
+    // Add the mapbox layer
+    L.tileLayer.provider('MapBox', {
+        id: base,
+        accessToken: KEY.rv
+    }).addTo(map);
+    // Add the radar coverage mask layer
+    L.tileLayer(URL.rvMask).setOpacity(0.4).addTo(map);
+    // Add the radar images layer
+    initialize(apiData, optionKind);
+    // Add the sigmet layer
+    getSigmet(base);
+    // Hide the map button
+    $(".base-wrapper").hide();
+};
+
 function setFrameTime(frame) {
     let dateObj = new Date(frame.time * 1000);
     let utcString = dateObj.toUTCString();
@@ -157,43 +197,6 @@ function singleFingerDrag() {
     };
 };
 
-function setVersion(base) {
-    // Clear all map layers
-    map.eachLayer(function (layer) {
-        map.removeLayer(layer);
-    });
-    // Add the mapbox layer
-    L.tileLayer.provider('MapBox', {
-        id: base,
-        accessToken: KEY.rv
-    }).addTo(map);
-    // Add the radar coverage mask layer
-    L.tileLayer(URL.rvMask).setOpacity(0.4).addTo(map);
-    // Add the radar images layer
-    initialize(apiData, optionKind);
-    // Add the sigmet layer
-    getSigmet(base);
-    // Hide the map button
-    $(".base-wrapper").hide();
-}
-
-//Configure Map
-let map = L.map('mapid', {
-    center: [0, 0],
-    zoom: 1.5,
-    minZoom: 1,
-    // Allow infinite zoom levels
-    zoomSnap: 0,
-    // Zoom button detents
-    zoomDelta: 0.75,
-    //Zoom scroll speed
-    wheelPxPerZoomLevel: 80,
-    //Disable single finger drag
-    dragging: !L.Browser.mobile,
-    dragging: !L.Browser.mobileWebkit,
-    tap: !L.Browser.mobile,
-    tap: !L.Browser.mobileWebkit,
-});
 
 
 /**
