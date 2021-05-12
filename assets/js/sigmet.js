@@ -78,19 +78,19 @@ function displayIntData(int, base) {
         layer.bindPopup(popupContent);
         // Name each polygon as its weather type
         if (base === 'mapbox/light-v10') {
-            L.marker(layer.getBounds().getCenter(), {
-                icon: L.divIcon({
-                    className: 'label-black',
-                    html: feature.properties.hazard,
-                })
-            }).addTo(map);
+            let label = feature.properties.hazard;
+            layer.bindTooltip(label, {
+                direction: "center",
+                permanent: true,
+                className: 'label-black'
+            })
         } else {
-            L.marker(layer.getBounds().getCenter(), {
-                icon: L.divIcon({
-                    className: "label",
-                    html: feature.properties.hazard,
-                })
-            }).addTo(map);
+            let label = feature.properties.hazard;
+            layer.bindTooltip(label, {
+                direction: "center",
+                permanent: true,
+                className: 'label'
+            })
         }
     }
 }
@@ -145,19 +145,17 @@ function displayUSData(us, base) {
         };
         // Name each polygon as its weather type
         if (base === 'mapbox/light-v10') {
-            L.marker(layer.getBounds().getCenter(), {
-                icon: L.divIcon({
-                    className: 'label-black',
-                    html: type,
-                })
-            }).addTo(map);
+            layer.bindTooltip(type, {
+                direction: "center",
+                permanent: true,
+                className: 'label-black'
+            })
         } else {
-            L.marker(layer.getBounds().getCenter(), {
-                icon: L.divIcon({
-                    className: "label",
-                    html: type,
-                })
-            }).addTo(map);
+            layer.bindTooltip(type, {
+                direction: "center",
+                permanent: true,
+                className: "label"
+            })
         }
     }
 }

@@ -2,19 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@200;300;400;500;600&display=swap');
 
-/* TESTERS */
-.bg-blue {
-    background-color: lightblue;
-}
-
-.bg-red {
-    background-color: red;
-}
-
-.bg-green {
-    background-color: green;
-}
-
 /*-------------------------------------------------------------------------------------------------- General */
 html {
     height: 100%;
@@ -763,8 +750,26 @@ footer {
     transform: translate(0, -56%);
 }
 
+.label {
+    color: #fff;
+    font-family: 'IBM Plex Sans', sans-serif;
+
+    opacity: 1;
+    background: none;
+    border: none;
+    box-shadow: none;
+    font-size: 1rem;
+    font-weight: 550;
+}
+
 .label-black {
     color: #000;
+    font-family: 'IBM Plex Sans', sans-serif;
+    opacity: 1;
+    background: none;
+    border: none;
+    box-shadow: none;
+    font-size: 1rem;
     font-weight: 700;
 }
 

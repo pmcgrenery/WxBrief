@@ -458,6 +458,9 @@ Chrome's screen size emulator was used to test the site on different screen size
 11. Bug: On the About Page there is a JQueryUI accordian type display. Originally, I put the code to call the JQueryUI function for this in the effects.js file. However, the library that this code is loaded from is only loaded on the about page. Therefore, an error is thrown on every other page as the <code>$.accordian</code> function is not recognised.
 <br>Fix: The fix for this was to place the code that calls the accordian function in the jQueryUI library in a separate file that is loaded only on the About page.
 
+12. Bug: On occasion the leaflet <code>layer.getBounds</code> function fails to work on international SIGMETS.
+<br>Fix: To issue stemmed from an intermittent issue where the Leaflet <code>getBounds</code> function failed to work. This function was being used to get the extents of the polygon then the <code>getCenter</code> function was applied. A Leaflet marker was then applied to this point. To overcome this issue where <code>getBounds()</code> was intermittently not recognised, I changed over to using Leaflet's <code>bindTooltip</code> function instead which has a built in option to get the center of its parent.
+
 ## Automated Testing
  
 The site was tested using the following validators and online tools:
