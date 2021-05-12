@@ -598,14 +598,12 @@ footer {
 
 .selected-left {
     background: #f0863a;
-    color: #fff;
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
 }
 
 .selected-right {
     background: #f0863a;
-    color: #fff;
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
 }
