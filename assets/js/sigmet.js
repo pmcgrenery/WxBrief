@@ -1,6 +1,7 @@
-// https://stackoverflow.com/questions/28359730/google-place-api-no-access-control-allow-origin-header-is-present-on-the-req/40009466
-// Code from this post used to overcome access-control-allow-origin issues
-
+/**
+ * Makes 2 AJAX calls to Aviationweather for US and International SIGMETs
+ * @param {string} base - The base layer of the Mapbox tiles
+ */
 function getSigmet(base) {
     $.ajax({
         url: "https://www.aviationweather.gov/cgi-bin/json/IsigmetJSON.php",
@@ -14,7 +15,6 @@ function getSigmet(base) {
             alert("Error: " + errorThrown);
         }
     });
-
     $.ajax({
         url: "https://www.aviationweather.gov/cgi-bin/json/SigmetJSON.php",
         type: "GET",
@@ -29,8 +29,13 @@ function getSigmet(base) {
     });
 }
 
+/**
+ * Displays all geoJSON polygons on the map and styles them depending
+ * on the hazard type
+ * @param {Object} int - GeoJSON object containing all international SIGMETs
+ * @param {string} base - The base layer of the Mapbox tiles
+ */
 function displayIntData(int, base) {
-    //Plot the geoJSON features on the map and style them for different types.
     L.geoJSON(int, {
         style: function (feature) {
             switch (feature.properties.hazard) {
@@ -71,11 +76,15 @@ function displayIntData(int, base) {
         onEachFeature: onEachFeature,
     }).addTo(map);
 
+    /**
+     * Applies a popup containing SIGMET details and a
+     * tooltip to name the polygon
+     * @param {Object} feature 
+     * @param {Object} layer 
+     */
     function onEachFeature(feature, layer) {
-        // Add the raw sigmet text to popup
         var popupContent = feature.properties.rawSigmet
         layer.bindPopup(popupContent);
-        // Name each polygon as its weather type
         if (base === 'mapbox/light-v10') {
             let label = feature.properties.hazard;
             layer.bindTooltip(label, {
@@ -94,7 +103,12 @@ function displayIntData(int, base) {
     }
 }
 
-
+/**
+ * Displays all geoJSON polygons on the map and styles them depending
+ * on the hazard type
+ * @param {Object} us - GeoJSON object containing all international SIGMETs
+ * @param {string} base - The base layer of the Mapbox tiles
+ */
 function displayUSData(us, base) {
     L.geoJSON(us, {
         style: function (feature) {
@@ -128,19 +142,21 @@ function displayUSData(us, base) {
         onEachFeature: label,
     }).addTo(map);
 
+    /**
+     * Applies a popup containing SIGMET details and a
+     * tooltip to name the polygon
+     * @param {Object} feature 
+     * @param {Object} layer 
+     */
     function label(feature, layer) {
-        // Add the raw sigmet text to popup
         var popupContent = feature.properties.rawAirSigmet
         layer.bindPopup(popupContent);
-
-        // Name each polygon as its weather type
         let type = feature.properties.hazard;
         if (type == "CONVECTIVE") {
             type = "CONV"
         } else if (type == "ICING") {
             type = "ICE"
         };
-        // Name each polygon as its weather type
         if (base === 'mapbox/light-v10') {
             layer.bindTooltip(type, {
                 direction: "center",

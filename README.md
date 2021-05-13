@@ -562,6 +562,8 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
 
 [Codepen slide in menu](https://codepen.io/gvissing/pen/oxBJEz). The code on this codepen was used to create the slide in menu.
 
+[StackOverflow access-control-allow-origin](https://stackoverflow.com/questions/28359730/google-place-api-no-access-control-allow-origin-header-is-present-on-the-req/40009466). Code from this post was used to overcome Access-Control-Allow-Origin issues with the sigmet API calls.
+
 # Acknowledgements
 
 - Thank you to my mentor Rohit Sharma for his invaluable input and suggestions on how to improve the site and documentation.
