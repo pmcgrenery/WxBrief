@@ -113,7 +113,6 @@ function selectAirport() {
             window.location.href = "wxreport.html"
         }, 100)
         airportButtonAnimation(this);
-        console.log($.type(this))
     });
 }
 

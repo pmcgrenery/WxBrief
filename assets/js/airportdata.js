@@ -72,7 +72,7 @@ function displayAirports(apArray) {
 /**
  * Makes the AJAX call to get the RapidApi Airport-Info API
  */
-function fetchAirportInfo() {
+function getAirportInfo() {
     let icao = $('#airportInput').val();
     let settings = {
         "async": true,
@@ -191,7 +191,7 @@ function pressEnterAddAirport() {
     $('#airportInput').on("keydown", function (event) {
         if (event.key == "Enter") {
             event.preventDefault();
-            fetchAirportInfo();
+            getAirportInfo();
         }
     });
 };
@@ -244,7 +244,7 @@ function clickDeleteAirport() {
  */
 function clickEditAirports() {
     $("#edit-airports").on("click", function () {
-        $(".delete-container").fadeToggle(100);
+        $(".delete-container").fadeToggle(25);
         $("#back-btn").toggle(20);
         $("#clr-airports").toggle(20);
     });

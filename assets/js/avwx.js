@@ -52,7 +52,7 @@ function checkMetarResponse(response) {
 
 /**
  * Displays the METAR or failure message on screen
- * @param {Object} response - METAR object for airport
+ * @param {Object} response - METAR / failure message for airport
  */
 function displayMetarResponse(response) {
     $("#metar").html(response);
