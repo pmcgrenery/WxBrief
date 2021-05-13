@@ -58,7 +58,7 @@ function setVersion(base) {
     });
     L.tileLayer.provider('MapBox', {
         id: base,
-        accessToken: KEY.rv
+        accessToken: KEY.mapbox
     }).addTo(map);
     L.tileLayer(URL.rvMask).setOpacity(0.4).addTo(map);
     initialize(apiData, optionKind);

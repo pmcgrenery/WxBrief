@@ -452,7 +452,7 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 
 - **[Rainviewer API](https://rainviewer.com/api.html)** This API is entirely free. It is used to provide radar imagery, infrared satellite imagery and radar coverage mask.
 
-- **[Timezone DB API](https://timezonedb.com/api)** This API was used to get the UTC offset for the chosen airport. The API takes in the latitude and longitude and then supplies the UTC offset for that location. The API is entirely free but limited to 1 request per second. To avoid calling this API frequently the time is updated by an infinite loop in the code instead of calling the API at regular intervals.
+- **[Timezone DB API](https://timezonedb.com/api)** This API was used to get the UTC offset for the chosen airport. The API takes in the latitude and longitude and then supplies the UTC offset for that location. The API is entirely free but limited to 1 request per second. To avoid calling this API frequently, the time is updated by an infinite loop in the code instead of calling the API at regular intervals.
 
 - **[Aviation Weather Center API](https://www.aviationweather.gov/help/webservice)** This US government weather provider API was used to get the live SIGMETs to plot on the map.
 
@@ -505,6 +505,52 @@ The steps to deploy the site to GitHub pages are as follows:
  
 For further information on how to clone a repository from GitHub click [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 For further information on how to clone a repository into your IDE please consult your provider's documentation.
+
+## How to get your own product keys for the API's.
+
+### Rapid-API Airport Info
+1. Create an account for free, [here](https://rapidapi.com/auth/sign-up?referral=/marketplace).
+2. Navigate to [Airport Info](https://rapidapi.com/Active-api/api/airport-info) on the Rapid-API site.
+3. Scroll down and copy your X-RapidAPI-Key.
+4. Paste this into KEY.apInfo in the config.js file.
+
+### AVWX API
+1. Create an account for free,  [here](https://account.avwx.rest/user/register).
+2. Navigate to [Airport Info](https://account.avwx.rest/manage).
+3. Under the Tokens header, copy your token value.
+4. Paste this into KEY.avwx in the config.js file.
+
+### Rainviewer API
+1. No API key is required for this API.
+
+### Mapbox Tile service API
+1. Sign up to Mapbox for free, [here](https://account.mapbox.com/auth/signup/).
+2. Sign in to your account and navigate [here](https://account.mapbox.com/).
+3. Scroll down to see you access token.
+4. Copy this to into KEY.mapbox in the config.js file.
+
+### EmailJs
+1. Sign up for free [here](https://dashboard.emailjs.com/sign-up).
+2. On the dashboard, click on add new service, then select gmail.
+3. Change the name to WxBrief and the service ID to wxbrief.
+4. Click connect account and connect your desired gmail acocunt.
+5. Click create service.
+6. On the left hand side of the dashboard, click on email templates.
+7. Click on Create New Template.
+8. In the content tab of the template fill out the template like below.
+    <img src="docs/emailjs.png" style="width:600px">
+9. In the settings tab of the template, change the template ID to "contact-form".
+10. Click save in the top right of the template.
+11. On the left hand side of the dashboard, click on integration.
+12. Scroll down and copy your Access Token.
+13. Paste this token into KEY.emailjs in the config.js file.
+
+### Timezone DB API
+1. Sign up for a free account [here](https://timezonedb.com/register).
+2. Sign into your account [here](https://timezonedb.com/account).
+3. Copy the API Key.
+4. Paste this key into KEY.tz in config.js.
+
  
 # Credits
 
@@ -566,5 +612,5 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
 
 # Acknowledgements
 
-- Thank you to my mentor Rohit Sharma for his invaluable input and suggestions on how to improve the site and documentation.
+- Thank you to my mentor Rohit Sharma for his invaluable input and suggestions on how to improve the code, commenting and documentation.
 - Thank you to the Code Institute Slack community. Any questions I had were already answered in the channels so that was invaluable.
