@@ -1,4 +1,3 @@
-// -------------------------- Custom Code --------------------------
 $('document').ready(function () {
     configureMap();
     setVersion(MAP_DEFAULT);
@@ -19,25 +18,22 @@ function initialiseEventListeners() {
 
 let map;
 
+/**
+ * Cretaes Leaflet map and configures its control options
+ */
 function configureMap() {
     map = L.map('mapid', {
         center: [0, 0],
         zoom: 1.5,
         minZoom: 1,
-        //To stop the user scrolling off map to infinity
         maxBounds: [
             [90, -180],
             [-90, 180]
         ],
-        // To prevent the bounce back into the map and set hard border
         maxBoundsViscosity: 1,
-        // Allow infinite zoom levels
         zoomSnap: 0,
-        // Zoom button detents
         zoomDelta: 0.75,
-        //Zoom scroll speed
         wheelPxPerZoomLevel: 80,
-        //Disable single finger drag
         dragging: !L.Browser.mobile,
         dragging: !L.Browser.mobileWebkit,
         tap: !L.Browser.mobile,
@@ -45,26 +41,31 @@ function configureMap() {
     });
 };
 
+/**
+ * Clears all existing map layers then adds 
+ * baselayer, radar, radar mask and sigmets layers
+ * @param {string} base - The base layer of the Mapbox tiles
+ * @example
+ *  setVersion(mapbox/light-v10)
+ */
 function setVersion(base) {
-    // Clear all map layers
     map.eachLayer(function (layer) {
         map.removeLayer(layer);
     });
-    // Add the mapbox layer
     L.tileLayer.provider('MapBox', {
         id: base,
         accessToken: KEY.rv
     }).addTo(map);
-    // Add the radar coverage mask layer
     L.tileLayer(URL.rvMask).setOpacity(0.4).addTo(map);
-    // Add the radar images layer
     initialize(apiData, optionKind);
-    // Add the sigmet layer
     getSigmet(base);
-    // Hide the map button
     $(".base-wrapper").hide();
 };
 
+/**
+ * Displays the frame time in the radar controls
+ * @param {Object} frame - Object containing timestamp of current radar frame
+ */
 function setFrameTime(frame) {
     let dateObj = new Date(frame.time * 1000);
     let utcString = dateObj.toUTCString();
@@ -72,9 +73,11 @@ function setFrameTime(frame) {
     document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
 };
 
+/**
+ * Checks if the user has previously allowed/disallowed location data
+ */
 function checkIfLocationAllowed() {
     let locationAllowed = localStorage.getItem('WxBriefLocationAllowed');
-
     if (locationAllowed === null) {
         $("#geolocate").modal("show");
     } else if (locationAllowed === "true") {
@@ -85,6 +88,10 @@ function checkIfLocationAllowed() {
     }
 };
 
+/**
+ * Stores a variable to record that location data 
+ * allowed and closes modal
+ */
 function allowLocation() {
     locationAllowed = "true";
     localStorage.setItem('WxBriefLocationAllowed', locationAllowed);
@@ -92,12 +99,19 @@ function allowLocation() {
     $("#geolocate").modal("hide");
 };
 
+/**
+ * Stores a variable to record that location data
+ * is not allowed
+ */
 function disallowLocation() {
     locationAllowed = "false";
     localStorage.setItem('WxBriefLocationAllowed', locationAllowed);
     showEurope();
 };
 
+/**
+ * Flys down to display Europe in the radar window
+ */
 function showEurope() {
     let corner1 = L.latLng(60, 13),
         corner2 = L.latLng(35, -19),
@@ -105,6 +119,9 @@ function showEurope() {
     map.flyToBounds(bounds);
 };
 
+/**
+ * Uses the geolocation API to get the users current location
+ */
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showPositionError);
@@ -114,9 +131,11 @@ function getLocation() {
     }
 };
 
-// Show user location if location is supported and allowed
+/**
+ * After 1.5sec, flys down to the users current location over 4 seconds
+ * @param {Object} position - GeoLocationPosition
+ */
 function showPosition(position) {
-    // Fly down to current position at zoom level 5.5 over 2 seconds
     setTimeout(function () {
         map.flyTo([position.coords.latitude, position.coords.longitude], 7.5, {
             animate: true,
@@ -125,7 +144,10 @@ function showPosition(position) {
     }, 1500);
 };
 
-// If user has location turned off
+/**
+ * Handles geolocation errors by defaulting to showEurope
+ * @param {Object} error 
+ */
 function showPositionError(error) {
     switch (error.code) {
         case error.PERMISSION_DENIED:
@@ -143,15 +165,19 @@ function showPositionError(error) {
     };
 };
 
+/**
+ * Toggles the play/pause icon on the radar controls when clicked
+ */
 function playPauseToggle() {
-    // Toggler to change the play/pause icon
     $("#play-toggle").click(function () {
         $(".playPause").toggle();
     });
 };
 
+/**
+ * Animates the radar/satellite option toggler when clicked
+ */
 function radarOptionToggle() {
-    // Radar or Satellite option toggler
     $("#sat").click(function () {
         $("#radar").removeClass("selected-left");
         $("#sat").addClass("selected-right");
@@ -162,29 +188,34 @@ function radarOptionToggle() {
     });
 };
 
+/**
+ * Toggles the legend display when clicked
+ */
 function legendToggler() {
-    // Legend Show Toggler
     $("#legend-control").click(function () {
         $(".legend-wrapper").toggle();
     });
 };
 
+/**
+ * Toggles the base layer options display when layers icon is clicked
+ */
 function mapLayerToggler() {
-    // Base Layer Show Toggler
     $(".base-control").click(function () {
         $(".base-wrapper").toggle();
     });
 };
 
+/**
+ * Toggles the radar window to fullscreen when the fullscreen 
+ * icon is clicked and enables single finger dragging when in fullscreen
+ */
 function fullscreenToggler() {
-    // Fullscreen Toggler
     let fullscreen = false;
-
     $("#fullscreen-control").click(function () {
         $("#radar-map-container").toggleClass("fullscreen").toggleClass("radar-container");
         $(".fs-icon").toggle();
         map.invalidateSize();
-
         if (fullscreen === false) {
             map.dragging.enable();
             fullscreen = true;
@@ -198,6 +229,9 @@ function fullscreenToggler() {
     });
 };
 
+/**
+ * Enables single finger dragging on screen sizes >480px
+ */
 function singleFingerDrag() {
     // Enable single finger dragging on larger devices
     if ($(window).width() > 480) {
@@ -205,17 +239,11 @@ function singleFingerDrag() {
     };
 };
 
-
-
 /**
  * Code below this point is from the RAINVIEWER API documentation,
  * the code has been modified slightly to suit the purposes of this site.
  */
 
-/**
- * RainViewer radar animation part
- * @type {number[]}
- */
 let apiData, mapFrames, radarLayers, lastPastFramePosition, optionKind, animationPosition, animationTimer;
 
 function initialiseRvSettings() {
@@ -223,7 +251,7 @@ function initialiseRvSettings() {
     mapFrames = [];
     radarLayers = [];
     lastPastFramePosition = -1;
-    optionKind = 'radar'; // can be 'radar' or 'satellite'
+    optionKind = 'radar';
     animationPosition = 0;
     animationTimer = false;
 }
@@ -233,53 +261,38 @@ function initialiseRainviewer() {
     let apiRequest = new XMLHttpRequest();
     apiRequest.open("GET", URL.rv, true);
     apiRequest.onload = function () {
-        // store the API response for re-use purposes in memory
         apiData = JSON.parse(apiRequest.response);
         initialize(apiData, optionKind);
     };
     apiRequest.send();
 }
 
-/**
- * Initialize internal data from the API response and options
- */
 function initialize(api, kind) {
-    // remove all already added tiled layers
     for (let i in radarLayers) {
         map.removeLayer(radarLayers[i]);
     }
     mapFrames = [];
     radarLayers = [];
     animationPosition = 0;
-
     if (!api) {
         return;
     }
     if (kind == 'satellite' && api.satellite && api.satellite.infrared) {
         mapFrames = api.satellite.infrared;
-
         lastPastFramePosition = api.satellite.infrared.length - 1;
         showFrame(lastPastFramePosition);
     } else if (api.radar && api.radar.past) {
         mapFrames = api.radar.past;
-
-        // show the last "past" frame
         lastPastFramePosition = api.radar.past.length - 1;
-
         showFrame(lastPastFramePosition);
     }
 }
 
-/**
- * Animation functions
- * @param path - Path to the XYZ tile
- */
 function addLayer(frame) {
     if (!radarLayers[frame.path]) {
         let colorScheme = optionKind == 'satellite' ? 0 : 7;
         let smooth = optionKind == 'satellite' ? 0 : 1;
         let snow = optionKind == 'satellite' ? 0 : 1;
-
         radarLayers[frame.path] = new L.TileLayer(apiData.host + frame.path + '/' + 512 +
             '/{z}/{x}/{y}/' + colorScheme + '/' + smooth + '_' + snow + '.png', {
                 tileSize: 256,
@@ -292,12 +305,6 @@ function addLayer(frame) {
     }
 }
 
-/**
- * Display particular frame of animation for the @position
- * If preloadOnly parameter is set to true, the frame layer only adds for the tiles preloading purpose
- * @param position
- * @param preloadOnly
- */
 function changeRadarPosition(position, preloadOnly) {
     while (position >= mapFrames.length) {
         position -= mapFrames.length;
@@ -305,43 +312,26 @@ function changeRadarPosition(position, preloadOnly) {
     while (position < 0) {
         position += mapFrames.length;
     }
-
     let currentFrame = mapFrames[animationPosition];
     let nextFrame = mapFrames[position];
-
     addLayer(nextFrame);
-
     if (preloadOnly) {
         return;
     }
-
     animationPosition = position;
-
     if (radarLayers[currentFrame.path]) {
         radarLayers[currentFrame.path].setOpacity(0);
     }
     radarLayers[nextFrame.path].setOpacity(0.6);
-
     setFrameTime(nextFrame)
 }
 
-/**
- * Check avialability and show particular frame position from the timestamps list
- */
 function showFrame(nextPosition) {
     let preloadingDirection = nextPosition - animationPosition > 0 ? 1 : -1;
-
     changeRadarPosition(nextPosition);
-
-    // preload next next frame (typically, +1 frame)
-    // if don't do that, the animation will be blinking at the first loop
     changeRadarPosition(nextPosition + preloadingDirection, true);
 }
 
-/**
- * Stop the animation
- * Check if the animation timeout is set and clear it.
- */
 function stop() {
     if (animationTimer) {
         clearTimeout(animationTimer);
@@ -353,8 +343,6 @@ function stop() {
 
 function play() {
     showFrame(animationPosition + 1);
-
-    // Main animation driver. Run this function every 200ms ms
     animationTimer = setTimeout(play, 200);
 }
 
@@ -364,9 +352,6 @@ function playStop() {
     }
 }
 
-/**
- * Radar/Satellite Option
- */
 function setKind(kind) {
     optionKind = kind;
     initialize(apiData, optionKind);
