@@ -74,3 +74,12 @@ const NO_DATA = "No data available for this airport"
 const UNABLE = "Unable to obtain data for this station. Please contact the site administrator";
 
 const MAP_DEFAULT = "mapbox/dark-v10";
+
+const DELETE_CONTAINER = `<div class="delete-container"><div class="delete"><i class="fas fa-trash" aria-hidden="true" aria-label="Delete this airport"></i><div class="sr-only">Delete</div></div></div>`
+
+const WARNING = {
+    "unable": "Unable to retrieve airport, please contact the site admin",
+    "four": "Please enter a 4 digit ICAO code",
+    "noex": "Airport does not exist in the database, please try again",
+    "already": " is already in your list of airports"
+}

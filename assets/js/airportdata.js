@@ -57,12 +57,7 @@ function displayAirports(apArray) {
                     <span> ${airport.iata}</span>
                     <p>${airport.name}</p>
                 </div>
-                 <div class="delete-container">
-                    <div class="delete">
-                        <i class="fas fa-trash" aria-hidden="true" aria-label="Delete this airport"></i>
-                        <div class="sr-only">Delete</div>
-                    </div>
-                 </div>
+                ${DELETE_CONTAINER}
              </div>
         `;
         $("#airports").append(apDetails);
@@ -87,7 +82,7 @@ function getAirportInfo() {
     $.ajax(settings).done(function (response) {
         checkInput(response, icao);
     }).fail(function (response) {
-        $("#warning").html("Unable to retrieve airport, please contact the site admin");
+        $("#warning").html(WARNING.unable);
         console.log(response);
         $("#airportInput").val("");
     });
@@ -120,14 +115,14 @@ function checkInput(response, icao) {
  */
 function displayWarning(warning, response) {
     if (warning == "notFour") {
-        $("#warning").html("Please enter a 4 digit ICAO code");
+        $("#warning").html(WARNING.four);
         $("#airportInput").val("");
     } else if (warning == "notExist") {
-        $("#warning").html("Airport does not exist in the database, please try again");
+        $("#warning").html(WARNING.noex);
         $("#airportInput").val("");
     } else if (warning == "inList") {
         $("#airportInput").val("");
-        $("#warning").html(`<p>${response.icao} is already in your list of airports</p>`);
+        $("#warning").html(response.icao + WARNING.already);
     };
 };
 
