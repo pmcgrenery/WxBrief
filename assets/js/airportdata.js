@@ -123,7 +123,7 @@ function displayWarning(warning, response) {
         $("#warning").html("Please enter a 4 digit ICAO code");
         $("#airportInput").val("");
     } else if (warning == "notExist") {
-        $("#warning").html("Airport does not exist, please try again");
+        $("#warning").html("Airport does not exist in the database, please try again");
         $("#airportInput").val("");
     } else if (warning == "inList") {
         $("#airportInput").val("");
@@ -208,7 +208,6 @@ function pressEnter() {
         };
     });
 };
-
 
 /**
  * Listens for Esc being pressed anywhere on screen 
