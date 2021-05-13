@@ -1,12 +1,22 @@
 $(document).ready(function () {
-    emailjs.init(KEY.emailjs);
-
-    $("#contact-form").on("submit", function (e) {
-        e.preventDefault();
-        $('#submittedModal').modal('show');
-        $('form').get(0).reset();
-    });
+    checkConfigLoaded();
 });
+
+/**
+ * Checks that config.js file has loaded correctly
+ */
+function checkConfigLoaded() {
+    if (typeof LOADED !== 'undefined') {
+        emailjs.init(KEY.emailjs);
+        $("#contact-form").on("submit", function (e) {
+            e.preventDefault();
+            $('#submittedModal').modal('show');
+            $('form').get(0).reset();
+        });
+    } else if (typeof LOADED === 'undefined') {
+        $("#configNotLoadedModal").modal("show");
+    }
+}
 
 function sendMail(contactForm) {
     emailjs.send("wxbrief", "contact-form", {

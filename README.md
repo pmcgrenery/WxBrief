@@ -551,7 +551,6 @@ For further information on how to clone a repository into your IDE please consul
 3. Copy the API Key.
 4. Paste this key into KEY.tz in config.js.
 
- 
 # Credits
 
 ## Content

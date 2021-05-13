@@ -1,11 +1,26 @@
-$('document').ready(function () {
+$(document).ready(function () {
+    checkConfigLoaded();
+});
+
+/**
+ * Checks that config.js file has loaded correctly
+ */
+function checkConfigLoaded() {
+    if (typeof LOADED !== 'undefined') {
+        initialisePage();
+    } else if (typeof LOADED === 'undefined') {
+        $("#configNotLoadedModal").modal("show");
+    }
+}
+
+function initialisePage() {
     configureMap();
     setVersion(MAP_DEFAULT);
     initialiseRvSettings()
     initialiseRainviewer();
     checkIfLocationAllowed();
     initialiseEventListeners();
-});
+}
 
 function initialiseEventListeners() {
     singleFingerDrag();

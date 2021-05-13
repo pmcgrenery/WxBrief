@@ -1,10 +1,21 @@
 $(document).ready(function () {
-    let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
-    setHeader(airport);
-    getAirportMETAR(airport.icao);
-    getAirportTAF(airport.icao);
-    getAirportInfo(airport.icao);
+    checkConfigLoaded();
 });
+
+/**
+ * Checks that config.js file has loaded correctly
+ */
+function checkConfigLoaded() {
+    if (typeof LOADED !== 'undefined') {
+        let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
+        setHeader(airport);
+        getAirportMETAR(airport.icao);
+        getAirportTAF(airport.icao);
+        getAirportInfo(airport.icao);
+    } else if (typeof LOADED === 'undefined') {
+        $("#configNotLoadedModal").modal("show");
+    }
+}
 
 /**
  * Sets the airport name in the header

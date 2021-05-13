@@ -1,7 +1,18 @@
 $(document).ready(function () {
-    loadStoredAirports();
-    initialiseEventListeners();
+    checkConfigLoaded();
 });
+
+/**
+ * Checks that config.js file has loaded correctly
+ */
+function checkConfigLoaded() {
+    if (typeof LOADED !== 'undefined') {
+        loadStoredAirports();
+        initialiseEventListeners();
+    } else if (typeof LOADED === 'undefined') {
+        $("#configNotLoadedModal").modal("show");
+    }
+}
 
 function initialiseEventListeners() {
     clickEditAirports();
