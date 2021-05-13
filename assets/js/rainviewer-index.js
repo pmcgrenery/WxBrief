@@ -19,7 +19,7 @@ function initialiseEventListeners() {
 let map;
 
 /**
- * Cretaes Leaflet map and configures its control options
+ * Creates Leaflet map and configures its control options
  */
 function configureMap() {
     map = L.map('mapid', {
@@ -233,7 +233,6 @@ function fullscreenToggler() {
  * Enables single finger dragging on screen sizes >480px
  */
 function singleFingerDrag() {
-    // Enable single finger dragging on larger devices
     if ($(window).width() > 480) {
         map.dragging.enable();
     };
@@ -257,7 +256,6 @@ function initialiseRvSettings() {
 }
 
 function initialiseRainviewer() {
-
     let apiRequest = new XMLHttpRequest();
     apiRequest.open("GET", URL.rv, true);
     apiRequest.onload = function () {
@@ -267,6 +265,9 @@ function initialiseRainviewer() {
     apiRequest.send();
 }
 
+/**
+ * Initialize internal data from the API response and options
+ */
 function initialize(api, kind) {
     for (let i in radarLayers) {
         map.removeLayer(radarLayers[i]);
@@ -288,6 +289,10 @@ function initialize(api, kind) {
     }
 }
 
+/**
+ * Animation functions
+ * @param path - Path to the XYZ tile
+ */
 function addLayer(frame) {
     if (!radarLayers[frame.path]) {
         let colorScheme = optionKind == 'satellite' ? 0 : 7;
@@ -305,6 +310,12 @@ function addLayer(frame) {
     }
 }
 
+/**
+ * Display particular frame of animation for the @position
+ * If preloadOnly parameter is set to true, the frame layer only adds for the tiles preloading purpose
+ * @param position
+ * @param preloadOnly
+ */
 function changeRadarPosition(position, preloadOnly) {
     while (position >= mapFrames.length) {
         position -= mapFrames.length;
@@ -326,12 +337,19 @@ function changeRadarPosition(position, preloadOnly) {
     setFrameTime(nextFrame)
 }
 
+/**
+ * Check avialability and show particular frame position from the timestamps list
+ */
 function showFrame(nextPosition) {
     let preloadingDirection = nextPosition - animationPosition > 0 ? 1 : -1;
     changeRadarPosition(nextPosition);
     changeRadarPosition(nextPosition + preloadingDirection, true);
 }
 
+/**
+ * Stop the animation
+ * Check if the animation timeout is set and clear it.
+ */
 function stop() {
     if (animationTimer) {
         clearTimeout(animationTimer);
@@ -352,6 +370,9 @@ function playStop() {
     }
 }
 
+/**
+ * Radar/Satellite Option
+ */
 function setKind(kind) {
     optionKind = kind;
     initialize(apiData, optionKind);

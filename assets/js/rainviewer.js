@@ -18,12 +18,14 @@ function initialiseEventListeners() {
 
 let map, airport, lat, long;
 
+/**
+ * Creates Leaflet map and configures its control options
+ */
 function configureMap() {
     airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
     lat = airport.lat;
     long = airport.long;
 
-    //Configure Map
     map = L.map('mapid', {
         center: [lat, long],
         zoom: 7.5,
@@ -32,15 +34,10 @@ function configureMap() {
             [90, -180],
             [-90, 180]
         ],
-        // To prevent the bounce back into the map and set hard border
         maxBoundsViscosity: 1,
-        // Allow infinite zoom levels
         zoomSnap: 0,
-        // Zoom button detents
         zoomDelta: 0.5,
-        //Zoom scroll speed
         wheelPxPerZoomLevel: 80,
-        //Disable single finger drag
         dragging: !L.Browser.mobile,
         dragging: !L.Browser.mobileWebkit,
         tap: !L.Browser.mobile,
@@ -48,36 +45,52 @@ function configureMap() {
     });
 };
 
+/**
+ * Clears all existing map layers then adds 
+ * baselayer, radar, radar mask and sigmets layers
+ * @param {string} base - The base layer of the Mapbox tiles
+ * @example
+ *  setVersion(mapbox/light-v10)
+ */
 function setVersion(base) {
-    // Clear all map layers
     map.eachLayer(function (layer) {
         map.removeLayer(layer);
     });
-    // Add the mapbox layer
     L.tileLayer.provider('MapBox', {
         id: base,
         accessToken: KEY.rv
     }).addTo(map);
-    // Add the radar coverage mask layer
     L.tileLayer(URL.rvMask).setOpacity(0.4).addTo(map);
-    // Add the radar images layer
     initialize(apiData, optionKind);
-    // Add the sigmet layer
     getSigmet(base);
-    // Hide the map button
     addMarker();
     $(".base-wrapper").hide();
 };
 
+/**
+ * Displays the frame time in the radar controls
+ * @param {Object} frame - Object containing timestamp of current radar frame
+ */
+function setFrameTime(frame) {
+    let dateObj = new Date(frame.time * 1000);
+    let utcString = dateObj.toUTCString();
+    let frameTime = utcString.slice(17, 22);
+    document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
+};
+
+/**
+ * Toggles the play/pause icon on the radar controls when clicked
+ */
 function playPauseToggle() {
-    // Toggler to change the play/pause icon
     $("#play-toggle").click(function () {
         $(".playPause").toggle();
     });
 };
 
+/**
+ * Animates the radar/satellite option toggler when clicked
+ */
 function radarOptionToggle() {
-    // Radar or Satellite option toggler
     $("#sat").click(function () {
         $("#radar").removeClass("selected-left");
         $("#sat").addClass("selected-right");
@@ -88,29 +101,34 @@ function radarOptionToggle() {
     });
 };
 
+/**
+ * Toggles the legend display when clicked
+ */
 function legendToggler() {
-    // Legend Show Toggler
     $("#legend-control").click(function () {
         $(".legend-wrapper").toggle();
     });
 };
 
+/**
+ * Toggles the base layer options display when layers icon is clicked
+ */
 function mapLayerToggler() {
-    // Base Layer Show Toggler
     $(".base-control").click(function () {
         $(".base-wrapper").toggle();
     });
 };
 
+/**
+ * Toggles the radar window to fullscreen when the fullscreen 
+ * icon is clicked and enables single finger dragging when in fullscreen
+ */
 function fullscreenToggler() {
-    // Fullscreen Toggler
     let fullscreen = false;
-
     $("#fullscreen-control").click(function () {
         $("#radar-map-container").toggleClass("fullscreen").toggleClass("radar-container");
         $(".fs-icon").toggle();
         map.invalidateSize();
-
         if (fullscreen === false) {
             map.dragging.enable();
             fullscreen = true;
@@ -124,8 +142,10 @@ function fullscreenToggler() {
     });
 };
 
+/**
+ * Enables single finger dragging on screen sizes >480px
+ */
 function singleFingerDrag() {
-    // Enable single finger dragging on larger devices
     if ($(window).width() > 480) {
         map.dragging.enable();
     };
@@ -137,16 +157,8 @@ function addMarker() {
         .bindPopup(`${airport.icao}`);
 };
 
-//Check the current frame time and output the time in UTC format
-function setFrameTime(frame) {
-    let dateObj = new Date(frame.time * 1000);
-    let utcString = dateObj.toUTCString();
-    let frameTime = utcString.slice(17, 22);
-    document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
-};
-
 /**
- * Majority of code below this point is from the RAINVIEWER API documentation,
+ * Code below this point is from the RAINVIEWER API documentation,
  * the code has been modified slightly to suit the purposes of this site.
  */
 
@@ -157,17 +169,15 @@ function initialiseRvSettings() {
     mapFrames = [];
     radarLayers = [];
     lastPastFramePosition = -1;
-    optionKind = 'radar'; // can be 'radar' or 'satellite'
+    optionKind = 'radar';
     animationPosition = 0;
     animationTimer = false;
 }
 
 function getRainviewer() {
-
     let apiRequest = new XMLHttpRequest();
     apiRequest.open("GET", URL.rv, true);
     apiRequest.onload = function () {
-        // store the API response for re-use purposes in memory
         apiData = JSON.parse(apiRequest.response);
         initialize(apiData, optionKind);
     };
@@ -178,7 +188,6 @@ function getRainviewer() {
  * Initialize internal data from the API response and options
  */
 function initialize(api, kind) {
-    // remove all already added tiled layers
     for (let i in radarLayers) {
         map.removeLayer(radarLayers[i]);
     }
@@ -191,15 +200,11 @@ function initialize(api, kind) {
     }
     if (kind == 'satellite' && api.satellite && api.satellite.infrared) {
         mapFrames = api.satellite.infrared;
-
         lastPastFramePosition = api.satellite.infrared.length - 1;
         showFrame(lastPastFramePosition);
     } else if (api.radar && api.radar.past) {
         mapFrames = api.radar.past;
-
-        // show the last "past" frame
         lastPastFramePosition = api.radar.past.length - 1;
-
         showFrame(lastPastFramePosition);
     }
 }
