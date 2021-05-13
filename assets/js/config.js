@@ -42,6 +42,7 @@ const URL = {
     "avwxInfo": "https://avwx.rest/api/station/",
     "rv": "https://api.rainviewer.com/public/weather-maps.json",
     "rvMask": "https://tilecache.rainviewer.com/v2/coverage/0/512/{z}/{x}/{y}/0/0_0.png",
+    "tz": "https://api.timezonedb.com/v2.1/get-time-zone?key="
 }
 
 const KEY = {
@@ -58,6 +59,7 @@ const HOST = {
 
 const FORMAT = {
     "avwx": "?format=json",
+    "tz": "&format=json&by=position&lat="
 }
 
 const LIMIT_REACHED = "You have reached your API call limit, please contact the site administrator";
