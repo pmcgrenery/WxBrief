@@ -81,7 +81,7 @@ footer {
 
 #landing-intro p {
     font-weight: 300;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
 }
 
 #landing-button {
