@@ -148,16 +148,34 @@
                                 <p>To edit your airport list, click on <i class="far fa-edit" aria-hidden="true"
                                         aria-label="Edit List"></i></p>
                             </li>
-                            <li>
-                                <p>To clear all airports click on the CLEAR ALL button</p>
-                            </li>
-                            <li>
-                                <p>To delete one airport click on <i class="fas fa-trash" aria-hidden="true"
-                                        aria-label="Delete this airport"></i> </p>
-                            </li>
+                            <ul>
+                                <li>
+                                    <p>To clear all airports click on the CLEAR ALL button</p>
+                                </li>
+                                <li>
+                                    <p>To delete one airport click on <i class="fas fa-trash" aria-hidden="true"
+                                            aria-label="Delete this airport"></i> </p>
+                                </li>
+                            </ul>
                         </ul>
                     </div>
                     <p>Enjoy!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Config not loaded Modal -->
+    <div class="modal fade" id="configNotLoadedModal" tabindex="-1" aria-label="Failed to load config"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="clearModal()"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h3 class="mb-4">Failed to load configuration file</h3>
+                    <h4 class="mb-4">Please contact the website administrator.</h4>
                 </div>
             </div>
         </div>
