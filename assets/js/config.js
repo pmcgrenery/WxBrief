@@ -42,7 +42,10 @@ const URL = {
     "avwxInfo": "https://avwx.rest/api/station/",
     "rv": "https://api.rainviewer.com/public/weather-maps.json",
     "rvMask": "https://tilecache.rainviewer.com/v2/coverage/0/512/{z}/{x}/{y}/0/0_0.png",
-    "tz": "https://api.timezonedb.com/v2.1/get-time-zone?key="
+    "tz": "https://api.timezonedb.com/v2.1/get-time-zone?key=",
+    "intlSigmet": "https://www.aviationweather.gov/cgi-bin/json/IsigmetJSON.php",
+    "usSigmet": "https://www.aviationweather.gov/cgi-bin/json/SigmetJSON.php"
+
 }
 
 const KEY = {

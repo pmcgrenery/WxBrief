@@ -4,7 +4,7 @@
  */
 function getSigmet(base) {
     $.ajax({
-        url: "https://www.aviationweather.gov/cgi-bin/json/IsigmetJSON.php",
+        url: URL.intlSigmet,
         type: "GET",
         dataType: 'jsonp',
         success: function (int) {
@@ -16,7 +16,7 @@ function getSigmet(base) {
         }
     });
     $.ajax({
-        url: "https://www.aviationweather.gov/cgi-bin/json/SigmetJSON.php",
+        url: URL.usSigmet,
         type: "GET",
         dataType: 'jsonp',
         success: function (us) {
