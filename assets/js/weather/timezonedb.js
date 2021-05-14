@@ -6,7 +6,7 @@ $(document).ready(function () {
  * Gets the UTC offset at the given lat & long
  */
 function setTime() {
-    let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
+    let airport = JSON.parse(localStorage.getItem('selectedAirport'));
     let lat = airport.lat;
     let long = airport.long;
     let url = URL.tz + KEY.tz + FORMAT.tz + lat + "&lng=" + long;
