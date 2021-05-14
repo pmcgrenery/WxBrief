@@ -5,7 +5,7 @@ $(document).ready(function () {
     setMargins();
     buttonClick();
     selectAirport();
-    checkHref()
+    checkAboutUs();
 });
 
 /**
@@ -129,11 +129,11 @@ function airportButtonAnimation(thiss) {
 }
 
 /**
- * Checks the current page file name
+ * Checks page is aboutus then loads accordian animation
  */
-function checkHref() {
+function checkAboutUs() {
     let file = location.pathname.split('/').pop();
-    if (file === "aboutus.html") {
+    if (file === "aboutus.html" || "WxBrief/aboutus.html") {
         $("#accordion").accordion({
             heightStyle: "content"
         });

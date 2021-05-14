@@ -20,7 +20,7 @@ function checkConfigLoaded() {
 function checkHref() {
     let file = location.pathname.split('/').pop();
 
-    if (file === "wxreport.html") {
+    if (file === "wxreport.html" || "WxBrief/wxreport.html") {
         mapWxReport();
         setVersion(MAP_DEFAULT, file);
 
