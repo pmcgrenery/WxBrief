@@ -5,6 +5,7 @@ $(document).ready(function () {
     setMargins();
     buttonClick();
     selectAirport();
+    checkHref()
 });
 
 /**
@@ -125,4 +126,16 @@ function airportButtonAnimation(thiss) {
     $(thiss).delay(50).queue(function () {
         $(thiss).parent().addClass("grow");
     });
+}
+
+/**
+ * Checks the current page file name
+ */
+function checkHref() {
+    let file = location.pathname.split('/').pop();
+    if (file === "aboutus.html") {
+        $("#accordion").accordion({
+            heightStyle: "content"
+        });
+    }
 }
