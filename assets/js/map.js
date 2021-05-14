@@ -75,7 +75,7 @@ function mapWxReport() {
     if (map != undefined) {
         map.remove();
     }
-    airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
+    airport = JSON.parse(localStorage.getItem('selectedAirport'));
     lat = airport.lat;
     long = airport.long;
 
@@ -139,7 +139,7 @@ function setFrameTime(frame) {
  */
 function addMarker() {
     //Marker over airport
-    airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
+    airport = JSON.parse(localStorage.getItem('selectedAirport'));
     lat = airport.lat;
     long = airport.long;
     L.marker([lat, long]).addTo(map)

@@ -108,7 +108,7 @@ function selectAirport() {
         let airports = JSON.parse(localStorage.getItem('airports'));
         let index = $(this).parent().index();
         let selectedAirport = airports[index];
-        sessionStorage.setItem('selectedAirport', JSON.stringify(selectedAirport));
+        localStorage.setItem('selectedAirport', JSON.stringify(selectedAirport));
         setTimeout(function () {
             window.location.href = "wxreport.html"
         }, 100)

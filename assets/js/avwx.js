@@ -1,22 +1,26 @@
 $(document).ready(function () {
-    checkConfigLoaded();
+    checkConfigLoad();
 });
 
 /**
  * Checks that config.js file has loaded correctly
  */
-function checkConfigLoaded() {
+function checkConfigLoad() {
     if (typeof LOADED !== 'undefined') {
-        let airport = JSON.parse(sessionStorage.getItem('selectedAirport'));
-        setHeader(airport);
-        getAirportMETAR(airport.icao);
-        getAirportTAF(airport.icao);
-        getAirportInfo(airport.icao);
+        getWeather();
     } else if (typeof LOADED === 'undefined') {
         $("#configNotLoadedModal").modal("show");
     }
 }
 
+function getWeather() {
+    let airport = JSON.parse(localStorage.getItem('selectedAirport'));
+
+    setHeader(airport);
+    getAirportMETAR(airport.icao);
+    getAirportTAF(airport.icao);
+    getAirportInfo(airport.icao);
+}
 /**
  * Sets the airport name in the header
  * @param {Object} airport - Selected Airport Object
