@@ -32,7 +32,7 @@ function loadStoredAirports() {
 };
 
 /**
- * Check if "airports" exists in local storage or not
+ * Checks if "airports" exists in local storage or not
  * @param {Object[]} airports - Array of users stored airports 
  */
 function checkloadedAirports(airports) {
@@ -235,10 +235,11 @@ function pressEsc() {
 function clickDeleteAirport() {
     $("#airports").on("click", ".delete-container", function () {
         let parentIndex = $(this).parent().index()
-        $(this).parent().slideUp(400);
+        $(this).parent().slideUp(250);
         setTimeout(function () {
             deleteAirport(parentIndex)
-        }, 400);
+        }, 250);
+        $(".delete-container").fadeToggle(25);
         $("#back-btn").toggle(20);
         $("#clr-airports").toggle(20);
     })
