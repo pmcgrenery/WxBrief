@@ -335,9 +335,9 @@ footer {
     color: #fff;
     font-size: 1.125rem;
     background: #7F7F7F;
-    background: -webkit-linear-gradient(top, #7F7F7F, #454545);
-    background: -moz-linear-gradient(top, #7F7F7F, #454545);
-    background: linear-gradient(to bottom, #7F7F7F, #454545);
+    background: -webkit-linear-gradient(top, #646464, #454545);
+    background: -moz-linear-gradient(top, #646464, #454545);
+    background: linear-gradient(to bottom, #646464, #454545);
     box-shadow: 1px 1px 10px 0 rgb(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
     transition: all 0.05s linear;
@@ -815,9 +815,9 @@ footer {
     padding: 0.5rem;
     border-radius: 10px;
     background: #7F7F7F;
-    background: -webkit-linear-gradient(top, #7F7F7F, #454545);
-    background: -moz-linear-gradient(top, #7F7F7F, #454545);
-    background: linear-gradient(to bottom, #7F7F7F, #454545);
+    background: -webkit-linear-gradient(top, #646464, #454545);
+    background: -moz-linear-gradient(top, #646464, #454545);
+    background: linear-gradient(to bottom, #646464, #454545);
     box-shadow: 1px 1px 10px 0 rgb(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
 }
