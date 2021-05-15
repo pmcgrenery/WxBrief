@@ -18,9 +18,7 @@ function checkConfigLoaded() {
  * Checks the current page file name
  */
 function checkHref() {
-    let file = location.pathname.split('/').pop();
-
-    if (file === ("wxreport.html" || "WxBrief/wxreport.html")) {
+    if (window.location.href.indexOf("wxreport") > -1) {
         mapWxReport();
         setVersion(MAP_DEFAULT, file);
 

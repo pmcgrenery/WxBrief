@@ -132,8 +132,7 @@ function airportButtonAnimation(thiss) {
  * Checks page is aboutus then loads accordian animation
  */
 function checkAboutUs() {
-    let file = location.pathname.split('/').pop();
-    if (file === ("aboutus.html" || "WxBrief/wxreport.html")) {
+    if (window.location.href.indexOf("aboutus") > -1) {
         $("#accordion").accordion({
             heightStyle: "content"
         });
