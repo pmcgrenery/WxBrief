@@ -334,7 +334,8 @@ footer {
     position: relative;
     color: #fff;
     font-size: 1.125rem;
-    background: #6d6d6d;
+    background: rgb(59, 59, 59);
+    background: linear-gradient(0deg, rgba(59, 59, 59, 1) 0%, rgba(74, 74, 74, 1) 25%, rgba(75, 75, 75, 1) 50%, rgba(74, 74, 74, 1) 75%, rgba(59, 59, 59, 1) 100%);
     box-shadow: 1px 1px 10px 0 rgb(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
     transition: all 0.05s linear;
@@ -811,7 +812,8 @@ footer {
     color: #fff;
     padding: 0.5rem;
     border-radius: 10px;
-    background: #6d6d6d;
+    background: rgb(59, 59, 59);
+    background: linear-gradient(0deg, rgba(59, 59, 59, 1) 0%, rgba(74, 74, 74, 1) 25%, rgba(75, 75, 75, 1) 50%, rgba(74, 74, 74, 1) 75%, rgba(59, 59, 59, 1) 100%);
     box-shadow: 1px 1px 10px 0 rgb(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
 }
