@@ -20,7 +20,7 @@ function checkConfigLoaded() {
 function checkHref() {
     if (window.location.href.indexOf("wxreport") > -1) {
         mapWxReport();
-        setVersion(MAP_DEFAULT, file);
+        setVersion(MAP_DEFAULT, "wxreport.html");
 
     } else {
         mapIndex();
