@@ -133,7 +133,7 @@ function airportButtonAnimation(thiss) {
  */
 function checkAboutUs() {
     let file = location.pathname.split('/').pop();
-    if (file === "aboutus.html" || "WxBrief/aboutus.html") {
+    if (file === ("aboutus.html" || "WxBrief/wxreport.html")) {
         $("#accordion").accordion({
             heightStyle: "content"
         });

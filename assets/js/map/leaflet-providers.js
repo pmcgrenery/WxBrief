@@ -268,9 +268,9 @@
         MapBox: {
             url: 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}{r}?access_token={accessToken}',
             options: {
-                attribution: '&copy; <a href="https://www.mapbox.com/about/maps/" target="_blank">Mapbox</a> ' +
+                attribution: '&copy; <a href="https://www.mapbox.com/about/maps/" target="_blank" rel="noopener">Mapbox</a> ' +
                     '{attribution.OpenStreetMap} ' +
-                    '<a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a>',
+                    '<a href="https://www.mapbox.com/map-feedback/" target="_blank" rel="noopener">Improve this map</a>',
                 tileSize: 512,
                 maxZoom: 18,
                 zoomOffset: -1,
