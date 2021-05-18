@@ -240,6 +240,9 @@ footer {
     border: none;
     appearance: none;
     opacity: 1;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .btn-nav:hover,
@@ -921,9 +924,10 @@ footer p a:active {
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     color: #fff;
-    background: #6d6d6d;
+    background: #5b5b5b;
     box-shadow: 1px 1px 10px 0 rgb(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
+    outline: none;
 }
 
 .ui-accordion-header-active {
@@ -962,6 +966,10 @@ footer p a:active {
 
 .ui-widget-content {
     border: #dddddd50 solid 1px;
+}
+
+.ui-state-focus {
+    outline: none;
 }
 
 #submit {
