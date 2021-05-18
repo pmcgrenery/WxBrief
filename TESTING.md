@@ -134,28 +134,59 @@
 
 ### **As a user, I want to be able to play/stop the radar animation as well as move from frame to frame, so that I can examine the current situation more thoroughly.**
 
+1. In the control bar there is a play button to the left that allows the user to play and pasue the animation.
+2. To the right of the play button there are controls to allow the user to skip forward or back one frame at a time.
+
 ### **As a user, I want to know what areas are covered by radar so that I know the extents of the radar coverage.**
+
+1. On the map there is a semi transparent overlay that shows the user the radar coverage.
 
 ### **As a user, I want to know of any areas of significant weather outside the areas of radar coverage, so that I know what sectors of airspace to expect significant weather systems.**
 
-### **As a user, I want a visual presentation of all SIGMET's, so that I can consume the information in the SIGMET quickly and so that I don't have to plot the text readout on a map.**
+1. SIGMET's are plotted on the map that show the user all known and forecast areas of significant weather across the entire globe. The SIGMET's cover areas of radar coverage and also remote areas.
 
-### **As a user, I want to be able to see the full text of the SIGMET so I can get the full details of the affected altitudes, severity, type of hazard and any forecast changes.**
+### **As a user, I want to have all SIGMETs plotted and I want to be able to see the full text of the SIGMET so I can get the full details of the affected altitudes, severity, type of hazard and any forecast changes.**
+
+1. The SIGMET's are plotted as polygons on the map.
+2. The user can click on the polygon to access the full SIGMET text in raw format. In this poopup bubble, the user can view all details of the weather hazard.
 
 ### **As a user, I want to be able to change the map base layer, so that I can customise the map to my preferences.**
 
+1. On the left hand side of the map there are controls that allow the user to change the maps base layer. The user can click on the layer icon and then is presented with the 3 different map base layer options.
+
 ### **As a user, I want a colour coded legend so that I can tell what type of precipitation exists in the area I am focusing on.**
+
+1. The user can click on the L icon on the left hand side of the map.
+2. The user will then be presented with a legend on the right hand side of the map.
+3. The user can then move the map around to focus on the area of interest and then compare the legend colours to find out the type of precipitation.
 
 ### **As a user, I want to be able to navigate across the map, so that I can see and zoom in on areas of interest.**
 
+1. On mobile devices the user must use 2 fingers to move around and zoom in on the map.
+2. On mobile devices when in fullscreen mode, the user can move around the map with one finger.
+3. On all devices the user can zoom with the zoom buttons in the top left hand side of the map.
+4. On screens larger than 480 px the user can pan across the map using one finger.
+5. On laptops/PC's the user can click and drag the map to move around.
+6. Users with a mouse can use the scroll button to zoom in and out.
+
 ### **As a user, I want a marker placed on the airport I am examining, so that when I pan across the map I can instantly see where the airport is and easily return to the area.**
+
+1. When the user accesses the weather at an airport a marker is added at the airport reference point.
 
 ### **As a returning user I want the list of airports I created to be there when I come back later so that I can get an update on the current weather at airports that are relevant to the flight.**
 
+1. When a user adds an airport, the new airport is added to a list in local storage. Every time the user accesses the briefing page this list is retrieved and displayed to the user.
+
 ### **As a returning user I want to clear the list of airports that I previously entered for a different flight and populate a new list of airports so that I have a list of airports specific to today flights.**
+
+1. The user can click on the edit icon and then click on the Clear All button.
+2. A modal fades in to double check with the user that they do in fact want to delete all airports.
+3. When the user confirms that they want to clear all airports they can then click the Add Airport icon on the right hand side to repopulate the list.
 
 ### **As a user, I want to be able to make contact with the site owner, so that I can let the owner know of an issue on the site.**
 
+1. On the contact page the user can submit a message to the site admin for whatever reason they need to make contact.
+2. Once the form has been filled out correctly and the user clicks submit, then a modal fades in to confirm successful form submission.
 
 ## Manual Testing
 
@@ -177,19 +208,14 @@ Chrome's screen size emulator was used to test the site on different screen size
 | 1920 x 1080 | Common Large Desktop Monitor | XXL |
 | 2560 x 1440 | 5K desktop monitor  | XXL |
 
-### Header
-- The navigation links were tested to ensure that they work correctly on each page.
-- Checked that the logo brand links to the home page from each page.
-- Checked the navigation links work on smaller devices when the navbar collapses to a burger menu.
-- Checked the underline from the left works on each link on each page and does not extend beyond the writing itself.
-- Checked the current page relates to the correct link and that the applicable link appears slightly heavier than the other links.
-- Checked the navigation links stay to the right on both small and large devices.
-- Checked the header collapses to a burger menu at a point that allows the nav links to be accommodated comfortably before they collapse.
-- Checked that the burger menu icon appears to the right on the smallest devices.
-- Checked that the navigation links and logo have a font size that appears in proportion when viewed on large devices.
-- Checked that the burger menu, when pressed, diplays the links and hides the links when pressed a second time.
-- Checked the header appears the same size on all pages.
-- Checked that pressing tab logically brings you from left to right.
+### Header & Menu
+
+- Checked that clicking on the logo icon navigates to the home page from each page.
+- Checked the burger menu animates well on all devices.
+- Checked that clicking the burger menu opens up the menu on all pages.
+- Checked the menu links lead to the correct pages.
+- Checked the logo is legible and an appropriate size on all devices.
+- Checked the header becomes opaque when the user scrolls down.
 
 <figure>
 <img src="docs/header-desktop.png" style="width:600px"><br/>
@@ -209,8 +235,43 @@ Chrome's screen size emulator was used to test the site on different screen size
 
 ### Footer
  
-- Checked that the social media links work and open in new tab.
-- Checked the responsiveness of the footer on each page for all screen sizes.
+- Checked that the social media links work and open in new tabs.
+- Checked that the footer is always at the bottom of the page or below the fold depending on how much content is on the page.
+
+<figure>
+<img src="docs/footer-desktop.png" style="width:600px"><br/>
+<figcaption>Footer on a desktop</figcaption>
+</figure>
+<br/>
+<figure>
+<img src="docs/footer-tablet.png" style="width:384px"><br/>
+<figcaption>Footer on a tablet</figcaption>
+</figure>
+<br/>
+<figure style="display:block">
+<img src="docs/footer-mobile.png" style="width:212px"><br/>
+<figcaption>Footer on a mobile</figcaption>
+</figure>
+<br/>
+
+### Radar Map
+
+- Checked the map takes up the full size of its container.
+- Checked the zoom buttons work correctly and zoom in an appropriate amount.
+- Checked the full screen button stretches the map across the entire available area on the screen.
+- Checked the legend button displays and hides the legend display
+- Checked the map base layer button displays the three map options.
+- Checked that clicking on each base layer option displays the chosen layer correctly and also still displays all information correctly.
+- Checked that single finger panning across the map is disabled on small devices but available in full screen mode.
+- Checked that two finger pannning and zooming works correctly on all touch devices.
+- Checked that single finger panning is enabled on medium sized devices.
+- Checked that click and drag and scroll zoom works with mouse controls.
+- Checked that play/pause button animates and stops animations of radar and infrared sateillite.
+- Checked that next/last frame buttons show the correct frames, and also that the animation is immediately stopped when they are pressed.
+- Checked that the correct time is displayed.
+- Checked that the radar/satellite selection works.
+- Checked that the map flys down to the users location/Europe on the home page.
+- Checked that a marker is added to the airport on the weather report page.
 
 <figure>
 <img src="docs/footer-desktop.png" style="width:600px"><br/>
@@ -230,17 +291,12 @@ Chrome's screen size emulator was used to test the site on different screen size
 
 ### Home Page
  
-- Ensured the callout appears above the car and above the couple in the picture on all screen sizes so that the main focus of the image is visible on all screen sizes.
-- Ensured the image is such that the fold is always visible on all screen sizes below the hero image to encourage users to scroll down.
-- Ensured the callout is an appropriate width on all screen sizes.
-- Ensured the text is legible on all screen sizes.
-- Ensured the text in the What We Do section is aligned towards the image on medium screen sizes and above.
-- Ensured the images in the What We Do section take up the full screen width on x-small devices.
-- Ensured the images in the What We Do section were stacked as per the wireframes on medium devices and larger.
-- Ensured variable padding and margins depending on screen size to make the information more presentable worked correctly.
-- Checked the forward and backwards buttons on the image carousel worked.
-- Checked the interval timer allowed enough time to read each testimonial.
-- Ensured the quote icons in the testimonials appeared on their own line and to the start and end of the quote.
+- Checked the map appears just above the fold on mobile devices.
+- Checked the radar map section appears well above the fold on large devices.
+- Checked hero text and image displays well on all size displays.
+- Checked the text over the image has an appropriate colour contrast.
+- Checked the "Get Briefed" button links to the briefing page.
+- Checked that new users are asked whether they want to allow location or not the first time they land on the page.
 
 <figure>
 <img src="docs/hero-image-desktop.png" style="width:600px"><br/>
@@ -257,45 +313,27 @@ Chrome's screen size emulator was used to test the site on different screen size
 <figcaption>Homepage Hero Image on a mobile</figcaption>
 </figure>
 <br/>
-<figure>
-<img src="docs/what-we-do-desktop.png" style="width:600px"><br/>
-<figcaption>Homepage What We Do on a desktop</figcaption>
-</figure>
-<br/>
-<figure>
-<img src="docs/what-we-do-tablet.png" style="width:384px"><br/>
-<figcaption>Homepage What We Do on a tablet</figcaption>
-</figure>
-<br/>
-<figure>
-<img src="docs/what-we-do-mobile.png" style="width:212px"><br/>
-<figcaption>Homepage What We Do on a mobile</figcaption>
-</figure>
-<br/>
-<figure>
-<img src="docs/testimonial-desktop.png" style="width:600px"><br/>
-<figcaption>Homepage Testimonial on a desktop</figcaption>
-</figure>
-<br/>
-<figure>
-<img src="docs/testimonial-tablet.png" style="width:384px"><br/>
-<figcaption>Homepage Testimonial on a tablet</figcaption>
-</figure>
-<br/>
-<figure>
-<img src="docs/testimonial-mobile.png" style="width:212px"><br/>
-<figcaption>Homepage Testimonial on a mobile</figcaption>
-</figure>
 
-### Gallery Page
+### Briefing Page
  
-- Checked the carousel took up the full width of medium sized devices and smaller.
-- Checked the gallery images appeared as intended on larger devices.
-- Checked the interval timer was set to 5 seconds on all images.
-- Checked the image quality was good on all device sizes while balancing load times.
-- Checked the Enquire Now button linked to the Contact page
-- Ensured all text on the page was centered on all screen sizes.
-- Checked the carousel forward and back buttons worked.
+- Checked that the control bar displays all controls clearly on all sizes of devices.
+- Checked that the back buttons returns to the home page.
+- Checked that clicking on the edit icon displays the delete icons on airports and replaces the back button with a clear all button.
+- Checked that on the + icon displays the add airport modal.
+- Checked that pressing Enter displays the add airport modal.
+- Checked that pressing Esc hides the add airport modal.
+- Checked that the users stored airports are displayed on the list.
+- Checked that the welcome modal is displayed to new users.
+- Checked that a default list of airports is displayed to new users.
+- Checked that when clear all is pressed that a modal is displayed to the user to check they want to delete the airport list.
+- Checked that the airports are all deleted when the user confirms they want to clear all airports.
+- Checked that just the selected airport is deleted when the trash icon is clicked on.
+- Checked that the add airport modal only accepts 4 letter codes and displays warnings to the user if anything other than 4 characters is typed in.
+- Checked that the user recieves a warning if the airport is not in the database.
+- Checked that the user cannot add an airport that is already in the list, and that the user receives a warning if they try to do so.
+- Checked that pressing enter while the input is in focus adds the airport.
+- Checked that clicking on an airport animates a button click.
+- Checked that clicking on an airport links to the weather report page.
 
 <figure>
 <img src="docs/gallery-desktop.png" style="width:600px"><br/>
@@ -312,18 +350,16 @@ Chrome's screen size emulator was used to test the site on different screen size
 <figcaption>Gallery on a mobile</figcaption>
 </figure>
 
-### About Page
- 
-- Checked the image at the top of the page appear correctly on all screen sizes.
-- Checked each section had its own row.  
-- Checked the slide in from the left animation worked and was timed correctly.
-- Checked the fade in animation worked and was timed correctly.
-- Checked the timings of the animations.
-- Ensured the top of the iframe was hidden to hide the google map menu bar on all screen sizes.
-- Ensured the bottom of the iframe was hidden to hide the google map scale and T&C's text on all screen sizes.
-- Checked the map could be zoomed in and out and could be easily navigated.
-- Checked the 2 finger zoom worked on touchscreen devices.
-- Ensured the google map colour was appropriate to the website and in keeping with the theme.
+### Weather Report
+
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+
+- Checked that the 
  
 <figure>
 <img src="docs/lead-image-quote-desktop.png" style="width:600px"><br/>

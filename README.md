@@ -69,8 +69,7 @@ The site can be viewed [here](https://pmcgrenery.github.io/WxBrief).
 -   As a user, I want to be able to play/stop the radar animation as well as move from frame to frame, so that I can examine the current situation more thoroughly.
 -   As a user, I want to know what areas are covered by radar so that I know the extents of the radar coverage.
 -   As a user, I want to know of any areas of significant weather outside the areas of radar coverage, so that I know what sectors of airspace to expect significant weather systems.
--   As a user, I want a visual presentation of all SIGMET's, so that I can consume the information in the SIGMET quickly and so that I don't have to plot the text readout on a map.
--   As a user, I want to be able to see the full text of the SIGMET so I can get the full details of the affected altitudes, severity, type of hazard and any forecast changes.
+-   As a user, I want to have all SIGMETs plotted and I want to be able to see the full text of the SIGMET so I can get the full details of the affected altitudes, severity, type of hazard and any forecast changes.
 -   As a user, I want to be able to change the map base layer, so that I can customise the map to my preferences.
 -   As a user, I want a colour coded legend so that I can tell what type of precipitation exists in the area I am focusing on.
 -   As a user, I want to be able to navigate across the map, so that I can see and zoom in on areas of interest.
@@ -229,7 +228,7 @@ The image used as the background image on the landing page is my own.
  
 #### Animations:
 
-- When the user lands on the site, the page loads then flys down to the user's current location. If the user has location turned off or denies location data then the map flys down to show Europe in one view. This is done using Javascript's built-in location API and combining that with Leaflets flyTo function.
+- When the user lands on the site, the page loads then flys down to the user's current location. If the user has location turned off or denies location data then the map flys down to show Europe in one view. This is done using Leaflet's flyTo function.
  
 - On the landing page a transparent header was used. When the user's scrolls down it fades to an opaque background. This is done using JQuery.
  
@@ -332,8 +331,9 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
         - Beneath the hero header, a small snippet of text telling the user exactly what the site offers in a bit more detail.
         - A call to action in the form of a button to take the user to the briefing section of the site.
         - The radar map appears just above the fold on the vast majority of small devices so that users know to scroll down to see the map. On larger devices, the radar appears well above the fold with padding above and to the sides.
-        - The map itself, geolocates to the user's particular location. It starts by showing the entire world and after a small time delay then flys down gently to the user's current location. This is done using Leaflets flyTo function.
-        - If the user has the location turned off then the map flys down to show most of Europe in one snapshot regardless of the screen size. This is done using Leaflet's flyToBounds function.
+        - On landing on the home page for the first time, the user is asked if they would like to allow location.
+        - If a user allows location, the map geolocates to the user's particular location. It starts by showing the entire world and after a small time delay then flys down gently to the user's current location. This is done using Leaflets flyTo function.
+        - If the user chosses not to allow location, then the map flys down to show most of Europe in one snapshot regardless of the screen size. This is done using Leaflet's flyToBounds function.
     
     - Briefing
 
