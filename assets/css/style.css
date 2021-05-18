@@ -9,7 +9,12 @@ body {
     font-family: 'IBM Plex Sans', sans-serif;
     background: #3b3b3b;
     color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     min-height: 100%;
 }
@@ -31,7 +36,12 @@ footer {
     height: 75vh;
     min-height: 420px;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
@@ -54,7 +64,11 @@ footer {
     margin: 0 auto;
     max-width: 450px;
     font-size: 1.2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -68,13 +82,21 @@ footer {
     color: #fff;
     margin: 0 auto;
     font-size: 1.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 #blur-bottom {
     max-height: 8vh;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(0, 0, 0, 0)), to(rgb(0, 0, 0)));
+    background-image: -o-linear-gradient(top, rgb(0, 0, 0, 0), rgb(0, 0, 0));
     background-image: linear-gradient(to bottom, rgb(0, 0, 0, 0), rgb(0, 0, 0));
 }
 
@@ -82,6 +104,8 @@ footer {
     color: #000;
     background-color: #f0863a;
     border-color: #673816;
+    -webkit-transition: all 0.05s linear;
+    -o-transition: all 0.05s linear;
     transition: all 0.05s linear;
 }
 
@@ -91,6 +115,7 @@ footer {
 #get-briefed:active:focus {
     background-color: #bb6629;
     border-color: #000;
+    -webkit-box-shadow: 0 0 3px 0.25rem #0000004d;
     box-shadow: 0 0 3px 0.25rem #0000004d;
 }
 
@@ -113,6 +138,8 @@ footer {
     height: 4px;
     border-radius: 2px;
     background: #fff;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
@@ -122,6 +149,8 @@ footer {
 }
 
 .rotate-top {
+    -webkit-transform: rotate(45deg) translate(8px, 10.5px);
+    -ms-transform: rotate(45deg) translate(8px, 10.5px);
     transform: rotate(45deg) translate(8px, 10.5px);
     width: 110%;
 }
@@ -131,6 +160,8 @@ footer {
 }
 
 .rotate-bottom {
+    -webkit-transform: rotate(-45deg) translate(8px, -10.5px);
+    -ms-transform: rotate(-45deg) translate(8px, -10.5px);
     transform: rotate(-45deg) translate(8px, -10.5px);
     width: 110%;
 }
@@ -138,6 +169,8 @@ footer {
 .hr-menu {
     display: none;
     height: 3px;
+    background: -webkit-gradient(linear, left top, right top, from(rgb(240, 134, 58, 0.8)), to(rgb(240, 134, 58, 1)));
+    background: -o-linear-gradient(left, rgb(240, 134, 58, 0.8), rgb(240, 134, 58, 1));
     background: linear-gradient(to right, rgb(240, 134, 58, 0.8), rgb(240, 134, 58, 1));
     border-radius: 2px;
     position: absolute;
@@ -160,6 +193,7 @@ footer {
     top: 0;
     position: absolute;
     display: none;
+    -webkit-box-shadow: 0 0 8px 5px rgb(0, 0, 0, 0.5);
     box-shadow: 0 0 8px 5px rgb(0, 0, 0, 0.5);
 }
 
@@ -167,6 +201,8 @@ footer {
     position: absolute;
     left: 50%;
     top: 45%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
@@ -190,6 +226,8 @@ footer {
 .header-bar {
     width: 100%;
     height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -202,12 +240,15 @@ footer {
 }
 
 .fixed-top {
+    -webkit-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
     background-color: transparent;
 }
 
 .active {
     background: #3b3b3b;
+    -webkit-box-shadow: 0 1px 5px rgb(0, 0, 0, 0.25);
     box-shadow: 0 1px 5px rgb(0, 0, 0, 0.25);
 }
 
@@ -225,6 +266,7 @@ footer {
 
 .ap-controls {
     background: #3c3c3c;
+    -webkit-box-shadow: 0 5px 5px 0 rgb(0, 0, 0, 0.3);
     box-shadow: 0 5px 5px 0 rgb(0, 0, 0, 0.3);
     background-color: #f0863a;
 }
@@ -232,6 +274,8 @@ footer {
 .btn-nav {
     position: relative;
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     color: #000;
     background: none;
@@ -250,8 +294,11 @@ footer {
 .btn-nav:focus,
 .btn-nav:active:focus {
     border-color: #000;
+    -webkit-box-shadow: none;
     box-shadow: none;
     background: #ce7536;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     opacity: 1;
 }
@@ -262,6 +309,8 @@ footer {
     float: right;
     position: relative;
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     background: none;
     border: none;
@@ -277,6 +326,7 @@ footer {
 #edit-airports:focus,
 #edit-airports:active:focus {
     border-color: #000;
+    -webkit-box-shadow: none;
     box-shadow: none;
     background: #ce7536;
 }
@@ -287,6 +337,8 @@ footer {
     float: right;
     position: relative;
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     background: none;
     border: none;
@@ -301,6 +353,7 @@ footer {
 #btn-add-airport:focus,
 #btn-add-airport:active:focus {
     border-color: #000;
+    -webkit-box-shadow: none;
     box-shadow: none;
     background: #ce7536;
 }
@@ -315,6 +368,8 @@ footer {
     position: absolute;
     right: 0;
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     width: 15%;
     height: 100%;
@@ -327,6 +382,8 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
@@ -338,11 +395,14 @@ footer {
     color: #fff;
     font-size: 1.125rem;
     background: #7F7F7F;
-    background: -webkit-linear-gradient(top, #646464, #454545);
-    background: -moz-linear-gradient(top, #646464, #454545);
+    background: -webkit-gradient(linear, left top, left bottom, from(#646464), to(#454545));
+    background: -o-linear-gradient(top, #646464, #454545);
     background: linear-gradient(to bottom, #646464, #454545);
+    -webkit-box-shadow: 1px 1px 10px 0 rgb(0, 0, 0, 0.5);
     box-shadow: 1px 1px 10px 0 rgb(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
+    -webkit-transition: all 0.05s linear;
+    -o-transition: all 0.05s linear;
     transition: all 0.05s linear;
     margin-top: 1rem;
     padding: 0.7rem;
@@ -353,10 +413,14 @@ footer {
 }
 
 .shrink {
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
     transform: scale(0.95);
 }
 
 .grow {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
     transform: scale(1);
 }
 
@@ -364,6 +428,8 @@ footer {
     color: #000;
     background-color: #f0863a;
     border-color: #673816;
+    -webkit-transition: all 0.05s linear;
+    -o-transition: all 0.05s linear;
     transition: all 0.05s linear;
 }
 
@@ -373,6 +439,7 @@ footer {
 #add-airport:active:focus {
     background-color: #bb6629;
     border-color: #000;
+    -webkit-box-shadow: 0 0 3px 0.25rem #0000004d;
     box-shadow: 0 0 3px 0.25rem #0000004d;
 }
 
@@ -387,6 +454,8 @@ footer {
 .welcome-header {
     position: relative;
     left: 50%;
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
     transform: translate(-50%);
 }
 
@@ -399,6 +468,7 @@ footer {
 }
 
 .btn-close:focus {
+    -webkit-box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 25%);
     box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 25%);
 }
 
@@ -407,6 +477,7 @@ footer {
     background-color: #fff;
     border-color: #000;
     outline: 0;
+    -webkit-box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 25%);
     box-shadow: 0 0 0 0.25rem rgb(0 0 0 / 25%);
 }
 
@@ -459,16 +530,25 @@ footer {
     height: 30px;
     width: 210px;
     border-radius: 15px;
+    -webkit-box-shadow: 0 1px 3px 0 rgb(0 0 0 / 50%);
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 50%);
     background-color: #c6cfd1;
     border: #000 solid 1px;
     z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     font-size: 15px;
     bottom: 17px;
     left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
     position: absolute;
 }
@@ -501,7 +581,11 @@ footer {
 }
 
 #control-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     color: #000;
     font-size: 18px;
@@ -509,10 +593,13 @@ footer {
     z-index: 1;
     bottom: 55px;
     left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
     height: 44px;
     width: 210px;
     border-radius: 23px;
+    -webkit-box-shadow: 0 1px 3px 0 rgb(0 0 0 / 50%);
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 50%);
     background-color: #ffffff;
     border: #000 solid 1px;
@@ -526,9 +613,16 @@ footer {
     background-color: #c6cfd1;
     margin-right: 17px;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-negative: 0;
     flex-shrink: 0;
     position: relative;
     left: -2px;
@@ -537,8 +631,14 @@ footer {
 #last-frame {
     margin-right: 17px;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -552,8 +652,14 @@ footer {
 
 #next-frame {
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -608,6 +714,8 @@ footer {
 }
 
 #legend {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     color: #000;
     font-size: 14px;
@@ -616,6 +724,8 @@ footer {
     height: 229px;
     top: 50%;
     right: 0;
+    -webkit-transform: translate(0, -56%);
+    -ms-transform: translate(0, -56%);
     transform: translate(0, -56%);
 }
 
@@ -625,6 +735,7 @@ footer {
     opacity: 1;
     background: none;
     border: none;
+    -webkit-box-shadow: none;
     box-shadow: none;
     font-size: 1rem;
     text-shadow: 2px 2px 2px rgb(0 0 0);
@@ -636,6 +747,7 @@ footer {
     opacity: 1;
     background: none;
     border: none;
+    -webkit-box-shadow: none;
     box-shadow: none;
     font-size: 1rem;
     font-weight: 700;
@@ -657,6 +769,8 @@ footer {
 
 .key ::before {
     content: "\2022";
+    -webkit-transform: scale(4);
+    -ms-transform: scale(4);
     transform: scale(4);
     padding-right: 8px;
     display: inline-block;
@@ -755,6 +869,8 @@ footer {
     position: absolute;
     left: -14px;
     top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     border-top: 15px solid transparent;
     border-right: 15px solid white;
@@ -778,10 +894,14 @@ footer {
     color: #ffffff;
     background-color: #f0863a;
     border-color: #673816;
+    -webkit-transition: all 0.05s linear;
+    -o-transition: all 0.05s linear;
     transition: all 0.05s linear;
     width: 70px;
     position: relative;
     left: 50%;
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
     transform: translate(-50%);
     font-size: 14px;
 }
@@ -792,6 +912,7 @@ footer {
 .btn-base:active:focus {
     background-color: #bb6629;
     border-color: #000;
+    -webkit-box-shadow: 0 0 3px 0.25rem #0000004d;
     box-shadow: 0 0 3px 0.25rem #0000004d;
 }
 
@@ -818,9 +939,10 @@ footer {
     padding: 0.5rem;
     border-radius: 10px;
     background: #7F7F7F;
-    background: -webkit-linear-gradient(top, #646464, #454545);
-    background: -moz-linear-gradient(top, #646464, #454545);
+    background: -webkit-gradient(linear, left top, left bottom, from(#646464), to(#454545));
+    background: -o-linear-gradient(top, #646464, #454545);
     background: linear-gradient(to bottom, #646464, #454545);
+    -webkit-box-shadow: 1px 1px 10px 0 rgb(0, 0, 0, 0.5);
     box-shadow: 1px 1px 10px 0 rgb(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
 }
@@ -858,6 +980,8 @@ footer {
     margin-bottom: 0.5rem;
     width: 100%;
     height: 3px;
+    background: -webkit-gradient(linear, left top, right top, from(rgb(240, 134, 58, 0.7)), color-stop(rgb(240, 134, 58, 0.9)), to(rgb(240, 134, 58, 0.7)));
+    background: -o-linear-gradient(left, rgb(240, 134, 58, 0.7), rgb(240, 134, 58, 0.9), rgb(240, 134, 58, 0.7));
     background: linear-gradient(to right, rgb(240, 134, 58, 0.7), rgb(240, 134, 58, 0.9), rgb(240, 134, 58, 0.7));
     border-radius: 2px;
 }
@@ -889,6 +1013,8 @@ table {
     color: #f0863a;
     margin: 26px 22px;
     text-decoration: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 
@@ -925,6 +1051,7 @@ footer p a:active {
     border-top-left-radius: 10px;
     color: #fff;
     background: #5b5b5b;
+    -webkit-box-shadow: 1px 1px 10px 0 rgb(0, 0, 0, 0.5);
     box-shadow: 1px 1px 10px 0 rgb(0, 0, 0, 0.5);
     text-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
     outline: none;
@@ -974,6 +1101,8 @@ footer p a:active {
 
 #submit {
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     position: relative;
 }
@@ -982,6 +1111,8 @@ footer p a:active {
     color: #000;
     background-color: #f0863a;
     border-color: #673816;
+    -webkit-transition: all 0.05s linear;
+    -o-transition: all 0.05s linear;
     transition: all 0.05s linear;
 }
 
@@ -991,6 +1122,7 @@ footer p a:active {
 .btn-custom:active:focus {
     background-color: #bb6629;
     border-color: #000;
+    -webkit-box-shadow: 0 0 3px 0.25rem #0000004d;
     box-shadow: 0 0 3px 0.25rem #0000004d;
 }
 
