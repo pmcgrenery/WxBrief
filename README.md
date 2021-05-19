@@ -442,6 +442,8 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
  
 - **[Autoprefixer CSS Online](https://autoprefixer.github.io/)** Used to check for css prefix omissions to ensure cross browser compatibility.
 
+- **[JSHint](https://jshint.com/)** Used to check for errors and ommisions in the javascript code.
+
 ## APIs
 
 - **[Mapbox Tile Service](https://www.mapbox.com/mts)** This free map tiling service was used to provide the base layers for the map. Three of Mapbox's free base layers are used in the project. These are dark, light and satellite view.
