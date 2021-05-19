@@ -469,17 +469,17 @@ Chrome's screen size emulator was used to test the site on different screen size
 
 <figure>
 <img src="docs/fof-desktop.png" style="width:600px"><br/>
-<figcaption>Contact page on a desktop</figcaption>
+<figcaption>404 page on a desktop</figcaption>
 </figure>
 <br/>
 <figure>
 <img src="docs/fof-tablet.png" style="width:384px"><br/>
-<figcaption>Contact page on a tablet</figcaption>
+<figcaption>404 page on a tablet</figcaption>
 </figure>
 <br/>
 <figure>
 <img src="docs/fof-mobile.png" style="width:212px"><br/>
-<figcaption>Contact page on a mobile</figcaption>
+<figcaption>404 page on a mobile</figcaption>
 </figure>
 <br/>
 
@@ -502,8 +502,8 @@ Chrome's screen size emulator was used to test the site on different screen size
 6. Bug: After clearing all airports, if you press enter both modals appear.
 <br>Fix: The reason for this was that after clicking on the Clear Airports button and either clicking on Yes/No/Close, then the button remains in focus. Therefore, when you press enter, it triggers the Clear Airports button as well as the event listener to call the Add Airport modal. The fix for this is to add <code>event.preventDefault()</code> to the event listener for pressing Enter.
 
-7. Bug: On iPhones the installed full screen plug in for leaflet does not work. When clicked it enables single finger navigation of the map but does go to full screen. As well as this, the radar controls disappear once the map goes to fullscreen view.
-<br>Fix: Removed the full screen plug in and replaced the initial plug in with the <code>.requestFullscreen()</code> method. Along with code to have cross browser compatibility it was discovered that it worked on everything except iPhones. Unfortunately, the method is not supported on iPhones. In the end, to allow cross browser compatibility I ended up with code that just takes the div containing the radar and toggles custom css styling. While this does not hide the address bar on mobile devices, it is the optimum solution to ensure the function works across all devices and also allows the radar controls to remain displayed in fullscreen.
+7. Bug: Originally, to allow fullscreen map display I installed a plug in to allow this. However, on iPhones the plugin does not work. When clicked it enables single finger navigation of the map but does not go to full screen. As well as this, the radar controls disappear once the map goes to fullscreen view.
+<br>Fix: Removed the full screen plug in and replaced the initial plug in with the <code>.requestFullscreen()</code> method. Along with code to have cross browser compatibility it was discovered that it worked on everything except iPhones. Unfortunately, the method is not supported on iPhones. In the end, to allow cross browser compatibility I ended up with code that just takes the div containing the radar and toggles custom css styling that places the div across the full available display. While this does not hide the address bar on mobile devices, it is the optimum solution to ensure the function works across all devices and also allows the radar controls to remain displayed in fullscreen.
 
 8. Bug: Some buttons render differently on iPhones.
 <br>Fix: After some research this is a known issue on iPhones, and the solution is to disable appearance settings that are autonmatically applied. [Stackoverflow article](https://stackoverflow.com/questions/5438567/css-submit-button-weird-rendering-on-ipad-iphone)
@@ -577,7 +577,7 @@ The contrast error noted is due to the fact that the WAVE tool is unable to exam
  
 ### A11y Color Contrast Checker
  
-[A11y Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/) Used to check the contrast of the colors to ensure the site meets accessibility standards. No issues were found and the actual contrast ratios well exceeded the accepted standards.
+[A11y Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/) was used to check the contrast of the colors to ensure the site meets accessibility standards. No issues were found and the actual contrast ratios well exceeded the accepted standards.
 
 <figure>
     <div style="text-align:center">
@@ -588,4 +588,4 @@ The contrast error noted is due to the fact that the WAVE tool is unable to exam
 
 ### JSHint
 
-[JSHint](https://jshint.com/) Used this online tool to check the javscript code for any issues in the code. The tests revealed some unnecessary semi-colons, missing semi-colons and undeclared variables. These minor issues were resolved and no other issues were noted.
+[JSHint](https://jshint.com/) was used this online tool to check the javscript code for any issues in the code. The tests revealed some unnecessary semi-colons, missing semi-colons and undeclared variables. These minor issues were resolved and no other issues were noted.

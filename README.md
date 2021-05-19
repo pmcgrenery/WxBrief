@@ -558,7 +558,7 @@ For further information on how to clone a repository into your IDE please consul
 The content on the site is my own and written by me. 
 
 To aid users unfamiliar with how to read METAR and TAF reports I have provided in the FAQ some PDF's which are publicly available. These documents are free and widely published documents from the US Air Force, the UK Civil Aviation Authority and Nav Canada.
- 
+
 ## Media 
 
 The image used on the Home Page background was taken and is owned by myself.
