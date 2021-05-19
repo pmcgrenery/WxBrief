@@ -1150,6 +1150,11 @@ footer p a:active {
     font-size: 1.2rem;
 }
 
+#fof-text {
+    font-size: 5rem;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
 @media screen and (min-width: 325px) {}
 
 @media screen and (min-width: 576px) {
