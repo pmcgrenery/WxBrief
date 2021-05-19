@@ -21,15 +21,15 @@ function initialiseEventListeners() {
     pressEnter();
     focusModal();
     pressEnterAddAirport();
-};
+}
 
 /**
  * Loads stored airports from device local storage
  */
 function loadStoredAirports() {
     let loadedAirports = JSON.parse(localStorage.getItem('airports'));
-    checkloadedAirports(loadedAirports)
-};
+    checkloadedAirports(loadedAirports);
+}
 
 /**
  * Checks if "airports" exists in local storage or not
@@ -52,7 +52,7 @@ function checkloadedAirports(airports) {
 function clearModal() {
     $("#warning").html("");
     $("#airportInput").val("");
-};
+}
 
 /**
  * Displays the array of airports on screen
@@ -73,7 +73,7 @@ function displayAirports(apArray) {
         `;
         $("#airports").append(apDetails);
     }
-};
+}
 
 /**
  * Makes the AJAX call to get the RapidApi Airport-Info API
@@ -97,7 +97,7 @@ function getAirportInfo() {
         console.log(response);
         $("#airportInput").val("");
     });
-};
+}
 
 /**
  * Checks response for error responses from API call and also checks the
@@ -134,8 +134,8 @@ function displayWarning(warning, response) {
     } else if (warning == "inList") {
         $("#airportInput").val("");
         $("#warning").html(response.icao + WARNING.already);
-    };
-};
+    }
+}
 
 /**
  * Places the new airport in local storage and adds it to the list on screen
@@ -153,7 +153,7 @@ function storeNewAirport(response) {
     airports.push(newAirport);
     localStorage.setItem('airports', JSON.stringify(airports));
     displayAirports(airports);
-};
+}
 
 /**
  * Closes modal and scrolls to bottom of page
@@ -164,19 +164,19 @@ function airportAdded() {
     $("html, body").animate({
         scrollTop: $(document).height()
     }, 100);
-};
+}
 
 /**
  * Clears all airports from the list and returns controls back to normal
  */
 function clearAirports() {
-    airports = [];
+    let airports = [];
     localStorage.setItem('airports', JSON.stringify(airports));
     displayAirports(airports);
     $("#clearAirports").modal('hide');
     $("#back-btn").toggle(20);
     $("#clr-airports").toggle(20);
-};
+}
 
 /**
  * Deletes the selected airport form the list
@@ -187,7 +187,7 @@ function deleteAirport(index) {
     airports.splice(index, 1);
     localStorage.setItem('airports', JSON.stringify(airports));
     displayAirports(airports);
-};
+}
 
 /**
  * Listens for Enter being pressed while the airport input
@@ -200,7 +200,7 @@ function pressEnterAddAirport() {
             getAirportInfo();
         }
     });
-};
+}
 
 /**
  * Listens for Enter being pressed while anywhere in the document
@@ -211,9 +211,9 @@ function pressEnter() {
         if (event.key == 'Enter') {
             event.preventDefault();
             $("#addAirport").modal("show");
-        };
+        }
     });
-};
+}
 
 /**
  * Listens for Esc being pressed anywhere on screen 
@@ -226,7 +226,7 @@ function pressEsc() {
             $("#addAirport").modal('hide');
         }
     });
-};
+}
 
 /**
  * Listens out for click on delete airport. Onclick the selected airport
@@ -234,16 +234,16 @@ function pressEsc() {
  */
 function clickDeleteAirport() {
     $("#airports").on("click", ".delete-container", function () {
-        let parentIndex = $(this).parent().index()
+        let parentIndex = $(this).parent().index();
         $(this).parent().slideUp(250);
         setTimeout(function () {
-            deleteAirport(parentIndex)
+            deleteAirport(parentIndex);
         }, 250);
         $(".delete-container").fadeToggle(25);
         $("#back-btn").toggle(20);
         $("#clr-airports").toggle(20);
-    })
-};
+    });
+}
 
 /**
  * Listens out for click on the edit icon and displays the 
@@ -255,7 +255,7 @@ function clickEditAirports() {
         $("#back-btn").toggle(20);
         $("#clr-airports").toggle(20);
     });
-};
+}
 
 /**
  * Listens for when the add airport modal is displayed, then puts
@@ -265,4 +265,4 @@ function focusModal() {
     $('.modal').on('shown.bs.modal', function () {
         $(this).find('[autofocus]').focus();
     });
-};
+}

@@ -28,7 +28,7 @@ function getWeather() {
 function setHeader(airport) {
     $("#icao-header").html(`${airport.icao} - ${airport.iata}`);
     $("#name-header").html(airport.name);
-};
+}
 
 /**
  * Gets the METAR for requested airport from AVWX API
@@ -44,7 +44,7 @@ function getAirportMETAR(icaoCode) {
         }
     };
     request.send();
-};
+}
 
 /**
  * Checks the response status of the METAR API request
@@ -54,16 +54,16 @@ function checkMetarResponse(response) {
     let status = JSON.parse(response.status);
     if (status === 200) {
         let metar = JSON.parse(response.responseText);
-        displayMetarResponse(metar.raw)
+        displayMetarResponse(metar.raw);
     } else if (status === 429) {
-        displayMetarResponse(LIMIT_REACHED)
+        displayMetarResponse(LIMIT_REACHED);
     } else if (status === 204) {
-        displayMetarResponse(NO_METAR)
+        displayMetarResponse(NO_METAR);
     } else {
         console.log("METAR Request Status Code:", status);
-        displayMetarResponse(UNABLE)
-    };
-};
+        displayMetarResponse(UNABLE);
+    }
+}
 
 /**
  * Displays the METAR or failure message on screen
@@ -71,7 +71,7 @@ function checkMetarResponse(response) {
  */
 function displayMetarResponse(response) {
     $("#metar").html(response);
-};
+}
 
 /**
  * Gets the TAF for requested airport from AVWX API
@@ -87,7 +87,7 @@ function getAirportTAF(icao) {
         }
     };
     request.send();
-};
+}
 
 /**
  * Checks the response status of the TAF API request
@@ -97,16 +97,16 @@ function checkTafResponse(response) {
     let status = JSON.parse(response.status);
     if (status === 200) {
         let taf = JSON.parse(response.responseText);
-        displayTafData(taf)
+        displayTafData(taf);
     } else if (status === 429) {
-        displayTafFail(LIMIT_REACHED)
+        displayTafFail(LIMIT_REACHED);
     } else if (status === 204) {
-        displayTafFail(NO_TAF)
+        displayTafFail(NO_TAF);
     } else {
         console.log("TAF Request Status Code:", status);
         displayTafFail(UNABLE);
-    };
-};
+    }
+}
 
 /**
  * Displays the TAF on screen
@@ -119,8 +119,8 @@ function displayTafData(taf) {
     for (let i = 1; i < taf.forecast.length; ++i) {
         $("#taf").append(`
             <p>${taf.forecast[i].raw}</p>`);
-    };
-};
+    }
+}
 
 /**
  * Displays TAF failure message to user
@@ -128,7 +128,7 @@ function displayTafData(taf) {
  */
 function displayTafFail(response) {
     $("#taf").html(response);
-};
+}
 
 /**
  * Gets the Airport Info for requested airport from AVWX API
@@ -144,7 +144,7 @@ function getAirportInfo(icao) {
         }
     };
     request.send();
-};
+}
 
 /**
  * Checks the response status of the Airport Info API request
@@ -156,14 +156,14 @@ function checkApInfoResponse(response) {
         let taf = JSON.parse(response.responseText);
         displayApInfo(taf);
     } else if (status === 429) {
-        displayApInfoFail(LIMIT_REACHED)
+        displayApInfoFail(LIMIT_REACHED);
     } else if (status === 204) {
-        displayApInfoFail(NO_DATA)
+        displayApInfoFail(NO_DATA);
     } else {
         console.log("Airport Info Request Status Code:", status);
         displayApInfoFail(UNABLE);
-    };
-};
+    }
+}
 
 /**
  * Displays runway details and airport elevation on screen
@@ -173,8 +173,8 @@ function displayApInfo(station) {
     let runwaysArray = station.runways;
     $("#runways").html(`<table id='runways-table'></table>`);
     for (let runway of runwaysArray) {
-        let lengthM = Math.floor(runway.length_ft * .3048);
-        let widthM = Math.floor(runway.width_ft * .3048);
+        let lengthM = Math.floor(runway.length_ft * 0.3048);
+        let widthM = Math.floor(runway.width_ft * 0.3048);
         $("#runways-table").append(`
             <tr>
                 <td>${runway.ident1}</td>
@@ -183,8 +183,8 @@ function displayApInfo(station) {
             </tr>
             `);
         $("#elevation").html(`Elev ${station.elevation_ft} ft`);
-    };
-};
+    }
+}
 
 /**
  * Displays Airport INFO failure message to user
@@ -192,4 +192,4 @@ function displayApInfo(station) {
  */
 function displayApInfoFail(response) {
     $("#runways").html(response);
-};
+}

@@ -26,7 +26,6 @@
    * Initialize internal data from the API response and options
    */
   function initialize(api, kind) {
-      // remove all already added tiled layers
       for (let i in radarLayers) {
           map.removeLayer(radarLayers[i]);
       }
@@ -101,7 +100,7 @@
       }
       radarLayers[nextFrame.path].setOpacity(0.7);
 
-      setFrameTime(nextFrame)
+      setFrameTime(nextFrame);
   }
 
   /**

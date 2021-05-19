@@ -32,6 +32,6 @@ function sendMail(contactForm) {
             function (error) {
                 console.log("Failed", error);
             }
-        )
+        );
     return false;
-};
+}

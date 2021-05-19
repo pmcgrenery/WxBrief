@@ -11,10 +11,10 @@ function setTime() {
     let long = airport.long;
     let url = URL.tz + KEY.tz + FORMAT.tz + lat + "&lng=" + long;
     $.ajax(url).done(function (response) {
-        offset = response.gmtOffset;
+        let offset = response.gmtOffset;
         displayTimes(offset);
     });
-};
+}
 
 /**
  * Displays UTC & local times by looping infinitely and 
@@ -32,6 +32,6 @@ function displayTimes(offset) {
         let utc = new Date().toUTCString().slice(17, 22);
         $("#local-time").html(`${local} LT`);
         $("#utc-time").html(`${utc} UTC`);
-    };
+    }
     setInterval(timeLoop, 1000);
-};
+}

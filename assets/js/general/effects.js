@@ -38,7 +38,7 @@ function burgerAnimation() {
             $("#line-three").removeClass("rotate-bottom");
             menuOpen = false;
         }
-    })
+    });
 }
 
 /**
@@ -71,15 +71,15 @@ function setMargins() {
         $("#accordion").css("margin-top", `${(hh + 16)}px`);
         $("#contact-us").css("margin-top", `${(hh + 16)}px`);
         if ($(window).width() > 990) {
-            $("#landing-card").css("height", `${(wh-hh)-(wh*.3)}px`);
+            $("#landing-card").css("height", `${(wh-hh)-(wh*0.3)}px`);
         } else {
-            $("#landing-card").css("height", `${(wh-hh)-(wh*.10)}px`);
-        };
+            $("#landing-card").css("height", `${(wh-hh)-(wh*0.10)}px`);
+        }
         if ($(window).width() > 350) {
             $("#get-briefed").addClass("btn-lg");
         } else {
             $("#get-briefed").removeClass("btn-lg");
-        };
+        }
     }
 }
 
@@ -92,11 +92,11 @@ function buttonClick() {
         let href = $(this).attr('href');
         $(this).addClass("shrink");
         $(this).delay(50).queue(function () {
-            $(this).addClass("grow")
+            $(this).addClass("grow");
         });
         setTimeout(function () {
             window.location.href = href;
-        }, 100)
+        }, 100);
     });
 }
 
@@ -111,8 +111,8 @@ function selectAirport() {
         let selectedAirport = airports[index];
         localStorage.setItem('selectedAirport', JSON.stringify(selectedAirport));
         setTimeout(function () {
-            window.location.href = "wxreport.html"
-        }, 100)
+            window.location.href = "wxreport.html";
+        }, 100);
         airportButtonAnimation(this);
     });
 }

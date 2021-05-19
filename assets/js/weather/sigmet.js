@@ -8,11 +8,10 @@ function getSigmet(base) {
         type: "GET",
         dataType: 'jsonp',
         success: function (int) {
-            displayIntData(int, base)
+            displayIntData(int, base);
         },
         error: function (response) {
             console.log("Unable to retrieve International SIGMETs. Error details:", response);
-            alert("Error: " + errorThrown);
         }
     });
     $.ajax({
@@ -20,11 +19,10 @@ function getSigmet(base) {
         type: "GET",
         dataType: 'jsonp',
         success: function (us) {
-            displayUSData(us, base)
+            displayUSData(us, base);
         },
         error: function (response) {
             console.log("Unable to retrieve US SIGMETs. Error details:", response);
-            alert("Error: " + errorThrown);
         }
     });
 }
@@ -83,7 +81,7 @@ function displayIntData(int, base) {
      * @param {Object} layer 
      */
     function onEachFeature(feature, layer) {
-        var popupContent = feature.properties.rawSigmet
+        var popupContent = feature.properties.rawSigmet;
         layer.bindPopup(popupContent);
         if (base === 'mapbox/light-v10') {
             let label = feature.properties.hazard;
@@ -91,14 +89,14 @@ function displayIntData(int, base) {
                 direction: "center",
                 permanent: true,
                 className: 'label-black'
-            })
+            });
         } else {
             let label = feature.properties.hazard;
             layer.bindTooltip(label, {
                 direction: "center",
                 permanent: true,
                 className: 'label'
-            })
+            });
         }
     }
 }
@@ -149,26 +147,26 @@ function displayUSData(us, base) {
      * @param {Object} layer 
      */
     function label(feature, layer) {
-        var popupContent = feature.properties.rawAirSigmet
+        var popupContent = feature.properties.rawAirSigmet;
         layer.bindPopup(popupContent);
         let type = feature.properties.hazard;
         if (type == "CONVECTIVE") {
-            type = "CONV"
+            type = "CONV";
         } else if (type == "ICING") {
-            type = "ICE"
-        };
+            type = "ICE";
+        }
         if (base === 'mapbox/light-v10') {
             layer.bindTooltip(type, {
                 direction: "center",
                 permanent: true,
                 className: 'label-black'
-            })
+            });
         } else {
             layer.bindTooltip(type, {
                 direction: "center",
                 permanent: true,
                 className: "label"
-            })
+            });
         }
     }
 }

@@ -36,7 +36,7 @@ function initialiseEventListeners() {
     legendToggler();
     mapLayerToggler();
     fullscreenToggler();
-};
+}
 
 let map;
 
@@ -63,7 +63,7 @@ function mapIndex() {
         tap: !L.Browser.mobileWebkit,
     });
 
-};
+}
 
 /**
  * Creates Leaflet map and tailors option to Wxreport page
@@ -73,9 +73,9 @@ function mapWxReport() {
     if (map != undefined) {
         map.remove();
     }
-    airport = JSON.parse(localStorage.getItem('selectedAirport'));
-    lat = airport.lat;
-    long = airport.long;
+    let airport = JSON.parse(localStorage.getItem('selectedAirport'));
+    let lat = airport.lat;
+    let long = airport.long;
 
     map = L.map('mapid', {
         center: [lat, long],
@@ -94,7 +94,7 @@ function mapWxReport() {
         tap: !L.Browser.mobile,
         tap: !L.Browser.mobileWebkit,
     });
-};
+}
 
 /**
  * Clears all existing map layers then adds 
@@ -119,7 +119,7 @@ function setVersion(base, page) {
     if (page === "wxreport.html") {
         addMarker();
     }
-};
+}
 
 /**
  * Displays the frame time in the radar controls
@@ -129,20 +129,20 @@ function setFrameTime(frame) {
     let dateObj = new Date(frame.time * 1000);
     let utcString = dateObj.toUTCString();
     let frameTime = utcString.slice(17, 22);
-    document.getElementById("timestamp").innerHTML = `${frameTime} UTC`
-};
+    document.getElementById("timestamp").innerHTML = `${frameTime} UTC`;
+}
 
 /**
  * Adds a marker over the airport
  */
 function addMarker() {
     //Marker over airport
-    airport = JSON.parse(localStorage.getItem('selectedAirport'));
-    lat = airport.lat;
-    long = airport.long;
+    let airport = JSON.parse(localStorage.getItem('selectedAirport'));
+    let lat = airport.lat;
+    let long = airport.long;
     L.marker([lat, long]).addTo(map)
         .bindPopup(`${airport.icao}`);
-};
+}
 
 /**
  * Checks if the user has previously allowed/disallowed location data
@@ -157,28 +157,28 @@ function checkIfLocationAllowed() {
         showEurope();
         $("#geolocate").modal("hide");
     }
-};
+}
 
 /**
  * Stores a variable to record that location data 
  * allowed and closes modal
  */
 function allowLocation() {
-    locationAllowed = "true";
+    let locationAllowed = "true";
     localStorage.setItem('WxBriefLocationAllowed', locationAllowed);
     getLocation();
     $("#geolocate").modal("hide");
-};
+}
 
 /**
  * Stores a variable to record that location data
  * is not allowed
  */
 function disallowLocation() {
-    locationAllowed = "false";
+    let locationAllowed = "false";
     localStorage.setItem('WxBriefLocationAllowed', locationAllowed);
     showEurope();
-};
+}
 
 /**
  * Flys down to display Europe in the radar window
@@ -188,7 +188,7 @@ function showEurope() {
         corner2 = L.latLng(35, -19),
         bounds = L.latLngBounds(corner1, corner2);
     map.flyToBounds(bounds);
-};
+}
 
 /**
  * Uses the geolocation API to get the users current location
@@ -200,7 +200,7 @@ function getLocation() {
         console.log("Geolocation is not supported by this browser.");
         showEurope();
     }
-};
+}
 
 /**
  * After 0.5sec, flys down to the users current location over 3 seconds
@@ -211,9 +211,9 @@ function showPosition(position) {
         map.flyTo([position.coords.latitude, position.coords.longitude], 7.5, {
             animate: true,
             duration: 3
-        })
+        });
     }, 500);
-};
+}
 
 /**
  * Handles geolocation errors by defaulting to showEurope
@@ -233,8 +233,8 @@ function showPositionError(error) {
         case error.UNKNOWN_ERROR:
             showEurope();
             break;
-    };
-};
+    }
+}
 
 /**
  * Toggles the play/pause icon on the radar controls when clicked
@@ -243,7 +243,7 @@ function playPauseToggle() {
     $("#play-toggle").click(function () {
         $(".playPause").toggle();
     });
-};
+}
 
 /**
  * Animates the radar/satellite option toggler when clicked
@@ -257,7 +257,7 @@ function radarOptionToggle() {
         $("#sat").removeClass("selected-right");
         $("#radar").addClass("selected-left");
     });
-};
+}
 
 /**
  * Toggles the legend display when clicked
@@ -266,7 +266,7 @@ function legendToggler() {
     $("#legend-control").click(function () {
         $(".legend-wrapper").toggle();
     });
-};
+}
 
 /**
  * Toggles the base layer options display when layers icon is clicked
@@ -275,7 +275,7 @@ function mapLayerToggler() {
     $(".base-control").click(function () {
         $(".base-wrapper").toggle();
     });
-};
+}
 
 /**
  * Toggles the radar window to fullscreen when the fullscreen 
@@ -298,7 +298,7 @@ function fullscreenToggler() {
             fullscreen = false;
         }
     });
-};
+}
 
 /**
  * Enables single finger dragging on screen sizes >480px
@@ -306,5 +306,5 @@ function fullscreenToggler() {
 function singleFingerDrag() {
     if ($(window).width() > 480) {
         map.dragging.enable();
-    };
-};
+    }
+}
