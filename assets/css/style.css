@@ -1127,7 +1127,7 @@ footer p a:active {
 }
 
 #fof-bg {
-    background: url(../images/fof.png) no-repeat center center fixed;
+    background: #3b3b3b url(../images/fof.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -1144,6 +1144,10 @@ footer p a:active {
     text-align: center;
     border-radius: 10px;
     padding: 10px 10px 0 10px
+}
+
+.fof-box h3 {
+    font-size: 1.2rem;
 }
 
 @media screen and (min-width: 325px) {}
