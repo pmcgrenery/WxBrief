@@ -312,7 +312,7 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
         - The base layer button displays a list of available base layer maps. The default will be dark and the user can switch to dark, light or satellite imagery. The map base layers are provided by MapBox.
         - The radar data is provided by the Rainviewer API. I chose to use 512 px tiles as opposed to 256 px tiles to ensure important detail in the radar picture is not missed. This is particularly important in the US where there is a much higher definition radar coverage available.
         - The radar data from Rainviewer API can be displayed in many different versions. The chosen radar display format is RAINBOW @ SELEX-SI. The intended users are pilots and the colour scheme used for the different precipitation types is very similar to what pilots see on their built-in aircraft radar displays. See below image showing the similarity of the two.
-        <img src="docs/radar-sample.png">
+            <img src="docs/radar-sample.png">
         - A semi-transparent radar mask is applied to the map to display to the user where there is radar coverage.
         - On the map, the SIGMETS are displayed as polygons. The raw data arrives as geoJSON type object, so I used leaflets built-in geoJSON plotting tool to plot these.
         - Each polygon has a label to quickly identify to the user the type of hazard that exists within the polygon. For example, TURB means turbulence, VA means volcanic ash, MTW means mountain wave.
