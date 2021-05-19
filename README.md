@@ -573,7 +573,7 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
 
 [Radar animation](https://github.com/rainviewer/rainviewer-api-example) This sample implementation from the Rainviewer API documentation was modified and used to create the animation of the radar and satellite on the Leaflet map.
 
-[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) Used throughout the project. This was used for the modals and buttons animations.
+[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) Used throughout the project. This was used for the modals and some buttons animations.
 
 ## Code 
 
@@ -611,5 +611,5 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
 
 # Acknowledgements
 
-- Thank you to my mentor Rohit Sharma for his invaluable input and suggestions on how to improve the code, commenting and documentation.
-- Thank you to the Code Institute Slack community. Any questions I had were already answered in the channels so that was invaluable.
+- Thank you to my mentor Rohit Sharma for his invaluable input and suggestions on how to improve the code and documentation.
+- Thank you to the Code Institute Slack community. Any questions I had were already answered in the channels and this proved to be an invaluable resource.

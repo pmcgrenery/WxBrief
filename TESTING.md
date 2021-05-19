@@ -3,22 +3,20 @@
 </p>
 
 <img src="assets/images/mockup.png">
-<br><br>
  
 # Table of Contents
  
 - [User Story Testing](#user-story-testing)
 
 - [Manual Testing](#manual-testing)
-    - [Header](#Header)
+    - [Header & Menu](#Header-&-Menu)
     - [Footer](#footer)
     - [Home Page](#home-page)
-    - [Gallery Page](#gallery-page)
+    - [Briefing Page](#briefing-page)
     - [About Page](#about-page)
     - [Contact Page](#contact-page)
     - [404 Page](#404-page)
 - [Bugs](#bugs)
-- [Browser Testing](#browser-tests)
 - [Automated Testing](#automated-testing)
     - [Google Lighthouse](#google-lighthouse)
     - [WAVE Tools](#wave-tools)
