@@ -48,14 +48,12 @@
 <br/>
 <img src="docs/user-story-3.png" style="width:600px">
 <br/>
-<img src="docs/user-story-4.png" style="width:600px">
-<br/>
 
 ### **As a visitor, I want to find out more about your site, so that I can see more about the company and FAQ.**
 
 1. The user can have both of these questions answered in the About Page. 
 
-<img src="docs/user-story-5.png" style="width:600px">
+<img src="docs/user-story-4.png" style="width:600px">
 <br/>
 
 ### **As a new user I want to see a sample list of airports so that I can see a sample of the service you provide.**
@@ -63,7 +61,7 @@
 2. The modal also tells the user that a short list of sample airports has been added for them.
 3. The user can then select any of the airports in the list so they can then go ahead and see the weather reports for that airport.
  
-<img src="docs/user-story-6.png" style="width:600px">
+<img src="docs/user-story-5.png" style="width:600px">
 <br/>
 
 ### **As a user, I want to see a quick overview of the current weather situation at my location, so that I can get a "big picture" overview of the current weather around me.**
@@ -72,49 +70,58 @@
 2. If the user chooses not to allow location, then the map defaults to a view that shows Europe in one snapshot.
 3. If the user chooses to allow location, then the map flys down to the users current location. The user can then see the radar returns at their location.
 
-
+<img src="docs/user-story-6.png" style="width:600px">
+<br/>
 <img src="docs/user-story-7.png" style="width:600px">
 <br/>
 <img src="docs/user-story-8.png" style="width:600px">
 <br/>
+ 
+### **As a user, I want to see the current and forecast weather at a specific airport, so that I can know more about the weather at that airport.**
+
+1. In the Briefing page, the user can add the airport they want to investigate.
+2. The user selects that airport to enter the weather reports for that airport. 
+3. This will load the wxreport.html page which presents the current and forecast weather to the user. The user will also see the radar map centered over the airport with a marker on the airport reference point.
+
 <img src="docs/user-story-9.png" style="width:600px">
 <br/>
 <img src="docs/user-story-10.png" style="width:600px">
-<br/>
- 
-### **As a user, I want to see the current and forecast weather at a specific airport, so that I can know more about the weather at that airport.**
-1. In the Briefing page, the user can add the airport they want to investigate.
-2. The user selects that airport to enter the weather reports for that airport. This will load the wxreport.html page which presents the current and forecast weather to the user. The user will also see the radar map centered over the airport with a marker on the airport reference point.
-
-<img src="docs/user-story-11.png" style="width:600px">
 <br/>
 
 ### **As a user, I want a list of the runways along with the lengths of the runways, so that I figure out which runway/runways is/are currently in use.**
 
 1. On entering the weather report for a specific airport, the runways are automatically loaded for that airport also.
 2. The user can then compare the runway directions to the current and forecast wind at the airport and make an assessment of the runway in use.
-3. 
 
-<img src="docs/user-story-12.png" style="width:600px">
-<br/>
-<img src="docs/user-story-13.png" style="width:600px">
+<img src="docs/user-story-11.png" style="width:600px">
 <br/>
 
 ### **As a user, I want to know the current UTC time, and current local time, so that I can get a quick readout of the times and know what the timezone is.**
 
 1. On entering the weather report for a specific airport, the user is also presented with the current UTC time and the local time at that airport.
 
+<img src="docs/user-story-12.png" style="width:600px">
+<br/>
+
 ### **As a user, I want to know the elevation of the airport, so that I know if I can form an overall mental picture of the airport and so that I know whether I can expect any aircraft performance concerns or not.**
 
 1. On entering the weather report for a specific airport, the user is also presented with the elevation of the airport in feet above sea level. The user can then make an assessment based on this data.
+
+<img src="docs/user-story-13.png" style="width:600px">
+<br/>
 
 ### **As a user, I want to add an airport to the list, so that I can see the weather at that airport.**
 
 1. The user can add an airport by selecting the + icon on the controls bar or by selecting enter.
 2. The user is presented with a modal that gives basic instructions of how to add an airport.
 3. The user will recieve warnings in the modal if they fail to enter a known airport or enter the wrong number of characters.
-4. The user then clicks Add Airport once they are happy they have entered the code correctly.
+4. The user then clicks Add Airport when they have entered the ICAO code.
 5. The screen then smooth scrolls down to the bottom of the page to show the newly added airport.
+
+<img src="docs/user-story-14.png" style="width:600px">
+<br/>
+<img src="docs/user-story-15.png" style="width:600px">
+<br/>
 
 ### **As a user, I want to delete an airport from the list of airports, so that I can declutter the list or remove airports that are no longer relevant to the flight.**
 
@@ -122,6 +129,9 @@
 2. A bin icon is added to each airport selector.
 3. The user can select this icon and this will then delete that specific airport.
 4. The airport slides up out of the list.
+
+<img src="docs/user-story-16.png" style="width:600px">
+<br/>
 
 ### **As a user, I want to build up a list of airports for today's flight, so that I can access the weather at each of the airports.**
 
@@ -132,33 +142,54 @@
 1. At the bottom of the radar display there is a button to select between the two options. 
 2. The current selection is highlighted in orange.
 
+<img src="docs/user-story-17.png" style="width:600px">
+<br/>
+
 ### **As a user, I want to be able to play/stop the radar animation as well as move from frame to frame, so that I can examine the current situation more thoroughly.**
 
 1. In the control bar there is a play button to the left that allows the user to play and pasue the animation.
 2. To the right of the play button there are controls to allow the user to skip forward or back one frame at a time.
 
+<img src="docs/user-story-18.png" style="width:600px">
+<br/>
+
 ### **As a user, I want to know what areas are covered by radar so that I know the extents of the radar coverage.**
 
 1. On the map there is a semi transparent overlay that shows the user the radar coverage.
 
+<img src="docs/user-story-19.png" style="width:600px">
+<br/>
+
 ### **As a user, I want to know of any areas of significant weather outside the areas of radar coverage, so that I know what sectors of airspace to expect significant weather systems.**
 
 1. SIGMET's are plotted on the map that show the user all known and forecast areas of significant weather across the entire globe. The SIGMET's cover areas of radar coverage and also remote areas.
+
+<img src="docs/user-story-20.png" style="width:600px">
+<br/>
 
 ### **As a user, I want to have all SIGMETs plotted and I want to be able to see the full text of the SIGMET so I can get the full details of the affected altitudes, severity, type of hazard and any forecast changes.**
 
 1. The SIGMET's are plotted as polygons on the map.
 2. The user can click on the polygon to access the full SIGMET text in raw format. In this poopup bubble, the user can view all details of the weather hazard.
 
+<img src="docs/user-story-21.png" style="width:600px">
+<br/>
+
 ### **As a user, I want to be able to change the map base layer, so that I can customise the map to my preferences.**
 
 1. On the left hand side of the map there are controls that allow the user to change the maps base layer. The user can click on the layer icon and then is presented with the 3 different map base layer options.
+
+<img src="docs/user-story-22.png" style="width:600px">
+<br/>
 
 ### **As a user, I want a colour coded legend so that I can tell what type of precipitation exists in the area I am focusing on.**
 
 1. The user can click on the L icon on the left hand side of the map.
 2. The user will then be presented with a legend on the right hand side of the map.
 3. The user can then move the map around to focus on the area of interest and then compare the legend colours to find out the type of precipitation.
+
+<img src="docs/user-story-23.png" style="width:600px">
+<br/>
 
 ### **As a user, I want to be able to navigate across the map, so that I can see and zoom in on areas of interest.**
 
@@ -173,6 +204,9 @@
 
 1. When the user accesses the weather at an airport a marker is added at the airport reference point.
 
+<img src="docs/user-story-24.png" style="width:600px">
+<br/>
+
 ### **As a returning user I want the list of airports I created to be there when I come back later so that I can get an update on the current weather at airports that are relevant to the flight.**
 
 1. When a user adds an airport, the new airport is added to a list in local storage. Every time the user accesses the briefing page this list is retrieved and displayed to the user.
@@ -183,10 +217,18 @@
 2. A modal fades in to double check with the user that they do in fact want to delete all airports.
 3. When the user confirms that they want to clear all airports they can then click the Add Airport icon on the right hand side to repopulate the list.
 
+<img src="docs/user-story-25.png" style="width:600px">
+<br/>
+
 ### **As a user, I want to be able to make contact with the site owner, so that I can let the owner know of an issue on the site.**
 
 1. On the contact page the user can submit a message to the site admin for whatever reason they need to make contact.
 2. Once the form has been filled out correctly and the user clicks submit, then a modal fades in to confirm successful form submission.
+
+<img src="docs/user-story-26.png" style="width:600px">
+<br/>
+<img src="docs/user-story-27.png" style="width:600px">
+<br/>
 
 ## Manual Testing
 
@@ -274,17 +316,17 @@ Chrome's screen size emulator was used to test the site on different screen size
 - Checked that a marker is added to the airport on the weather report page.
 
 <figure>
-<img src="docs/footer-desktop.png" style="width:600px"><br/>
+<img src="docs/radar-desktop.png" style="width:600px"><br/>
 <figcaption>Footer on a desktop</figcaption>
 </figure>
 <br/>
 <figure>
-<img src="docs/footer-tablet.png" style="width:384px"><br/>
+<img src="docs/radar-tablet.png" style="width:384px"><br/>
 <figcaption>Footer on a tablet</figcaption>
 </figure>
 <br/>
 <figure style="display:block">
-<img src="docs/footer-mobile.png" style="width:212px"><br/>
+<img src="docs/radar-mobile.png" style="width:212px"><br/>
 <figcaption>Footer on a mobile</figcaption>
 </figure>
 <br/>
@@ -299,18 +341,18 @@ Chrome's screen size emulator was used to test the site on different screen size
 - Checked that new users are asked whether they want to allow location or not the first time they land on the page.
 
 <figure>
-<img src="docs/hero-image-desktop.png" style="width:600px"><br/>
-<figcaption>Homepage Hero Image on a desktop</figcaption>
+<img src="docs/home-desktop.png" style="width:600px"><br/>
+<figcaption>Home page on a desktop</figcaption>
 </figure>
 <br/>
 <figure>
-<img src="docs/hero-image-tablet.png" style="width:384px"><br/>
-<figcaption>Homepage Hero Image on a tablet</figcaption>
+<img src="docs/home-tablet.png" style="width:384px"><br/>
+<figcaption>Home page on a tablet</figcaption>
 </figure>
 <br/>
 <figure>
-<img src="docs/hero-image-mobile.png" style="width:212px"><br/>
-<figcaption>Homepage Hero Image on a mobile</figcaption>
+<img src="docs/home-mobile.png" style="width:212px"><br/>
+<figcaption>Home page on a mobile</figcaption>
 </figure>
 <br/>
 
@@ -336,93 +378,74 @@ Chrome's screen size emulator was used to test the site on different screen size
 - Checked that clicking on an airport links to the weather report page.
 
 <figure>
-<img src="docs/gallery-desktop.png" style="width:600px"><br/>
-<figcaption>Gallery on a desktop</figcaption>
+<img src="docs/briefing-desktop.png" style="width:600px"><br/>
+<figcaption>Briefing on a desktop</figcaption>
 </figure>
 <br/>
 <figure>
-<img src="docs/gallery-tablet.png" style="width:384px"><br/>
-<figcaption>Gallery on a tablet</figcaption>
+<img src="docs/briefing-tablet.png" style="width:384px"><br/>
+<figcaption>Briefing on a tablet</figcaption>
 </figure>
 <br/>
 <figure>
-<img src="docs/gallery-mobile.png" style="width:212px"><br/>
-<figcaption>Gallery on a mobile</figcaption>
+<img src="docs/briefing-mobile.png" style="width:212px"><br/>
+<figcaption>Briefing on a mobile</figcaption>
 </figure>
 
 ### Weather Report
 
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-
-- Checked that the 
+- Checked that the header, METAR, TAF, airport information and radar appeared as intended on all screen sizes.
+- Checked failure messages appear for METAR and TAF's if there is no data available for the selected airport.
+- Checked that the back button leads to the briefing page.
+- Checked that the displayed local time is correct for the selected airport.
+- Checked the most recent weather reports were being displayed.
  
 <figure>
-<img src="docs/lead-image-quote-desktop.png" style="width:600px"><br/>
-<figcaption>Lead image and quote section on a desktop</figcaption>
+<img src="docs/weather-desktop.png" style="width:600px"><br/>
+<figcaption>Weather report on a desktop</figcaption>
 </figure>
 <br/>
 <figure>
-<img src="docs/lead-image-quote-tablet.png" style="width:384px"><br/>
-<figcaption>Lead image and quote section on a tablet</figcaption>
+<img src="docs/weather-tablet.png" style="width:384px"><br/>
+<figcaption>Weather report on a tablet</figcaption>
 </figure>
 <br/>
 <figure>
-<img src="docs/lead-image-quote-mobile.png" style="width:212px"><br/>
-<figcaption>Lead image and quote section on a mobile</figcaption>
+<img src="docs/weather-mobile.png" style="width:212px"><br/>
+<figcaption>Weather report on a mobile</figcaption>
 </figure>
 <br/>
+
+### About Page
+ 
+- Checked that the back button leads to the home page.
+- Checked that the accordion display animation works on all devices.
+- Checked that the links in the FAQ section contain the correct pdf documents and open in a new window.
+
 <figure>
 <img src="docs/about-desktop.png" style="width:600px"><br/>
-<figcaption>About section on a desktop</figcaption>
+<figcaption>About page on a desktop</figcaption>
 </figure>
 <br/>
 <figure>
 <img src="docs/about-tablet.png" style="width:384px"><br/>
-<figcaption>About section on a tablet</figcaption>
+<figcaption>About page on a tablet</figcaption>
 </figure>
 <br/>
 <figure>
 <img src="docs/about-mobile.png" style="width:212px"><br/>
-<figcaption>About section on a mobile</figcaption>
-</figure>
-<br/>
-<figure>
-<img src="docs/map-desktop.png" style="width:600px"><br/>
-<figcaption>Embedded Google Map on a desktop</figcaption>
-</figure>
-<br/>
-<figure>
-<img src="docs/map-tablet.png" style="width:384px"><br/>
-<figcaption>Embedded Google Map on a tablet</figcaption>
-</figure>
-<br/>
-<figure>
-<img src="docs/map-mobile.png" style="width:212px"><br/>
-<figcaption>Embedded Google Map on a mobile</figcaption>
+<figcaption>About page on a mobile</figcaption>
 </figure>
 <br/>
 
 ### Contact Page
- 
-- Checked the image at the top of the page appear correctly on all screen sizes.
-- Checked that the enquiry form appeared first above the contact details on medium devices and smaller.
-- Checked that each input field on the form was given a shadow when the field was being interacted with.
-- Checked each input field would only take the appropriate data. eg email will only take an email etc.
-- Checked the calendar button works on various devices so users can select dates rather than have to write them.
-- Checked the required fields worked correctly and wouldn't allow a form submit without being filled.
-- Checked the phone number input would not accept any less than 10 digits.
-- Checked the phone number does not accept letters.
-- Checked the form could not be submitted before the required fields were filled out.
-- Checked the modal is brought up only after the form has been successfully been submitted.
-- Checked the data inputted on the form automatically clears when the form has been successfully submitted.
-- Ensured the contact details appeared to the right hand side, as intended, on large devices.
-- Checked the phone number opened the appropriate app on all devices when pressed.
-- Checked the email address opened the appropriate app on all devices when pressed.
+
+- Checked that the back button leads to the home page.
+- Checked that the form is displayed as intended on all screen sizes.
+- Checked that all fields are required.
+- Checked that all input types are correctly applied.
+- Checked that user cannot submit form unless the form has been filled out correctly.
+- Checked that the user is shown a modal confirming form submission after clicking submit.
 
 <figure>
 <img src="docs/contact-desktop.png" style="width:600px"><br/>
@@ -437,28 +460,6 @@ Chrome's screen size emulator was used to test the site on different screen size
 <figure>
 <img src="docs/contact-mobile.png" style="width:212px"><br/>
 <figcaption>Contact page on a mobile</figcaption>
-</figure>
-<br/>
-
-### 404 Page
-
-- Checked the 404 page appeared when any url other than those that exist in the project are entered. eg https://pmcgrenery.github.io/ms1-the_rolls/information.html
-- Checked the link to the home page returns the user to the home page as intended.
-- Checked the 404 page appears as intended on all device sizes.
-
-<figure>
-<img src="docs/404-desktop.png" style="width:600px"><br/>
-<figcaption>404 page on a desktop</figcaption>
-</figure>
-<br/>
-<figure>
-<img src="docs/404-tablet.png" style="width:384px"><br/>
-<figcaption>404 page on a tablet</figcaption>
-</figure>
-<br/>
-<figure>
-<img src="docs/404-mobile.png" style="width:212px"><br/>
-<figcaption>404 page on a mobile</figcaption>
 </figure>
 <br/>
 
@@ -494,7 +495,7 @@ Chrome's screen size emulator was used to test the site on different screen size
 <br>Fix: After some research I found this is a known issue with the leaflet map when you plot geoJSON polygons to the map and assign the lines a weight. Originally the line weight for the polygons was set to a number value. The fix is just to remove the line weight value.
 
 11. Bug: On the About Page there is a JQueryUI accordian type display. Originally, I put the code to call the JQueryUI function for this in the effects.js file. However, the library that this code is loaded from is only loaded on the about page. Therefore, an error is thrown on every other page as the <code>$.accordian</code> function is not recognised.
-<br>Fix: The fix for this was to place the code that calls the accordian function in the jQueryUI library in a separate file that is loaded only on the About page.
+<br>Fix: The fix for this was to place the code inside a function that first checks that the current page url relates to the about page and then executes the code that calls the accordian function in the jQueryUI library.
 
 12. Bug: On occasion the leaflet <code>layer.getBounds</code> function fails to work on international SIGMETS.
 <br>Fix: To issue stemmed from an intermittent issue where the Leaflet <code>getBounds</code> function failed to work. This function was being used to get the extents of the polygon then the <code>getCenter</code> function was applied. A Leaflet marker was then applied to this point. To overcome this issue where <code>getBounds()</code> was intermittently not recognised, I changed over to using Leaflet's <code>bindTooltip</code> function instead which has a built in option to get the center of its parent.
@@ -512,12 +513,16 @@ Based on initial results from Google Lighthouse the following changes were made 
  
 - Added a Meta description to each page.
 - Added a 'rel="noopener"' attribute to the social media links to improve security.
-- Text colour in the Enquire button on the callout lacked sufficient colour contrast so that was changed to the same colour as the rest of the text and the background changed to a silver colour.
-- Converted images from jpg to jp2 in order to improve first contentful paint time.
-- Added a Meta Theme color.
-- Added a title to the iframe google map for accessibility.
-- Added an Apple touch icon and subsequently included favicon images.
- 
+- Text colour on the radar/ satellite had inadequate colour contrast against the orange background, so the text was changed to black.
+
+There are some minor warnings remaining on the Google Lighthouse results: 
+
+- Lighthouse has noted that the map tile images are too large, but there is no way to reduce the size of this resource and having tested it on airplane wifi I have not noted any issues regarding this even on slow wifi.
+
+- An issue relating to SameSite cookies relating to the Mapbox tiles and the rainviewer png files. Fixing this cookie issue is beyond the scope of this project.
+
+- A geolocation issue noting: "Requests the geolocation permission on page load". This is the result of a design choice to have the map geolocate to the users position when the page loads so the user can instantly see the weather situation around them. The accepted best practise is to request the users permission and to give the reason why this information is needed, and this has been implemented in this site by showing a modal to the new user requesting the location permission. If the user chooses not to allow permission then the map defaults to Europe and the code that calls for the geolocation is never called. If the user allows permission then the geolocation code is called and a variable is stored locally on the device so that the next time the site is loaded the permission request is not shown and the map goes straight to the users location. Lighthouse does not 'know' that this permission has previously been requested and hence the warning.
+
 <figure>
     <div style="text-align:center">
         <img src="docs/lighthouse-results.png" alt="lighthouse test results">
@@ -526,15 +531,11 @@ Based on initial results from Google Lighthouse the following changes were made 
 <figcaption style="text-align:center">Lighthouse Test Results after changes were made</figcaption>
  
 ### WAVE Tools
-Bases on initial results from the web accessibility tool the following were added:
+Based on results from the web accessibility tool the following issues were fixed:
 - Fixed the order of headings so that the site will make more sense to users.
-- Added an aria-label to divs with a picture in the background to improve accessibility.
-- Fixed the aria-current page attribute in the header navbar to relate to the correct pages.
- 
-There are 2 redundant link alerts on the WAVE tool remaining:
-- The Logo brand in the header and the Home navigation link are duplicate links and lead to the same page. As the navigation bar collapses to a burger menu on smaller screens I decided to keep the Logo brand as a link so that the user can easily navigate to the home page without having to open the burger menu.
-- The Enquire Now button on the home page and the gallery page are duplicates of the Contact navigation link. As the buttons are calls to action I decided to keep the links as they are.
- 
+- Removed unnecessary aria-labels.
+
+The contrast error noted is due to the fact that the WAVE tool is unable to examine the SVG logo correctly. 
 <figure>
     <div style="text-align:center">
         <img src="docs/wave-results.png" alt="WAVE test results" height="300px">
@@ -543,24 +544,18 @@ There are 2 redundant link alerts on the WAVE tool remaining:
 <figcaption style="text-align:center">WAVE Test Results after changes were made</figcaption>
  
 ### W3C HTML validator
-[W3C HTML Validator](https://validator.w3.org/) yielded the following issues:
-- Issues mainly related to the use of incorrect semantic markup.
-    - Fix: To overcome this I changed the semantic markup of the files to clear the warnings.
-- Erroneous addition of <code>type="textarea"</code> attribute to the textareas in the form on contact.html. 
-    - Fix: These were deleted to remove the error.
-- An issue with the iframe map which originally had an attribute of <code>width="100%" height="450"</code>. 
-    - Fix: The width attribute should have a pixel value and not a % value. To overcome this I modified style.css for <code>map-inner</code> to add <code>width:100%</code> and <code>height:470px</code> and removed the width and height attributes from the iframe.
+[W3C HTML Validator](https://validator.w3.org/) yielded no issues.
  
 ### W3C CSS validator
-[W3C CSS Validator](https://jigsaw.w3.org/css-validator/) yielded no issues. 
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/) yielded no major issues, just some typo fixes.
  
 ### Autoprefixer
  
-[Autoprefixer CSS Online](https://autoprefixer.github.io/) was used to check for any issues relating to prefixes in the CSS code. The test revealed prefix omissions relating to the linear gradients used for the background and the box shadows applied to some images and buttons. These omissions were corrected and no issues were found.
+[Autoprefixer CSS Online](https://autoprefixer.github.io/) was used to check for any issues relating to prefixes in the CSS code. The test revealed several prefix ommisions and these were corrected as a result.
  
 ### A11y Color Contrast Checker
  
-[A11y Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/) Used to check the contrast of the colors to ensure the site is accessible. No issues were found and the actual contrast ratios well exceeded the accepted standards.
+[A11y Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/) Used to check the contrast of the colors to ensure the site meets accessibility standards. No issues were found and the actual contrast ratios well exceeded the accepted standards.
 
 <figure>
     <div style="text-align:center">
