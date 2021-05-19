@@ -1126,6 +1126,26 @@ footer p a:active {
     box-shadow: 0 0 3px 0.25rem #0000004d;
 }
 
+#fof-bg {
+    background: url(../images/fof.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.fof-box {
+    background-color: #3b3b3bd4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px 10px 0 10px
+}
+
 @media screen and (min-width: 325px) {}
 
 @media screen and (min-width: 576px) {
