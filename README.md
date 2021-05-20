@@ -29,7 +29,7 @@
 # Project Overview
 This project is for Milestone 2 of the Code Institute Full Stack Developer Course. The purpose of the project is to develop an interactive front end site.
  
-WxBrief is a site that presents aviation weather information to users. Users can get an overview of the weather at their current location and then dig deeper and see the current and forecast weather at airports that they can add to a custom list and then select.
+WxBrief is a site that presents aviation weather information. Users can get an overview of the weather at their current location and then dig deeper and see the current and forecast weather at airports that they can add to a custom list.
  
 The site can be viewed [here](https://pmcgrenery.github.io/WxBrief).
 
@@ -39,7 +39,7 @@ The site can be viewed [here](https://pmcgrenery.github.io/WxBrief).
  
 ### **The Business Goals:**
 
--   Create an easy to use interactive site where users can easily access the current weather at any airport.
+-   Create an easy to use interactive site where users can easily access the current weather at any airport worldwide.
 -   Primarily target the site at professional pilots, but make it easy to use for private pilots also.
 -   Provide worldwide weather information to the user.
 -   Present a professional and clear branding.
@@ -142,7 +142,7 @@ What could be incorporated?
  
 ### **Structure Plane**
 
-The site will likely primarily be used on mobile and tablet devices, so it is primarily be designed to operate on those platforms.
+The site will likely primarily be used on mobile and tablet devices, so it is primarily designed to operate on those platforms.
 
 The structure of the site follows standard conventions. Each page has the same basic structure:
  
@@ -150,7 +150,7 @@ The structure of the site follows standard conventions. Each page has the same b
 -   Main body of the page containing the relevant content.
 -   Footer at the bottom of the page containing social media links and copyright text.
  
-The website is broken into four different pages:
+The site is broken into four different pages:
  
 •   **Home**
 As the landing page for the site, this page clearly outlines what the site offers and presents a call to action on the screen to go to the briefing section.
@@ -161,7 +161,7 @@ Below this, just above the fold, a map centred at the user's location showing SI
 This page contains a list of the user's airports, tools to modify this list and navigation options to easily return to the last page. The user can select the airport to get the detailed weather report for the airport.
 
 •   **About**
-This page contains an accordion-type display showing the subsections of this page. The subsections are About Us, FAQ and legal terms.
+This page contains an accordion-type display showing the subsections of this page. The subsections are About Us, FAQ and legal disclaimers.
  
 •   **Contact**
 This page contains a simple form for a user to submit a message to the website admin.
@@ -230,7 +230,7 @@ The image used as the background image on the landing page is my own.
 
 - When the user lands on the site, the page loads then flys down to the user's current location. If the user has location turned off or denies location data then the map flys down to show Europe in one view. This is done using Leaflet's flyTo function.
  
-- On the landing page a transparent header was used. When the user's scrolls down it fades to an opaque background. This is done using JQuery.
+- On the landing page a transparent header was used. When the user scrolls down it fades to an opaque background. This is done using JQuery.
  
 - On the landing page the get briefed button changes colour on hover, this is done using Bootstrap. It also scales smaller and then back to the original size on click, this is done using jQuery.
 
@@ -250,7 +250,7 @@ The image used as the background image on the landing page is my own.
 
 - The layer selector toggles the display of the different base layer options when selected.
 
-- On the airport page a modal fades in when a first time user arrives at the page. This is a bootstrap modal that is called by JQuery.
+- On the airport page a modal fades in when a first time user arrives at the page. This is a bootstrap modal that is called using JQuery.
 
 - On the airport page the add-airport modal fades in when a user clicks on the add airport button or when a user presses enter.
 
@@ -272,7 +272,7 @@ The image used as the background image on the landing page is my own.
  
 The site has the same basic layout for each page with a fixed header across the top, the content below that and a sticky footer at the bottom.
  
-The site is responsive to all screen sizes. This is done using [Bootstrap’s flexbox grid system](https://getbootstrap.com/docs/5.0/getting-started/introduction/) with its different responsive tiers, CSS media queries and by using javascript to measure and set heights of certain sections.
+The site is responsive to all screen sizes. Most of this is done using [Bootstrap’s flexbox grid system](https://getbootstrap.com/docs/5.0/getting-started/introduction/) with its different responsive tiers, CSS media queries and by using javascript to measure and set heights of certain sections.
 
 
 - Features common to the entire site
@@ -300,7 +300,7 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
 
         - A sticky footer that always sits to the bottom even if there is no content on the main part of the page. This is particularly important on the airport page when all airports are cleared.
         - Social media links in the form of icons sit at the top centre of the footer. The icons are [FontAwesome Icons](https://fontawesome.com/icons?d=gallery). The colour of the icons changes to a darker orange when hovered over.
-        - Copyright fine centred at the bottom of the footer.
+        - Copyright fine print centred at the bottom of the footer.
 
     - Radar Map
 
@@ -356,12 +356,13 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
     - WxReport.html
 
         - This is the only page that cant be navigated to from the nav menu as the user must select the airport they want to retrieve weather info for first to display useful information.
-        - As with the briefing page. The header also has a control bar in it but drops the title bar. The control bar just contains a back button like the briefing page.
+        - As with the briefing page. The header also has a control bar in it but drops the title bar. The control bar contains a back button like the briefing page.
         - Beneath the page header there is a title block similar to the briefings page, that contains the ICAO, IATA and plain English name of the airport.
         - Beneath this a section that shows the local time, UTC and the elevation of the airport.
         - The next section contains a table of all of the available runways at the airport, along with their length and width in meters.
         - Next section down is a METAR section with the most recent METAR report for the airport.
         - The next section contains the most recent TAF for the airport, with each timeframe taking a new line as is the standard format for TAFs.
+        - If no METAR or TAF is available at the airport then a message is presented to the user telling them this.
         - Below this on a medium-sized device and smaller is the radar. Unlike the home page radar, this map is centred on the airport and adds a marker on the airport so the user can pan around the screen and not lose sight of where the airport is.
 
     - About
@@ -416,7 +417,7 @@ The site is responsive to all screen sizes. This is done using [Bootstrap’s fl
  
 - **[Balsamiq](https://balsamiq.com/)** - Used to create wireframes.
  
-- **[Gitpod](https://gitpod.io/)** - Used to code HTML, CSS and javascript.
+- **[Gitpod](https://gitpod.io/)** - Used to code HTML, CSS and Javascript.
  
 - **[GitHub](https://github.com/)** Used as a code repository and to host the site on Github pages.
  
@@ -470,14 +471,14 @@ The project was coded in Gitpod, committed to Git and pushed to GitHub. The proj
  
 The steps to deploy the site to GitHub pages are as follows:
  
-1. log in to Github.
+1. Log in to Github.
 2. Select the pmcgrenery/ms1-the_rolls repository.
 3. On the top tab, select "Settings".
-4. Scroll down to the "GitHub Pages" section.
+4. Select the "Pages" tab on the left hand side.
 5. Under source, select "Master" from the dropdown selection.
 6. A second dropdown appears, ensure "/(root)" is selected.
 7. Press the ""Save" button. The page will refresh.
-8. Scroll back down to the "GitHub Pages" section. In the blue section under the heading, you will find the link to the deployed site.
+8. After the page refreshes, in the section section under the heading you will find the link to the deployed site.
  
 ## How to run the project in GitPod.
  
@@ -563,7 +564,7 @@ To aid users unfamiliar with how to read METAR and TAF reports I have provided i
 
 ## Media 
 
-The image used on the Home Page background was taken and is owned by myself.
+The image used on the Home Page background is owned by me.
 
 The mockup image used in this file is based on [Anthony Boyd's](https://www.anthonyboyd.graphics/) free mockups.
  
@@ -585,6 +586,8 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
  
 [Autoprefixer CSS Online](https://autoprefixer.github.io/). The output code from this automated test was used to correct the code that was already written by me.
 
+[CodeStack Burger Menu Tutorial](https://www.youtube.com/watch?v=dIyVTjJAkLw). Code from this tutorial video was used and modified to create the burger menu animation.
+
 [StackOverflow Autofocus](https://stackoverflow.com/questions/14940423/autofocus-input-in-twitter-bootstrap-modal). Code from this post was used to autofocus on the add airport modal input when the modal opened.
 
 [StackOverflow Array Check](https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e). Code from this post was used to check if an airport the user is entering already exists in the airport list.
@@ -605,11 +608,9 @@ The mockup image used in this file is based on [Anthony Boyd's](https://www.anth
 
 [Leaflet Providers](https://github.com/leaflet-extras/leaflet-providers). This code was downloaded and included in the project as per the documentation instructions. This code was used to simplify the addition of Mapbox map tiles to the Leaflet map.
 
-[StackOverflow Autofocus on Modal](https://stackoverflow.com/questions/14940423/autofocus-input-in-twitter-bootstrap-modal). The code on this post was used to autofocus on the input field of the add airport modal when the modal is opened.
-
 [Codepen slide in menu](https://codepen.io/gvissing/pen/oxBJEz). The code on this codepen was used to create the slide in menu.
 
-[StackOverflow access-control-allow-origin](https://stackoverflow.com/questions/28359730/google-place-api-no-access-control-allow-origin-header-is-present-on-the-req/40009466). Code from this post was used to overcome Access-Control-Allow-Origin issues with the sigmet API calls.
+[StackOverflow access-control-allow-origin](https://stackoverflow.com/questions/28359730/google-place-api-no-access-control-allow-origin-header-is-present-on-the-req/40009466). Code from this post was used to overcome Access-Control-Allow-Origin issues with the SIGMET API calls.
 
 # Acknowledgements
 

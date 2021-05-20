@@ -13,6 +13,7 @@
     - [Footer](#footer)
     - [Home Page](#home-page)
     - [Briefing Page](#briefing-page)
+    - [Weather Report](#Weather-Report)
     - [About Page](#about-page)
     - [Contact Page](#contact-page)
     - [404 Page](#404-page)
@@ -462,7 +463,7 @@ Chrome's screen size emulator was used to test the site on different screen size
 </figure>
 <br/>
 
-### Contact Page
+### 404 Page
 
 - Checked that the 404 displayed as intended on all screen sizes.
 - Checked the Home Page button returns the user to the Home Page.
@@ -524,7 +525,7 @@ Chrome's screen size emulator was used to test the site on different screen size
 
 1. Bug: On occasion some of the png tiles containing the radar/satellite pictures fail to load and a 404 error is displayed in the console. It appears rarely and generally only lasts for a period of 10 minutes. The issue is generally minimal as it is isolated to only a small number of tiles when it does happen and generally seems to effect tiles over Asia. This is an issue on Rainviewer's end and there is nothing I can do to solve this issue.
 
-2. Bug: On the deployed site the following error is noted in the console: "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'". This is a known issue with Github pages deployed sites and outside of my control.
+2. Bug: On the deployed site the following error is noted in the console: "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'". This is a known issue with Github Pages deployed sites and is outside of my control.
 
 ## Automated Testing
  
@@ -539,7 +540,7 @@ Based on initial results from Google Lighthouse the following changes were made 
 
 There are some minor warnings remaining on the Google Lighthouse results: 
 
-- Lighthouse has noted that the map tile images are too large, but there is no way to reduce the size of this resource and having tested it on airplane wifi I have not noted any issues regarding this even on slow wifi.
+- Lighthouse has noted that the map tile images are too large, but there is no way to reduce the size of this resource and having tested it on airplane wifi I have not noted any issues regarding this even on very slow wifi.
 
 - An issue relating to SameSite cookies relating to the Mapbox tiles and the rainviewer png files. Fixing this cookie issue is beyond the scope of this project.
 
@@ -588,4 +589,4 @@ The contrast error noted is due to the fact that the WAVE tool is unable to exam
 
 ### JSHint
 
-[JSHint](https://jshint.com/) was used this online tool to check the javscript code for any issues in the code. The tests revealed some unnecessary semi-colons, missing semi-colons and undeclared variables. These minor issues were resolved and no other issues were noted.
+[JSHint](https://jshint.com/) was used this online tool to check the javscript code for any issues in the code. The tests revealed some unnecessary semi-colons, missing semi-colons and incorrectly declared variables. These minor issues were resolved and no other issues were noted.
