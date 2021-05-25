@@ -243,6 +243,16 @@ function playPauseToggle() {
     $("#play-toggle").click(function () {
         $(".playPause").toggle();
     });
+
+    $("#last-frame").click(function () {
+        $(".fa-play").show();
+        $(".fa-pause").hide();
+    });
+
+    $("#next-frame").click(function () {
+        $(".fa-play").show();
+        $(".fa-pause").hide();
+    });
 }
 
 /**
