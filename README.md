@@ -568,7 +568,7 @@ The image used on the Home Page background is owned by me.
 
 The mockup image used in this file is based on [Anthony Boyd's](https://www.anthonyboyd.graphics/) free mockups.
 
-The image on the 404 page was taken by [Jeff Johnson Photography](http://www.jeffjohnsonstories.com/).
+The image on the 404 page is by [Jeff Johnson Photography](http://www.jeffjohnsonstories.com/).
  
 ## Animations
  
