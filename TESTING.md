@@ -18,7 +18,7 @@
     - [Contact Page](#contact-page)
     - [404 Page](#404-page)
 - [Bugs](#bugs)
-- [Automated Testing](#automated-testing)
+- [Automated Testing & Benchmarking](#automated-testing-&-benchmarking)
     - [Google Lighthouse](#google-lighthouse)
     - [WAVE Tools](#wave-tools)
     - [W3C HTML Validator](#W3C-html-validator)
@@ -527,7 +527,7 @@ Chrome's screen size emulator was used to test the site on different screen size
 
 2. Bug: On the deployed site the following error is noted in the console: "Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'. This is a known issue with Github Pages deployed sites and is outside of my control.
 
-## Automated Testing
+## Automated Testing & Benchmarking
  
 The site was tested using the following validators and online tools:
  

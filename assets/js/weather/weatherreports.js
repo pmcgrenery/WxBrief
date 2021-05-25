@@ -60,7 +60,6 @@ function checkMetarResponse(response) {
     } else if (status === 204) {
         displayMetarResponse(NO_METAR);
     } else {
-        console.log("METAR Request Status Code:", status);
         displayMetarResponse(UNABLE);
     }
 }
@@ -103,7 +102,6 @@ function checkTafResponse(response) {
     } else if (status === 204) {
         displayTafFail(NO_TAF);
     } else {
-        console.log("TAF Request Status Code:", status);
         displayTafFail(UNABLE);
     }
 }
@@ -160,7 +158,6 @@ function checkApInfoResponse(response) {
     } else if (status === 204) {
         displayApInfoFail(NO_DATA);
     } else {
-        console.log("Airport Info Request Status Code:", status);
         displayApInfoFail(UNABLE);
     }
 }

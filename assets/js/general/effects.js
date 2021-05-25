@@ -121,10 +121,10 @@ function selectAirport() {
  * Animates the airport selector button
  * @param {Object} thiss - The selected airport element
  */
-function airportButtonAnimation(thiss) {
-    $(thiss).parent().addClass("shrink");
-    $(thiss).delay(50).queue(function () {
-        $(thiss).parent().addClass("grow");
+function airportButtonAnimation(selectedAirport) {
+    $(selectedAirport).parent().addClass("shrink");
+    $(selectedAirport).delay(50).queue(function () {
+        $(selectedAirport).parent().addClass("grow");
     });
 }
 

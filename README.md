@@ -395,24 +395,30 @@ The site is responsive to all screen sizes. Most of this is done using [Bootstra
 
 - JavaScript
  
-## Frameworks, Libraries, Programs, Online Tools
+## Frameworks
 
 - **[JQuery](https://www.jquery.com)**. Used extensively throughout the project to select elements, animate elements, make calls to API among many other things.
 
-- **[JQuery UI](https://www.jqueryui.com)** This library was used on the About page to implement the accordion animation.
+- **[JQuery UI](https://www.jqueryui.com)** This framework was used on the About page to implement the accordion animation.
 
 - **[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)** Used throughout the project to implement the vast majority of the responsiveness in the design.
 
-- **[Leaflet Map](https://www.leafletjs.com)**. Used as the foundation for the interactive radar map. This is a free and open-source javascript library.
+- **[Leaflet Map](https://www.leafletjs.com)**. Used as the foundation for the interactive radar map. This is a free and open-source javascript framework.
 
-- **[Leaflet Providers](https://github.com/leaflet-extras/leaflet-providers)** This Leaflet plugin was added to the project to simplify the addition of Mapbox base layers to the map. This is a free open-source plugin.
+## External Libraries
 
-- **[emailjs](https://www.emailjs.com)** Used to connect the contact form to an email service.
+- **[Leaflet Providers](https://github.com/leaflet-extras/leaflet-providers)** This opensource Leaflet plugin was added to the project to simplify the addition of Mapbox tiles to the map. This library is not hosted online, so it is not possible to include this library with a URL. Therefore, it was downloaded and included in the js/externallib folder as per the documentation instructions.
+
+- **[Rainviewer](https://github.com/rainviewer/rainviewer-api-example)** The code in this opensource repository was added to the project to implement the radar display. This library is not hosted online, so it is not possible to include this library with a URL link. It was downloaded and added to the project and subsequently modified slightly to suit the purposes of this site. This file is included in the js/externallib folder.
+
+- **[Emailjs](https://www.emailjs.com)** Used to connect the contact form to an email service.
  
 - **[Font Awesome](https://fontawesome.com/)**. Used for the icons that were included throughout the project.
  
 - **[Google Fonts](https://fonts.google.com/about)** Used for all of the fonts that appear on the site.
- 
+
+## Applications & Online Tools
+
 - **[Google Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools)** Used extensively to test responsiveness, javascript code etc.
  
 - **[Balsamiq](https://balsamiq.com/)** - Used to create wireframes.
@@ -429,7 +435,7 @@ The site is responsive to all screen sizes. Most of this is done using [Bootstra
 
 - **[Loading.io](https://loading.io/)** Used to create the simple loading gif used on the site.
 
-- **[Css Button Creator](https://cssbuttoncreator.com/)** Used to create colour gradient background used on the airport selector buttons.
+- **[CSS Button Creator](https://cssbuttoncreator.com/)** Used to create colour gradient background used on the airport selector buttons.
 
 - **[Gravit Designer](https://www.designer.io/en/?psd-campaign=1693840974&psd-adgroup=66081713215&psd-kw=gravit%20designer)** This online vector graphics creator platform was used to create the SVG images used on the site.
 
@@ -490,9 +496,6 @@ The steps to deploy the site to GitHub pages are as follows:
 6. Click on the green "Gitpod" button at the top of the repository above the file explorer.
 7. Gitpod will load for you in a new tab.
 8. The ReadMe file will be presented initially, you can navigate to the source code using the explorer on the left-hand side.
-9. To display the site frontend in a separate browser tab, type "python3 -m http.server" into the terminal at the bottom of the screen and press Enter.
-10. A notification will appear at the bottom right of the screen, click on Open Browser.
-11. To allow you to enter commands in the terminal after opening a port to see the website front end you must first press "Ctrl + C" to interrupt the open port.
  
 ## How to run the project on a local machine.
  
