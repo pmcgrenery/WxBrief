@@ -42,14 +42,14 @@ The site can be viewed [here](https://pmcgrenery.github.io/WxBrief).
 -   Create an easy to use interactive site where users can easily access the current weather at any airport worldwide.
 -   Primarily target the site at professional pilots, but make it easy to use for private pilots also.
 -   Provide worldwide weather information to the user.
--   Present a professional and clear branding.
+-   Present professional and clear branding.
  
 ### **Target Clients:**
 -   Professional Pilots. Ages 20-65 years old.
 -   Private Pilots. Ages 16-85 years old.
  
 ### **Tech considerations:**
--   The site is targeted at a very wide age group, so it is important that it is easy to use and navigate.
+-   The site is targeted at a very wide age group, so it must be easy to use and navigate.
 -   The site is targeted at private and professional pilots, so to improve user experience the site should use symbology and formatting that the typical users are familiar with.
  
 ### **User Stories:**
@@ -158,7 +158,7 @@ As the landing page for the site, this page clearly outlines what the site offer
 Below this, just above the fold, a map centred at the user's location showing SIGMETS and weather radar. In keeping with the theme of the site, the default base bap is a dark map from Mapbox.
 
 •   **Briefing**
-This page contains a list of the user's airports, tools to modify this list and navigation options to easily return to the last page. The user can select the airport to get the detailed weather report for the airport.
+This page contains a list of the user's airports, tools to modify this list and navigation options to easily return to the last page. The user can select the airport to get a detailed weather report for the airport.
 
 •   **About**
 This page contains an accordion-type display showing the subsections of this page. The subsections are About Us, FAQ and legal disclaimers.
@@ -210,7 +210,7 @@ Specifically, the main colours used are:
 
 Readability is particularly important for this application, especially the ability to distinguish between 0(zero) and O. It is also favourable to have a font that is recognisable for the intended users. 
 
-On most aircraft, the font used for METAR, TAF and SIGMET printouts is similar to IBM Plex Mono. See below an example of the printouts.
+On most aircraft, the font used for METAR, TAF and SIGMET printouts is similar to IBM Plex Mono. See below for an example of the printouts.
 
 <img src="docs/metar-sample.png">
 
@@ -240,7 +240,7 @@ The image used as the background image on the landing page is my own.
 
 - The radar/satellite frames play through the different radar frames when you press play at the bottom of the map.
 
-- The right and left chevrons let the user jump one frame forward or backwards when pressed.
+- Right and left chevrons to let the user jump one frame forward or backwards when pressed.
 
 - The satellite and radar change the overlay on the map.
 
@@ -311,7 +311,7 @@ The site is responsive to all screen sizes. Most of this is done using [Bootstra
         - The legend toggler show the legend on the right-hand side with the related precipitation intensities hanging off the left-hand side of the legend so that the user can hover these over an area of interest and examine the type of precipitation in a particular area.
         - The base layer button displays a list of available base layer maps. The default will be dark and the user can switch to dark, light or satellite imagery. The map base layers are provided by MapBox.
         - The radar data is provided by the Rainviewer API. I chose to use 512 px tiles as opposed to 256 px tiles to ensure important detail in the radar picture is not missed. This is particularly important in the US where there is a much higher definition radar coverage available.
-        - The radar data from Rainviewer API can be displayed in many different versions. The chosen radar display format is RAINBOW @ SELEX-SI. The intended users are pilots and the colour scheme used for the different precipitation types is very similar to what pilots see on their built-in aircraft radar displays. See below image showing the similarity of the two.
+        - The radar data from Rainviewer API can be displayed in many different versions. The chosen radar display format is RAINBOW @ SELEX-SI. The intended users are pilots and the colour scheme used for the different precipitation types is very similar to what pilots see on their built-in aircraft radar displays. See the below image showing the similarity of the two.
             <img src="docs/radar-sample.png">
         - A semi-transparent radar mask is applied to the map to display to the user where there is radar coverage.
         - On the map, the SIGMETS are displayed as polygons. The raw data arrives as geoJSON type object, so I used leaflets built-in geoJSON plotting tool to plot these.
@@ -333,7 +333,7 @@ The site is responsive to all screen sizes. Most of this is done using [Bootstra
         - The radar map appears just above the fold on the vast majority of small devices so that users know to scroll down to see the map. On larger devices, the radar appears well above the fold with padding above and to the sides.
         - On landing on the home page for the first time, the user is asked if they would like to allow location.
         - If a user allows location, the map geolocates to the user's particular location. It starts by showing the entire world and after a small time delay then flys down gently to the user's current location. This is done using Leaflets flyTo function.
-        - If the user chosses not to allow location, then the map flys down to show most of Europe in one snapshot regardless of the screen size. This is done using Leaflet's flyToBounds function.
+        - If the user chooses not to allow location, then the map flys down to show most of Europe in one snapshot regardless of the screen size. This is done using Leaflet's flyToBounds function.
     
     - Briefing
 
@@ -355,7 +355,7 @@ The site is responsive to all screen sizes. Most of this is done using [Bootstra
 
     - WxReport.html
 
-        - This is the only page that cant be navigated to from the nav menu as the user must select the airport they want to retrieve weather info for first to display useful information.
+        - This is the only page that cannot be navigated to from the nav menu as the user must select the airport they want to retrieve weather info for first to display useful information.
         - As with the briefing page. The header also has a control bar in it but drops the title bar. The control bar contains a back button like the briefing page.
         - Beneath the page header there is a title block similar to the briefings page, that contains the ICAO, IATA and plain English name of the airport.
         - Beneath this a section that shows the local time, UTC and the elevation of the airport.
@@ -474,11 +474,11 @@ The steps to deploy the site to GitHub pages are as follows:
 1. Log in to Github.
 2. Select the pmcgrenery/ms1-the_rolls repository.
 3. On the top tab, select "Settings".
-4. Select the "Pages" tab on the left hand side.
+4. Select the "Pages" tab on the left-hand side.
 5. Under source, select "Master" from the dropdown selection.
 6. A second dropdown appears, ensure "/(root)" is selected.
-7. Press the ""Save" button. The page will refresh.
-8. After the page refreshes, in the section section under the heading you will find the link to the deployed site.
+7. Press the "Save" button. The page will refresh.
+8. After the page refreshes, in the section under the heading you will find the link to the deployed site.
  
 ## How to run the project in GitPod.
  
@@ -509,7 +509,7 @@ The steps to deploy the site to GitHub pages are as follows:
 For further information on how to clone a repository from GitHub click [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 For further information on how to clone a repository into your IDE please consult your provider's documentation.
 
-## How to get your own product keys for the API's.
+## How to get product keys for the API's.
 
 ### Rapid-API Airport Info
 1. Create an account for free, [here](https://rapidapi.com/auth/sign-up?referral=/marketplace).
@@ -529,28 +529,28 @@ For further information on how to clone a repository into your IDE please consul
 ### Mapbox Tile service API
 1. Sign up to Mapbox for free, [here](https://account.mapbox.com/auth/signup/).
 2. Sign in to your account and navigate [here](https://account.mapbox.com/).
-3. Scroll down to see you access token.
+3. Scroll down to see your access token.
 4. Copy this to into KEY.mapbox in the config.js file.
 
 ### EmailJs
 1. Sign up for free [here](https://dashboard.emailjs.com/sign-up).
-2. On the dashboard, click on add new service, then select gmail.
+2. On the dashboard, click on add new service, then select Gmail.
 3. Change the name to WxBrief and the service ID to wxbrief.
-4. Click connect account and connect your desired gmail acocunt.
+4. Click connect account and connect your desired Gmail account.
 5. Click create service.
-6. On the left hand side of the dashboard, click on email templates.
+6. On the left-hand side of the dashboard, click on email templates.
 7. Click on Create New Template.
 8. In the content tab of the template fill out the template like below.
     <img src="docs/emailjs.png" style="width:600px">
 9. In the settings tab of the template, change the template ID to "contact-form".
 10. Click save in the top right of the template.
-11. On the left hand side of the dashboard, click on integration.
+11. On the left-hand side of the dashboard, click on integration.
 12. Scroll down and copy your Access Token.
 13. Paste this token into KEY.emailjs in the config.js file.
 
 ### Timezone DB API
 1. Sign up for a free account [here](https://timezonedb.com/register).
-2. Sign into your account [here](https://timezonedb.com/account).
+2. Sign in to your account [here](https://timezonedb.com/account).
 3. Copy the API Key.
 4. Paste this key into KEY.tz in config.js.
 
@@ -574,7 +574,7 @@ The image on the 404 page was taken by [Jeff Johnson Photography](http://www.jef
  
 [JQuery](https://jquery.com/) This basic JQuery library was used to create the majority of the animations on the site.
 
-[JQueryUI](https://jqueryui.com/) This additional UI library from JQuery was added to the project to implement the accordian animation on the About page.
+[JQueryUI](https://jqueryui.com/) This additional UI library from JQuery was added to the project to implement the accordion animation on the About page.
 
 [Radar animation](https://github.com/rainviewer/rainviewer-api-example) This sample implementation from the Rainviewer API documentation was modified and used to create the animation of the radar and satellite on the Leaflet map.
 
@@ -590,7 +590,7 @@ The image on the 404 page was taken by [Jeff Johnson Photography](http://www.jef
 
 [CodeStack Burger Menu Tutorial](https://www.youtube.com/watch?v=dIyVTjJAkLw). Code from this tutorial video was used and modified to create the burger menu animation.
 
-[StackOverflow Autofocus](https://stackoverflow.com/questions/14940423/autofocus-input-in-twitter-bootstrap-modal). Code from this post was used to autofocus on the add airport modal input when the modal opened.
+[StackOverflow Autofocus](https://stackoverflow.com/questions/14940423/autofocus-input-in-twitter-bootstrap-modal). Code from this post was used to autofocus on the add-airport modal input when the modal opened.
 
 [StackOverflow Array Check](https://stackoverflow.com/questions/8217419/how-to-determine-if-javascript-array-contains-an-object-with-an-attribute-that-e). Code from this post was used to check if an airport the user is entering already exists in the airport list.
 
@@ -602,7 +602,7 @@ The image on the 404 page was taken by [Jeff Johnson Photography](http://www.jef
 
 [Leaflet Map Documentation](https://leafletjs.com/reference-1.7.1.html). Several pieces of code from the documentation of Leaflet maps were used in the project e.g <code>flyTo</code> animation, <code>flyToBounds</code> animation and several map settings added to talior the map interaction settings.
 
-[GitHub Leaflet Issues](https://github.com/Leaflet/Leaflet/issues/694). Code from this post as used to overcome the bug that prevented map tiles loading until entirely in view.
+[GitHub Leaflet Issues](https://github.com/Leaflet/Leaflet/issues/694). Code from this post was used to overcome the bug that prevented map tiles from loading until entirely in view.
 
 [StackOverflow Clear Leaflet Map Layers](https://stackoverflow.com/questions/28646317/how-to-remove-all-layers-and-features-from-map). Code from this post was used to clear map layers.
 
@@ -610,7 +610,7 @@ The image on the 404 page was taken by [Jeff Johnson Photography](http://www.jef
 
 [Leaflet Providers](https://github.com/leaflet-extras/leaflet-providers). This code was downloaded and included in the project as per the documentation instructions. This code was used to simplify the addition of Mapbox map tiles to the Leaflet map.
 
-[Codepen slide in menu](https://codepen.io/gvissing/pen/oxBJEz). The code on this codepen was used to create the slide in menu.
+[Codepen slide-in menu](https://codepen.io/gvissing/pen/oxBJEz). The code on this Codepen was used to create the slide-in menu.
 
 [StackOverflow access-control-allow-origin](https://stackoverflow.com/questions/28359730/google-place-api-no-access-control-allow-origin-header-is-present-on-the-req/40009466). Code from this post was used to overcome Access-Control-Allow-Origin issues with the SIGMET API calls.
 
