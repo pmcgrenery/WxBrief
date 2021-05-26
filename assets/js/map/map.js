@@ -208,9 +208,9 @@ function getLocation() {
  */
 function showPosition(position) {
     setTimeout(function () {
-        map.flyTo([position.coords.latitude, position.coords.longitude], 7.5, {
+        map.flyTo([position.coords.latitude, position.coords.longitude], 8, {
             animate: true,
-            duration: 3
+            duration: 2.5
         });
     }, 500);
 }
