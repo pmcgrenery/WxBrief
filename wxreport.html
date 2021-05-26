@@ -66,7 +66,7 @@
         <div class="container-fluid ap-header">
             <div class="row justify-content-center">
                 <div class="col-12 ap-controls">
-                    <a type="button" class="btn btn-nav" id="back-btn" href="briefing.html">
+                    <a class="btn btn-nav" id="back-btn" href="briefing.html">
                         <i class="fas fa-caret-left" aria-hidden="true"></i> BACK
                     </a>
                 </div>
@@ -81,10 +81,10 @@
             <div class="col-12 col-md-11 col-lg-8 col-xl-10 col-xxl-8 loc-header ap-bg">
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <h2 id="icao-header"></h2>
+                        <h2 id="icao-header">.</h2>
                     </div>
                     <div class="col-12 col-md-6">
-                        <h2 id="name-header"></h2>
+                        <h2 id="name-header">.</h2>
                     </div>
                 </div>
             </div>
@@ -131,21 +131,24 @@
                         </div>
                         <div id="control-bar">
                             <div id="play-toggle" onclick="playStop();">
-                                <i class="fas fa-play playPause" aria-label="Play"></i>
-                                <i class="fas fa-pause playPause" aria-label="Pause" style="display:none"></i>
+                                <i class="fas fa-play playPause" aria-hidden="true"></i>
+                                <i class="fas fa-pause playPause" aria-hidden="true" style="display:none"></i>
+                                <span class="sr-only">Play/Pause</span>
                             </div>
                             <div id="last-frame" onclick="stop(); showFrame(animationPosition - 1); return;">
-                                <i class="fas fa-chevron-left" aria-label="Last Frame"></i>
+                                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                                <span class="sr-only">Last Frame</span>
                             </div>
                             <div id="timestamp">Frame Time</div>
                             <div id="next-frame" onclick="stop(); showFrame(animationPosition + 1); return;">
-                                <i class="fas fa-chevron-right" aria-label="Next Frame"></i>
+                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                                <span class="sr-only">Next Frame</span>
                             </div>
                         </div>
                         <div id="fullscreen-control">
-                            <i class="fas fa-expand fs-icon" aria-hidden="true" aria-label="Fullscreen Toggle"></i>
-                            <i class="fas fa-compress fs-icon" aria-hidden="true" aria-label="Fullscreen Toggle"
-                                style="display:none"></i>
+                            <i class="fas fa-expand fs-icon" aria-hidden="true"></i>
+                            <i class="fas fa-compress fs-icon" aria-hidden="true" style="display:none"></i>
+                            <span class="sr-only">Fullscreen</span>
                         </div>
                         <div id="legend-control">
                             L
@@ -171,26 +174,24 @@
                         <!-- Base Layer Controls -->
                         <div>
                             <div class="base-control">
-                                <i class="fas fa-layer-group" aria-hidden="true" aria-label="Map base layer"></i>
+                                <i class="fas fa-layer-group" aria-hidden="true"></i>
+                                <span class="sr-only">Map Background</span>
                             </div>
                             <div class="base">
                                 <div class="base-wrapper">
                                     <div class="map-base">
-                                        <button type="button" id="dark-base"
-                                            onclick="setVersion('mapbox/dark-v10','wxreport.html')"
+                                        <button type="button" id="dark-base" onclick="setVersion('mapbox/dark-v10')"
                                             class="btn btn-base">
                                             Dark</button>
                                     </div>
                                     <div class="map-base">
-                                        <button type="button" id="light-base"
-                                            onclick="setVersion('mapbox/light-v10','wxreport.html')"
+                                        <button type="button" id="light-base" onclick="setVersion('mapbox/light-v10')"
                                             class="btn btn-base">
                                             Light</button>
                                     </div>
                                     <div class="map-base">
                                         <button type="button" id="satellite-base"
-                                            onclick="setVersion('mapbox/satellite-v9','wxreport.html')"
-                                            class="btn btn-base">
+                                            onclick="setVersion('mapbox/satellite-v9')" class="btn btn-base">
                                             Satellite</button>
                                     </div>
                                 </div>
@@ -202,8 +203,7 @@
         </div>
     </div>
     <!-- Config not loaded Modal -->
-    <div class="modal fade" id="configNotLoadedModal" tabindex="-1" aria-label="Failed to load config"
-        aria-hidden="true">
+    <div class="modal fade" id="configNotLoadedModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
