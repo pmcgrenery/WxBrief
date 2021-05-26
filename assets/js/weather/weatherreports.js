@@ -36,7 +36,7 @@ function setHeader(airport) {
  */
 function getAirportMETAR(icaoCode) {
     let request = new XMLHttpRequest();
-    request.open('GET', URL.avwxMetar + icaoCode + FORMAT.avwx);
+    request.open('GET', APIURL.avwxMetar + icaoCode + FORMAT.avwx);
     request.setRequestHeader('Authorization', KEY.avwx);
     request.onreadystatechange = function () {
         if (this.readyState === 4) {
@@ -78,7 +78,7 @@ function displayMetarResponse(response) {
  */
 function getAirportTAF(icao) {
     let request = new XMLHttpRequest();
-    request.open('GET', URL.avwxTAF + icao + FORMAT.avwx);
+    request.open('GET', APIURL.avwxTAF + icao + FORMAT.avwx);
     request.setRequestHeader('Authorization', KEY.avwx);
     request.onreadystatechange = function () {
         if (this.readyState === 4) {
@@ -134,7 +134,7 @@ function displayTafFail(response) {
  */
 function getAirportInfo(icao) {
     let request = new XMLHttpRequest();
-    request.open('GET', URL.avwxInfo + icao + FORMAT.avwx);
+    request.open('GET', APIURL.avwxInfo + icao + FORMAT.avwx);
     request.setRequestHeader('Authorization', KEY.avwx);
     request.onreadystatechange = function () {
         if (this.readyState === 4) {

@@ -112,7 +112,7 @@ function setVersion(base, page) {
         id: base,
         accessToken: KEY.mapbox
     }).addTo(map);
-    L.tileLayer(URL.rvMask).setOpacity(0.4).addTo(map);
+    L.tileLayer(APIURL.rvMask).setOpacity(0.4).addTo(map);
     initialize(apiData, optionKind);
     getSigmet(base);
     $(".base-wrapper").hide();

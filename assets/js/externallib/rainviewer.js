@@ -14,7 +14,7 @@
    * Load all the available maps frames from RainViewer API
    */
   let apiRequest = new XMLHttpRequest();
-  apiRequest.open("GET", URL.rv, true);
+  apiRequest.open("GET", APIURL.rv, true);
   apiRequest.onload = function (e) {
       // store the API response for re-use purposes in memory
       apiData = JSON.parse(apiRequest.response);

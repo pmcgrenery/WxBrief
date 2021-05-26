@@ -9,7 +9,7 @@ function setTime() {
     let airport = JSON.parse(localStorage.getItem('selectedAirport'));
     let lat = airport.lat;
     let long = airport.long;
-    let url = URL.tz + KEY.tz + FORMAT.tz + lat + "&lng=" + long;
+    let url = APIURL.tz + KEY.tz + FORMAT.tz + lat + "&lng=" + long;
     $.ajax(url).done(function (response) {
         let offset = response.gmtOffset;
         displayTimes(offset);

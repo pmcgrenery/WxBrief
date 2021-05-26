@@ -83,7 +83,7 @@ function getAirportInfo() {
     let settings = {
         "async": true,
         "crossDomain": true,
-        "url": URL.apInfo + icao,
+        "url": APIURL.apInfo + icao,
         "method": "GET",
         "headers": {
             "x-rapidapi-key": KEY.apInfo,

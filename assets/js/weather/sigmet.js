@@ -4,7 +4,7 @@
  */
 function getSigmet(base) {
     $.ajax({
-        url: URL.intlSigmet,
+        url: APIURL.intlSigmet,
         type: "GET",
         dataType: 'jsonp',
         success: function (int) {
@@ -15,7 +15,7 @@ function getSigmet(base) {
         }
     });
     $.ajax({
-        url: URL.usSigmet,
+        url: APIURL.usSigmet,
         type: "GET",
         dataType: 'jsonp',
         success: function (us) {

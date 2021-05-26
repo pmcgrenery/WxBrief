@@ -37,7 +37,7 @@ const DEFAULT_AIRPORTS = [{
     }
 ];
 
-const URL = {
+const APIURL = {
     "apInfo": "https://airport-info.p.rapidapi.com/airport?icao=",
     "avwxMetar": "https://avwx.rest/api/metar/",
     "avwxTAF": "https://avwx.rest/api/taf/",
