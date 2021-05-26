@@ -116,7 +116,7 @@ function setVersion(base, page) {
     initialize(apiData, optionKind);
     getSigmet(base);
     $(".base-wrapper").hide();
-    if (page === "wxreport.html") {
+    if (window.location.href.indexOf("wxreport") > -1) {
         addMarker();
     }
 }
