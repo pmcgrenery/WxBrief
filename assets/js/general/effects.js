@@ -49,8 +49,8 @@ function menuSlide() {
         $(".nav-menu").animate({
             width: "toggle"
         }, 175);
-        $(".nav-item").fadeToggle(675);
-        $(".hr-menu").fadeToggle(675);
+        $(".nav-item").fadeToggle(350);
+        $(".hr-menu").fadeToggle(350);
     });
 }
 
