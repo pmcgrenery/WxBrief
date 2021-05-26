@@ -46,20 +46,20 @@
                     <ul class="nav-list">
                         <li class="nav-item">
                             <a href="index.html">Home</a>
+                            <span class="hr-menu"></span>
                         </li>
-                        <div class="hr-menu"></div>
                         <li class="nav-item">
-                            <a href="airports.html">Briefing</a>
+                            <a href="briefing.html">Briefing</a>
+                            <span class="hr-menu"></span>
                         </li>
-                        <div class="hr-menu"></div>
                         <li class="nav-item">
                             <a href="aboutus.html">About</a>
+                            <span class="hr-menu"></span>
                         </li>
-                        <div class="hr-menu"></div>
                         <li class="nav-item">
                             <a href="contact.html">Contact</a>
+                            <span class="hr-menu"></span>
                         </li>
-                        <div class="hr-menu"></div>
                     </ul>
                 </div>
             </nav>
@@ -76,7 +76,7 @@
                     the world.</p>
             </div>
             <div id="landing-button" class="card-child">
-                <a id="get-briefed" href="airports.html" class="btn btn-warning" role="button">Get
+                <a id="get-briefed" href="briefing.html" class="btn btn-warning" role="button">Get
                     Briefed</a>
             </div>
             <div id="blur-bottom" class="card-child">
@@ -95,21 +95,24 @@
             </div>
             <div id="control-bar">
                 <div id="play-toggle" onclick="playStop();">
-                    <i class="fas fa-play playPause" aria-label="Play"></i>
-                    <i class="fas fa-pause playPause" aria-label="Pause" style="display:none"></i>
+                    <i class="fas fa-play playPause" aria-hidden="true"></i>
+                    <i class="fas fa-pause playPause" aria-hidden="true" style="display:none"></i>
+                    <span class="sr-only">Play/Pause</span>
                 </div>
                 <div id="last-frame" onclick="stop(); showFrame(animationPosition - 1); return;">
-                    <i class="fas fa-chevron-left" aria-label="Last Frame"></i>
+                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    <span class="sr-only">Last Frame</span>
                 </div>
                 <div id="timestamp">Frame Time</div>
                 <div id="next-frame" onclick="stop(); showFrame(animationPosition + 1); return;">
-                    <i class="fas fa-chevron-right" aria-label="Next Frame"></i>
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    <span class="sr-only">Next Frame</span>
                 </div>
             </div>
             <div id="fullscreen-control">
-                <i class="fas fa-expand fs-icon" aria-hidden="true" aria-label="Fullscreen Toggle"></i>
-                <i class="fas fa-compress fs-icon" aria-hidden="true" aria-label="Fullscreen Toggle"
-                    style="display:none"></i>
+                <i class="fas fa-expand fs-icon" aria-hidden="true"></i>
+                <i class="fas fa-compress fs-icon" aria-hidden="true" style="display:none"></i>
+                <span class="sr-only">Fullscreen</span>
             </div>
             <div id="legend-control">
                 L
@@ -135,7 +138,8 @@
             <!-- Base Layer Controls -->
             <div>
                 <div class="base-control">
-                    <i class="fas fa-layer-group" aria-hidden="true" aria-label="Map base layer"></i>
+                    <i class="fas fa-layer-group" aria-hidden="true"></i>
+                    <span class="sr-only">Map Background</span>
                 </div>
                 <div class="base">
                     <div class="base-wrapper">
@@ -160,7 +164,7 @@
         </div>
     </main>
     <!-- Allow Geolocation Modal -->
-    <div class="modal fade" id="geolocate" tabindex="-1" aria-label="Allow Geolocation" aria-hidden="true">
+    <div class="modal fade" id="geolocate" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header welcome-header">
@@ -169,7 +173,7 @@
                         onclick="clearModal()"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <i class="fas fa-map-marker-alt" aria-hidden="true" aria-label="Geo-Locate"></i>
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                     <h3 class="my-3">See the weather near you</h3>
                     <p class="mb-4">If you would like to see the weather near you please allow WxBrief to access your
                         location while using the site.</p>
@@ -183,8 +187,7 @@
         </div>
     </div>
     <!-- Config not loaded Modal -->
-    <div class="modal fade" id="configNotLoadedModal" tabindex="-1" aria-label="Failed to load config"
-        aria-hidden="true">
+    <div class="modal fade" id="configNotLoadedModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -217,7 +220,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col text-center">
-                    <p><i class="far fa-copyright" aria-hidden="true"></i> Copyright 2021 - WxBrief | All Rights
+                    <p><i class="far fa-copyright" aria-hidden="true"></i>
+                        Copyright 2021 - WxBrief | All Rights
                         Reserved | Website by
                         <a href="https://www.linkedin.com/in/padraig-mcgrenery/" target="_blank" rel="noopener">Padraig
                             McGrenery</a></p>
