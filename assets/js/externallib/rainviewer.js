@@ -133,7 +133,7 @@
       showFrame(animationPosition + 1);
 
       // Main animation driver. Run this function every 200 ms
-      animationTimer = setTimeout(play, 200);
+      animationTimer = setTimeout(play, 300);
   }
 
   function playStop() {
