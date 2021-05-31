@@ -387,7 +387,7 @@ The site is responsive to all screen sizes. Most of this is done using [Bootstra
         - A text box lets the user know they are in the wrong place and contains a link to return to the home page.
 
 # Technologies Used
-## Languages Used
+## Languages
 
 - HTML
  
@@ -616,6 +616,8 @@ The image on the 404 page is by [Jeff Johnson Photography](http://www.jeffjohnso
 [Codepen slide-in menu](https://codepen.io/gvissing/pen/oxBJEz). The code on this Codepen was used to create the slide-in menu.
 
 [StackOverflow access-control-allow-origin](https://stackoverflow.com/questions/28359730/google-place-api-no-access-control-allow-origin-header-is-present-on-the-req/40009466). Code from this post was used to overcome Access-Control-Allow-Origin issues with the SIGMET API calls.
+
+[StackOverflow window resize event listener](https://stackoverflow.com/questions/9828831/jquery-on-window-resize). Some of the code on this posting was used to dynamically set the margins on the page.
 
 # Acknowledgements
 
