@@ -134,7 +134,8 @@ function airportButtonAnimation(selectedAirport) {
 function checkAboutUs() {
     if (window.location.href.indexOf("aboutus") > -1) {
         $("#accordion").accordion({
-            heightStyle: "content"
+            heightStyle: "content",
+            collapsible: "true"
         });
     }
 }
